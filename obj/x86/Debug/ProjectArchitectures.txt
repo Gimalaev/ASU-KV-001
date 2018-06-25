@@ -1,1 +1,1 @@
-D:\Работа\C# Proj\ASU-KV-001_2017\ASU_KV_001.csproj;x86
+D:\C# Proj\ASU-KV-001\ASU_KV_001.csproj;x86

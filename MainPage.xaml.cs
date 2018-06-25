@@ -32,6 +32,7 @@ namespace ASU_KV_001
 
         private bool par_flag = false;
         private UInt16 term_now = 0;
+        private UInt16 arc_read_term = 0; //номер треминала для считывания архив
         private UInt16 mode = 0;
         private ASU_KV_001.KV001 kv_par;
         private ASU_KV_001.Program_Par prg_par;
@@ -98,6 +99,12 @@ namespace ASU_KV_001
 
 
             UpdatePostEnabled();
+
+            SolidColorBrush BrushOnPress = new SolidColorBrush();
+            BrushOnPress.Color = Windows.UI.Color.FromArgb(0, 0x5C, 0x76, 0x82);
+            Grid_Post_1.Background = BrushOnPress;
+
+            Combo_Post_ID.SelectedIndex = prg_par.selected_id[0];
 
             btnComConnect.IsEnabled = false;
             btnComTry.IsEnabled = false;
@@ -247,6 +254,9 @@ namespace ASU_KV_001
             Grid_Post_Settings.Visibility = Visibility.Collapsed;
             Grid_Post_Bottom.Visibility = Visibility.Visible;
             Grid_Post_Top.Visibility = Visibility.Visible;
+            Grid_Par_Smena.Visibility = Visibility.Collapsed;
+
+
             //  Grid_Right_Time.Visibility = Visibility.Visible;
             //  Grid_Right_Calc.Visibility = Visibility.Collapsed;
             //  Grid_Right.Visibility = Visibility.Visible;
@@ -276,7 +286,7 @@ namespace ASU_KV_001
         {
             double dw;
             string s,s1,s3;
-            byte sm;
+
 
             int t_count;
 
@@ -284,6 +294,9 @@ namespace ASU_KV_001
             string ThData = ThToday.ToString("dd.MM.yyyy   HH:mm:ss");
             this.tbCurTime.Text = ThData;
 
+
+            byte sm = prg_par.SmenaNow((byte)ThToday.Hour, (byte)ThToday.Minute, (byte)ThToday.Second);
+            Text_CurSmena.Text = "СМЕНА: " + sm;
             for (t_count = 0; t_count <= 9; t_count++)
             {
                 if (prg_par.enable[t_count])
@@ -310,19 +323,37 @@ namespace ASU_KV_001
                     {
                         case 0:
                         case 1: s1 = "МЕНЮ"; break;
-                        case 2: s1 = "ОЖИДАНИЕ"; break;
+                        case 2: s1 = "ОЖИДАНИЕ";  break;
                         case 3: 
                         case 4: 
-                        case 5: s1 = "КОМПОНЕНТ 1"; break;
+                        case 5:
+                            s1 = "КОМПОНЕНТ 1";
+                            if (kv_par.arc_state[t_count] == 0) kv_par.arc_state[t_count] = 1; // обнаружено начало дозирования - фиксируем
+                                break;
                         case 6: 
                         case 7: 
-                        case 8: s1 = "КОМПОНЕНТ 2"; break;
+                        case 8:
+                            s1 = "КОМПОНЕНТ 2";
+                            if (kv_par.arc_state[t_count] == 0) kv_par.arc_state[t_count] = 1; // обнаружено начало дозирования - фиксируем
+                            break;
                         case 9: 
                         case 10: 
-                        case 11: s1 = "КОМПОНЕНТ 3"; break;
-                        case 12: s1 = "ВЕС УШЕЛ"; break;
-                        case 13: 
-                        case 14: s1 = "ВЫГРУЗКА"; break;
+                        case 11:
+                            s1 = "КОМПОНЕНТ 3";
+                            if (kv_par.arc_state[t_count] == 0) kv_par.arc_state[t_count] = 1; // обнаружено начало дозирования - фиксируем
+                            break;
+                        case 12:
+                            s1 = "ВЕС УШЕЛ";
+                            if (kv_par.arc_state[t_count] == 1) kv_par.arc_state[t_count] = 2; // обнаружено окончание дозирования - можно считывать результат
+                            break;
+                        case 13:
+                            s1 = "ВЫГРУЗКА";
+                            if (kv_par.arc_state[t_count] == 0) kv_par.arc_state[t_count] = 1; // обнаружено начало дозирования - фиксируем
+                            break;
+                        case 14:
+                            s1 = "ВЫГРУЗКА";
+                            if (kv_par.arc_state[t_count] == 1) kv_par.arc_state[t_count] = 2; // обнаружено окончание дозирования - можно считывать результат
+                            break;
                         default: s1 = "ОШИБКА"; break;
                     }
                     dw = kv_par.sum_doze[t_count];
@@ -376,7 +407,55 @@ namespace ASU_KV_001
                         Text_Last_3.Text = "ПОСЛЕДНИЙ: " + s;
 
                     }
+                    //Работаем с правым архивом
+                    if (kv_par.arc_state[t_count] == 3)
+                    {
+                        Text_Arc_Center_Weight_6.Text = Text_Arc_Center_Weight_5.Text;
+                        Text_Arc_Center_Weight_5.Text = Text_Arc_Center_Weight_4.Text;
+                        Text_Arc_Center_Weight_4.Text = Text_Arc_Center_Weight_3.Text;
+                        Text_Arc_Center_Weight_3.Text = Text_Arc_Center_Weight_2.Text;
+                        Text_Arc_Center_Weight_2.Text = Text_Arc_Center_Weight_1.Text;
+                        Text_Arc_Center_Weight_1.Text = "" + (kv_par.last_doze[t_count, 0] + kv_par.last_doze[t_count, 1] + kv_par.last_doze[t_count, 2]);
+                        ThData = ThToday.ToString("HH:mm");
+                        Text_Arc_Center_Time_6.Text = Text_Arc_Center_Time_5.Text;
+                        Text_Arc_Center_Time_5.Text = Text_Arc_Center_Time_4.Text;
+                        Text_Arc_Center_Time_4.Text = Text_Arc_Center_Time_3.Text;
+                        Text_Arc_Center_Time_3.Text = Text_Arc_Center_Time_2.Text;
+                        Text_Arc_Center_Time_2.Text = Text_Arc_Center_Time_1.Text;
+                        Text_Arc_Center_Time_1.Text = ThData;
+                        Text_Arc_Center_Term_6.Text = Text_Arc_Center_Term_5.Text;
+                        Text_Arc_Center_Term_5.Text = Text_Arc_Center_Term_4.Text;
+                        Text_Arc_Center_Term_4.Text = Text_Arc_Center_Term_3.Text;
+                        Text_Arc_Center_Term_3.Text = Text_Arc_Center_Term_2.Text;
+                        Text_Arc_Center_Term_2.Text = Text_Arc_Center_Term_1.Text;
+                        Text_Arc_Center_Term_1.Text = ""+(t_count+1);
 
+                        Text_Arc_Center_Id_6.Text = Text_Arc_Center_Id_5.Text;
+                        Text_Arc_Center_Id_5.Text = Text_Arc_Center_Id_4.Text;
+                        Text_Arc_Center_Id_4.Text = Text_Arc_Center_Id_3.Text;
+                        Text_Arc_Center_Id_3.Text = Text_Arc_Center_Id_2.Text;
+                        Text_Arc_Center_Id_2.Text = Text_Arc_Center_Id_1.Text;
+                        Text_Arc_Center_Id_1.Text =""+Combo_Post_ID.Items[prg_par.selected_id[t_count]];
+                        kv_par.arc_state[t_count] = 0;
+                        if (term_now == t_count)
+                        {
+                            Text_Arc_Top_Weight_5.Text = Text_Arc_Top_Weight_4.Text;
+                            Text_Arc_Top_Weight_4.Text = Text_Arc_Top_Weight_3.Text;
+                            Text_Arc_Top_Weight_3.Text = Text_Arc_Top_Weight_2.Text;
+                            Text_Arc_Top_Weight_2.Text = Text_Arc_Top_Weight_1.Text;
+                            Text_Arc_Top_Weight_1.Text = "" + (kv_par.last_doze[t_count, 0] + kv_par.last_doze[t_count, 1] + kv_par.last_doze[t_count, 2]);
+                            Text_Arc_Top_Time_5.Text = Text_Arc_Top_Time_4.Text;
+                            Text_Arc_Top_Time_4.Text = Text_Arc_Top_Time_3.Text;
+                            Text_Arc_Top_Time_3.Text = Text_Arc_Top_Time_2.Text;
+                            Text_Arc_Top_Time_2.Text = Text_Arc_Top_Time_1.Text;
+                            Text_Arc_Top_Time_1.Text = ThData;
+                            Text_Arc_Top_Id_5.Text = Text_Arc_Top_Id_5.Text;
+                            Text_Arc_Top_Id_4.Text = Text_Arc_Top_Id_4.Text;
+                            Text_Arc_Top_Id_3.Text = Text_Arc_Top_Id_3.Text;
+                            Text_Arc_Top_Id_2.Text = Text_Arc_Top_Id_2.Text;
+                            Text_Arc_Top_Id_1.Text = "" + Combo_Post_ID.Items[prg_par.selected_id[t_count]]; 
+                        }
+                    }
 
                 }
                 
@@ -552,9 +631,14 @@ namespace ASU_KV_001
                            KV.inputs = (byte)tmp;
                            KV.outputs = (byte)(serial_port.in_outs - tmp * 0x100);*/
                         serial_port.rd_mode = 1;
-                        if ((num_reg_read == 20)&&(Grid_Post_Main.Visibility == Visibility.Visible)) { serial_port.rd_mode = 2; next_adress = (byte)prg_par.num[term_now]; }
-                        if (num_reg_read == 40) {serial_port.rd_mode = 8; next_adress = (byte)prg_par.num[term_now]; }
-                        break;
+                        if ((num_reg_read == 10)&&(Grid_Post_Main.Visibility == Visibility.Visible)) { serial_port.rd_mode = 2; next_adress = (byte)prg_par.num[term_now]; }
+                        if (num_reg_read == 20) {serial_port.rd_mode = 8; next_adress = (byte)prg_par.num[arc_read_term]; }
+                        for (int i = 0; i < 10; i++)
+                        {
+                            if (kv_par.arc_state[i] == 2) { serial_port.rd_mode = 8; next_adress = (byte)prg_par.num[i]; }
+                        }
+
+                            break;
                     case 2:
                         kv_par.doze[term_now, 0] = serial_port.doze[0];
 
@@ -570,12 +654,23 @@ namespace ASU_KV_001
                         serial_port.rd_mode = 1;
                         break;
                     case 8:
-                        kv_par.last_doze[term_now, 0] = serial_port.doza_last[0];
-                        kv_par.last_doze[term_now, 1] = serial_port.doza_last[1];
-                        kv_par.last_doze[term_now, 2] = serial_port.doza_last[2];
-                        kv_par.count_doze[term_now] = serial_port.count_last;
-                        kv_par.sum_doze[term_now] = serial_port.sum_last;
-                        serial_port.rd_mode = 1;
+                        kv_par.last_doze[arc_read_term, 0] = serial_port.doza_last[0];
+                        kv_par.last_doze[arc_read_term, 1] = serial_port.doza_last[1];
+                        kv_par.last_doze[arc_read_term, 2] = serial_port.doza_last[2];
+                        kv_par.count_doze[arc_read_term] = serial_port.count_last;
+                        kv_par.sum_doze[arc_read_term] = serial_port.sum_last;
+                        if (kv_par.arc_state[arc_read_term] == 2) kv_par.arc_state[arc_read_term] = 3; // считали результат - надо в архив
+                            serial_port.rd_mode = 1;
+                        arc_read_term++; if (arc_read_term > 9) arc_read_term = 0;
+                        for (int i = 0; i <= 9; i++)
+                        {
+                            if (!prg_par.enable[arc_read_term])
+                            {
+                                arc_read_term++; if (arc_read_term > 9) arc_read_term = 0;
+                            }
+                            else i = 10;
+                        }
+
                         break;
                     case 20:
                         par_flag = true;
@@ -886,251 +981,6 @@ namespace ASU_KV_001
                         reg_status_visible = 20;
                         break;
 
-                    /*                    case 200:
-                    serial_port.rd_mode = 2; next_adress = (byte)prg_par.num[term_now];
-                    break;
-                case 201:
-                    serial_port.rd_mode = 3; next_adress = (byte)prg_par.num[term_now];
-                    break;
-                case 202:
-                    serial_port.rd_mode = 4; next_adress = (byte)prg_par.num[term_now];
-                    break;
-
-                /*
-                    case 4: KV.Doza = serial_port.write_reg_fl; serial_port.rd_mode = 1; break;
-                    case 5: KV.Doza = serial_port.reg_fl; serial_port.rd_mode = 1; break;
-                    case 8:
-                        KV.sum_last = serial_port.sum_last;
-                        KV.count_last = serial_port.count_last;
-                        KV.doza_last = serial_port.doza_last;
-                        serial_port.rd_mode = 1;
-                        break;
-                    // Считали одно из значение параметров вкладки PAR
-                    case 20:
-                        f_kv_par = true;
-                        reg_status_visible = 1;
-                        tbParStatus.Text = "Идет считывание параметров вкладки PAR: 10%";
-                        KV.TZero = serial_port.reg_fl; tbTZero.Text = "" + KV.TZero; serial_port.rd_mode++;
-                        break;
-                    case 21:
-                        tbParStatus.Text = "Идет считывание параметров вкладки PAR: 20%";
-                        KV.TPause = serial_port.reg_fl; tbTPause.Text = "" + KV.TPause; serial_port.rd_mode++;
-                        break;
-                    case 22:
-                        //   cbA.SelectedIndex = serial_port.reg_int;
-                        KV.F1 = (byte)(serial_port.reg_int / 0x100);
-                        KV.DozeMode = (byte)(serial_port.reg_int - KV.F1 * 0x100);
-                        tbParStatus.Text = "Идет считывание параметров вкладки PAR: 40%";
-                        cbA.SelectedIndex = KV.DozeMode;
-                        cbF1.SelectedIndex = KV.F1;
-                        serial_port.rd_mode++;
-                        break;
-                    case 23:
-                        KV.Adr = (byte)(serial_port.reg_int / 0x100);
-                        KV.F2 = (byte)(serial_port.reg_int - KV.Adr * 0x100);
-                        tbParStatus.Text = "Идет считывание параметров вкладки PAR: 60%";
-                        tbKVAdr.Text = "" + KV.Adr;
-                        cbF2.SelectedIndex = KV.F2;
-                        serial_port.rd_mode++;
-                        break;
-                    case 24:
-                        KV.Type = (byte)(serial_port.reg_int / 0x100);
-                        KV.Baud = (byte)(serial_port.reg_int - KV.Adr * 0x100);
-                        tbParStatus.Text = "Идет считывание параметров вкладки PAR: 80%";
-                        cbType.SelectedIndex = KV.Type;
-                        cbKVBaud.SelectedIndex = KV.Type;
-                        serial_port.rd_mode++;
-                        break;
-                    case 25:
-                        KV.Modbus_Time = (byte)(serial_port.reg_int / 0x100);
-                        KV.Auto_Zero = (byte)(serial_port.reg_int - KV.Adr * 0x100);
-                        tbParStatus.Text = "Идет считывание параметров вкладки PAR: 100%";
-                        tbModbusTime.Text = "" + KV.Modbus_Time;
-                        cbAutoZero.SelectedIndex = KV.Auto_Zero;
-                        serial_port.rd_mode = 1;
-                        reg_status_visible = 20;
-                        break;
-                    case 40:
-                        f_kv_par = true;
-                        KV.Hz = (byte)(serial_port.reg_int / 0x100);
-                        KV.Mv = (byte)(serial_port.reg_int - KV.Hz * 0x100);
-                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 22%";
-                        cbHz.SelectedIndex = KV.Hz;
-                        cbMv.SelectedIndex = KV.Mv;
-                        serial_port.rd_mode++;
-                        break;
-                    case 41:
-                        //   cbA.SelectedIndex = serial_port.reg_int;
-                        KV.Discr = (byte)(serial_port.reg_int);
-                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 33%";
-                        switch (KV.Discr)
-                        {
-                            case 1: cbDiscr.SelectedIndex = 0; break;
-                            case 2: cbDiscr.SelectedIndex = 1; break;
-                            case 5: cbDiscr.SelectedIndex = 2; break;
-                            case 10: cbDiscr.SelectedIndex = 3; break;
-                            case 20: cbDiscr.SelectedIndex = 4; break;
-                            case 50: cbDiscr.SelectedIndex = 5; break;
-                            case 100: cbDiscr.SelectedIndex = 6; break;
-                            case 200: cbDiscr.SelectedIndex = 7; break;
-                            default: cbDiscr.SelectedIndex = 0; break;
-
-                        }
-                        serial_port.rd_mode++;
-                        break;
-                    case 42:
-                        //   cbA.SelectedIndex = serial_port.reg_int;
-                        KV.Point = (byte)(serial_port.reg_int / 0x100);
-                        KV.Polar = (byte)(serial_port.reg_int - KV.Point * 0x100);
-                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 55%";
-                        cbPoint.SelectedIndex = KV.Point;
-                        cbPolar.SelectedIndex = KV.Polar;
-                        serial_port.rd_mode++;
-                        break;
-                    case 43:
-                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 66%";
-                        KV.Npv = serial_port.reg_fl; tbNPV.Text = "" + KV.Npv; serial_port.rd_mode++;
-                        break;
-                    case 44:
-                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 77%";
-                        KV.Cal_Weight = serial_port.reg_fl; tbCalWeight.Text = "" + KV.Cal_Weight; serial_port.rd_mode++;
-                        break;
-                    case 45:
-                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 88%";
-                        KV.Coef = serial_port.reg_fl; tbCoef.Text = "" + KV.Coef; serial_port.rd_mode++;
-                        break;
-                    case 46:
-                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 100%";
-                        KV.Shift = serial_port.reg_long; tbShift.Text = "" + KV.Shift; serial_port.rd_mode++;
-                        serial_port.rd_mode = 1;
-                        reg_status_visible = 20;
-                        break;
-                    case 60:
-                        tbParStatus.Text = "Идет считывание параметров вкладки LEVELS: 25%";
-                        KV.Doza = serial_port.reg_fl; tbDoza1.Text = "" + KV.Doza; serial_port.rd_mode++;
-                        break;
-                    case 61:
-                        tbParStatus.Text = "Идет считывание параметров вкладки LEVELS: 50%";
-                        KV.Dw = serial_port.reg_fl; tbDw.Text = "" + KV.Dw; serial_port.rd_mode++;
-                        break;
-                    case 62:
-                        tbParStatus.Text = "Идет считывание параметров вкладки LEVELS: 75%";
-                        KV.Dwi = serial_port.reg_fl; tbDwi.Text = "" + KV.Dwi; serial_port.rd_mode++;
-                        break;
-                    case 63:
-                        tbParStatus.Text = "Идет считывание параметров вкладки LEVELS: 100%";
-                        KV.Zero = serial_port.reg_fl; tbZero.Text = "" + KV.Zero;
-                        serial_port.rd_mode = 1;
-                        reg_status_visible = 20;
-                        break;
-
-                    case 70:
-                        tbParStatus.Text = "Идет запись параметров вкладки LEVELS: 25%";
-                        write_reg_wait = 71;
-                        serial_port.write_reg_fl = (float)KV.Dw;
-                        break;
-                    case 71:
-                        tbParStatus.Text = "Идет запись параметров вкладки LEVELS: 50%";
-                        write_reg_wait = 72;
-                        serial_port.write_reg_fl = (float)KV.Dwi;
-                        break;
-                    case 72:
-                        tbParStatus.Text = "Идет запись параметров вкладки LEVELS: 75%";
-                        write_reg_wait = 73;
-                        serial_port.write_reg_fl = (float)KV.Zero;
-                        break;
-                    case 73:
-                        tbParStatus.Text = "Идет запись параметров вкладки LEVELS: 100%";
-                        serial_port.rd_mode = 1;
-                        reg_status_visible = 20;
-                        break;
-
-                    case 80:
-                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 22%";
-                        switch (cbDiscr.SelectedIndex)
-                        {
-                            case 0: KV.Discr = 1; break;
-                            case 1: KV.Discr = 2; break;
-                            case 2: KV.Discr = 5; break;
-                            case 3: KV.Discr = 10; break;
-                            case 4: KV.Discr = 20; break;
-                            case 5: KV.Discr = 50; break;
-                            case 6: KV.Discr = 100; break;
-                            case 7: KV.Discr = 200; break;
-                            default: KV.Discr = 1; break;
-
-                        }
-                        write_reg_wait = 81;
-                        serial_port.write_reg_int = KV.Discr;
-                        break;
-                    case 81:
-                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 33%";
-                        serial_port.write_reg_int = ((uint)KV.Point) * 0x100 + (uint)KV.Polar;
-                        write_reg_wait = 82;
-                        break;
-                    case 82:
-                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 55%";
-                        serial_port.write_reg_fl = KV.Npv;
-                        write_reg_wait = 83;
-                        break;
-                    case 83:
-                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 66%";
-                        serial_port.write_reg_fl = KV.Cal_Weight;
-                        write_reg_wait = 84;
-                        break;
-                    case 84:
-                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 77%";
-                        serial_port.write_reg_fl = KV.Coef;
-                        write_reg_wait = 85;
-                        break;
-                    case 85:
-                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 88%";
-                        serial_port.write_reg_long = KV.Shift;
-                        write_reg_wait = 86;
-                        break;
-                    case 86:
-                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 100%";
-                        serial_port.rd_mode = 1;
-                        reg_status_visible = 20;
-                        break;
-                    case 100:
-                        reg_status_visible = 1;
-                        tbParStatus.Text = "Идет запись параметров вкладки PAR: 10%";
-                        serial_port.write_reg_fl = KV.TPause;
-                        write_reg_wait = 101;
-                        break;
-                    case 101:
-                        tbParStatus.Text = "Идет запись параметров вкладки PAR: 20%";
-                        serial_port.write_reg_int = ((uint)KV.F1) * 0x100 + (uint)KV.DozeMode;
-                        write_reg_wait = 102;
-                        break;
-                    case 102:
-                        //   cbA.SelectedIndex = serial_port.reg_int;
-                        tbParStatus.Text = "Идет запись параметров вкладки PAR: 40%";
-                        serial_port.write_reg_int = ((uint)KV.Adr) * 0x100 + (uint)KV.F2;
-                        write_reg_wait = 103;
-                        break;
-                    case 103:
-                        tbParStatus.Text = "Идет запись параметров вкладки PAR: 60%";
-                        serial_port.write_reg_int = ((uint)KV.Type) * 0x100 + (uint)KV.Baud;
-                        write_reg_wait = 104;
-                        break;
-                    case 104:
-                        tbParStatus.Text = "Идет запись параметров вкладки PAR: 80%";
-                        serial_port.write_reg_int = ((uint)KV.Modbus_Time) * 0x100 + (uint)KV.Auto_Zero;
-                        write_reg_wait = 105;
-                        break;
-                    case 105:
-                        tbParStatus.Text = "Идет запись параметров вкладки PAR: 100%";
-                        serial_port.rd_mode = 1;
-                        reg_status_visible = 20;
-                        break;
-                    case 200:
-                    case 201:
-                    case 202:
-                        serial_port.rd_mode = 1;
-                        reg_status_visible = 20;
-                        break;*/
                     default:
 
                             serial_port.rd_mode = 1;
@@ -1140,7 +990,7 @@ namespace ASU_KV_001
 
                 reg_try = 0;
                 num_reg_read++;
-                if (num_reg_read > 40) num_reg_read = 0;
+                if (num_reg_read > 21) num_reg_read = 0;
 
 
             }
@@ -1178,47 +1028,58 @@ namespace ASU_KV_001
 
         private void UpdatePostEnabled()
         {
+            Text_ID_Post_1.Text = "" + Combo_Post_ID.Items[prg_par.selected_id[0]];
+            Text_ID_Post_2.Text = "" + Combo_Post_ID.Items[prg_par.selected_id[1]];
+            Text_ID_Post_3.Text = "" + Combo_Post_ID.Items[prg_par.selected_id[2]];
+            Text_ID_Post_4.Text = "" + Combo_Post_ID.Items[prg_par.selected_id[3]];
+            Text_ID_Post_5.Text = "" + Combo_Post_ID.Items[prg_par.selected_id[4]];
+            Text_ID_Post_6.Text = "" + Combo_Post_ID.Items[prg_par.selected_id[5]];
+            Text_ID_Post_7.Text = "" + Combo_Post_ID.Items[prg_par.selected_id[6]];
+            Text_ID_Post_8.Text = "" + Combo_Post_ID.Items[prg_par.selected_id[7]];
+            Text_ID_Post_9.Text = "" + Combo_Post_ID.Items[prg_par.selected_id[8]];
+            Text_ID_Post_10.Text = "" + Combo_Post_ID.Items[prg_par.selected_id[9]];
             if (prg_par.enable[0])
             {
                 tb_Weight_Post_1.Visibility = Visibility.Visible;
                 tb_OutWeight_Post_1.Visibility = Visibility.Visible;
                 tb_State_Post_1.Visibility = Visibility.Visible;
-                tb_ID_Post_1.Visibility = Visibility.Visible;
+                Text_ID_Post_1.Visibility = Visibility.Visible;
+                
             }
             else
             {
                 tb_Weight_Post_1.Visibility = Visibility.Collapsed;
                 tb_OutWeight_Post_1.Visibility = Visibility.Collapsed;
                 tb_State_Post_1.Visibility = Visibility.Collapsed;
-                tb_ID_Post_1.Visibility = Visibility.Collapsed;
+                Text_ID_Post_1.Visibility = Visibility.Collapsed;
             }
             if (prg_par.enable[1])
             {
                 tb_Weight_Post_2.Visibility = Visibility.Visible;
                 tb_OutWeight_Post_2.Visibility = Visibility.Visible;
                 tb_State_Post_2.Visibility = Visibility.Visible;
-                tb_ID_Post_2.Visibility = Visibility.Visible;
+                Text_ID_Post_2.Visibility = Visibility.Visible;
             }
             else
             {
                 tb_Weight_Post_2.Visibility = Visibility.Collapsed;
                 tb_OutWeight_Post_2.Visibility = Visibility.Collapsed;
                 tb_State_Post_2.Visibility = Visibility.Collapsed;
-                tb_ID_Post_2.Visibility = Visibility.Collapsed;
+                Text_ID_Post_2.Visibility = Visibility.Collapsed;
             }
             if (prg_par.enable[2])
             {
                 tb_Weight_Post_3.Visibility = Visibility.Visible;
                 tb_OutWeight_Post_3.Visibility = Visibility.Visible;
                 tb_State_Post_3.Visibility = Visibility.Visible;
-                tb_ID_Post_3.Visibility = Visibility.Visible;
+                Text_ID_Post_3.Visibility = Visibility.Visible;
             }
             else
             {
                 tb_Weight_Post_3.Visibility = Visibility.Collapsed;
                 tb_OutWeight_Post_3.Visibility = Visibility.Collapsed;
                 tb_State_Post_3.Visibility = Visibility.Collapsed;
-                tb_ID_Post_3.Visibility = Visibility.Collapsed;
+                Text_ID_Post_3.Visibility = Visibility.Collapsed;
             }
 
             if (prg_par.enable[3])
@@ -1226,98 +1087,98 @@ namespace ASU_KV_001
                 tb_Weight_Post_4.Visibility = Visibility.Visible;
                 tb_OutWeight_Post_4.Visibility = Visibility.Visible;
                 tb_State_Post_4.Visibility = Visibility.Visible;
-                tb_ID_Post_4.Visibility = Visibility.Visible;
+                Text_ID_Post_4.Visibility = Visibility.Visible;
             }
             else
             {
                 tb_Weight_Post_4.Visibility = Visibility.Collapsed;
                 tb_OutWeight_Post_4.Visibility = Visibility.Collapsed;
                 tb_State_Post_4.Visibility = Visibility.Collapsed;
-                tb_ID_Post_4.Visibility = Visibility.Collapsed;
+                Text_ID_Post_4.Visibility = Visibility.Collapsed;
             }
             if (prg_par.enable[4])
             {
                 tb_Weight_Post_5.Visibility = Visibility.Visible;
                 tb_OutWeight_Post_5.Visibility = Visibility.Visible;
                 tb_State_Post_5.Visibility = Visibility.Visible;
-                tb_ID_Post_5.Visibility = Visibility.Visible;
+                Text_ID_Post_5.Visibility = Visibility.Visible;
             }
             else
             {
                 tb_Weight_Post_5.Visibility = Visibility.Collapsed;
                 tb_OutWeight_Post_5.Visibility = Visibility.Collapsed;
                 tb_State_Post_5.Visibility = Visibility.Collapsed;
-                tb_ID_Post_5.Visibility = Visibility.Collapsed;
+                Text_ID_Post_5.Visibility = Visibility.Collapsed;
             }
             if (prg_par.enable[5])
             {
                 tb_Weight_Post_6.Visibility = Visibility.Visible;
                 tb_OutWeight_Post_6.Visibility = Visibility.Visible;
                 tb_State_Post_6.Visibility = Visibility.Visible;
-                tb_ID_Post_6.Visibility = Visibility.Visible;
+                Text_ID_Post_6.Visibility = Visibility.Visible;
             }
             else
             {
                 tb_Weight_Post_6.Visibility = Visibility.Collapsed;
                 tb_OutWeight_Post_6.Visibility = Visibility.Collapsed;
                 tb_State_Post_6.Visibility = Visibility.Collapsed;
-                tb_ID_Post_6.Visibility = Visibility.Collapsed;
+                Text_ID_Post_6.Visibility = Visibility.Collapsed;
             }
             if (prg_par.enable[6])
             {
                 tb_Weight_Post_7.Visibility = Visibility.Visible;
                 tb_OutWeight_Post_7.Visibility = Visibility.Visible;
                 tb_State_Post_7.Visibility = Visibility.Visible;
-                tb_ID_Post_7.Visibility = Visibility.Visible;
+                Text_ID_Post_7.Visibility = Visibility.Visible;
             }
             else
             {
                 tb_Weight_Post_7.Visibility = Visibility.Collapsed;
                 tb_OutWeight_Post_7.Visibility = Visibility.Collapsed;
                 tb_State_Post_7.Visibility = Visibility.Collapsed;
-                tb_ID_Post_7.Visibility = Visibility.Collapsed;
+                Text_ID_Post_7.Visibility = Visibility.Collapsed;
             }
             if (prg_par.enable[7])
             {
                 tb_Weight_Post_8.Visibility = Visibility.Visible;
                 tb_OutWeight_Post_8.Visibility = Visibility.Visible;
                 tb_State_Post_8.Visibility = Visibility.Visible;
-                tb_ID_Post_8.Visibility = Visibility.Visible;
+                Text_ID_Post_8.Visibility = Visibility.Visible;
             }
             else
             {
                 tb_Weight_Post_8.Visibility = Visibility.Collapsed;
                 tb_OutWeight_Post_8.Visibility = Visibility.Collapsed;
                 tb_State_Post_8.Visibility = Visibility.Collapsed;
-                tb_ID_Post_8.Visibility = Visibility.Collapsed;
+                Text_ID_Post_8.Visibility = Visibility.Collapsed;
             }
             if (prg_par.enable[8])
             {
                 tb_Weight_Post_9.Visibility = Visibility.Visible;
                 tb_OutWeight_Post_9.Visibility = Visibility.Visible;
                 tb_State_Post_9.Visibility = Visibility.Visible;
-                tb_ID_Post_9.Visibility = Visibility.Visible;
+                Text_ID_Post_9.Visibility = Visibility.Visible;
             }
             else
             {
                 tb_Weight_Post_9.Visibility = Visibility.Collapsed;
                 tb_OutWeight_Post_9.Visibility = Visibility.Collapsed;
                 tb_State_Post_9.Visibility = Visibility.Collapsed;
-                tb_ID_Post_9.Visibility = Visibility.Collapsed;
+                Text_ID_Post_9.Visibility = Visibility.Collapsed;
             }
             if (prg_par.enable[9])
             {
                 tb_Weight_Post_10.Visibility = Visibility.Visible;
                 tb_OutWeight_Post_10.Visibility = Visibility.Visible;
                 tb_State_Post_10.Visibility = Visibility.Visible;
-                tb_ID_Post_10.Visibility = Visibility.Visible;
+                Text_ID_Post_10.Visibility = Visibility.Visible;
             }
             else
             {
                 tb_Weight_Post_10.Visibility = Visibility.Collapsed;
                 tb_OutWeight_Post_10.Visibility = Visibility.Collapsed;
                 tb_State_Post_10.Visibility = Visibility.Collapsed;
-                tb_ID_Post_10.Visibility = Visibility.Collapsed;
+                Text_ID_Post_10.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -1361,6 +1222,10 @@ namespace ASU_KV_001
             cbComBaud.SelectedIndex = prg_par.ComBaud;
             cbComMode.SelectedIndex = prg_par.ComMode;
             cbComMonitor.SelectedIndex = prg_par.ComMonitor;
+
+            Combo_SmenaNum.SelectedIndex = prg_par.SmenaNum;
+            Combo_SmenaHour.SelectedIndex =  prg_par.SmenaHour;
+            Combo_SmenaMinute.SelectedIndex =  prg_par.SmenaMinute;
 
 
         }
@@ -2120,6 +1985,9 @@ namespace ASU_KV_001
                     UpdateSettings();
                 }
             (sender as Grid).Background = BrushOnPress;//"#5C7682"
+                Combo_Post_ID.SelectedIndex = prg_par.selected_id[term_now];
+
+                Arc_Top_Num.Text="КОНТРОЛЛЕР: "+ prg_par.selected_id[term_now];
             }
         }
 
@@ -2257,6 +2125,9 @@ namespace ASU_KV_001
             Grid_Par_Port.Visibility = Visibility.Visible;
             Grid_Par_Term.Visibility = Visibility.Collapsed;
 
+            Grid_Par_Smena.Visibility = Visibility.Collapsed;
+            Grid_Param_Smena.Background = BrushOff;
+
             Grid_Param_Term.Background = BrushOff;
             Grid_Param_Com.Background = BrushOn;
         }
@@ -2265,7 +2136,8 @@ namespace ASU_KV_001
         {
             Grid_Par_Port.Visibility = Visibility.Collapsed;
             Grid_Par_Term.Visibility = Visibility.Visible;
-
+            Grid_Par_Smena.Visibility = Visibility.Collapsed;
+            Grid_Param_Smena.Background = BrushOff;
             Grid_Param_Term.Background = BrushOn;
             Grid_Param_Com.Background = BrushOff;
         }
@@ -2409,6 +2281,46 @@ namespace ASU_KV_001
                                 */
                 par_flag = true;
             }
+
+        }
+
+        private async void Combo_Post_ID_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            prg_par.selected_id[term_now] = Combo_Post_ID.SelectedIndex;
+            await prg_par.SaveParFile(prg_filename); par_flag = false;
+        }
+
+        private void Button_Param_Smena_Click(object sender, RoutedEventArgs e)
+        {
+            Grid_Par_Port.Visibility = Visibility.Collapsed;
+            Grid_Par_Term.Visibility = Visibility.Collapsed;
+
+            Grid_Par_Smena.Visibility = Visibility.Visible;
+            //Grid_Par_Smena.Background = BrushOn;
+            Grid_Param_Smena.Background = BrushOn;
+            Grid_Param_Term.Background = BrushOff;
+            Grid_Param_Com.Background = BrushOff;
+            UpdatePostEnabled();
+
+        }
+
+        private void Combo_SmenaHour_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            par_flag = true;
+            prg_par.SmenaHour = Combo_SmenaHour.SelectedIndex;
+
+        }
+
+        private void Combo_SmenaMinute_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            par_flag = true;
+            prg_par.SmenaMinute = Combo_SmenaMinute.SelectedIndex;
+        }
+
+        private void Combo_SmenaNum_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            par_flag = true;
+            prg_par.SmenaNum = Combo_SmenaNum.SelectedIndex;
 
         }
     }

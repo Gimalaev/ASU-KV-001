@@ -449,24 +449,24 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition Height="160"></RowDefinition>
                 </Grid.RowDefinitions>
-                <Grid x:Name="Grid_Post_Top" Grid.Column="0" Grid.Row="0" Visibility="Visible"  BorderBrush="#9AA1A6" BorderThickness="0,0,0,1" >
+                <Grid x:Name="Grid_Post_Top" Grid.Column="0" Grid.Row="0" Visibility="Collapsed"  BorderBrush="#9AA1A6" BorderThickness="0,0,0,1" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <TextBlock x:Name="Text_TermNum" Style="{StaticResource TextBlockCalibri}"  Text="КОНТРОЛЛЕР: 1" VerticalAlignment="Center" TextAlignment="Center" Grid.Column="0"/>
-                    <TextBlock Style="{StaticResource TextBlockCalibri}"  Text="СМЕНА: 1" VerticalAlignment="Center" TextAlignment="Center" Grid.Column="1"/>
+                    <TextBlock x:Name="Text_CurSmena"  Style="{StaticResource TextBlockCalibri}"  Text="СМЕНА: 1" VerticalAlignment="Center" TextAlignment="Center" Grid.Column="1"/>
                     <TextBlock x:Name="tbCurTime" Style="{StaticResource TextBlockCalibri}"  Text="16:20   01.12.18" VerticalAlignment="Center" TextAlignment="Center" Grid.Column="2"/>
                 </Grid>
-                <Grid  Grid.Column="0" Grid.Row="1" x:Name="Grid_Post_Main" Visibility="Visible" BorderBrush="#9AA1A6" BorderThickness="0,0,0,1">
+                <Grid  Grid.Column="0" Grid.Row="1" x:Name="Grid_Post_Main" Visibility="Collapsed" BorderBrush="#9AA1A6" BorderThickness="0,0,0,1">
                     <TextBlock HorizontalAlignment="Left" Text="ВЕС:" TextWrapping="Wrap" VerticalAlignment="Top" Margin="60,65,0,0" FontSize="25" FontFamily="Calibri" Foreground="White"/>
                     <TextBlock x:Name="Post_Weight" HorizontalAlignment="Left" Text="17.67" TextWrapping="Wrap" VerticalAlignment="Top" Margin="120,40,0,0" FontSize="50" FontFamily="Calibri" Foreground="White"/>
-                    <ComboBox  x:Name="Combo_Post_ID" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="370,55,0,0" Width="276" Height="35" SelectedIndex="-1"/>
+                    <ComboBox  x:Name="Combo_Post_ID" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="370,55,0,0" Width="276" Height="35" SelectedIndex="-1" SelectionChanged="Combo_Post_ID_SelectionChanged"/>
                     <TextBlock FontSize="18"  HorizontalAlignment="Left" Text="Установленый идентификатор" TextWrapping="Wrap" VerticalAlignment="Top" Margin="370,17,-112,0"  Width="302"/>
                 </Grid>
 
-                <Grid x:Name="Grid_Prog_Settings" Grid.RowSpan="3" Visibility="Collapsed" Background="#FF363A6B">
+                <Grid x:Name="Grid_Prog_Settings" Grid.RowSpan="3" Visibility="Visible" Background="#FF363A6B">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="60"/>
                         <RowDefinition/>
@@ -486,14 +486,14 @@
                             <Button x:Name="Button_Param_Com" Content="ПОРТ" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="100" Style="{StaticResource BackgrondButton}" Click="Button_Param_Com_Click" FontFamily="Calibri" FontSize="12" Foreground="White"/>
                         </Grid>
                         <Grid x:Name="Grid_Param_Smena" Grid.Column="2"   Background="#FF366B53">
-                            <Button x:Name="Button_Param_Smena" Content="СМЕНЫ" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="100" Style="{StaticResource BackgrondButton}" Click="Button_Param_Par_Click" FontFamily="Calibri" FontSize="12" Foreground="White"/>
+                            <Button x:Name="Button_Param_Smena" Content="СМЕНЫ" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="100" Style="{StaticResource BackgrondButton}" Click="Button_Param_Smena_Click" FontFamily="Calibri" FontSize="12" Foreground="White"/>
                         </Grid>
                         <Grid x:Name="Grid_Param_Arc" Grid.Column="3"   Background="#FF366B53">
                             <Button x:Name="Button_Param_Arc" Content="АРХИВ" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="100" Style="{StaticResource BackgrondButton}" Click="Button_Param_Par_Click" FontFamily="Calibri" FontSize="12" Foreground="White"/>
                         </Grid>
                     </Grid>
 
-                    <Grid x:Name="Grid_Par_Port" Grid.Row="1" Visibility="Visible" Margin="0,5,0,5">
+                    <Grid x:Name="Grid_Par_Port" Grid.Row="1" Visibility="Collapsed" Margin="0,5,0,5">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="190"></RowDefinition>
                             <RowDefinition Height="30"></RowDefinition>
@@ -557,6 +557,66 @@
 
                     </Grid>
 
+                    <Grid x:Name="Grid_Par_Smena" Grid.Row="1" Visibility="Visible" Margin="0,5,0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0" Margin="10,0,0,0">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock HorizontalAlignment="Left" Text="НАЧАЛО СМЕНЫ:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,20,0" Style="{StaticResource Calibri12White}"/>
+                                <ComboBox x:Name="Combo_SmenaHour" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="80" Height="30" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,0,10,0" SelectionChanged="Combo_SmenaHour_SelectionChanged" >
+                                    <TextBlock Text="0" IsDoubleTapEnabled="False" IsHoldingEnabled="False"/>
+                                    <TextBlock Text="1"/>
+                                    <TextBlock Text="2"/>
+                                    <TextBlock Text="3"/>
+                                    <TextBlock Text="4"/>
+                                    <TextBlock Text="5"/>
+                                    <TextBlock Text="6"/>
+                                    <TextBlock Text="7"/>
+                                    <TextBlock Text="8"/>
+                                    <TextBlock Text="9"/>
+                                    <TextBlock Text="10"/>
+                                    <TextBlock Text="11"/>
+                                    <TextBlock Text="12"/>
+                                    <TextBlock Text="13"/>
+                                    <TextBlock Text="14"/>
+                                    <TextBlock Text="15"/>
+                                    <TextBlock Text="16"/>
+                                    <TextBlock Text="17"/>
+                                    <TextBlock Text="18"/>
+                                    <TextBlock Text="19"/>
+                                    <TextBlock Text="20"/>
+                                    <TextBlock Text="21"/>
+                                    <TextBlock Text="22"/>
+                                    <TextBlock Text="23"/>
+                                </ComboBox>
+                                <ComboBox x:Name="Combo_SmenaMinute" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="80" Height="30" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,0,10,0" SelectionChanged="Combo_SmenaMinute_SelectionChanged" >
+                                    <TextBlock Text="00"/>
+                                    <TextBlock Text="30"/>
+                                </ComboBox>
+                            </StackPanel>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="0" Margin="10,0,0,0">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock HorizontalAlignment="Left" Text="КОЛИЧЕСТВО СМЕН:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,20,0" Style="{StaticResource Calibri12White}"/>
+                                <ComboBox x:Name="Combo_SmenaNum" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="80" Height="30" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,0,10,0" SelectionChanged="Combo_SmenaNum_SelectionChanged" >
+                                    <TextBlock Text="1"/>
+                                    <TextBlock Text="2"/>
+                                    <TextBlock Text="3"/>
+                                    <TextBlock Text="4"/>
+                                </ComboBox>
+                            </StackPanel>
+                        </Grid>
+
+                    </Grid>
 
                     <Grid x:Name="Grid_Par_Term" Grid.Row="1" Visibility="Collapsed" Margin="0,5,0,5">
                         <Grid.ColumnDefinitions>
@@ -1090,7 +1150,7 @@
 
                     </Grid>
                 </Grid>
-                <Grid  Grid.Column="0" Grid.Row="2" x:Name="Grid_Post_Bottom" BorderBrush="#9AA1A6" BorderThickness="0,0,0,1" Visibility="Visible">
+                <Grid  Grid.Column="0" Grid.Row="2" x:Name="Grid_Post_Bottom" BorderBrush="#9AA1A6" BorderThickness="0,0,0,1" Visibility="Collapsed">
                     <Button Content="ПУСК" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="50" Height="50" Background="#FF22A419"  Foreground="White" FontFamily="Calibri" FontSize="12" Margin="30,75,0,0"/>
                     <Button Content="СТОП" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" Background="#FFBE1E2D"  Foreground="White" FontFamily="Calibri" FontSize="12" Margin="95,75,0,0"/>
                     <Button Content="НОЛЬ" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" Background="#FF00B46D" Foreground="White" FontFamily="Calibri" FontSize="12" Margin="160,75,0,0"/>
@@ -1170,7 +1230,7 @@
                     <TextBlock x:Name="tb_Weight_Post_1" Style="{StaticResource TextBlockCalibri}" HorizontalAlignment="Left" Text="ВЕС: 34.56" TextWrapping="Wrap" VerticalAlignment="Top"/>
                     <TextBlock x:Name="tb_State_Post_1" HorizontalAlignment="Left" Text="СОСТОЯНИЕ: ОЖИДАНИЕ" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource TextBlockCalibri}"/>
                     <TextBlock x:Name="tb_OutWeight_Post_1" HorizontalAlignment="Left" Text="ОТГРУЖЕНО: 1234" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
-                    <TextBlock x:Name="tb_ID_Post_1" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
+                    <TextBlock x:Name="Text_ID_Post_1" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
                 </StackPanel>
                 <TextBlock HorizontalAlignment="Right" Text="1" TextWrapping="Wrap" VerticalAlignment="Bottom" Margin="0,0,10,10" Foreground="#FF7192A0"/>
             </Grid>
@@ -1180,7 +1240,7 @@
                     <TextBlock x:Name="tb_Weight_Post_2" Style="{StaticResource TextBlockCalibri}" HorizontalAlignment="Left" Text="ВЕС: 34.56" TextWrapping="Wrap" VerticalAlignment="Top"/>
                     <TextBlock x:Name="tb_State_Post_2" HorizontalAlignment="Left" Text="СОСТОЯНИЕ: ОЖИДАНИЕ" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource TextBlockCalibri}"/>
                     <TextBlock x:Name="tb_OutWeight_Post_2" HorizontalAlignment="Left" Text="ОТГРУЖЕНО: 1234" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
-                    <TextBlock x:Name="tb_ID_Post_2" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
+                    <TextBlock x:Name="Text_ID_Post_2" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="0" Grid.Column="2" x:Name="Grid_Post_3"  BorderBrush="#9AA1A6" BorderThickness="0,0,1,1" Style="{StaticResource GridPostDark}" PointerEntered="Grid_Post_1_PointerEntered" PointerExited="Grid_Post_1_PointerExited" PointerPressed="Grid_Post_1_PointerPressed">
@@ -1189,7 +1249,7 @@
                     <TextBlock x:Name="tb_Weight_Post_3" Style="{StaticResource TextBlockCalibri}" HorizontalAlignment="Left" Text="ВЕС: 34.56" TextWrapping="Wrap" VerticalAlignment="Top"/>
                     <TextBlock x:Name="tb_State_Post_3" HorizontalAlignment="Left" Text="СОСТОЯНИЕ: ОЖИДАНИЕ" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource TextBlockCalibri}"/>
                     <TextBlock x:Name="tb_OutWeight_Post_3" HorizontalAlignment="Left" Text="ОТГРУЖЕНО: 1234" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
-                    <TextBlock x:Name="tb_ID_Post_3" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
+                    <TextBlock x:Name="Text_ID_Post_3" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="0" Grid.Column="3" x:Name="Grid_Post_4" Background="#738188" BorderBrush="#9AA1A6" BorderThickness="0,0,1,1" PointerEntered="Grid_Post_2_PointerEntered" PointerExited="Grid_Post_2_PointerExited" PointerPressed="Grid_Post_1_PointerPressed">
@@ -1198,7 +1258,7 @@
                     <TextBlock x:Name="tb_Weight_Post_4" Style="{StaticResource TextBlockCalibri}" HorizontalAlignment="Left" Text="ВЕС: 34.56" TextWrapping="Wrap" VerticalAlignment="Top"/>
                     <TextBlock x:Name="tb_State_Post_4" HorizontalAlignment="Left" Text="СОСТОЯНИЕ: ОЖИДАНИЕ" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource TextBlockCalibri}"/>
                     <TextBlock x:Name="tb_OutWeight_Post_4" HorizontalAlignment="Left" Text="ОТГРУЖЕНО: 1234" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
-                    <TextBlock x:Name="tb_ID_Post_4" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
+                    <TextBlock x:Name="Text_ID_Post_4" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="0" Grid.Column="4" x:Name="Grid_Post_5" BorderBrush="#9AA1A6" BorderThickness="0,0,0,1" Style="{StaticResource GridPostDark}" PointerEntered="Grid_Post_1_PointerEntered" PointerExited="Grid_Post_1_PointerExited" PointerPressed="Grid_Post_1_PointerPressed">
@@ -1207,7 +1267,7 @@
                     <TextBlock x:Name="tb_Weight_Post_5" Style="{StaticResource TextBlockCalibri}" HorizontalAlignment="Left" Text="ВЕС: 34.56" TextWrapping="Wrap" VerticalAlignment="Top"/>
                     <TextBlock x:Name="tb_State_Post_5" HorizontalAlignment="Left" Text="СОСТОЯНИЕ: ОЖИДАНИЕ" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource TextBlockCalibri}"/>
                     <TextBlock x:Name="tb_OutWeight_Post_5" HorizontalAlignment="Left" Text="ОТГРУЖЕНО: 1234" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
-                    <TextBlock x:Name="tb_ID_Post_5" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
+                    <TextBlock x:Name="Text_ID_Post_5" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="1" Grid.Column="0" x:Name="Grid_Post_6" Background="#738188" BorderBrush="#9AA1A6" BorderThickness="0,0,1,0" PointerEntered="Grid_Post_2_PointerEntered" PointerExited="Grid_Post_2_PointerExited" PointerPressed="Grid_Post_1_PointerPressed">
@@ -1216,7 +1276,7 @@
                     <TextBlock x:Name="tb_Weight_Post_6" Style="{StaticResource TextBlockCalibri}" HorizontalAlignment="Left" Text="ВЕС: 34.56" TextWrapping="Wrap" VerticalAlignment="Top"/>
                     <TextBlock x:Name="tb_State_Post_6" HorizontalAlignment="Left" Text="СОСТОЯНИЕ: ОЖИДАНИЕ" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource TextBlockCalibri}"/>
                     <TextBlock x:Name="tb_OutWeight_Post_6" HorizontalAlignment="Left" Text="ОТГРУЖЕНО: 1234" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
-                    <TextBlock x:Name="tb_ID_Post_6" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
+                    <TextBlock x:Name="Text_ID_Post_6" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="1" Grid.Column="1" x:Name="Grid_Post_7" BorderBrush="#9AA1A6" BorderThickness="0,0,1,0" Style="{StaticResource GridPostDark}" PointerEntered="Grid_Post_1_PointerEntered" PointerExited="Grid_Post_1_PointerExited" PointerPressed="Grid_Post_1_PointerPressed">
@@ -1225,7 +1285,7 @@
                     <TextBlock x:Name="tb_Weight_Post_7" Style="{StaticResource TextBlockCalibri}" HorizontalAlignment="Left" Text="ВЕС: 34.56" TextWrapping="Wrap" VerticalAlignment="Top"/>
                     <TextBlock x:Name="tb_State_Post_7" HorizontalAlignment="Left" Text="СОСТОЯНИЕ: ОЖИДАНИЕ" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource TextBlockCalibri}"/>
                     <TextBlock x:Name="tb_OutWeight_Post_7" HorizontalAlignment="Left" Text="ОТГРУЖЕНО: 1234" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
-                    <TextBlock x:Name="tb_ID_Post_7" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
+                    <TextBlock x:Name="Text_ID_Post_7" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="1" Grid.Column="2" x:Name="Grid_Post_8" Background="#738188" BorderBrush="#9AA1A6" BorderThickness="0,0,1,0" PointerEntered="Grid_Post_2_PointerEntered" PointerExited="Grid_Post_2_PointerExited" PointerPressed="Grid_Post_1_PointerPressed">
@@ -1234,7 +1294,7 @@
                     <TextBlock x:Name="tb_Weight_Post_8" Style="{StaticResource TextBlockCalibri}" HorizontalAlignment="Left" Text="ВЕС: 34.56" TextWrapping="Wrap" VerticalAlignment="Top"/>
                     <TextBlock x:Name="tb_State_Post_8" HorizontalAlignment="Left" Text="СОСТОЯНИЕ: ОЖИДАНИЕ" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource TextBlockCalibri}"/>
                     <TextBlock x:Name="tb_OutWeight_Post_8" HorizontalAlignment="Left" Text="ОТГРУЖЕНО: 1234" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
-                    <TextBlock x:Name="tb_ID_Post_8" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
+                    <TextBlock x:Name="Text_ID_Post_8" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="1" Grid.Column="3" x:Name="Grid_Post_9" BorderBrush="#9AA1A6" BorderThickness="0,0,1,0" Style="{StaticResource GridPostDark}" PointerEntered="Grid_Post_1_PointerEntered" PointerExited="Grid_Post_1_PointerExited" PointerPressed="Grid_Post_1_PointerPressed">
@@ -1243,7 +1303,7 @@
                     <TextBlock x:Name="tb_Weight_Post_9" Style="{StaticResource TextBlockCalibri}" HorizontalAlignment="Left" Text="ВЕС: 34.56" TextWrapping="Wrap" VerticalAlignment="Top"/>
                     <TextBlock x:Name="tb_State_Post_9" HorizontalAlignment="Left" Text="СОСТОЯНИЕ: ОЖИДАНИЕ" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource TextBlockCalibri}"/>
                     <TextBlock x:Name="tb_OutWeight_Post_9" HorizontalAlignment="Left" Text="ОТГРУЖЕНО: 1234" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
-                    <TextBlock x:Name="tb_ID_Post_9" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
+                    <TextBlock x:Name="Text_ID_Post_9" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="1" Grid.Column="4" x:Name="Grid_Post_10" Background="#738188" BorderBrush="#9AA1A6" BorderThickness="0,0,1,0" PointerEntered="Grid_Post_2_PointerEntered" PointerExited="Grid_Post_2_PointerExited" PointerPressed="Grid_Post_1_PointerPressed">
@@ -1252,7 +1312,7 @@
                     <TextBlock x:Name="tb_Weight_Post_10" Style="{StaticResource TextBlockCalibri}" HorizontalAlignment="Left" Text="ВЕС: 34.56" TextWrapping="Wrap" VerticalAlignment="Top"/>
                     <TextBlock x:Name="tb_State_Post_10" HorizontalAlignment="Left" Text="СОСТОЯНИЕ: ОЖИДАНИЕ" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource TextBlockCalibri}"/>
                     <TextBlock x:Name="tb_OutWeight_Post_10" HorizontalAlignment="Left" Text="ОТГРУЖЕНО: 1234" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
-                    <TextBlock x:Name="tb_ID_Post_10" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
+                    <TextBlock x:Name="Text_ID_Post_10" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
                 </StackPanel>
             </Grid>
         </Grid>

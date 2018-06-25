@@ -410,29 +410,29 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Grid x:ConnectionId='261' x:Name="Grid_Left_Monitor"  Grid.Row="0" Background="#FF363A6B">
-                <Button x:ConnectionId='268'  Style="{StaticResource BackgrondButton}"  x:Name="btnMonitor" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="35" Width="35"                         >
+            <Grid x:ConnectionId='266' x:Name="Grid_Left_Monitor"  Grid.Row="0" Background="#FF363A6B">
+                <Button x:ConnectionId='273'  Style="{StaticResource BackgrondButton}"  x:Name="btnMonitor" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="35" Width="35"                         >
                     <Button.Background>
                         <ImageBrush ImageSource="Assets/Иконки и кнопки/монитор.png"/>
                     </Button.Background>
                 </Button>
             </Grid>
-            <Grid x:ConnectionId='262' Grid.Row="1"  x:Name="Grid_Left_KV_Param"  Background="#FF366B53">
-                <Button x:ConnectionId='267' Style="{StaticResource BackgrondButton}"  x:Name="btnKVSettings" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="35" Width="35" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="True"                             Margin="0,0,0,0">
+            <Grid x:ConnectionId='267' Grid.Row="1"  x:Name="Grid_Left_KV_Param"  Background="#FF366B53">
+                <Button x:ConnectionId='272' Style="{StaticResource BackgrondButton}"  x:Name="btnKVSettings" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="35" Width="35" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="True"                             Margin="0,0,0,0">
                     <Button.Background>
                         <ImageBrush ImageSource="Assets/Иконки и кнопки/параметры прибора.png"/>
                     </Button.Background>
                 </Button>
             </Grid>
-            <Grid x:ConnectionId='263' Grid.Row="2"  x:Name="Grid_Left_Prg_Param"  Background="#FF366B53">
-                <Button x:ConnectionId='266' Style="{StaticResource BackgrondButton}"  x:Name="btnPrgSettings" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="35" Width="35"                             >
+            <Grid x:ConnectionId='268' Grid.Row="2"  x:Name="Grid_Left_Prg_Param"  Background="#FF366B53">
+                <Button x:ConnectionId='271' Style="{StaticResource BackgrondButton}"  x:Name="btnPrgSettings" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="35" Width="35"                             >
                     <Button.Background>
                         <ImageBrush ImageSource="Assets/Иконки и кнопки/настройка программы.png"/>
                     </Button.Background>
                 </Button>
             </Grid>
-            <Grid x:ConnectionId='264' Grid.Row="3"  x:Name="Grid_Left_Archive"  Background="#FF366B53">
-                <Button x:ConnectionId='265' Grid.Row="3" Style="{StaticResource BackgrondButton}"  x:Name="btnArchive" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="35" Width="35"                         >
+            <Grid x:ConnectionId='269' Grid.Row="3"  x:Name="Grid_Left_Archive"  Background="#FF366B53">
+                <Button x:ConnectionId='270' Grid.Row="3" Style="{StaticResource BackgrondButton}"  x:Name="btnArchive" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Height="35" Width="35"                         >
                     <Button.Background>
                         <ImageBrush ImageSource="Assets/Иконки и кнопки/архив.png"/>
                     </Button.Background>
@@ -449,24 +449,24 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition Height="160"></RowDefinition>
                 </Grid.RowDefinitions>
-                <Grid x:ConnectionId='102' x:Name="Grid_Post_Top" Grid.Column="0" Grid.Row="0" Visibility="Visible"  BorderBrush="#9AA1A6" BorderThickness="0,0,0,1" >
+                <Grid x:ConnectionId='102' x:Name="Grid_Post_Top" Grid.Column="0" Grid.Row="0" Visibility="Collapsed"  BorderBrush="#9AA1A6" BorderThickness="0,0,0,1" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <TextBlock x:ConnectionId='259' x:Name="Text_TermNum" Style="{StaticResource TextBlockCalibri}"  Text="КОНТРОЛЛЕР: 1" VerticalAlignment="Center" TextAlignment="Center" Grid.Column="0"/>
-                    <TextBlock Style="{StaticResource TextBlockCalibri}"  Text="СМЕНА: 1" VerticalAlignment="Center" TextAlignment="Center" Grid.Column="1"/>
-                    <TextBlock x:ConnectionId='260' x:Name="tbCurTime" Style="{StaticResource TextBlockCalibri}"  Text="16:20   01.12.18" VerticalAlignment="Center" TextAlignment="Center" Grid.Column="2"/>
+                    <TextBlock x:ConnectionId='263' x:Name="Text_TermNum" Style="{StaticResource TextBlockCalibri}"  Text="КОНТРОЛЛЕР: 1" VerticalAlignment="Center" TextAlignment="Center" Grid.Column="0"/>
+                    <TextBlock x:ConnectionId='264' x:Name="Text_CurSmena"  Style="{StaticResource TextBlockCalibri}"  Text="СМЕНА: 1" VerticalAlignment="Center" TextAlignment="Center" Grid.Column="1"/>
+                    <TextBlock x:ConnectionId='265' x:Name="tbCurTime" Style="{StaticResource TextBlockCalibri}"  Text="16:20   01.12.18" VerticalAlignment="Center" TextAlignment="Center" Grid.Column="2"/>
                 </Grid>
-                <Grid x:ConnectionId='103'  Grid.Column="0" Grid.Row="1" x:Name="Grid_Post_Main" Visibility="Visible" BorderBrush="#9AA1A6" BorderThickness="0,0,0,1">
+                <Grid x:ConnectionId='103'  Grid.Column="0" Grid.Row="1" x:Name="Grid_Post_Main" Visibility="Collapsed" BorderBrush="#9AA1A6" BorderThickness="0,0,0,1">
                     <TextBlock HorizontalAlignment="Left" Text="ВЕС:" TextWrapping="Wrap" VerticalAlignment="Top" Margin="60,65,0,0" FontSize="25" FontFamily="Calibri" Foreground="White"/>
-                    <TextBlock x:ConnectionId='257' x:Name="Post_Weight" HorizontalAlignment="Left" Text="17.67" TextWrapping="Wrap" VerticalAlignment="Top" Margin="120,40,0,0" FontSize="50" FontFamily="Calibri" Foreground="White"/>
-                    <ComboBox x:ConnectionId='258'  x:Name="Combo_Post_ID" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="370,55,0,0" Width="276" Height="35" SelectedIndex="-1"/>
+                    <TextBlock x:ConnectionId='261' x:Name="Post_Weight" HorizontalAlignment="Left" Text="17.67" TextWrapping="Wrap" VerticalAlignment="Top" Margin="120,40,0,0" FontSize="50" FontFamily="Calibri" Foreground="White"/>
+                    <ComboBox x:ConnectionId='262'  x:Name="Combo_Post_ID" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="370,55,0,0" Width="276" Height="35" SelectedIndex="-1"                                                  />
                     <TextBlock FontSize="18"  HorizontalAlignment="Left" Text="Установленый идентификатор" TextWrapping="Wrap" VerticalAlignment="Top" Margin="370,17,-112,0"  Width="302"/>
                 </Grid>
 
-                <Grid x:ConnectionId='104' x:Name="Grid_Prog_Settings" Grid.RowSpan="3" Visibility="Collapsed" Background="#FF363A6B">
+                <Grid x:ConnectionId='104' x:Name="Grid_Prog_Settings" Grid.RowSpan="3" Visibility="Visible" Background="#FF363A6B">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="60"/>
                         <RowDefinition/>
@@ -479,21 +479,21 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Grid x:ConnectionId='249' x:Name="Grid_Param_Term" Background="#FF363A6B">
-                            <Button x:ConnectionId='256' x:Name="Button_Param_Term" Content="ТЕРМИНАЛЫ" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="100" Style="{StaticResource BackgrondButton}"                                 FontFamily="Calibri" FontSize="12" Foreground="White"/>
+                        <Grid x:ConnectionId='253' x:Name="Grid_Param_Term" Background="#FF363A6B">
+                            <Button x:ConnectionId='260' x:Name="Button_Param_Term" Content="ТЕРМИНАЛЫ" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="100" Style="{StaticResource BackgrondButton}"                                 FontFamily="Calibri" FontSize="12" Foreground="White"/>
                         </Grid>
-                        <Grid x:ConnectionId='250' x:Name="Grid_Param_Com" Grid.Column="1"  Background="#FF366B53">
-                            <Button x:ConnectionId='255' x:Name="Button_Param_Com" Content="ПОРТ" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="100" Style="{StaticResource BackgrondButton}"                                FontFamily="Calibri" FontSize="12" Foreground="White"/>
+                        <Grid x:ConnectionId='254' x:Name="Grid_Param_Com" Grid.Column="1"  Background="#FF366B53">
+                            <Button x:ConnectionId='259' x:Name="Button_Param_Com" Content="ПОРТ" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="100" Style="{StaticResource BackgrondButton}"                                FontFamily="Calibri" FontSize="12" Foreground="White"/>
                         </Grid>
-                        <Grid x:ConnectionId='251' x:Name="Grid_Param_Smena" Grid.Column="2"   Background="#FF366B53">
-                            <Button x:ConnectionId='254' x:Name="Button_Param_Smena" Content="СМЕНЫ" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="100" Style="{StaticResource BackgrondButton}"                                FontFamily="Calibri" FontSize="12" Foreground="White"/>
+                        <Grid x:ConnectionId='255' x:Name="Grid_Param_Smena" Grid.Column="2"   Background="#FF366B53">
+                            <Button x:ConnectionId='258' x:Name="Button_Param_Smena" Content="СМЕНЫ" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="100" Style="{StaticResource BackgrondButton}"                                  FontFamily="Calibri" FontSize="12" Foreground="White"/>
                         </Grid>
-                        <Grid x:ConnectionId='252' x:Name="Grid_Param_Arc" Grid.Column="3"   Background="#FF366B53">
-                            <Button x:ConnectionId='253' x:Name="Button_Param_Arc" Content="АРХИВ" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="100" Style="{StaticResource BackgrondButton}"                                FontFamily="Calibri" FontSize="12" Foreground="White"/>
+                        <Grid x:ConnectionId='256' x:Name="Grid_Param_Arc" Grid.Column="3"   Background="#FF366B53">
+                            <Button x:ConnectionId='257' x:Name="Button_Param_Arc" Content="АРХИВ" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="100" Style="{StaticResource BackgrondButton}"                                FontFamily="Calibri" FontSize="12" Foreground="White"/>
                         </Grid>
                     </Grid>
 
-                    <Grid x:ConnectionId='198' x:Name="Grid_Par_Port" Grid.Row="1" Visibility="Visible" Margin="0,5,0,5">
+                    <Grid x:ConnectionId='198' x:Name="Grid_Par_Port" Grid.Row="1" Visibility="Collapsed" Margin="0,5,0,5">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="190"></RowDefinition>
                             <RowDefinition Height="30"></RowDefinition>
@@ -506,8 +506,8 @@
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="3">
-                            <TextBlock x:ConnectionId='247' x:Name="textBlock25" HorizontalAlignment="Left" TextWrapping="Wrap" Text="УСТРОЙСТВО ОБМЕНА"  VerticalAlignment="Top" Margin="10,17,0,0" Foreground="LightGray" FontFamily="Calibri" FontSize="12"/>
-                            <ListBox x:ConnectionId='248' x:Name="ConnectDevices" ScrollViewer.HorizontalScrollMode="Enabled"  Height="150" ScrollViewer.HorizontalScrollBarVisibility="Visible" ItemsSource="{Binding Source={StaticResource DeviceListSource}}" Background="Gray" Margin="10,40,10,0"                                                   >
+                            <TextBlock x:ConnectionId='251' x:Name="textBlock25" HorizontalAlignment="Left" TextWrapping="Wrap" Text="УСТРОЙСТВО ОБМЕНА"  VerticalAlignment="Top" Margin="10,17,0,0" Foreground="LightGray" FontFamily="Calibri" FontSize="12"/>
+                            <ListBox x:ConnectionId='252' x:Name="ConnectDevices" ScrollViewer.HorizontalScrollMode="Enabled"  Height="150" ScrollViewer.HorizontalScrollBarVisibility="Visible" ItemsSource="{Binding Source={StaticResource DeviceListSource}}" Background="Gray" Margin="10,40,10,0"                                                   >
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding Id}" />
@@ -517,17 +517,17 @@
 
                         </Grid>
                         <Grid Grid.Column="0" Grid.Row="1">
-                            <Button x:ConnectionId='246' x:Name="btnComConnect" Content="ПОДКЛЮЧИТЬ" HorizontalAlignment="Center" VerticalAlignment="Center" Height="26" Width="153" Background="#FF00A146" FontWeight="Bold" Foreground="White" FontFamily="Calibri" FontSize="12"                            />
+                            <Button x:ConnectionId='250' x:Name="btnComConnect" Content="ПОДКЛЮЧИТЬ" HorizontalAlignment="Center" VerticalAlignment="Center" Height="26" Width="153" Background="#FF00A146" FontWeight="Bold" Foreground="White" FontFamily="Calibri" FontSize="12"                            />
                         </Grid>
                         <Grid Grid.Column="1" Grid.Row="1">
-                            <Button x:ConnectionId='245' x:Name="btnComDisonnect" Content="ОТКЛЮЧИТЬ" HorizontalAlignment="Center" VerticalAlignment="Center" Height="26" Width="153" Background="#FF00946C" Foreground="White" FontWeight="Bold" FontFamily="Calibri" FontSize="12"                              />
+                            <Button x:ConnectionId='249' x:Name="btnComDisonnect" Content="ОТКЛЮЧИТЬ" HorizontalAlignment="Center" VerticalAlignment="Center" Height="26" Width="153" Background="#FF00946C" Foreground="White" FontWeight="Bold" FontFamily="Calibri" FontSize="12"                              />
                         </Grid>
                         <Grid Grid.Column="2" Grid.Row="1">
-                            <Button x:ConnectionId='244' x:Name="btnComTry" Content="ПРОВЕРКА" HorizontalAlignment="Center" VerticalAlignment="Center"  Height="26" Width="153" Background="#FF00946C" Foreground="White" FontWeight="Bold" FontFamily="Calibri" FontSize="12"                        />
+                            <Button x:ConnectionId='248' x:Name="btnComTry" Content="ПРОВЕРКА" HorizontalAlignment="Center" VerticalAlignment="Center"  Height="26" Width="153" Background="#FF00946C" Foreground="White" FontWeight="Bold" FontFamily="Calibri" FontSize="12"                        />
                         </Grid>
                         <Grid Grid.Row="2" Grid.Column="0" Margin="10,5,5,5" Padding="10,0,10,0" >
                             <TextBlock HorizontalAlignment="Left" Text="ЧАСТОТА" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
-                            <ComboBox x:ConnectionId='243' x:Name="cbComBaud" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="110" Height="25" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,4,10,4"                                              >
+                            <ComboBox x:ConnectionId='247' x:Name="cbComBaud" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="110" Height="25" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,4,10,4"                                              >
                                 <TextBlock Text="4800"/>
                                 <TextBlock Text="9600"/>
                                 <TextBlock Text="19200"/>
@@ -536,20 +536,20 @@
                         </Grid>
                         <Grid Grid.Row="2" Grid.Column="1" Margin="10,5,5,5" Padding="10,0,10,0" >
                             <TextBlock HorizontalAlignment="Left" Text="РЕЖИМ:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
-                            <ComboBox x:ConnectionId='242' x:Name="cbComMode" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="110" Height="25" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,4,10,4"                                              >
+                            <ComboBox x:ConnectionId='246' x:Name="cbComMode" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="110" Height="25" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,4,10,4"                                              >
                                 <TextBlock Text="ДЕМО"/>
                                 <TextBlock Text="ОБМЕН"/>
                             </ComboBox>
                         </Grid>
                         <Grid Grid.Row="2" Grid.Column="2" Margin="10,5,5,5" Padding="10,0,10,0">
                             <TextBlock HorizontalAlignment="Left" Text="ПУСК СЛЕЖЕНИЯ:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
-                            <ComboBox x:ConnectionId='241' x:Name="cbComMonitor" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="86" Height="25" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,4,10,4"                                                 >
+                            <ComboBox x:ConnectionId='245' x:Name="cbComMonitor" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="86" Height="25" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,4,10,4"                                                 >
                                 <TextBlock Text="РУЧНОЙ"/>
                                 <TextBlock Text="АВТОМАТ."/>
                             </ComboBox>
                         </Grid>
                         <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Margin="10,5,5,5" Padding="10,0,10,0">
-                            <TextBlock x:ConnectionId='240' x:Name="tbModbusStatus" HorizontalAlignment="Left" TextWrapping="Wrap" Text="СТАТУС MODBUS: ВЫБЕРИТЕ УСТРОЙСТВО"  VerticalAlignment="Top" Foreground="LightGray" FontFamily="Calibri" FontSize="12"/>
+                            <TextBlock x:ConnectionId='244' x:Name="tbModbusStatus" HorizontalAlignment="Left" TextWrapping="Wrap" Text="СТАТУС MODBUS: ВЫБЕРИТЕ УСТРОЙСТВО"  VerticalAlignment="Top" Foreground="LightGray" FontFamily="Calibri" FontSize="12"/>
                         </Grid>
 
 
@@ -557,8 +557,68 @@
 
                     </Grid>
 
+                    <Grid x:ConnectionId='199' x:Name="Grid_Par_Smena" Grid.Row="1" Visibility="Visible" Margin="0,5,0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
 
-                    <Grid x:ConnectionId='199' x:Name="Grid_Par_Term" Grid.Row="1" Visibility="Collapsed" Margin="0,5,0,5">
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0" Margin="10,0,0,0">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock HorizontalAlignment="Left" Text="НАЧАЛО СМЕНЫ:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,20,0" Style="{StaticResource Calibri12White}"/>
+                                <ComboBox x:ConnectionId='242' x:Name="Combo_SmenaHour" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="80" Height="30" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,0,10,0"                                                     >
+                                    <TextBlock Text="0" IsDoubleTapEnabled="False" IsHoldingEnabled="False"/>
+                                    <TextBlock Text="1"/>
+                                    <TextBlock Text="2"/>
+                                    <TextBlock Text="3"/>
+                                    <TextBlock Text="4"/>
+                                    <TextBlock Text="5"/>
+                                    <TextBlock Text="6"/>
+                                    <TextBlock Text="7"/>
+                                    <TextBlock Text="8"/>
+                                    <TextBlock Text="9"/>
+                                    <TextBlock Text="10"/>
+                                    <TextBlock Text="11"/>
+                                    <TextBlock Text="12"/>
+                                    <TextBlock Text="13"/>
+                                    <TextBlock Text="14"/>
+                                    <TextBlock Text="15"/>
+                                    <TextBlock Text="16"/>
+                                    <TextBlock Text="17"/>
+                                    <TextBlock Text="18"/>
+                                    <TextBlock Text="19"/>
+                                    <TextBlock Text="20"/>
+                                    <TextBlock Text="21"/>
+                                    <TextBlock Text="22"/>
+                                    <TextBlock Text="23"/>
+                                </ComboBox>
+                                <ComboBox x:ConnectionId='243' x:Name="Combo_SmenaMinute" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="80" Height="30" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,0,10,0"                                                       >
+                                    <TextBlock Text="00"/>
+                                    <TextBlock Text="30"/>
+                                </ComboBox>
+                            </StackPanel>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="0" Margin="10,0,0,0">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock HorizontalAlignment="Left" Text="КОЛИЧЕСТВО СМЕН:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,20,0" Style="{StaticResource Calibri12White}"/>
+                                <ComboBox x:ConnectionId='241' x:Name="Combo_SmenaNum" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="80" Height="30" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,0,10,0"                                                    >
+                                    <TextBlock Text="1"/>
+                                    <TextBlock Text="2"/>
+                                    <TextBlock Text="3"/>
+                                    <TextBlock Text="4"/>
+                                </ComboBox>
+                            </StackPanel>
+                        </Grid>
+
+                    </Grid>
+
+                    <Grid x:ConnectionId='200' x:Name="Grid_Par_Term" Grid.Row="1" Visibility="Collapsed" Margin="0,5,0,5">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="150"/>
                             <ColumnDefinition Width="150"/>
@@ -578,11 +638,11 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0" Grid.Column="0" Margin="10,5,5,5" Padding="0,0,10,0" HorizontalAlignment="Left" >
-                            <CheckBox x:ConnectionId='239' x:Name="cb_Term_Enable_1" Style="{StaticResource MyCheckBox}" Content="ТЕРМИНАЛ 1" Width="100px" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20px"  Margin="0,0,0,0" FontFamily="Calibri" FontSize="12" IsTextScaleFactorEnabled="False"                                                                            />
+                            <CheckBox x:ConnectionId='240' x:Name="cb_Term_Enable_1" Style="{StaticResource MyCheckBox}" Content="ТЕРМИНАЛ 1" Width="100px" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20px"  Margin="0,0,0,0" FontFamily="Calibri" FontSize="12" IsTextScaleFactorEnabled="False"                                                                            />
                         </Grid>
                         <Grid Grid.Row="0" Grid.Column="1" Margin="10,0,40,0" >
-                            <TextBlock x:ConnectionId='237' x:Name="Prg_Adr_1" HorizontalAlignment="Left" Text="АДРЕС: 255" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
-                            <Button x:ConnectionId='238' x:Name="btn_Prg_Adr_1" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" Width="25" Height="25" Style="{StaticResource BackgrondButton}"                            >
+                            <TextBlock x:ConnectionId='238' x:Name="Prg_Adr_1" HorizontalAlignment="Left" Text="АДРЕС: 255" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
+                            <Button x:ConnectionId='239' x:Name="btn_Prg_Adr_1" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" Width="25" Height="25" Style="{StaticResource BackgrondButton}"                            >
                                 <Button.Background>
                                     <ImageBrush ImageSource="Assets/Иконки и кнопки/карандаш.png" Stretch="Uniform"/>
                                 </Button.Background>
@@ -590,15 +650,15 @@
                         </Grid>
                         <Grid Grid.Row="0" Grid.Column="2" Margin="10,0,0,0">
                             <TextBlock HorizontalAlignment="Left" Text="ВЕРСИЯ:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
-                            <ComboBox x:ConnectionId='236' x:Name="Combo_Prg_Ver_1" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="80" Height="24" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,0,10,0"                                                     />
+                            <ComboBox x:ConnectionId='237' x:Name="Combo_Prg_Ver_1" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="80" Height="24" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,0,10,0"                                                     />
                         </Grid>
 
                         <Grid Grid.Row="1" Grid.Column="0" Margin="10,5,5,5" Padding="0,0,10,0" HorizontalAlignment="Left" >
-                            <CheckBox x:ConnectionId='235' x:Name="cb_Term_Enable_2" Style="{StaticResource MyCheckBox}" Content="ТЕРМИНАЛ 2" Width="100px" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20px"  Margin="0,0,0,0" FontFamily="Calibri" FontSize="12" IsTextScaleFactorEnabled="False"                                                                          />
+                            <CheckBox x:ConnectionId='236' x:Name="cb_Term_Enable_2" Style="{StaticResource MyCheckBox}" Content="ТЕРМИНАЛ 2" Width="100px" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20px"  Margin="0,0,0,0" FontFamily="Calibri" FontSize="12" IsTextScaleFactorEnabled="False"                                                                          />
                         </Grid>
                         <Grid Grid.Row="1" Grid.Column="1" Margin="10,0,40,0" >
-                            <TextBlock x:ConnectionId='233' x:Name="Prg_Adr_2" HorizontalAlignment="Left" Text="АДРЕС: 255" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
-                            <Button x:ConnectionId='234' x:Name="btn_Prg_Adr_2" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" Width="25" Height="25" Style="{StaticResource BackgrondButton}"                            >
+                            <TextBlock x:ConnectionId='234' x:Name="Prg_Adr_2" HorizontalAlignment="Left" Text="АДРЕС: 255" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
+                            <Button x:ConnectionId='235' x:Name="btn_Prg_Adr_2" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" Width="25" Height="25" Style="{StaticResource BackgrondButton}"                            >
                                 <Button.Background>
                                     <ImageBrush ImageSource="Assets/Иконки и кнопки/карандаш.png" Stretch="Uniform"/>
                                 </Button.Background>
@@ -606,15 +666,15 @@
                         </Grid>
                         <Grid Grid.Row="1" Grid.Column="2" Margin="10,0,0,0">
                             <TextBlock HorizontalAlignment="Left" Text="ВЕРСИЯ:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
-                            <ComboBox x:ConnectionId='232' x:Name="Combo_Prg_Ver_2" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="80" Height="24" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,0,10,0"                                                    />
+                            <ComboBox x:ConnectionId='233' x:Name="Combo_Prg_Ver_2" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="80" Height="24" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,0,10,0"                                                    />
                         </Grid>
 
                         <Grid Grid.Row="2" Grid.Column="0" Margin="10,5,5,5" Padding="0,0,10,0" HorizontalAlignment="Left" >
-                            <CheckBox x:ConnectionId='231' x:Name="cb_Term_Enable_3" Style="{StaticResource MyCheckBox}" Content="ТЕРМИНАЛ 3" Width="100px" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20px"  Margin="0,0,0,0" FontFamily="Calibri" FontSize="12" IsTextScaleFactorEnabled="False"                                                                          />
+                            <CheckBox x:ConnectionId='232' x:Name="cb_Term_Enable_3" Style="{StaticResource MyCheckBox}" Content="ТЕРМИНАЛ 3" Width="100px" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20px"  Margin="0,0,0,0" FontFamily="Calibri" FontSize="12" IsTextScaleFactorEnabled="False"                                                                          />
                         </Grid>
                         <Grid Grid.Row="2" Grid.Column="1" Margin="10,0,40,0" >
-                            <TextBlock x:ConnectionId='229' x:Name="Prg_Adr_3" HorizontalAlignment="Left" Text="АДРЕС: 255" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
-                            <Button x:ConnectionId='230' x:Name="btn_Prg_Adr_3" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" Width="25" Height="25" Style="{StaticResource BackgrondButton}"                            >
+                            <TextBlock x:ConnectionId='230' x:Name="Prg_Adr_3" HorizontalAlignment="Left" Text="АДРЕС: 255" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
+                            <Button x:ConnectionId='231' x:Name="btn_Prg_Adr_3" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" Width="25" Height="25" Style="{StaticResource BackgrondButton}"                            >
                                 <Button.Background>
                                     <ImageBrush ImageSource="Assets/Иконки и кнопки/карандаш.png" Stretch="Uniform"/>
                                 </Button.Background>
@@ -622,15 +682,15 @@
                         </Grid>
                         <Grid Grid.Row="2" Grid.Column="2" Margin="10,0,0,0">
                             <TextBlock HorizontalAlignment="Left" Text="ВЕРСИЯ:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
-                            <ComboBox x:ConnectionId='228' x:Name="Combo_Prg_Ver_3" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="80" Height="24" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,0,10,0"                                                     />
+                            <ComboBox x:ConnectionId='229' x:Name="Combo_Prg_Ver_3" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="80" Height="24" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,0,10,0"                                                     />
                         </Grid>
 
                         <Grid Grid.Row="3" Grid.Column="0" Margin="10,5,5,5" Padding="0,0,10,0" HorizontalAlignment="Left" >
-                            <CheckBox x:ConnectionId='227' x:Name="cb_Term_Enable_4" Style="{StaticResource MyCheckBox}" Content="ТЕРМИНАЛ 4" Width="100px" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20px"  Margin="0,0,0,0" FontFamily="Calibri" FontSize="12" IsTextScaleFactorEnabled="False"                                                                          />
+                            <CheckBox x:ConnectionId='228' x:Name="cb_Term_Enable_4" Style="{StaticResource MyCheckBox}" Content="ТЕРМИНАЛ 4" Width="100px" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20px"  Margin="0,0,0,0" FontFamily="Calibri" FontSize="12" IsTextScaleFactorEnabled="False"                                                                          />
                         </Grid>
                         <Grid Grid.Row="3" Grid.Column="1" Margin="10,0,40,0" >
-                            <TextBlock x:ConnectionId='225' x:Name="Prg_Adr_4" HorizontalAlignment="Left" Text="АДРЕС: 255" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
-                            <Button x:ConnectionId='226' x:Name="btn_Prg_Adr_4" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" Width="25" Height="25" Style="{StaticResource BackgrondButton}"                            >
+                            <TextBlock x:ConnectionId='226' x:Name="Prg_Adr_4" HorizontalAlignment="Left" Text="АДРЕС: 255" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
+                            <Button x:ConnectionId='227' x:Name="btn_Prg_Adr_4" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" Width="25" Height="25" Style="{StaticResource BackgrondButton}"                            >
                                 <Button.Background>
                                     <ImageBrush ImageSource="Assets/Иконки и кнопки/карандаш.png" Stretch="Uniform"/>
                                 </Button.Background>
@@ -638,15 +698,15 @@
                         </Grid>
                         <Grid Grid.Row="3" Grid.Column="2" Margin="10,0,0,0">
                             <TextBlock HorizontalAlignment="Left" Text="ВЕРСИЯ:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
-                            <ComboBox x:ConnectionId='224' x:Name="Combo_Prg_Ver_4" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="80" Height="24" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,0,10,0"                                                     />
+                            <ComboBox x:ConnectionId='225' x:Name="Combo_Prg_Ver_4" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="80" Height="24" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,0,10,0"                                                     />
                         </Grid>
 
                         <Grid Grid.Row="4" Grid.Column="0" Margin="10,5,5,5" Padding="0,0,10,0" HorizontalAlignment="Left" >
-                            <CheckBox x:ConnectionId='223' x:Name="cb_Term_Enable_5" Style="{StaticResource MyCheckBox}" Content="ТЕРМИНАЛ 5" Width="100px" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20px"  Margin="0,0,0,0" FontFamily="Calibri" FontSize="12" IsTextScaleFactorEnabled="False"                                                                           />
+                            <CheckBox x:ConnectionId='224' x:Name="cb_Term_Enable_5" Style="{StaticResource MyCheckBox}" Content="ТЕРМИНАЛ 5" Width="100px" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20px"  Margin="0,0,0,0" FontFamily="Calibri" FontSize="12" IsTextScaleFactorEnabled="False"                                                                           />
                         </Grid>
                         <Grid Grid.Row="4" Grid.Column="1" Margin="10,0,40,0" >
-                            <TextBlock x:ConnectionId='221' x:Name="Prg_Adr_5" HorizontalAlignment="Left" Text="АДРЕС: 255" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
-                            <Button x:ConnectionId='222' x:Name="btn_Prg_Adr_5" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" Width="25" Height="25" Style="{StaticResource BackgrondButton}"                            >
+                            <TextBlock x:ConnectionId='222' x:Name="Prg_Adr_5" HorizontalAlignment="Left" Text="АДРЕС: 255" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
+                            <Button x:ConnectionId='223' x:Name="btn_Prg_Adr_5" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" Width="25" Height="25" Style="{StaticResource BackgrondButton}"                            >
                                 <Button.Background>
                                     <ImageBrush ImageSource="Assets/Иконки и кнопки/карандаш.png" Stretch="Uniform"/>
                                 </Button.Background>
@@ -654,15 +714,15 @@
                         </Grid>
                         <Grid Grid.Row="4" Grid.Column="2" Margin="10,0,0,0">
                             <TextBlock HorizontalAlignment="Left" Text="ВЕРСИЯ:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
-                            <ComboBox x:ConnectionId='220' x:Name="Combo_Prg_Ver_5" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="80" Height="24" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,0,10,0"                                                     />
+                            <ComboBox x:ConnectionId='221' x:Name="Combo_Prg_Ver_5" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="80" Height="24" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,0,10,0"                                                     />
                         </Grid>
 
                         <Grid Grid.Row="5" Grid.Column="0" Margin="10,5,5,5" Padding="0,0,10,0" HorizontalAlignment="Left" >
-                            <CheckBox x:ConnectionId='219' x:Name="cb_Term_Enable_6" Style="{StaticResource MyCheckBox}" Content="ТЕРМИНАЛ 6" Width="100px" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20px"  Margin="0,0,0,0" FontFamily="Calibri" FontSize="12" IsTextScaleFactorEnabled="False"                                                                          />
+                            <CheckBox x:ConnectionId='220' x:Name="cb_Term_Enable_6" Style="{StaticResource MyCheckBox}" Content="ТЕРМИНАЛ 6" Width="100px" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20px"  Margin="0,0,0,0" FontFamily="Calibri" FontSize="12" IsTextScaleFactorEnabled="False"                                                                          />
                         </Grid>
                         <Grid Grid.Row="5" Grid.Column="1" Margin="10,0,40,0" >
-                            <TextBlock x:ConnectionId='217' x:Name="Prg_Adr_6" HorizontalAlignment="Left" Text="АДРЕС: 255" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
-                            <Button x:ConnectionId='218' x:Name="btn_Prg_Adr_6" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" Width="25" Height="25" Style="{StaticResource BackgrondButton}"                            >
+                            <TextBlock x:ConnectionId='218' x:Name="Prg_Adr_6" HorizontalAlignment="Left" Text="АДРЕС: 255" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
+                            <Button x:ConnectionId='219' x:Name="btn_Prg_Adr_6" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" Width="25" Height="25" Style="{StaticResource BackgrondButton}"                            >
                                 <Button.Background>
                                     <ImageBrush ImageSource="Assets/Иконки и кнопки/карандаш.png" Stretch="Uniform"/>
                                 </Button.Background>
@@ -670,15 +730,15 @@
                         </Grid>
                         <Grid Grid.Row="5" Grid.Column="2" Margin="10,0,0,0">
                             <TextBlock HorizontalAlignment="Left" Text="ВЕРСИЯ:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
-                            <ComboBox x:ConnectionId='216' x:Name="Combo_Prg_Ver_6" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="80" Height="24" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,0,10,0"                                                     />
+                            <ComboBox x:ConnectionId='217' x:Name="Combo_Prg_Ver_6" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="80" Height="24" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,0,10,0"                                                     />
                         </Grid>
 
                         <Grid Grid.Row="6" Grid.Column="0" Margin="10,5,5,5" Padding="0,0,10,0" HorizontalAlignment="Left" >
-                            <CheckBox x:ConnectionId='215' x:Name="cb_Term_Enable_7" Style="{StaticResource MyCheckBox}" Content="ТЕРМИНАЛ 7" Width="100px" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20px"  Margin="0,0,0,0" FontFamily="Calibri" FontSize="12" IsTextScaleFactorEnabled="False"                                                                          />
+                            <CheckBox x:ConnectionId='216' x:Name="cb_Term_Enable_7" Style="{StaticResource MyCheckBox}" Content="ТЕРМИНАЛ 7" Width="100px" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20px"  Margin="0,0,0,0" FontFamily="Calibri" FontSize="12" IsTextScaleFactorEnabled="False"                                                                          />
                         </Grid>
                         <Grid Grid.Row="6" Grid.Column="1" Margin="10,0,40,0" >
-                            <TextBlock x:ConnectionId='213' x:Name="Prg_Adr_7" HorizontalAlignment="Left" Text="АДРЕС: 255" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
-                            <Button x:ConnectionId='214' x:Name="btn_Prg_Adr_7" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" Width="25" Height="25" Style="{StaticResource BackgrondButton}"                            >
+                            <TextBlock x:ConnectionId='214' x:Name="Prg_Adr_7" HorizontalAlignment="Left" Text="АДРЕС: 255" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
+                            <Button x:ConnectionId='215' x:Name="btn_Prg_Adr_7" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" Width="25" Height="25" Style="{StaticResource BackgrondButton}"                            >
                                 <Button.Background>
                                     <ImageBrush ImageSource="Assets/Иконки и кнопки/карандаш.png" Stretch="Uniform"/>
                                 </Button.Background>
@@ -686,15 +746,15 @@
                         </Grid>
                         <Grid Grid.Row="6" Grid.Column="2" Margin="10,0,0,0">
                             <TextBlock HorizontalAlignment="Left" Text="ВЕРСИЯ:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
-                            <ComboBox x:ConnectionId='212' x:Name="Combo_Prg_Ver_7" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="80" Height="24" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,0,10,0"                                                    />
+                            <ComboBox x:ConnectionId='213' x:Name="Combo_Prg_Ver_7" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="80" Height="24" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,0,10,0"                                                    />
                         </Grid>
 
                         <Grid Grid.Row="7" Grid.Column="0" Margin="10,5,5,5" Padding="0,0,10,0" HorizontalAlignment="Left" >
-                            <CheckBox x:ConnectionId='211' x:Name="cb_Term_Enable_8" Style="{StaticResource MyCheckBox}" Content="ТЕРМИНАЛ 8" Width="100px" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20px"  Margin="0,0,0,0" FontFamily="Calibri" FontSize="12" IsTextScaleFactorEnabled="False"                                                                          />
+                            <CheckBox x:ConnectionId='212' x:Name="cb_Term_Enable_8" Style="{StaticResource MyCheckBox}" Content="ТЕРМИНАЛ 8" Width="100px" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20px"  Margin="0,0,0,0" FontFamily="Calibri" FontSize="12" IsTextScaleFactorEnabled="False"                                                                          />
                         </Grid>
                         <Grid Grid.Row="7" Grid.Column="1" Margin="10,0,40,0" >
-                            <TextBlock x:ConnectionId='209' x:Name="Prg_Adr_8" HorizontalAlignment="Left" Text="АДРЕС: 255" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
-                            <Button x:ConnectionId='210' x:Name="btn_Prg_Adr_8" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" Width="25" Height="25" Style="{StaticResource BackgrondButton}"                            >
+                            <TextBlock x:ConnectionId='210' x:Name="Prg_Adr_8" HorizontalAlignment="Left" Text="АДРЕС: 255" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
+                            <Button x:ConnectionId='211' x:Name="btn_Prg_Adr_8" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" Width="25" Height="25" Style="{StaticResource BackgrondButton}"                            >
                                 <Button.Background>
                                     <ImageBrush ImageSource="Assets/Иконки и кнопки/карандаш.png" Stretch="Uniform"/>
                                 </Button.Background>
@@ -702,15 +762,15 @@
                         </Grid>
                         <Grid Grid.Row="7" Grid.Column="2" Margin="10,0,0,0">
                             <TextBlock HorizontalAlignment="Left" Text="ВЕРСИЯ:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
-                            <ComboBox x:ConnectionId='208' x:Name="Combo_Prg_Ver_8" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="80" Height="24" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,0,10,0"                                                    />
+                            <ComboBox x:ConnectionId='209' x:Name="Combo_Prg_Ver_8" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="80" Height="24" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,0,10,0"                                                    />
                         </Grid>
 
                         <Grid Grid.Row="8" Grid.Column="0" Margin="10,5,5,5" Padding="0,0,10,0" HorizontalAlignment="Left" >
-                            <CheckBox x:ConnectionId='207' x:Name="cb_Term_Enable_9" Style="{StaticResource MyCheckBox}" Content="ТЕРМИНАЛ 9" Width="100px" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20px"  Margin="0,0,0,0" FontFamily="Calibri" FontSize="12" IsTextScaleFactorEnabled="False"                                                                          />
+                            <CheckBox x:ConnectionId='208' x:Name="cb_Term_Enable_9" Style="{StaticResource MyCheckBox}" Content="ТЕРМИНАЛ 9" Width="100px" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20px"  Margin="0,0,0,0" FontFamily="Calibri" FontSize="12" IsTextScaleFactorEnabled="False"                                                                          />
                         </Grid>
                         <Grid Grid.Row="8" Grid.Column="1" Margin="10,0,40,0" >
-                            <TextBlock x:ConnectionId='205' x:Name="Prg_Adr_9" HorizontalAlignment="Left" Text="АДРЕС: 255" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
-                            <Button x:ConnectionId='206' x:Name="btn_Prg_Adr_9" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" Width="25" Height="25" Style="{StaticResource BackgrondButton}"                            >
+                            <TextBlock x:ConnectionId='206' x:Name="Prg_Adr_9" HorizontalAlignment="Left" Text="АДРЕС: 255" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
+                            <Button x:ConnectionId='207' x:Name="btn_Prg_Adr_9" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" Width="25" Height="25" Style="{StaticResource BackgrondButton}"                            >
                                 <Button.Background>
                                     <ImageBrush ImageSource="Assets/Иконки и кнопки/карандаш.png" Stretch="Uniform"/>
                                 </Button.Background>
@@ -718,15 +778,15 @@
                         </Grid>
                         <Grid Grid.Row="8" Grid.Column="2" Margin="10,0,0,0">
                             <TextBlock HorizontalAlignment="Left" Text="ВЕРСИЯ:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
-                            <ComboBox x:ConnectionId='204' x:Name="Combo_Prg_Ver_9" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="80" Height="24" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,0,10,0"                                                     />
+                            <ComboBox x:ConnectionId='205' x:Name="Combo_Prg_Ver_9" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="80" Height="24" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,0,10,0"                                                     />
                         </Grid>
 
                         <Grid Grid.Row="9" Grid.Column="0" Margin="10,5,5,5" Padding="0,0,10,0" HorizontalAlignment="Left" >
-                            <CheckBox x:ConnectionId='203' x:Name="cb_Term_Enable_10" Style="{StaticResource MyCheckBox}" Content="ТЕРМИНАЛ 10" Width="100px" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20px"  Margin="0,0,0,0" FontFamily="Calibri" FontSize="12" IsTextScaleFactorEnabled="False"                                                                          />
+                            <CheckBox x:ConnectionId='204' x:Name="cb_Term_Enable_10" Style="{StaticResource MyCheckBox}" Content="ТЕРМИНАЛ 10" Width="100px" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20px"  Margin="0,0,0,0" FontFamily="Calibri" FontSize="12" IsTextScaleFactorEnabled="False"                                                                          />
                         </Grid>
                         <Grid Grid.Row="9" Grid.Column="1" Margin="10,0,40,0">
-                            <TextBlock x:ConnectionId='201' x:Name="Prg_Adr_10" HorizontalAlignment="Left" Text="АДРЕС: 255" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
-                            <Button x:ConnectionId='202' x:Name="btn_Prg_Adr_10" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" Width="25" Height="25" Style="{StaticResource BackgrondButton}"                            >
+                            <TextBlock x:ConnectionId='202' x:Name="Prg_Adr_10" HorizontalAlignment="Left" Text="АДРЕС: 255" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
+                            <Button x:ConnectionId='203' x:Name="btn_Prg_Adr_10" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" Width="25" Height="25" Style="{StaticResource BackgrondButton}"                            >
                                 <Button.Background>
                                     <ImageBrush ImageSource="Assets/Иконки и кнопки/карандаш.png" Stretch="Uniform"/>
                                 </Button.Background>
@@ -734,7 +794,7 @@
                         </Grid>
                         <Grid Grid.Row="9" Grid.Column="2" Margin="10,0,0,0">
                             <TextBlock HorizontalAlignment="Left" Text="ВЕРСИЯ:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
-                            <ComboBox x:ConnectionId='200' x:Name="Combo_Prg_Ver_10" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="80" Height="24" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,0,10,0"                                                    />
+                            <ComboBox x:ConnectionId='201' x:Name="Combo_Prg_Ver_10" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="80" Height="24" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,0,10,0"                                                    />
                         </Grid>
 
                     </Grid>
@@ -1090,7 +1150,7 @@
 
                     </Grid>
                 </Grid>
-                <Grid x:ConnectionId='106'  Grid.Column="0" Grid.Row="2" x:Name="Grid_Post_Bottom" BorderBrush="#9AA1A6" BorderThickness="0,0,0,1" Visibility="Visible">
+                <Grid x:ConnectionId='106'  Grid.Column="0" Grid.Row="2" x:Name="Grid_Post_Bottom" BorderBrush="#9AA1A6" BorderThickness="0,0,0,1" Visibility="Collapsed">
                     <Button Content="ПУСК" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="50" Height="50" Background="#FF22A419"  Foreground="White" FontFamily="Calibri" FontSize="12" Margin="30,75,0,0"/>
                     <Button Content="СТОП" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" Background="#FFBE1E2D"  Foreground="White" FontFamily="Calibri" FontSize="12" Margin="95,75,0,0"/>
                     <Button Content="НОЛЬ" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" Background="#FF00B46D" Foreground="White" FontFamily="Calibri" FontSize="12" Margin="160,75,0,0"/>
@@ -1170,7 +1230,7 @@
                     <TextBlock x:ConnectionId='97' x:Name="tb_Weight_Post_1" Style="{StaticResource TextBlockCalibri}" HorizontalAlignment="Left" Text="ВЕС: 34.56" TextWrapping="Wrap" VerticalAlignment="Top"/>
                     <TextBlock x:ConnectionId='98' x:Name="tb_State_Post_1" HorizontalAlignment="Left" Text="СОСТОЯНИЕ: ОЖИДАНИЕ" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource TextBlockCalibri}"/>
                     <TextBlock x:ConnectionId='99' x:Name="tb_OutWeight_Post_1" HorizontalAlignment="Left" Text="ОТГРУЖЕНО: 1234" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
-                    <TextBlock x:ConnectionId='100' x:Name="tb_ID_Post_1" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
+                    <TextBlock x:ConnectionId='100' x:Name="Text_ID_Post_1" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
                 </StackPanel>
                 <TextBlock HorizontalAlignment="Right" Text="1" TextWrapping="Wrap" VerticalAlignment="Bottom" Margin="0,0,10,10" Foreground="#FF7192A0"/>
             </Grid>
@@ -1180,7 +1240,7 @@
                     <TextBlock x:ConnectionId='93' x:Name="tb_Weight_Post_2" Style="{StaticResource TextBlockCalibri}" HorizontalAlignment="Left" Text="ВЕС: 34.56" TextWrapping="Wrap" VerticalAlignment="Top"/>
                     <TextBlock x:ConnectionId='94' x:Name="tb_State_Post_2" HorizontalAlignment="Left" Text="СОСТОЯНИЕ: ОЖИДАНИЕ" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource TextBlockCalibri}"/>
                     <TextBlock x:ConnectionId='95' x:Name="tb_OutWeight_Post_2" HorizontalAlignment="Left" Text="ОТГРУЖЕНО: 1234" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
-                    <TextBlock x:ConnectionId='96' x:Name="tb_ID_Post_2" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
+                    <TextBlock x:ConnectionId='96' x:Name="Text_ID_Post_2" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
                 </StackPanel>
             </Grid>
             <Grid x:ConnectionId='53' Grid.Row="0" Grid.Column="2" x:Name="Grid_Post_3"  BorderBrush="#9AA1A6" BorderThickness="0,0,1,1" Style="{StaticResource GridPostDark}"                                                                                                                                  >
@@ -1189,7 +1249,7 @@
                     <TextBlock x:ConnectionId='89' x:Name="tb_Weight_Post_3" Style="{StaticResource TextBlockCalibri}" HorizontalAlignment="Left" Text="ВЕС: 34.56" TextWrapping="Wrap" VerticalAlignment="Top"/>
                     <TextBlock x:ConnectionId='90' x:Name="tb_State_Post_3" HorizontalAlignment="Left" Text="СОСТОЯНИЕ: ОЖИДАНИЕ" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource TextBlockCalibri}"/>
                     <TextBlock x:ConnectionId='91' x:Name="tb_OutWeight_Post_3" HorizontalAlignment="Left" Text="ОТГРУЖЕНО: 1234" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
-                    <TextBlock x:ConnectionId='92' x:Name="tb_ID_Post_3" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
+                    <TextBlock x:ConnectionId='92' x:Name="Text_ID_Post_3" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
                 </StackPanel>
             </Grid>
             <Grid x:ConnectionId='54' Grid.Row="0" Grid.Column="3" x:Name="Grid_Post_4" Background="#738188" BorderBrush="#9AA1A6" BorderThickness="0,0,1,1"                                                                                                                                  >
@@ -1198,7 +1258,7 @@
                     <TextBlock x:ConnectionId='85' x:Name="tb_Weight_Post_4" Style="{StaticResource TextBlockCalibri}" HorizontalAlignment="Left" Text="ВЕС: 34.56" TextWrapping="Wrap" VerticalAlignment="Top"/>
                     <TextBlock x:ConnectionId='86' x:Name="tb_State_Post_4" HorizontalAlignment="Left" Text="СОСТОЯНИЕ: ОЖИДАНИЕ" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource TextBlockCalibri}"/>
                     <TextBlock x:ConnectionId='87' x:Name="tb_OutWeight_Post_4" HorizontalAlignment="Left" Text="ОТГРУЖЕНО: 1234" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
-                    <TextBlock x:ConnectionId='88' x:Name="tb_ID_Post_4" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
+                    <TextBlock x:ConnectionId='88' x:Name="Text_ID_Post_4" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
                 </StackPanel>
             </Grid>
             <Grid x:ConnectionId='55' Grid.Row="0" Grid.Column="4" x:Name="Grid_Post_5" BorderBrush="#9AA1A6" BorderThickness="0,0,0,1" Style="{StaticResource GridPostDark}"                                                                                                                                  >
@@ -1207,7 +1267,7 @@
                     <TextBlock x:ConnectionId='81' x:Name="tb_Weight_Post_5" Style="{StaticResource TextBlockCalibri}" HorizontalAlignment="Left" Text="ВЕС: 34.56" TextWrapping="Wrap" VerticalAlignment="Top"/>
                     <TextBlock x:ConnectionId='82' x:Name="tb_State_Post_5" HorizontalAlignment="Left" Text="СОСТОЯНИЕ: ОЖИДАНИЕ" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource TextBlockCalibri}"/>
                     <TextBlock x:ConnectionId='83' x:Name="tb_OutWeight_Post_5" HorizontalAlignment="Left" Text="ОТГРУЖЕНО: 1234" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
-                    <TextBlock x:ConnectionId='84' x:Name="tb_ID_Post_5" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
+                    <TextBlock x:ConnectionId='84' x:Name="Text_ID_Post_5" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
                 </StackPanel>
             </Grid>
             <Grid x:ConnectionId='56' Grid.Row="1" Grid.Column="0" x:Name="Grid_Post_6" Background="#738188" BorderBrush="#9AA1A6" BorderThickness="0,0,1,0"                                                                                                                                  >
@@ -1216,7 +1276,7 @@
                     <TextBlock x:ConnectionId='77' x:Name="tb_Weight_Post_6" Style="{StaticResource TextBlockCalibri}" HorizontalAlignment="Left" Text="ВЕС: 34.56" TextWrapping="Wrap" VerticalAlignment="Top"/>
                     <TextBlock x:ConnectionId='78' x:Name="tb_State_Post_6" HorizontalAlignment="Left" Text="СОСТОЯНИЕ: ОЖИДАНИЕ" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource TextBlockCalibri}"/>
                     <TextBlock x:ConnectionId='79' x:Name="tb_OutWeight_Post_6" HorizontalAlignment="Left" Text="ОТГРУЖЕНО: 1234" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
-                    <TextBlock x:ConnectionId='80' x:Name="tb_ID_Post_6" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
+                    <TextBlock x:ConnectionId='80' x:Name="Text_ID_Post_6" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
                 </StackPanel>
             </Grid>
             <Grid x:ConnectionId='57' Grid.Row="1" Grid.Column="1" x:Name="Grid_Post_7" BorderBrush="#9AA1A6" BorderThickness="0,0,1,0" Style="{StaticResource GridPostDark}"                                                                                                                                  >
@@ -1225,7 +1285,7 @@
                     <TextBlock x:ConnectionId='73' x:Name="tb_Weight_Post_7" Style="{StaticResource TextBlockCalibri}" HorizontalAlignment="Left" Text="ВЕС: 34.56" TextWrapping="Wrap" VerticalAlignment="Top"/>
                     <TextBlock x:ConnectionId='74' x:Name="tb_State_Post_7" HorizontalAlignment="Left" Text="СОСТОЯНИЕ: ОЖИДАНИЕ" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource TextBlockCalibri}"/>
                     <TextBlock x:ConnectionId='75' x:Name="tb_OutWeight_Post_7" HorizontalAlignment="Left" Text="ОТГРУЖЕНО: 1234" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
-                    <TextBlock x:ConnectionId='76' x:Name="tb_ID_Post_7" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
+                    <TextBlock x:ConnectionId='76' x:Name="Text_ID_Post_7" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
                 </StackPanel>
             </Grid>
             <Grid x:ConnectionId='58' Grid.Row="1" Grid.Column="2" x:Name="Grid_Post_8" Background="#738188" BorderBrush="#9AA1A6" BorderThickness="0,0,1,0"                                                                                                                                  >
@@ -1234,7 +1294,7 @@
                     <TextBlock x:ConnectionId='69' x:Name="tb_Weight_Post_8" Style="{StaticResource TextBlockCalibri}" HorizontalAlignment="Left" Text="ВЕС: 34.56" TextWrapping="Wrap" VerticalAlignment="Top"/>
                     <TextBlock x:ConnectionId='70' x:Name="tb_State_Post_8" HorizontalAlignment="Left" Text="СОСТОЯНИЕ: ОЖИДАНИЕ" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource TextBlockCalibri}"/>
                     <TextBlock x:ConnectionId='71' x:Name="tb_OutWeight_Post_8" HorizontalAlignment="Left" Text="ОТГРУЖЕНО: 1234" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
-                    <TextBlock x:ConnectionId='72' x:Name="tb_ID_Post_8" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
+                    <TextBlock x:ConnectionId='72' x:Name="Text_ID_Post_8" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
                 </StackPanel>
             </Grid>
             <Grid x:ConnectionId='59' Grid.Row="1" Grid.Column="3" x:Name="Grid_Post_9" BorderBrush="#9AA1A6" BorderThickness="0,0,1,0" Style="{StaticResource GridPostDark}"                                                                                                                                  >
@@ -1243,7 +1303,7 @@
                     <TextBlock x:ConnectionId='65' x:Name="tb_Weight_Post_9" Style="{StaticResource TextBlockCalibri}" HorizontalAlignment="Left" Text="ВЕС: 34.56" TextWrapping="Wrap" VerticalAlignment="Top"/>
                     <TextBlock x:ConnectionId='66' x:Name="tb_State_Post_9" HorizontalAlignment="Left" Text="СОСТОЯНИЕ: ОЖИДАНИЕ" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource TextBlockCalibri}"/>
                     <TextBlock x:ConnectionId='67' x:Name="tb_OutWeight_Post_9" HorizontalAlignment="Left" Text="ОТГРУЖЕНО: 1234" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
-                    <TextBlock x:ConnectionId='68' x:Name="tb_ID_Post_9" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
+                    <TextBlock x:ConnectionId='68' x:Name="Text_ID_Post_9" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
                 </StackPanel>
             </Grid>
             <Grid x:ConnectionId='60' Grid.Row="1" Grid.Column="4" x:Name="Grid_Post_10" Background="#738188" BorderBrush="#9AA1A6" BorderThickness="0,0,1,0"                                                                                                                                  >
@@ -1252,7 +1312,7 @@
                     <TextBlock x:ConnectionId='61' x:Name="tb_Weight_Post_10" Style="{StaticResource TextBlockCalibri}" HorizontalAlignment="Left" Text="ВЕС: 34.56" TextWrapping="Wrap" VerticalAlignment="Top"/>
                     <TextBlock x:ConnectionId='62' x:Name="tb_State_Post_10" HorizontalAlignment="Left" Text="СОСТОЯНИЕ: ОЖИДАНИЕ" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource TextBlockCalibri}"/>
                     <TextBlock x:ConnectionId='63' x:Name="tb_OutWeight_Post_10" HorizontalAlignment="Left" Text="ОТГРУЖЕНО: 1234" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
-                    <TextBlock x:ConnectionId='64' x:Name="tb_ID_Post_10" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
+                    <TextBlock x:ConnectionId='64' x:Name="Text_ID_Post_10" HorizontalAlignment="Left" Text="ID: ДРОБЛЕНКА" TextWrapping="Wrap" VerticalAlignment="Top"  Style="{StaticResource TextBlockCalibri}"/>
                 </StackPanel>
             </Grid>
         </Grid>

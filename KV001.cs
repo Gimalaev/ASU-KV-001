@@ -12,6 +12,10 @@ namespace ASU_KV_001
     {
         private string out_str;
 
+        public int SmenaNum;                //Количество смен
+        public int SmenaHour;               // Начало первой смены - час
+        public int SmenaMinute;             //Минуты начала первой смены 0 - 0минут, 1 - 30 минут.
+
         public int ComBaud;
         public int ComMode;
         public int ComDevice;
@@ -20,8 +24,38 @@ namespace ASU_KV_001
         public UInt16[] num = new UInt16[10];
         public bool[] enable = new bool[10];
         public UInt16[] ver = new UInt16[10];
+        public int[] selected_id = new int[10]; //выбраный идентификатор
 
+        public byte SmenaNow(byte hour_t, byte minute_t, byte second_t)
+        {
+            byte i = 0, o;
+            UInt32 n_tm, f_tm, pl_tm, h1, m1, s1;
 
+            h1 = hour_t;
+            m1 = minute_t;
+            s1 = second_t;
+            n_tm = (h1 * 60 + m1) * 60 + s1;
+
+            h1 = (UInt32)SmenaHour;
+            if (SmenaMinute == 0)
+                m1 = 0;
+            else m1 = 30;
+            s1 = 0;
+            f_tm = (h1 * 60 + m1) * 60 + s1;
+            h1 = 86400; m1 = (UInt32)(SmenaNum + 1);
+            pl_tm = h1 / m1;
+            i = 0;
+            for (o = 1; o <= (SmenaNum + 1); o++)
+            {
+
+                if (n_tm >= f_tm) i++;
+                f_tm += pl_tm;
+            }
+
+            if (i == 0) i = (byte)(SmenaNum + 1);
+            return (i);
+
+        }
         public async Task SaveParFile(string filename)
         {
             string content = "";
@@ -30,6 +64,9 @@ namespace ASU_KV_001
             content += "РЕЖИМ="; content += ComMode; content += "\n";
             content += "УСТРОЙСТВО="; content += ComDevice; content += "\n";
             content += "ЗАПУСК="; content += ComMonitor; content += "\n";
+            content += "КОЛВО_СМЕН="; content += SmenaNum; content += "\n";
+            content += "СМЕНА_ЧАС="; content += SmenaHour; content += "\n";
+            content += "СМЕНА_МИНУТЫ="; content += SmenaMinute; content += "\n";
 
             for (ushort i = 0; i < 10; i++)
             {
@@ -37,6 +74,7 @@ namespace ASU_KV_001
                 content += "АКТИВНОСТЬ="; content += enable[i]; content += "\n";
                 content += "СЕТЕВОЙ_НОМЕР="; content += num[i]; content += "\n";
                 content += "ВЕРСИЯ="; content += ver[i]; content += "\n";
+                content += "ИДЕНТИФИКАТОР="; content += selected_id[i]; content += "\n";
             }
             //   content = content.Replace(".", ",");
 
@@ -86,6 +124,18 @@ namespace ASU_KV_001
                     {
                         s = line.Replace("ЗАПУСК=", ""); ComMonitor = Convert.ToUInt16(s);
                     }
+                    if (line.Contains("КОЛВО_СМЕН="))
+                    {
+                        s = line.Replace("КОЛВО_СМЕН=", ""); SmenaNum = Convert.ToUInt16(s);
+                    }
+                    if (line.Contains("СМЕНА_ЧАС="))
+                    {
+                        s = line.Replace("СМЕНА_ЧАС=", ""); SmenaHour = Convert.ToUInt16(s);
+                    }
+                    if (line.Contains("СМЕНА_МИНУТЫ="))
+                    {
+                        s = line.Replace("СМЕНА_МИНУТЫ=", ""); SmenaMinute = Convert.ToUInt16(s);
+                    }
 
                     if (line.Contains("КОНТОЛЕР="))
                     {
@@ -106,6 +156,10 @@ namespace ASU_KV_001
                     {
                         s = line.Replace("ВЕРСИЯ=", ""); ver[tn] = Convert.ToUInt16(s);
                     }
+                    if (line.Contains("ИДЕНТИФИКАТОР="))
+                    {
+                        s = line.Replace("ИДЕНТИФИКАТОР=", ""); selected_id[tn] = Convert.ToUInt16(s);
+                    }
 
                 }
 
@@ -122,6 +176,7 @@ namespace ASU_KV_001
     {
         public float[] weight = new float[10];
         public short[] state = new short[10];
+        public short[] arc_state = new short[10];
         public float[,] last_doze = new float[10, 3];
         public UInt32[] count_doze = new UInt32[10];
         public float[] sum_doze = new float[10];

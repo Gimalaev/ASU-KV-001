@@ -25746,24 +25746,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Sergey\\.nuget\\packages\\": {},
+    "C:\\Users\\sgima\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Работа\\C# Proj\\ASU-KV-001_2017\\ASU_KV_001.csproj",
+      "projectUniqueName": "D:\\C# Proj\\ASU-KV-001\\ASU_KV_001.csproj",
       "projectName": "ASU_KV_001",
-      "projectPath": "D:\\Работа\\C# Proj\\ASU-KV-001_2017\\ASU_KV_001.csproj",
-      "packagesPath": "C:\\Users\\Sergey\\.nuget\\packages\\",
-      "outputPath": "D:\\Работа\\C# Proj\\ASU-KV-001_2017\\obj\\",
+      "projectPath": "D:\\C# Proj\\ASU-KV-001\\ASU_KV_001.csproj",
+      "packagesPath": "C:\\Users\\sgima\\.nuget\\packages\\",
+      "outputPath": "D:\\C# Proj\\ASU-KV-001\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Sergey\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sgima\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
