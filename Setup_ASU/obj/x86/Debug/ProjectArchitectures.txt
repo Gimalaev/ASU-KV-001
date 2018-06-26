@@ -1,0 +1,2 @@
+D:\Работа\C# Proj\ASU-KV-001\ASU_KV_001.csproj;x86
+D:\Работа\C# Proj\ASU-KV-001\Setup_ASU\Setup_ASU.wapproj;x86

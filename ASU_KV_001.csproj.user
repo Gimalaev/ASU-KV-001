@@ -14,4 +14,18 @@
     <AuthenticationMode>Universal</AuthenticationMode>
     <RemoteDebugEnabled>true</RemoteDebugEnabled>
   </PropertyGroup>
+  <PropertyGroup>
+    <AppxPackageIsForStore>True</AppxPackageIsForStore>
+    <AppxShowAllApps>False</AppxShowAllApps>
+    <AppxBuildConfigurationSelection>x86|x64</AppxBuildConfigurationSelection>
+    <PackageOptionalProjectsInIdeBuilds>False</PackageOptionalProjectsInIdeBuilds>
+    <Source>D:\Работа\C# Proj\ASU-KV-001\Assets\Square150x150Logo.scale-200.png</Source>
+    <SmallTileSource>D:\Работа\C# Proj\ASU-KV-001\Assets\Square150x150Logo.scale-200.png</SmallTileSource>
+    <MediumTileSource>D:\Работа\C# Proj\ASU-KV-001\Assets\Square150x150Logo.scale-200.png</MediumTileSource>
+    <WideTileSource>D:\Работа\C# Proj\ASU-KV-001\Assets\Square150x150Logo.scale-200.png</WideTileSource>
+    <LargeTileSource>D:\Работа\C# Proj\ASU-KV-001\Assets\Square150x150Logo.scale-200.png</LargeTileSource>
+    <AppIconSource>D:\Работа\C# Proj\ASU-KV-001\Assets\Square150x150Logo.scale-200.png</AppIconSource>
+    <SplashScreenSource>D:\Работа\C# Proj\ASU-KV-001\Assets\Square150x150Logo.scale-200.png</SplashScreenSource>
+    <PackageLogoSource>D:\Работа\C# Proj\ASU-KV-001\Assets\Square150x150Logo.scale-200.png</PackageLogoSource>
+  </PropertyGroup>
 </Project>

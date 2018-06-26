@@ -12,14 +12,14 @@ namespace ASU_KV_001
 {
     public partial class App : global::Windows.UI.Xaml.Markup.IXamlMetadataProvider
     {
-        private global::TerminalKV001.ASU_KV_001_XamlTypeInfo.XamlMetaDataProvider __appProvider;
-        private global::TerminalKV001.ASU_KV_001_XamlTypeInfo.XamlMetaDataProvider _AppProvider
+        private global::AsuKV001.ASU_KV_001_XamlTypeInfo.XamlMetaDataProvider __appProvider;
+        private global::AsuKV001.ASU_KV_001_XamlTypeInfo.XamlMetaDataProvider _AppProvider
         {
             get
             {
                 if (__appProvider == null)
                 {
-                    __appProvider = new global::TerminalKV001.ASU_KV_001_XamlTypeInfo.XamlMetaDataProvider();
+                    __appProvider = new global::AsuKV001.ASU_KV_001_XamlTypeInfo.XamlMetaDataProvider();
                 }
                 return __appProvider;
             }
@@ -51,7 +51,7 @@ namespace ASU_KV_001
     }
 }
 
-namespace TerminalKV001.ASU_KV_001_XamlTypeInfo
+namespace AsuKV001.ASU_KV_001_XamlTypeInfo
 {
     /// <summary>
     /// Main class for providing metadata for the app or library
@@ -60,15 +60,15 @@ namespace TerminalKV001.ASU_KV_001_XamlTypeInfo
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     public sealed class XamlMetaDataProvider : global::Windows.UI.Xaml.Markup.IXamlMetadataProvider
     {
-        private global::TerminalKV001.ASU_KV_001_XamlTypeInfo.XamlTypeInfoProvider _provider = null;
+        private global::AsuKV001.ASU_KV_001_XamlTypeInfo.XamlTypeInfoProvider _provider = null;
 
-        private global::TerminalKV001.ASU_KV_001_XamlTypeInfo.XamlTypeInfoProvider Provider
+        private global::AsuKV001.ASU_KV_001_XamlTypeInfo.XamlTypeInfoProvider Provider
         {
             get
             {
                 if (_provider == null)
                 {
-                    _provider = new global::TerminalKV001.ASU_KV_001_XamlTypeInfo.XamlTypeInfoProvider();
+                    _provider = new global::AsuKV001.ASU_KV_001_XamlTypeInfo.XamlTypeInfoProvider();
                 }
                 return _provider;
             }
@@ -236,8 +236,8 @@ namespace TerminalKV001.ASU_KV_001_XamlTypeInfo
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
-            global::TerminalKV001.ASU_KV_001_XamlTypeInfo.XamlSystemBaseType xamlType = null;
-            global::TerminalKV001.ASU_KV_001_XamlTypeInfo.XamlUserType userType;
+            global::AsuKV001.ASU_KV_001_XamlTypeInfo.XamlSystemBaseType xamlType = null;
+            global::AsuKV001.ASU_KV_001_XamlTypeInfo.XamlUserType userType;
             string typeName = _typeNameTable[typeIndex];
             global::System.Type type = _typeTable[typeIndex];
 
@@ -245,7 +245,7 @@ namespace TerminalKV001.ASU_KV_001_XamlTypeInfo
             {
 
             case 0:   //  ASU_KV_001.Input_Num_Dialog
-                userType = new global::TerminalKV001.ASU_KV_001_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.ContentDialog"));
+                userType = new global::AsuKV001.ASU_KV_001_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.ContentDialog"));
                 userType.Activator = Activate_0_Input_Num_Dialog;
                 userType.AddMemberName("Text");
                 userType.SetIsLocalType();
@@ -253,30 +253,30 @@ namespace TerminalKV001.ASU_KV_001_XamlTypeInfo
                 break;
 
             case 1:   //  Windows.UI.Xaml.Controls.ContentDialog
-                xamlType = new global::TerminalKV001.ASU_KV_001_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::AsuKV001.ASU_KV_001_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
             case 2:   //  Windows.UI.Xaml.Controls.ContentControl
-                xamlType = new global::TerminalKV001.ASU_KV_001_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::AsuKV001.ASU_KV_001_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
             case 3:   //  String
-                xamlType = new global::TerminalKV001.ASU_KV_001_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::AsuKV001.ASU_KV_001_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
             case 4:   //  ASU_KV_001.MainPage
-                userType = new global::TerminalKV001.ASU_KV_001_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType = new global::AsuKV001.ASU_KV_001_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_4_MainPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
             case 5:   //  Windows.UI.Xaml.Controls.Page
-                xamlType = new global::TerminalKV001.ASU_KV_001_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::AsuKV001.ASU_KV_001_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
             case 6:   //  Windows.UI.Xaml.Controls.UserControl
-                xamlType = new global::TerminalKV001.ASU_KV_001_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::AsuKV001.ASU_KV_001_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }
             return xamlType;
@@ -296,14 +296,14 @@ namespace TerminalKV001.ASU_KV_001_XamlTypeInfo
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
-            global::TerminalKV001.ASU_KV_001_XamlTypeInfo.XamlMember xamlMember = null;
-            global::TerminalKV001.ASU_KV_001_XamlTypeInfo.XamlUserType userType;
+            global::AsuKV001.ASU_KV_001_XamlTypeInfo.XamlMember xamlMember = null;
+            global::AsuKV001.ASU_KV_001_XamlTypeInfo.XamlUserType userType;
 
             switch (longMemberName)
             {
             case "ASU_KV_001.Input_Num_Dialog.Text":
-                userType = (global::TerminalKV001.ASU_KV_001_XamlTypeInfo.XamlUserType)GetXamlTypeByName("ASU_KV_001.Input_Num_Dialog");
-                xamlMember = new global::TerminalKV001.ASU_KV_001_XamlTypeInfo.XamlMember(this, "Text", "String");
+                userType = (global::AsuKV001.ASU_KV_001_XamlTypeInfo.XamlUserType)GetXamlTypeByName("ASU_KV_001.Input_Num_Dialog");
+                xamlMember = new global::AsuKV001.ASU_KV_001_XamlTypeInfo.XamlMember(this, "Text", "String");
                 xamlMember.Getter = get_0_Input_Num_Dialog_Text;
                 xamlMember.Setter = set_0_Input_Num_Dialog_Text;
                 break;
@@ -362,9 +362,9 @@ namespace TerminalKV001.ASU_KV_001_XamlTypeInfo
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 10.0.16.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    internal class XamlUserType : global::TerminalKV001.ASU_KV_001_XamlTypeInfo.XamlSystemBaseType
+    internal class XamlUserType : global::AsuKV001.ASU_KV_001_XamlTypeInfo.XamlSystemBaseType
     {
-        global::TerminalKV001.ASU_KV_001_XamlTypeInfo.XamlTypeInfoProvider _provider;
+        global::AsuKV001.ASU_KV_001_XamlTypeInfo.XamlTypeInfoProvider _provider;
         global::Windows.UI.Xaml.Markup.IXamlType _baseType;
         bool _isArray;
         bool _isMarkupExtension;
@@ -378,7 +378,7 @@ namespace TerminalKV001.ASU_KV_001_XamlTypeInfo
         global::System.Collections.Generic.Dictionary<string, string> _memberNames;
         global::System.Collections.Generic.Dictionary<string, object> _enumValues;
 
-        public XamlUserType(global::TerminalKV001.ASU_KV_001_XamlTypeInfo.XamlTypeInfoProvider provider, string fullName, global::System.Type fullType, global::Windows.UI.Xaml.Markup.IXamlType baseType)
+        public XamlUserType(global::AsuKV001.ASU_KV_001_XamlTypeInfo.XamlTypeInfoProvider provider, string fullName, global::System.Type fullType, global::Windows.UI.Xaml.Markup.IXamlType baseType)
             :base(fullName, fullType)
         {
             _provider = provider;
@@ -575,7 +575,7 @@ namespace TerminalKV001.ASU_KV_001_XamlTypeInfo
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     internal class XamlMember : global::Windows.UI.Xaml.Markup.IXamlMember
     {
-        global::TerminalKV001.ASU_KV_001_XamlTypeInfo.XamlTypeInfoProvider _provider;
+        global::AsuKV001.ASU_KV_001_XamlTypeInfo.XamlTypeInfoProvider _provider;
         string _name;
         bool _isAttachable;
         bool _isDependencyProperty;
@@ -584,7 +584,7 @@ namespace TerminalKV001.ASU_KV_001_XamlTypeInfo
         string _typeName;
         string _targetTypeName;
 
-        public XamlMember(global::TerminalKV001.ASU_KV_001_XamlTypeInfo.XamlTypeInfoProvider provider, string name, string typeName)
+        public XamlMember(global::AsuKV001.ASU_KV_001_XamlTypeInfo.XamlTypeInfoProvider provider, string name, string typeName)
         {
             _name = name;
             _typeName = typeName;

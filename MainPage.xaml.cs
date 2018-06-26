@@ -2288,6 +2288,7 @@ namespace ASU_KV_001
         {
             prg_par.selected_id[term_now] = Combo_Post_ID.SelectedIndex;
             await prg_par.SaveParFile(prg_filename); par_flag = false;
+            UpdatePostEnabled();
         }
 
         private void Button_Param_Smena_Click(object sender, RoutedEventArgs e)
@@ -2300,7 +2301,7 @@ namespace ASU_KV_001
             Grid_Param_Smena.Background = BrushOn;
             Grid_Param_Term.Background = BrushOff;
             Grid_Param_Com.Background = BrushOff;
-            UpdatePostEnabled();
+
 
         }
 
