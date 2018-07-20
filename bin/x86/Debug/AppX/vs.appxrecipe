@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>4C50371CFA13440882705080A34B88ABCE3015A90171E8B06438810DFDBB873A</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>A26608158D0D1AEA9427C79473031A778974E06EF13DE098C5716C33B7AE1622</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>2742F410823B.40196E1CC90A3_1.1.0.0_x86__9jbtjn1f8fk2j</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>2742F410823B.40196E1CC90A3_9jbtjn1f8fk2j!App</RegisteredUserModeAppID>
     <RegisteredPackageID>2742F410823B.40196E1CC90A3</RegisteredPackageID>
@@ -31,13 +31,13 @@
     <AppXManifest Include="D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-06-26T11:55:26.336</Modified>
+      <Modified>2018-07-02T08:52:46.976</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\ASU-KV-001.exe">
       <PackagePath>entrypoint\ASU-KV-001.exe</PackagePath>
-      <Modified>2018-06-26T11:55:23.428</Modified>
+      <Modified>2018-07-02T08:52:44.088</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sergey\.nuget\packages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.0-preview1-26502-02\runtimes\win10-x86\nativeassets\uap10.0.15138\clrcompression.dll">
       <PackagePath>clrcompression.dll</PackagePath>
@@ -823,7 +823,7 @@
     <AppxPackagedFile Include="D:\Работа\C# Proj\ASU-KV-001\Assets\Square150x150Logo.scale-400.png">
       <PackagePath>Assets\Square150x150Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-06-26T11:54:32.624</Modified>
+      <Modified>2018-06-26T13:25:05.744</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Работа\C# Proj\ASU-KV-001\Assets\Square44x44Logo.altform-unplated_targetsize-16.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-16.png</PackagePath>
@@ -967,7 +967,7 @@
     <AppxPackagedFile Include="D:\Работа\C# Proj\ASU-KV-001\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-06-26T11:54:32.546</Modified>
+      <Modified>2018-06-26T13:26:00.161</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Работа\C# Proj\ASU-KV-001\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
@@ -994,15 +994,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2018-06-26T11:55:22.475</Modified>
+      <Modified>2018-07-02T08:52:43.315</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\Input_Num_Dialog.xbf">
       <PackagePath>Input_Num_Dialog.xbf</PackagePath>
-      <Modified>2018-06-26T11:55:22.476</Modified>
+      <Modified>2018-07-02T08:52:43.316</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2018-06-26T11:55:22.477</Modified>
+      <Modified>2018-07-02T08:52:43.317</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.16299.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -1011,11 +1011,11 @@
     <AppxPackagedFile Include="D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-06-26T11:55:25.428</Modified>
+      <Modified>2018-07-02T08:52:46.238</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\Core\ASU-KV-001.exe">
       <PackagePath>ASU-KV-001.exe</PackagePath>
-      <Modified>2018-06-26T11:55:26.326</Modified>
+      <Modified>2018-07-02T08:52:46.964</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

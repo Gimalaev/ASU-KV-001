@@ -313,14 +313,6 @@
       <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-arm.microsoft.net.native.compiler\2.1.8\build\..\tools\Runtime\arm\Microsoft.NET.Native.Runtime.2.1.appx</AppxLocation>
       <MoreInfo></MoreInfo>
     </ResolvedSDKReference>
-    <ResolvedSDKReference Include="C:\Users\Sergey\.nuget\packages\runtime.win10-arm64.microsoft.net.native.compiler\2.1.8-nativerel-26502-00\build\..\tools\Runtime\arm64\Microsoft.NET.Native.Runtime.2.1-rel.appx">
-      <Name>Microsoft.NET.Native.Runtime.2.1-rel</Name>
-      <Version>2.1.26502.0</Version>
-      <Architecture>arm64</Architecture>
-      <FrameworkIdentity>Name = Microsoft.NET.Native.Runtime.2.1-rel, MinVersion = 2.1.26502.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Users\Sergey\.nuget\packages\runtime.win10-arm64.microsoft.net.native.compiler\2.1.8-nativerel-26502-00\build\..\tools\Runtime\arm64\Microsoft.NET.Native.Runtime.2.1-rel.appx</AppxLocation>
-      <MoreInfo></MoreInfo>
-    </ResolvedSDKReference>
     <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
       <Name>Microsoft.VCLibs.140.00</Name>
       <Version>14.0.25426.0</Version>

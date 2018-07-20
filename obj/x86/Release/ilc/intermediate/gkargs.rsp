@@ -4,6 +4,6 @@
 /Lib:"D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\ilc\in"
 /Lib:"C:\Program Files (x86)\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.native.compiler\2.1.8\tools\x86\ilc\lib\Private"
 /WinMD:"D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\ilc\in\WinMetadata\Windows.winmd"
-/VSTelemetrySessionSettings:"{"AppId":1001,"AppInsightsInstrumentationKey":"f144292e-e3b2-4011-ac90-20e5c03fbce5","AsimovInstrumentationKey":"AIF-312cbd79-9dbb-4c48-a7da-3cc2a931cb70","HostName":"Dev14","Id":"e774008b-dc51-4102-8313-076073dedca6","IsOptedIn":true,"ProcessStartTime":636656154424170750,"UserId":"e6ccfda0-188b-4d99-83bf-ee27fa82fba5"}"
-/RdXmlPath:"C:\Users\Sergey\.nuget\packages\microsoft.net.native.compiler\2.1.8-arm64rel-26502-00\tools\LibraryXML"
+/VSTelemetrySessionSettings:"{"AppId":1001,"AppInsightsInstrumentationKey":"f144292e-e3b2-4011-ac90-20e5c03fbce5","AsimovInstrumentationKey":"AIF-312cbd79-9dbb-4c48-a7da-3cc2a931cb70","HostName":"Dev14","Id":"ffb16538-a7d2-4ee6-990a-cd568c1a30df","IsOptedIn":true,"ProcessStartTime":636661123136947214,"UserId":"e6ccfda0-188b-4d99-83bf-ee27fa82fba5"}"
+/RdXmlPath:"C:\Program Files (x86)\Microsoft SDKs\UWPNuGetPackages\microsoft.net.native.compiler\2.1.8\tools\LibraryXML"
 /RunOnlyPreDR

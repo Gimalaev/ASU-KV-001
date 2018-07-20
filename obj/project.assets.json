@@ -2,11 +2,10 @@
   "version": 3,
   "targets": {
     "UAP,Version=v10.0.16299": {
-      "Microsoft.Net.Native.Compiler/2.1.8-arm64rel-26502-00": {
+      "Microsoft.Net.Native.Compiler/2.1.8": {
         "type": "package",
         "dependencies": {
           "runtime.win10-arm.Microsoft.Net.Native.Compiler": "2.1.8",
-          "runtime.win10-arm64.Microsoft.Net.Native.Compiler": "2.1.8-nativerel-26502-00",
           "runtime.win10-x64.Microsoft.Net.Native.Compiler": "2.1.8",
           "runtime.win10-x86.Microsoft.Net.Native.Compiler": "2.1.8"
         },
@@ -238,13 +237,6 @@
           "build/runtime.win10-arm.Microsoft.Net.UWPCoreRuntimeSdk.targets": {}
         }
       },
-      "runtime.win10-arm64.Microsoft.Net.Native.Compiler/2.1.8-nativerel-26502-00": {
-        "type": "package",
-        "build": {
-          "build/runtime.win10-arm64.Microsoft.Net.Native.Compiler.props": {},
-          "build/runtime.win10-arm64.Microsoft.Net.Native.Compiler.targets": {}
-        }
-      },
       "runtime.win10-x64.Microsoft.Net.Native.Compiler/2.1.8": {
         "type": "package",
         "dependencies": {
@@ -316,11 +308,10 @@
       }
     },
     "UAP,Version=v10.0.16299/win10-arm": {
-      "Microsoft.Net.Native.Compiler/2.1.8-arm64rel-26502-00": {
+      "Microsoft.Net.Native.Compiler/2.1.8": {
         "type": "package",
         "dependencies": {
           "runtime.win10-arm.Microsoft.Net.Native.Compiler": "2.1.8",
-          "runtime.win10-arm64.Microsoft.Net.Native.Compiler": "2.1.8-nativerel-26502-00",
           "runtime.win10-x64.Microsoft.Net.Native.Compiler": "2.1.8",
           "runtime.win10-x86.Microsoft.Net.Native.Compiler": "2.1.8"
         },
@@ -727,13 +718,6 @@
           "runtimes/win10-arm/nativeassets/uap10.0.15138/clrcompression.dll": {}
         }
       },
-      "runtime.win10-arm64.Microsoft.Net.Native.Compiler/2.1.8-nativerel-26502-00": {
-        "type": "package",
-        "build": {
-          "build/runtime.win10-arm64.Microsoft.Net.Native.Compiler.props": {},
-          "build/runtime.win10-arm64.Microsoft.Net.Native.Compiler.targets": {}
-        }
-      },
       "runtime.win10-x64.Microsoft.Net.Native.Compiler/2.1.8": {
         "type": "package",
         "dependencies": {
@@ -805,11 +789,10 @@
       }
     },
     "UAP,Version=v10.0.16299/win10-arm-aot": {
-      "Microsoft.Net.Native.Compiler/2.1.8-arm64rel-26502-00": {
+      "Microsoft.Net.Native.Compiler/2.1.8": {
         "type": "package",
         "dependencies": {
           "runtime.win10-arm.Microsoft.Net.Native.Compiler": "2.1.8",
-          "runtime.win10-arm64.Microsoft.Net.Native.Compiler": "2.1.8-nativerel-26502-00",
           "runtime.win10-x64.Microsoft.Net.Native.Compiler": "2.1.8",
           "runtime.win10-x86.Microsoft.Net.Native.Compiler": "2.1.8"
         },
@@ -1217,13 +1200,6 @@
           "build/runtime.win10-arm.Microsoft.Net.UWPCoreRuntimeSdk.targets": {}
         }
       },
-      "runtime.win10-arm64.Microsoft.Net.Native.Compiler/2.1.8-nativerel-26502-00": {
-        "type": "package",
-        "build": {
-          "build/runtime.win10-arm64.Microsoft.Net.Native.Compiler.props": {},
-          "build/runtime.win10-arm64.Microsoft.Net.Native.Compiler.targets": {}
-        }
-      },
       "runtime.win10-x64.Microsoft.Net.Native.Compiler/2.1.8": {
         "type": "package",
         "dependencies": {
@@ -1295,11 +1271,10 @@
       }
     },
     "UAP,Version=v10.0.16299/win10-x64": {
-      "Microsoft.Net.Native.Compiler/2.1.8-arm64rel-26502-00": {
+      "Microsoft.Net.Native.Compiler/2.1.8": {
         "type": "package",
         "dependencies": {
           "runtime.win10-arm.Microsoft.Net.Native.Compiler": "2.1.8",
-          "runtime.win10-arm64.Microsoft.Net.Native.Compiler": "2.1.8-nativerel-26502-00",
           "runtime.win10-x64.Microsoft.Net.Native.Compiler": "2.1.8",
           "runtime.win10-x86.Microsoft.Net.Native.Compiler": "2.1.8"
         },
@@ -1530,13 +1505,6 @@
         "build": {
           "build/runtime.win10-arm.Microsoft.Net.UWPCoreRuntimeSdk.props": {},
           "build/runtime.win10-arm.Microsoft.Net.UWPCoreRuntimeSdk.targets": {}
-        }
-      },
-      "runtime.win10-arm64.Microsoft.Net.Native.Compiler/2.1.8-nativerel-26502-00": {
-        "type": "package",
-        "build": {
-          "build/runtime.win10-arm64.Microsoft.Net.Native.Compiler.props": {},
-          "build/runtime.win10-arm64.Microsoft.Net.Native.Compiler.targets": {}
         }
       },
       "runtime.win10-x64.Microsoft.Net.Native.Compiler/2.1.8": {
@@ -1784,11 +1752,10 @@
       }
     },
     "UAP,Version=v10.0.16299/win10-x64-aot": {
-      "Microsoft.Net.Native.Compiler/2.1.8-arm64rel-26502-00": {
+      "Microsoft.Net.Native.Compiler/2.1.8": {
         "type": "package",
         "dependencies": {
           "runtime.win10-arm.Microsoft.Net.Native.Compiler": "2.1.8",
-          "runtime.win10-arm64.Microsoft.Net.Native.Compiler": "2.1.8-nativerel-26502-00",
           "runtime.win10-x64.Microsoft.Net.Native.Compiler": "2.1.8",
           "runtime.win10-x86.Microsoft.Net.Native.Compiler": "2.1.8"
         },
@@ -2019,13 +1986,6 @@
         "build": {
           "build/runtime.win10-arm.Microsoft.Net.UWPCoreRuntimeSdk.props": {},
           "build/runtime.win10-arm.Microsoft.Net.UWPCoreRuntimeSdk.targets": {}
-        }
-      },
-      "runtime.win10-arm64.Microsoft.Net.Native.Compiler/2.1.8-nativerel-26502-00": {
-        "type": "package",
-        "build": {
-          "build/runtime.win10-arm64.Microsoft.Net.Native.Compiler.props": {},
-          "build/runtime.win10-arm64.Microsoft.Net.Native.Compiler.targets": {}
         }
       },
       "runtime.win10-x64-aot.Microsoft.NETCore.UniversalWindowsPlatform/6.2.0-Preview1-26502-02": {
@@ -2274,11 +2234,10 @@
       }
     },
     "UAP,Version=v10.0.16299/win10-x86": {
-      "Microsoft.Net.Native.Compiler/2.1.8-arm64rel-26502-00": {
+      "Microsoft.Net.Native.Compiler/2.1.8": {
         "type": "package",
         "dependencies": {
           "runtime.win10-arm.Microsoft.Net.Native.Compiler": "2.1.8",
-          "runtime.win10-arm64.Microsoft.Net.Native.Compiler": "2.1.8-nativerel-26502-00",
           "runtime.win10-x64.Microsoft.Net.Native.Compiler": "2.1.8",
           "runtime.win10-x86.Microsoft.Net.Native.Compiler": "2.1.8"
         },
@@ -2509,13 +2468,6 @@
         "build": {
           "build/runtime.win10-arm.Microsoft.Net.UWPCoreRuntimeSdk.props": {},
           "build/runtime.win10-arm.Microsoft.Net.UWPCoreRuntimeSdk.targets": {}
-        }
-      },
-      "runtime.win10-arm64.Microsoft.Net.Native.Compiler/2.1.8-nativerel-26502-00": {
-        "type": "package",
-        "build": {
-          "build/runtime.win10-arm64.Microsoft.Net.Native.Compiler.props": {},
-          "build/runtime.win10-arm64.Microsoft.Net.Native.Compiler.targets": {}
         }
       },
       "runtime.win10-x64.Microsoft.Net.Native.Compiler/2.1.8": {
@@ -2763,11 +2715,10 @@
       }
     },
     "UAP,Version=v10.0.16299/win10-x86-aot": {
-      "Microsoft.Net.Native.Compiler/2.1.8-arm64rel-26502-00": {
+      "Microsoft.Net.Native.Compiler/2.1.8": {
         "type": "package",
         "dependencies": {
           "runtime.win10-arm.Microsoft.Net.Native.Compiler": "2.1.8",
-          "runtime.win10-arm64.Microsoft.Net.Native.Compiler": "2.1.8-nativerel-26502-00",
           "runtime.win10-x64.Microsoft.Net.Native.Compiler": "2.1.8",
           "runtime.win10-x86.Microsoft.Net.Native.Compiler": "2.1.8"
         },
@@ -2998,13 +2949,6 @@
         "build": {
           "build/runtime.win10-arm.Microsoft.Net.UWPCoreRuntimeSdk.props": {},
           "build/runtime.win10-arm.Microsoft.Net.UWPCoreRuntimeSdk.targets": {}
-        }
-      },
-      "runtime.win10-arm64.Microsoft.Net.Native.Compiler/2.1.8-nativerel-26502-00": {
-        "type": "package",
-        "build": {
-          "build/runtime.win10-arm64.Microsoft.Net.Native.Compiler.props": {},
-          "build/runtime.win10-arm64.Microsoft.Net.Native.Compiler.targets": {}
         }
       },
       "runtime.win10-x64.Microsoft.Net.Native.Compiler/2.1.8": {
@@ -3254,15 +3198,15 @@
     }
   },
   "libraries": {
-    "Microsoft.Net.Native.Compiler/2.1.8-arm64rel-26502-00": {
-      "sha512": "m8tmR56OgZ71vGEQzjQdEb7V9RosOEmOh8DpxGe0QzIiT5tTbs62YMOEMAEo3ank+X67/7A1lCXBVifLmbMd9Q==",
+    "Microsoft.Net.Native.Compiler/2.1.8": {
+      "sha512": "7836QmE441s7vynQ4M3clWsbZIn3kzM9OqxZfhPTFTpqntHT5qt/T/2Qcg6gO+xlYqfCqaBq6TN0doGn2Ggc2Q==",
       "type": "package",
-      "path": "microsoft.net.native.compiler/2.1.8-arm64rel-26502-00",
+      "path": "microsoft.net.native.compiler/2.1.8",
       "files": [
+        "Microsoft.Net.Native.Compiler.2.1.8.nupkg.sha512",
+        "Microsoft.Net.Native.Compiler.nuspec",
         "build/Microsoft.Net.Native.Compiler.props",
         "build/Microsoft.Net.Native.Compiler.targets",
-        "microsoft.net.native.compiler.2.1.8-arm64rel-26502-00.nupkg.sha512",
-        "microsoft.net.native.compiler.nuspec",
         "tools/LibraryXML/Callisto.rd.xml",
         "tools/LibraryXML/GalaSoft.MvvmLight.Extras.Win8.rd.xml",
         "tools/LibraryXML/GalaSoft.MvvmLight.Win8.rd.xml",
@@ -4804,183 +4748,6 @@
         "runtimes/win10-arm/lib/uap10.0.15138/mscorlib.dll",
         "runtimes/win10-arm/lib/uap10.0.15138/netstandard.dll",
         "runtimes/win10-arm/nativeassets/uap10.0.15138/clrcompression.dll"
-      ]
-    },
-    "runtime.win10-arm64.Microsoft.Net.Native.Compiler/2.1.8-nativerel-26502-00": {
-      "sha512": "kC1yJhHViRLymhrmUeA4wXv8H4XfXU35ugtVsZE+KWdzR/kBeGjs0sIxpfdZJCKoL7DTD16qPnq7v5tYhy/fhg==",
-      "type": "package",
-      "path": "runtime.win10-arm64.microsoft.net.native.compiler/2.1.8-nativerel-26502-00",
-      "files": [
-        "build/runtime.win10-arm64.Microsoft.Net.Native.Compiler.props",
-        "build/runtime.win10-arm64.Microsoft.Net.Native.Compiler.targets",
-        "runtime.win10-arm64.microsoft.net.native.compiler.2.1.8-nativerel-26502-00.nupkg.sha512",
-        "runtime.win10-arm64.microsoft.net.native.compiler.nuspec",
-        "tools/Runtime/arm64/CommandProvider.dll",
-        "tools/Runtime/arm64/Microsoft.NET.Native.Runtime.2.1-rel.appx",
-        "tools/Runtime/arm64/SymbolProvider.dll",
-        "tools/Runtime/arm64/mrt100_app.pdb",
-        "tools/Runtime/arm64/mrt100dac_winarm64.dll",
-        "tools/Runtime/arm64/mrt100dbgshim_winarm64.dll",
-        "tools/Runtime/arm64/mrt100dbi_winarm64.dll",
-        "tools/Runtime/arm64/mrt100etw.dll",
-        "tools/arm64/etwevents.man",
-        "tools/arm64/ilc/Lib/Native/Interop.Native.lib",
-        "tools/arm64/ilc/Lib/Native/TypeLoader.Native.lib",
-        "tools/arm64/ilc/Lib/Native/vmath.lib",
-        "tools/arm64/ilc/Lib/Private/System.Private.CompilerServices.ICastable.dll",
-        "tools/arm64/ilc/Lib/Private/System.Private.CoreLib.Augments.dll",
-        "tools/arm64/ilc/Lib/Private/System.Private.CoreLib.DeveloperExperience.dll",
-        "tools/arm64/ilc/Lib/Private/System.Private.CoreLib.DynamicDelegate.dll",
-        "tools/arm64/ilc/Lib/Private/System.Private.CoreLib.InteropServices.dll",
-        "tools/arm64/ilc/Lib/Private/System.Private.CoreLib.Threading.dll",
-        "tools/arm64/ilc/Lib/Private/System.Private.CoreLib.WinRTInterop.dll",
-        "tools/arm64/ilc/Lib/Private/System.Private.CoreLib.dll",
-        "tools/arm64/ilc/Lib/Private/System.Private.CoreLib.pdb",
-        "tools/arm64/ilc/Lib/Private/System.Private.Debug.dll",
-        "tools/arm64/ilc/Lib/Private/System.Private.Debug.pdb",
-        "tools/arm64/ilc/Lib/Private/System.Private.DeveloperExperience.AppX.dll",
-        "tools/arm64/ilc/Lib/Private/System.Private.DeveloperExperience.AppX.pdb",
-        "tools/arm64/ilc/Lib/Private/System.Private.DeveloperExperience.Console.dll",
-        "tools/arm64/ilc/Lib/Private/System.Private.DeveloperExperience.Console.pdb",
-        "tools/arm64/ilc/Lib/Private/System.Private.DispatchProxy.dll",
-        "tools/arm64/ilc/Lib/Private/System.Private.ILToolchain.dll",
-        "tools/arm64/ilc/Lib/Private/System.Private.Interop.Extensions.dll",
-        "tools/arm64/ilc/Lib/Private/System.Private.Interop.dll",
-        "tools/arm64/ilc/Lib/Private/System.Private.Interop.pdb",
-        "tools/arm64/ilc/Lib/Private/System.Private.MCG.dll",
-        "tools/arm64/ilc/Lib/Private/System.Private.Reflection.Core.dll",
-        "tools/arm64/ilc/Lib/Private/System.Private.Reflection.Core.pdb",
-        "tools/arm64/ilc/Lib/Private/System.Private.Reflection.Execution.dll",
-        "tools/arm64/ilc/Lib/Private/System.Private.Reflection.Execution.pdb",
-        "tools/arm64/ilc/Lib/Private/System.Private.Reflection.Metadata.dll",
-        "tools/arm64/ilc/Lib/Private/System.Private.Reflection.Metadata.pdb",
-        "tools/arm64/ilc/Lib/Private/System.Private.StackTraceGenerator.dll",
-        "tools/arm64/ilc/Lib/Private/System.Private.StackTraceGenerator.pdb",
-        "tools/arm64/ilc/Lib/Private/System.Private.StackTraceMetadata.dll",
-        "tools/arm64/ilc/Lib/Private/System.Private.StackTraceMetadata.pdb",
-        "tools/arm64/ilc/Lib/Private/System.Private.Threading.dll",
-        "tools/arm64/ilc/Lib/Private/System.Private.Threading.pdb",
-        "tools/arm64/ilc/Lib/Private/System.Private.TypeLoader.dll",
-        "tools/arm64/ilc/Lib/Private/System.Private.TypeLoader.pdb",
-        "tools/arm64/ilc/Lib/Private/System.Private.WinRTInterop.CoreLib.dll",
-        "tools/arm64/ilc/Lib/Private/System.Private.WinRTInterop.CoreLib.pdb",
-        "tools/arm64/ilc/Lib/PrivateWin32/System.Private.CoreLib.dll",
-        "tools/arm64/ilc/Lib/PrivateWin32/System.Private.CoreLib.pdb",
-        "tools/arm64/ilc/Lib/PrivateWin32/System.Private.Interop.dll",
-        "tools/arm64/ilc/Lib/PrivateWin32/System.Private.Interop.pdb",
-        "tools/arm64/ilc/Lib/PrivateWin32/System.Private.Reflection.Core.dll",
-        "tools/arm64/ilc/Lib/PrivateWin32/System.Private.Reflection.Core.pdb",
-        "tools/arm64/ilc/Lib/PrivateWin32/System.Private.Reflection.Execution.dll",
-        "tools/arm64/ilc/Lib/PrivateWin32/System.Private.Reflection.Execution.pdb",
-        "tools/arm64/ilc/Lib/PrivateWin32/System.Private.TypeLoader.dll",
-        "tools/arm64/ilc/Lib/PrivateWin32/System.Private.TypeLoader.pdb",
-        "tools/arm64/ilc/Lib/Runtime/mrt100.dll",
-        "tools/arm64/ilc/Lib/Runtime/mrt100.pdb",
-        "tools/arm64/ilc/Lib/Runtime/mrt100_app.dll",
-        "tools/arm64/ilc/Lib/Runtime/mrt100_app.lib",
-        "tools/arm64/ilc/Lib/Runtime/mrt100_app.pdb",
-        "tools/arm64/ilc/Lib/Runtime/mrt150.dll",
-        "tools/arm64/ilc/Lib/Runtime/mrt150.lib",
-        "tools/arm64/ilc/Lib/Runtime/mrt150.pdb",
-        "tools/arm64/ilc/clrcompression.dll",
-        "tools/arm64/ilc/ilc.exe",
-        "tools/arm64/ilc/mrt150.dll",
-        "tools/arm64/ilc/rhconfig.ini",
-        "tools/arm64/ilc/tools/1033/nutcui.dll",
-        "tools/arm64/ilc/tools/CciExtensions.dll",
-        "tools/arm64/ilc/tools/GatekeeperConfig.xml",
-        "tools/arm64/ilc/tools/ILCTelemetry.exe",
-        "tools/arm64/ilc/tools/ILCTelemetry.exe.config",
-        "tools/arm64/ilc/tools/ILCompiler.Compiler.dll",
-        "tools/arm64/ilc/tools/ILCompiler.DependencyAnalysisFramework.dll",
-        "tools/arm64/ilc/tools/ILCompiler.Host.dll",
-        "tools/arm64/ilc/tools/ILCompiler.MetadataTransform.dll",
-        "tools/arm64/ilc/tools/ILCompiler.MetadataWriter.dll",
-        "tools/arm64/ilc/tools/ILCompiler.TypeSystem.dll",
-        "tools/arm64/ilc/tools/MSCRT/vcruntime140_app.dll",
-        "tools/arm64/ilc/tools/MakeNativeWinMD.exe",
-        "tools/arm64/ilc/tools/MakeNativeWinMD.exe.config",
-        "tools/arm64/ilc/tools/McgCodeDom.dll",
-        "tools/arm64/ilc/tools/Microsoft.Build.ILTasks.dll",
-        "tools/arm64/ilc/tools/Microsoft.Cci.dll",
-        "tools/arm64/ilc/tools/Microsoft.DiaSymReader.Converter.dll",
-        "tools/arm64/ilc/tools/Microsoft.DiaSymReader.dll",
-        "tools/arm64/ilc/tools/Microsoft.Diagnostics.Tracing.EventSource.dll",
-        "tools/arm64/ilc/tools/Microsoft.VisualStudio.RemoteControl.dll",
-        "tools/arm64/ilc/tools/Microsoft.VisualStudio.Telemetry.dll",
-        "tools/arm64/ilc/tools/Microsoft.VisualStudio.Utilities.Internal.dll",
-        "tools/arm64/ilc/tools/Newtonsoft.Json.dll",
-        "tools/arm64/ilc/tools/StackTraceExceptions.txt",
-        "tools/arm64/ilc/tools/StackTraceMetadataProvider.dll",
-        "tools/arm64/ilc/tools/System.Collections.Immutable.dll",
-        "tools/arm64/ilc/tools/System.Reflection.Metadata.dll",
-        "tools/arm64/ilc/tools/System.ValueTuple.dll",
-        "tools/arm64/ilc/tools/bootstrap_dll.lib",
-        "tools/arm64/ilc/tools/c2n.dll",
-        "tools/arm64/ilc/tools/link/kernel32.lib",
-        "tools/arm64/ilc/tools/link/link.exe",
-        "tools/arm64/ilc/tools/link/link.exe.config",
-        "tools/arm64/ilc/tools/link/link.pdb",
-        "tools/arm64/ilc/tools/link/msobj140.dll",
-        "tools/arm64/ilc/tools/link/mspdb140.dll",
-        "tools/arm64/ilc/tools/link/mspdbcore.dll",
-        "tools/arm64/ilc/tools/link/mspdbsrv.exe",
-        "tools/arm64/ilc/tools/link/mspdbst.dll",
-        "tools/arm64/ilc/tools/link/msvcdis140.dll",
-        "tools/arm64/ilc/tools/link/msvcp140.dll",
-        "tools/arm64/ilc/tools/link/msvcp140d.dll",
-        "tools/arm64/ilc/tools/link/uuid.lib",
-        "tools/arm64/ilc/tools/link/vcruntime140.dll",
-        "tools/arm64/ilc/tools/link/vcruntime140d.dll",
-        "tools/arm64/ilc/tools/msdia.sxs.manifest",
-        "tools/arm64/ilc/tools/msdia120.dll",
-        "tools/arm64/ilc/tools/msobj140.dll",
-        "tools/arm64/ilc/tools/mspdbcore.dll",
-        "tools/arm64/ilc/tools/msvcdis140.dll",
-        "tools/arm64/ilc/tools/msvcp140.dll",
-        "tools/arm64/ilc/tools/nutc_driver.exe",
-        "tools/arm64/ilc/tools/nutc_driver.exe.config",
-        "tools/arm64/ilc/tools/nutc_interface.dll",
-        "tools/arm64/ilc/tools/pgocvt.exe",
-        "tools/arm64/ilc/tools/pgodb140.dll",
-        "tools/arm64/ilc/tools/pgomgr.exe",
-        "tools/arm64/ilc/tools/pgort140.dll",
-        "tools/arm64/ilc/tools/pgosweep.exe",
-        "tools/arm64/ilc/tools/sg.exe",
-        "tools/arm64/ilc/tools/sg.exe.config",
-        "tools/arm64/ilc/tools/shimDll.lib",
-        "tools/arm64/ilc/tools/shimExe.lib",
-        "tools/arm64/ilc/tools/ucrtbase.dll",
-        "tools/arm64/ilc/tools/vcruntime140.dll",
-        "tools/arm64/ilc/tools64/1033/nutcui.dll",
-        "tools/arm64/ilc/tools64/ILCompiler.Compiler.dll",
-        "tools/arm64/ilc/tools64/ILCompiler.DependencyAnalysisFramework.dll",
-        "tools/arm64/ilc/tools64/ILCompiler.Host.dll",
-        "tools/arm64/ilc/tools64/ILCompiler.MetadataTransform.dll",
-        "tools/arm64/ilc/tools64/ILCompiler.MetadataWriter.dll",
-        "tools/arm64/ilc/tools64/ILCompiler.TypeSystem.dll",
-        "tools/arm64/ilc/tools64/StackTraceExceptions.txt",
-        "tools/arm64/ilc/tools64/StackTraceMetadataProvider.dll",
-        "tools/arm64/ilc/tools64/System.Collections.Immutable.dll",
-        "tools/arm64/ilc/tools64/System.Reflection.Metadata.dll",
-        "tools/arm64/ilc/tools64/c2n.dll",
-        "tools/arm64/ilc/tools64/msdia.sxs.manifest",
-        "tools/arm64/ilc/tools64/msdia120.dll",
-        "tools/arm64/ilc/tools64/msobj140.dll",
-        "tools/arm64/ilc/tools64/mspdbcore.dll",
-        "tools/arm64/ilc/tools64/msvcdis140.dll",
-        "tools/arm64/ilc/tools64/msvcp140.dll",
-        "tools/arm64/ilc/tools64/nutc_driver.exe",
-        "tools/arm64/ilc/tools64/nutc_driver.exe.config",
-        "tools/arm64/ilc/tools64/nutc_interface.dll",
-        "tools/arm64/ilc/tools64/pgocvt.exe",
-        "tools/arm64/ilc/tools64/pgodb140.dll",
-        "tools/arm64/ilc/tools64/pgomgr.exe",
-        "tools/arm64/ilc/tools64/pgort140.dll",
-        "tools/arm64/ilc/tools64/pgosweep.exe",
-        "tools/arm64/ilc/tools64/ucrtbase.dll",
-        "tools/arm64/ilc/tools64/vcruntime140.dll",
-        "tools/arm64/mrt100etw.dll"
       ]
     },
     "runtime.win10-x64-aot.Microsoft.NETCore.UniversalWindowsPlatform/6.2.0-Preview1-26502-02": {
@@ -7118,6 +6885,7 @@
   "projectFileDependencyGroups": {
     "UAP,Version=v10.0.16299": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 6.2.0-Preview1-26502-02",
+      "Microsoft.Net.Native.Compiler >= 2.1.8",
       "SQLite.Net-PCL >= 3.1.1"
     ]
   },
@@ -7161,6 +6929,10 @@
           "Microsoft.NETCore.UniversalWindowsPlatform": {
             "target": "Package",
             "version": "[6.2.0-Preview1-26502-02, )"
+          },
+          "Microsoft.Net.Native.Compiler": {
+            "target": "Package",
+            "version": "[2.1.8, )"
           },
           "SQLite.Net-PCL": {
             "target": "Package",

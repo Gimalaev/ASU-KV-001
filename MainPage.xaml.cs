@@ -117,7 +117,7 @@ namespace ASU_KV_001
             if (!serial_port.error)
             {
                 DeviceListSource.Source = serial_port.listOfDevices;
-                if (ConnectDevices.Items.Count >= i)
+                if (ConnectDevices.Items.Count > i)
                     ConnectDevices.SelectedIndex = i;
                 else prg_par.ComMonitor = 0;
             }
