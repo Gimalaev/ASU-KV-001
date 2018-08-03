@@ -466,7 +466,7 @@
                     <TextBlock FontSize="18"  HorizontalAlignment="Left" Text="Установленый идентификатор" TextWrapping="Wrap" VerticalAlignment="Top" Margin="370,17,-112,0"  Width="302"/>
                 </Grid>
 
-                <Grid x:Name="Grid_Prog_Settings" Grid.RowSpan="3" Visibility="Visible" Background="#FF363A6B">
+                <Grid x:Name="Grid_Prog_Settings" Grid.RowSpan="3" Visibility="Collapsed" Background="#FF363A6B">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="60"/>
                         <RowDefinition/>
@@ -799,7 +799,7 @@
 
                     </Grid>
                 </Grid>
-                <Grid x:Name="Grid_Post_Settings" Grid.RowSpan="3" Visibility="Collapsed" Background="#FF363A6B">
+                <Grid x:Name="Grid_Post_Settings" Grid.RowSpan="3" Visibility="Visible" Background="#FF363A6B">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="70"/>
                         <RowDefinition/>
@@ -807,7 +807,7 @@
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="2">
                         <Grid x:Name="Grid_Param_Read" Grid.Column="1"  Background="#00366B53">
-                            <TextBox x:Name="tbParStatus" HorizontalAlignment="Left" Text="Идет считывание параметров: 0%" VerticalAlignment="Center" Margin="14,0,0,0" Width="390" Visibility="Visible"/>
+                            <TextBox x:Name="tbParStatus" HorizontalAlignment="Left" Text="Идет считывание параметров: 0%" VerticalAlignment="Center" Margin="14,0,0,0" Width="390" Visibility="Collapsed"/>
                             <Button x:Name="Button_Param_Read" Content="СЧИТАТЬ" HorizontalAlignment="Right" Margin="0,0,140,0" VerticalAlignment="Center" Height="40" Width="100" Style="{StaticResource BackgrondButton}" Click="Button_Param_Read_Click" FontFamily="Calibri" FontSize="12" Foreground="White"/>
                             <Button x:Name="Button_Param_Write" Content="ЗАПИСАТЬ" HorizontalAlignment="Right" Margin="0,0,20,0" VerticalAlignment="Center" Height="40" Width="100" Style="{StaticResource BackgrondButton}" Click="Button_Param_Write_Click" FontFamily="Calibri" FontSize="12" Foreground="White"/>
                         </Grid>
@@ -834,7 +834,53 @@
                             <Button x:Name="Button_Param_Calibr" Content="CALIBR" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="100" Style="{StaticResource BackgrondButton}" Click="Button_Param_Calibr_Click" FontFamily="Calibri" FontSize="12" Foreground="White"/>
                         </Grid>
                     </Grid>
-                    <Grid x:Name="Grid_KV_Levels" Grid.Row="1" Visibility="Collapsed">
+
+                    <Grid x:Name="Grid_KV_Lite_Feed" Grid.Row="1" Visibility="Visible">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0" Margin="10,5,5,5" Padding="10,0,10,0" Background="#19000000" >
+                            <TextBlock x:Name="Lite_StabWeigth" HorizontalAlignment="Left" Text="Диапазон стабильного веса:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
+                            <Button x:Name="btn_Lite_Stab_Weight" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" Width="35" Height="35" Style="{StaticResource BackgrondButton}">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="Assets/Иконки и кнопки/карандаш.png" Stretch="Uniform"/>
+                                </Button.Background>
+                            </Button>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="0" Margin="10,5,5,5" Padding="10,0,10,0" Background="#19000000" >
+                            <TextBlock HorizontalAlignment="Left" Text="Фильтр стабильного веса:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
+                            <ComboBox x:Name="Combo_Lite_FStab" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="90" Height="25" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,4,10,4"/>
+                        </Grid>
+                        <Grid Grid.Row="2" Grid.Column="0" Margin="10,5,5,5" Padding="10,0,10,0" Background="#19000000" >
+                            <TextBlock x:Name="Lite_Zero_Time" HorizontalAlignment="Left" Text="Время установки нуля:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
+                            <Button x:Name="btn_Lite_Zero_Time" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" Width="35" Height="35" Style="{StaticResource BackgrondButton}">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="Assets/Иконки и кнопки/карандаш.png" Stretch="Uniform"/>
+                                </Button.Background>
+                            </Button>
+                        </Grid>
+                        <Grid Grid.Row="3" Grid.Column="0" Margin="10,5,5,5" Padding="10,0,10,0" Background="#19000000" >
+                            <TextBlock x:Name="Lite_Zero_Weight" HorizontalAlignment="Left" Text="Диапазон нулевого веса:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
+                            <Button x:Name="btn_Lite_Zero_Weight" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" Width="35" Height="35" Style="{StaticResource BackgrondButton}">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="Assets/Иконки и кнопки/карандаш.png" Stretch="Uniform"/>
+                                </Button.Background>
+                            </Button>
+                        </Grid>
+
+                    </Grid>
+
+
+
+                        <Grid x:Name="Grid_KV_Levels" Grid.Row="1" Visibility="Collapsed">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
