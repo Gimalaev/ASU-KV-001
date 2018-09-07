@@ -835,7 +835,7 @@
                         </Grid>
                     </Grid>
 
-                    <Grid x:Name="Grid_KV_Lite_Feed" Grid.Row="1" Visibility="Visible">
+                    <Grid x:Name="Grid_KV_Lite_Feed" Grid.Row="1" Visibility="Collapsed">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
@@ -880,7 +880,49 @@
 
 
 
-                        <Grid x:Name="Grid_KV_Levels" Grid.Row="1" Visibility="Collapsed">
+                    <Grid x:Name="Grid_KV_Lite_Par" Grid.Row="1" Visibility="Visible">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0" Margin="10,5,5,5" Padding="10,0,10,0" Background="#19000000" >
+                            <TextBlock HorizontalAlignment="Left" Text="Режим работы учета:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
+                            <ComboBox x:Name="Combo_Lite_Mode" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="90" Height="25" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,4,10,4"/>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="0" Margin="10,5,5,5" Padding="10,0,10,0" Background="#19000000" >
+                            <TextBlock HorizontalAlignment="Left" Text="Фильтр 1:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
+                            <ComboBox x:Name="Combo_Lite_F1" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="90" Height="25" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,4,10,4"/>
+                        </Grid>
+                        <Grid Grid.Row="2" Grid.Column="0" Margin="10,5,5,5" Padding="10,0,10,0" Background="#19000000" >
+                            <TextBlock HorizontalAlignment="Left" Text="Фильтр 2:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
+                            <ComboBox x:Name="Combo_Lite_F2" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="90" Height="25" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,4,10,4"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="1" Margin="10,5,5,5" Padding="10,0,10,0" Background="#19000000" >
+                            <TextBlock HorizontalAlignment="Left" Text="Направление передачи:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
+                            <ComboBox x:Name="Combo_Lite_Direction" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="90" Height="25" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,4,10,4"/>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="1" Margin="10,5,5,5" Padding="10,0,10,0" Background="#19000000" >
+                            <TextBlock x:Name="Lite_Num" HorizontalAlignment="Left" Text="Сетевой номер:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
+                            <Button x:Name="btn_Lite_Num" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" Width="35" Height="35" Style="{StaticResource BackgrondButton}">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="Assets/Иконки и кнопки/карандаш.png" Stretch="Uniform"/>
+                                </Button.Background>
+                            </Button>
+                        </Grid>
+                        <Grid Grid.Row="2" Grid.Column="1" Margin="10,5,5,5" Padding="10,0,10,0" Background="#19000000" >
+                            <TextBlock HorizontalAlignment="Left" Text="Направление передачи:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
+                            <ComboBox x:Name="Combo_Lite_Baud" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="90" Height="25" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,4,10,4"/>
+                        </Grid>
+
+                    </Grid>
+                    <Grid x:Name="Grid_KV_Levels" Grid.Row="1" Visibility="Collapsed">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
