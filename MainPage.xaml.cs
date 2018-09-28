@@ -1181,7 +1181,6 @@ namespace ASU_KV_001
                 Text_ID_Post_10.Visibility = Visibility.Collapsed;
             }
         }
-
         private void UpdatePrgParam()
         {
             Prg_Adr_1.Text = "АДРЕС: " + prg_par.num[0];
@@ -1292,23 +1291,17 @@ namespace ASU_KV_001
             Cal_Coeff.Text = "КАЛИБР. КОЭФ.: " + Convert.ToSingle(kv_par.coeff[term_now]);
             Cal_Coeff.Text = Cal_Coeff.Text.Replace(",", ".");
 
-        }
-        private async void btnKVSettings_Click(object sender, RoutedEventArgs e)
-        {
-
-            if ((par_flag) && (mode == 2)) { await prg_par.SaveParFile(prg_filename); par_flag = false; UpdatePostEnabled(); }
-
             Grid_Left_Monitor.Background = BrushOff;
             Grid_Left_KV_Param.Background = BrushOn;
             Grid_Left_Prg_Param.Background = BrushOff;
             Grid_Left_Archive.Background = BrushOff;
-            UpdateSettings();
             Grid_KV_Levels.Visibility = Visibility.Collapsed;
             Grid_KV_Feed.Visibility = Visibility.Collapsed;
             Grid_KV_Par.Visibility = Visibility.Collapsed;
             Grid_KV_Calibr.Visibility = Visibility.Collapsed;
             Grid_KV_Lite_Feed.Visibility = Visibility.Collapsed;
             Grid_KV_Lite_Par.Visibility = Visibility.Collapsed;
+            Grid_KV_Lite_Calibr.Visibility = Visibility.Collapsed;
 
 
             if (prg_par.ver[term_now] == 1)
@@ -1342,6 +1335,48 @@ namespace ASU_KV_001
             Grid_Prog_Settings.Visibility = Visibility.Collapsed;
             Grid_Post_Main.Visibility = Visibility.Collapsed;
             Grid_Post_Settings.Visibility = Visibility.Visible;
+
+
+        }
+        private async void btnKVSettings_Click(object sender, RoutedEventArgs e)
+        {
+
+            if ((par_flag) && (mode == 2)) { await prg_par.SaveParFile(prg_filename); par_flag = false; UpdatePostEnabled(); }
+
+            if (mode != 1) UpdateSettings();
+            /*
+
+            if (prg_par.ver[term_now] == 1)
+            {
+                Button_Param_Levels.Visibility = Visibility.Visible;
+                Grid_Param_Levels.Background = BrushOn;
+                Grid_Param_Feed.Background = BrushOff;
+                Grid_Param_Par.Background = BrushOff;
+                Grid_Param_Calibr.Background = BrushOff;
+                mode = 1;
+                par_flag = false;
+                Grid_Post_Bottom.Visibility = Visibility.Collapsed;
+
+                Grid_KV_Levels.Visibility = Visibility.Visible;
+
+            }
+            else
+            {
+                Button_Param_Levels.Visibility = Visibility.Collapsed;
+                Grid_Param_Levels.Background = BrushOff;
+                Grid_Param_Feed.Background = BrushOn;
+                Grid_Param_Par.Background = BrushOff;
+                Grid_Param_Calibr.Background = BrushOff;
+                mode = 1;
+                par_flag = false;
+                Grid_Post_Bottom.Visibility = Visibility.Collapsed;
+
+                Grid_KV_Lite_Feed.Visibility = Visibility.Visible;
+
+            }
+            Grid_Prog_Settings.Visibility = Visibility.Collapsed;
+            Grid_Post_Main.Visibility = Visibility.Collapsed;
+            Grid_Post_Settings.Visibility = Visibility.Visible;*/
         }
 
         private async void btnMonitor_Click(object sender, RoutedEventArgs e)
@@ -1417,6 +1452,8 @@ namespace ASU_KV_001
             Grid_KV_Feed.Visibility = Visibility.Collapsed;
             Grid_KV_Par.Visibility = Visibility.Collapsed;
             Grid_KV_Calibr.Visibility = Visibility.Collapsed;
+            Grid_KV_Lite_Calibr.Visibility = Visibility.Collapsed;
+
             Grid_Param_Levels.Background = BrushOn;
             Grid_Param_Feed.Background = BrushOff;
             Grid_Param_Par.Background = BrushOff;
@@ -1431,6 +1468,8 @@ namespace ASU_KV_001
             Grid_KV_Calibr.Visibility = Visibility.Collapsed;
             Grid_KV_Lite_Feed.Visibility = Visibility.Collapsed;
             Grid_KV_Lite_Par.Visibility = Visibility.Collapsed;
+            Grid_KV_Lite_Calibr.Visibility = Visibility.Collapsed;
+
             Grid_Param_Levels.Background = BrushOff;
             Grid_Param_Feed.Background = BrushOn;
             Grid_Param_Par.Background = BrushOff;
@@ -1455,6 +1494,7 @@ namespace ASU_KV_001
             Grid_KV_Calibr.Visibility = Visibility.Collapsed;
             Grid_KV_Lite_Feed.Visibility = Visibility.Collapsed;
             Grid_KV_Lite_Par.Visibility = Visibility.Collapsed;
+            Grid_KV_Lite_Calibr.Visibility = Visibility.Collapsed;
             Grid_Param_Levels.Background = BrushOff;
             Grid_Param_Feed.Background = BrushOff;
             Grid_Param_Par.Background = BrushOn;
@@ -1478,12 +1518,25 @@ namespace ASU_KV_001
             Grid_KV_Levels.Visibility = Visibility.Collapsed;
             Grid_KV_Feed.Visibility = Visibility.Collapsed;
             Grid_KV_Par.Visibility = Visibility.Collapsed;
-            Grid_KV_Calibr.Visibility = Visibility.Visible;
+            Grid_KV_Calibr.Visibility = Visibility.Collapsed;
             Grid_KV_Lite_Feed.Visibility = Visibility.Collapsed;
+            Grid_KV_Lite_Par.Visibility = Visibility.Collapsed;
+            Grid_KV_Lite_Calibr.Visibility = Visibility.Collapsed;
             Grid_Param_Levels.Background = BrushOff;
             Grid_Param_Feed.Background = BrushOff;
             Grid_Param_Par.Background = BrushOff;
             Grid_Param_Calibr.Background = BrushOn;
+
+            switch (prg_par.ver[term_now])
+            {
+                case 0:
+                    Grid_KV_Lite_Calibr.Visibility = Visibility.Visible;
+                    break;
+                case 1:
+                    Grid_KV_Calibr.Visibility = Visibility.Visible;
+                    break;
+            }
+
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
