@@ -848,23 +848,23 @@
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0" Grid.Column="0" Margin="10,5,5,5" Padding="10,0,10,0" Background="#19000000" >
                             <TextBlock HorizontalAlignment="Left" Text="ПОЛЯРНОСТЬ:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
-                            <ComboBox x:Name="Combo_Lite_Polar" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="90" Height="25" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,4,10,4" SelectionChanged="Combo_Polar_SelectionChanged" />
+                            <ComboBox x:Name="Combo_Lite_Polar" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="90" Height="25" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,4,10,4" SelectionChanged="Combo_Lite_Polar_SelectionChanged" />
                         </Grid>
                         <Grid Grid.Row="0" Grid.Column="1" Margin="10,5,5,5" Padding="10,0,10,0" Background="#19000000" >
                             <TextBlock HorizontalAlignment="Left" Text="ДИСКРЕТНОСТЬ:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
-                            <ComboBox x:Name="Combo_Lite_Discr" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="90" Height="25" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,4,10,4" SelectionChanged="Combo_Discr_SelectionChanged" />
+                            <ComboBox x:Name="Combo_Lite_Discr" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="90" Height="25" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,4,10,4" SelectionChanged="Combo_Lite_Discr_SelectionChanged" />
                         </Grid>
                         <Grid Grid.Row="1" Grid.Column="0" Margin="10,5,5,5" Padding="10,0,10,0" Background="#19000000" >
                             <TextBlock HorizontalAlignment="Left" Text="ТОЧНОСТЬ:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
-                            <ComboBox x:Name="Combo_Lite_Zpt" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="90" Height="25" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,4,10,4" SelectionChanged="Combo_Zpt_SelectionChanged" />
+                            <ComboBox x:Name="Combo_Lite_Zpt" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="90" Height="25" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,4,10,4" SelectionChanged="Combo_Lite_Zpt_SelectionChanged" />
                         </Grid>
                         <Grid Grid.Row="1" Grid.Column="1" Margin="10,5,5,5" Padding="10,0,10,0" Background="#19000000" >
                             <TextBlock HorizontalAlignment="Left" Text="ЧАСТОТА АЦП:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
-                            <ComboBox x:Name="Combo_Lite_Hz" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="90" Height="25" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,4,10,4" SelectionChanged="Combo_Hz_SelectionChanged" />
+                            <ComboBox x:Name="Combo_Lite_Hz" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="90" Height="25" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,4,10,4" SelectionChanged="Combo_Lite_Hz_SelectionChanged" />
                         </Grid>
                         <Grid Grid.Row="2" Grid.Column="0" Margin="10,5,5,5" Padding="10,0,10,0" Background="#19000000" >
                             <TextBlock HorizontalAlignment="Left" Text="ДИАПАЗОН АЦП:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
-                            <ComboBox x:Name="Combo_Lite_Mv" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="90" Height="25" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,4,10,4" SelectionChanged="Combo_Mv_SelectionChanged" />
+                            <ComboBox x:Name="Combo_Lite_Mv" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="90" Height="25" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,4,10,4" SelectionChanged="Combo_Lite_Mv_SelectionChanged" />
                         </Grid>
 
                         <Grid Grid.Row="2" Grid.Column="1" Margin="10,5,5,5" Padding="10,0,10,0" Background="#19000000" >
@@ -877,7 +877,7 @@
                         </Grid>
                         <Grid Grid.Row="3" Grid.Column="0" Margin="10,5,5,5" Padding="10,0,10,0" Background="#19000000" >
                             <TextBlock x:Name="Cal_Lite_Zero" HorizontalAlignment="Left" Text="СМЕЩЕНИЕ НУЛЯ: 1234.56" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
-                            <Button x:Name="btn_Lite_CalZero" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" Width="35" Height="35" Style="{StaticResource BackgrondButton}" Click="btnCalZero_Click">
+                            <Button x:Name="btn_Lite_CalZero" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" Width="35" Height="35" Style="{StaticResource BackgrondButton}" Click="btn_Lite_CalZero_Click">
                                 <Button.Background>
                                     <ImageBrush ImageSource="Assets/Иконки и кнопки/карандаш.png" Stretch="Uniform"/>
                                 </Button.Background>

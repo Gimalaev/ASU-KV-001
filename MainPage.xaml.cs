@@ -1374,6 +1374,15 @@ namespace ASU_KV_001
             Grid_KV_Lite_Par.Visibility = Visibility.Collapsed;
             Grid_KV_Lite_Calibr.Visibility = Visibility.Collapsed;
 
+            Combo_Lite_Polar.SelectedIndex = kv_par.polar[term_now];
+            Combo_Lite_Discr.SelectedIndex = kv_par.discr[term_now];
+            Combo_Lite_Zpt.SelectedIndex = kv_par.zpt[term_now];
+            Combo_Lite_Hz.SelectedIndex = kv_par.hz[term_now];
+            Combo_Lite_Mv.SelectedIndex = kv_par.mv[term_now];
+            Lite_NPV.Text = "НПВ: " + Convert.ToSingle(kv_par.npv[term_now]);
+            Lite_NPV.Text = Lite_NPV.Text.Replace(",", ".");
+            Cal_Lite_Zero.Text="СМЕЩЕНИЕ НУЛЯ:"+ Convert.ToSingle(kv_par.lite_zero_weight[term_now]);
+            Cal_Lite_Zero.Text = Cal_Lite_Zero.Text.Replace(",", ".");
 
             if (prg_par.ver[term_now] == 1)
             {
@@ -1998,6 +2007,7 @@ namespace ASU_KV_001
             {
                 var text = InputDlg.Text;
                 NPV.Text = "НПВ: " + text;
+                Lite_NPV.Text = "НПВ: " + text;
                 text = text.Replace(",", ".");
                 kv_par.npv[term_now] = Convert.ToSingle(text);
                 par_flag = true;
@@ -2504,6 +2514,52 @@ namespace ASU_KV_001
             par_flag = true;
             prg_par.SmenaNum = Combo_SmenaNum.SelectedIndex;
 
+        }
+
+        private void Combo_Lite_Polar_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            kv_par.polar[term_now] = (UInt16)Combo_Lite_Polar.SelectedIndex;
+            par_flag = true;
+        }
+
+        private void Combo_Lite_Discr_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            kv_par.discr[term_now] = (UInt16)Combo_Lite_Discr.SelectedIndex;
+            par_flag = true;
+        }
+
+        private void Combo_Lite_Zpt_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            kv_par.zpt[term_now] = (UInt16)Combo_Lite_Zpt.SelectedIndex;
+            par_flag = true;
+        }
+
+        private void Combo_Lite_Hz_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            kv_par.hz[term_now] = (UInt16)Combo_Lite_Hz.SelectedIndex;
+            par_flag = true;
+        }
+
+        private void Combo_Lite_Mv_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            kv_par.mv[term_now] = (UInt16)Combo_Lite_Mv.SelectedIndex;
+            par_flag = true;
+
+        }
+
+        private async void btn_Lite_CalZero_Click(object sender, RoutedEventArgs e)
+        {
+            var InputDlg = new Input_Num_Dialog();
+            InputDlg.Text = Convert.ToString(kv_par.lite_zero_weight[term_now]);
+            var result = await InputDlg.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                var text = InputDlg.Text;
+                Cal_Lite_Zero.Text = "СМЕЩЕНИЕ НУЛЯ: " + text;
+                text = text.Replace(",", ".");
+                kv_par.lite_zero_weight[term_now] = Convert.ToSingle(text);
+                par_flag = true;
+            }
         }
     }
 }
