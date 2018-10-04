@@ -218,6 +218,8 @@ namespace ASU_KV_001
             Combo_Autozero.Items.Add("Вкл.");
             Combo_Polar.Items.Add("Униполярный");
             Combo_Polar.Items.Add("Биполярный");
+
+
             Combo_Discr.Items.Add("1");
             Combo_Discr.Items.Add("2");
             Combo_Discr.Items.Add("5");
@@ -249,6 +251,46 @@ namespace ASU_KV_001
             Combo_Mv.Items.Add("78.125");
             Combo_Mv.Items.Add("39.06");
             Combo_Mv.Items.Add("19.53");
+
+
+
+            Combo_Lite_Zpt.Items.Add("0");
+            Combo_Lite_Zpt.Items.Add("1");
+            Combo_Lite_Zpt.Items.Add("2");
+            Combo_Lite_Polar.Items.Add("Биполярный");
+            Combo_Lite_Polar.Items.Add("Униполярный");
+
+            Combo_Lite_Discr.Items.Add("1");
+            Combo_Lite_Discr.Items.Add("2");
+            Combo_Lite_Discr.Items.Add("5");
+            Combo_Lite_Discr.Items.Add("10");
+            Combo_Lite_Discr.Items.Add("20");
+            Combo_Lite_Discr.Items.Add("50");
+            Combo_Lite_Discr.Items.Add("100");
+
+            Combo_Lite_Hz.Items.Add("125");
+            Combo_Lite_Hz.Items.Add("62.6");
+            Combo_Lite_Hz.Items.Add("50");
+            Combo_Lite_Hz.Items.Add("39.2");
+            Combo_Lite_Hz.Items.Add("33.3");
+            Combo_Lite_Hz.Items.Add("19.6");
+            Combo_Lite_Hz.Items.Add("16.7");
+            Combo_Lite_Hz.Items.Add("16.7*");
+            Combo_Lite_Hz.Items.Add("12.5");
+            Combo_Lite_Hz.Items.Add("10");
+            Combo_Lite_Hz.Items.Add("8.33");
+            Combo_Lite_Hz.Items.Add("6.25");
+            Combo_Lite_Hz.Items.Add("4.17");
+            Combo_Lite_Mv.Items.Add("2500");
+            Combo_Lite_Mv.Items.Add("1250");
+            Combo_Lite_Mv.Items.Add("625");
+            Combo_Lite_Mv.Items.Add("312.5");
+            Combo_Lite_Mv.Items.Add("156.5");
+            Combo_Lite_Mv.Items.Add("78.125");
+            Combo_Lite_Mv.Items.Add("39.06");
+            Combo_Lite_Mv.Items.Add("19.53");
+
+
             Grid_Prog_Settings.Visibility = Visibility.Collapsed;
             Grid_Post_Main.Visibility = Visibility.Visible;
             Grid_Post_Settings.Visibility = Visibility.Collapsed;
@@ -978,6 +1020,35 @@ namespace ASU_KV_001
                     case 166:
                         tbParStatus.Text = "Идет запись параметров вкладки CALIBR: 100%";
                         serial_port.rd_mode = 140;
+                        reg_status_visible = 20;
+                        break;
+
+// Считываем Calibr для kfqn
+                    case 180:
+                        kv_par.hz[term_now] = (byte)(serial_port.reg_int / 0x100);
+                        kv_par.mv[term_now] = (byte)(serial_port.reg_int - kv_par.hz[term_now] * 0x100);
+                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 22%";
+                        Combo_Mv.SelectedIndex = kv_par.mv[term_now];
+                        Combo_Hz.SelectedIndex = kv_par.hz[term_now];
+                        serial_port.rd_mode++;
+                        break;
+                    case 181:
+                        kv_par.polar[term_now] = (byte)(serial_port.reg_int / 0x100);
+                        kv_par.zpt[term_now] = (byte)(serial_port.reg_int - kv_par.polar[term_now] * 0x100);
+                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 44%";
+                        Combo_Polar.SelectedIndex = kv_par.polar[term_now];
+                        Combo_Zpt.SelectedIndex = kv_par.zpt[term_now];
+                        serial_port.rd_mode++;
+                        break;
+                    case 182:
+                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 55%";
+                        kv_par.npv[term_now] = serial_port.reg_fl; NPV.Text = "НПВ: " + kv_par.npv[term_now]; serial_port.rd_mode++;
+                        break;
+                    case 183:
+                        kv_par.discr[term_now] = (ushort)(serial_port.reg_int);
+                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 100%";
+                        Combo_Discr.SelectedIndex = kv_par.discr[term_now];
+                        serial_port.rd_mode = 1;
                         reg_status_visible = 20;
                         break;
 
@@ -2269,6 +2340,13 @@ namespace ASU_KV_001
                 tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 0%";
                 write_reg_wait = 140;
             }
+            if (Grid_KV_Lite_Calibr.Visibility == Visibility.Visible)
+            {
+                tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 0%";
+                write_reg_wait = 180;
+            }
+
+            
             reg_status_visible = 1;
             tbParStatus.Visibility = Visibility.Visible;
         }
