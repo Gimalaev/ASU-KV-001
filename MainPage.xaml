@@ -834,7 +834,7 @@
                             <Button x:Name="Button_Param_Calibr" Content="CALIBR" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="100" Style="{StaticResource BackgrondButton}" Click="Button_Param_Calibr_Click" FontFamily="Calibri" FontSize="12" Foreground="White"/>
                         </Grid>
                     </Grid>
-                    <Grid x:Name="Grid_KV_Lite_Calibr" Grid.Row="1" Visibility="Visible">
+                    <Grid x:Name="Grid_KV_Lite_Calibr" Grid.Row="1" Visibility="Collapsed">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
@@ -886,7 +886,7 @@
 
 
                     </Grid>
-                    <Grid x:Name="Grid_KV_Lite_Feed" Grid.Row="1" Visibility="Collapsed">
+                    <Grid x:Name="Grid_KV_Lite_Feed" Grid.Row="1" Visibility="Visible">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
@@ -899,8 +899,8 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0" Grid.Column="0" Margin="10,5,5,5" Padding="10,0,10,0" Background="#19000000" >
-                            <TextBlock x:Name="Lite_StabWeigth" HorizontalAlignment="Left" Text="Диапазон стабильного веса:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
-                            <Button x:Name="btn_Lite_Stab_Weight" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" Width="35" Height="35" Style="{StaticResource BackgrondButton}">
+                            <TextBlock x:Name="Lite_StabWeigth" HorizontalAlignment="Left" Text="ДИАПАЗОН СТАБИЛЬНОГО ВЕСА:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
+                            <Button x:Name="btn_Lite_Stab_Weight" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" Width="35" Height="35" Style="{StaticResource BackgrondButton}" Click="btn_Lite_Stab_Weight_Click">
                                 <Button.Background>
                                     <ImageBrush ImageSource="Assets/Иконки и кнопки/карандаш.png" Stretch="Uniform"/>
                                 </Button.Background>

@@ -1384,6 +1384,9 @@ namespace ASU_KV_001
             Cal_Lite_Zero.Text="СМЕЩЕНИЕ НУЛЯ:"+ Convert.ToSingle(kv_par.lite_zero_weight[term_now]);
             Cal_Lite_Zero.Text = Cal_Lite_Zero.Text.Replace(",", ".");
 
+            Lite_StabWeigth.Text = "ДИАПАЗОН СТАБИЛЬНОГО ВЕСА:" + Convert.ToSingle(kv_par.lite_stab_weight[term_now]);
+            Lite_StabWeigth.Text = Lite_StabWeigth.Text.Replace(",", ".");
+
             if (prg_par.ver[term_now] == 1)
             {
                 Button_Param_Levels.Visibility = Visibility.Visible;
@@ -2008,7 +2011,7 @@ namespace ASU_KV_001
                 var text = InputDlg.Text;
                 NPV.Text = "НПВ: " + text;
                 Lite_NPV.Text = "НПВ: " + text;
-                text = text.Replace(",", ".");
+                text = text.Replace(".", ",");
                 kv_par.npv[term_now] = Convert.ToSingle(text);
                 par_flag = true;
             }
@@ -2556,10 +2559,26 @@ namespace ASU_KV_001
             {
                 var text = InputDlg.Text;
                 Cal_Lite_Zero.Text = "СМЕЩЕНИЕ НУЛЯ: " + text;
-                text = text.Replace(",", ".");
+                text = text.Replace(".", ",");
                 kv_par.lite_zero_weight[term_now] = Convert.ToSingle(text);
                 par_flag = true;
             }
+        }
+
+        private async void btn_Lite_Stab_Weight_Click(object sender, RoutedEventArgs e)
+        {
+            var InputDlg = new Input_Num_Dialog();
+            InputDlg.Text = Convert.ToString(kv_par.lite_stab_weight[term_now]);
+            var result = await InputDlg.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                var text = InputDlg.Text;
+                Lite_StabWeigth.Text = "ДИАПАЗОН СТАБИЛЬНОГО ВЕСА: " + text;
+                text = text.Replace(".", ",");
+                kv_par.lite_stab_weight[term_now] = Convert.ToSingle(text);
+                par_flag = true;
+            }
+
         }
     }
 }
