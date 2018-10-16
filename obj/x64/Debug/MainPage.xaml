@@ -907,8 +907,8 @@
                             </Button>
                         </Grid>
                         <Grid Grid.Row="1" Grid.Column="0" Margin="10,5,5,5" Padding="10,0,10,0" Background="#19000000" >
-                            <TextBlock HorizontalAlignment="Left" Text="Фильтр стабильного веса:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
-                            <ComboBox x:ConnectionId='200' x:Name="Combo_Lite_FStab" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="90" Height="25" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,4,10,4"/>
+                            <TextBlock HorizontalAlignment="Left" Text="ФИЛЬТР СТАБИЛЬНОГО ВЕСА:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
+                            <ComboBox x:ConnectionId='200' x:Name="Combo_Lite_FStab" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="90" Height="25" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,4,10,4"                                                     />
                         </Grid>
                         <Grid Grid.Row="2" Grid.Column="0" Margin="10,5,5,5" Padding="10,0,10,0" Background="#19000000" >
                             <TextBlock x:ConnectionId='198' x:Name="Lite_Zero_Time" HorizontalAlignment="Left" Text="Время установки нуля:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>

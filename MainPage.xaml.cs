@@ -290,6 +290,12 @@ namespace ASU_KV_001
             Combo_Lite_Mv.Items.Add("39.06");
             Combo_Lite_Mv.Items.Add("19.53");
 
+            Combo_Lite_FStab.Items.Add("0");
+            Combo_Lite_FStab.Items.Add("4");
+            Combo_Lite_FStab.Items.Add("8");
+            Combo_Lite_FStab.Items.Add("16");
+            Combo_Lite_FStab.Items.Add("32");
+
 
             Grid_Prog_Settings.Visibility = Visibility.Collapsed;
             Grid_Post_Main.Visibility = Visibility.Visible;
@@ -1386,6 +1392,9 @@ namespace ASU_KV_001
 
             Lite_StabWeigth.Text = "ДИАПАЗОН СТАБИЛЬНОГО ВЕСА:" + Convert.ToSingle(kv_par.lite_stab_weight[term_now]);
             Lite_StabWeigth.Text = Lite_StabWeigth.Text.Replace(",", ".");
+
+            Combo_Lite_FStab.SelectedIndex= kv_par.lite_stab_f1[term_now];
+
 
             if (prg_par.ver[term_now] == 1)
             {
@@ -2579,6 +2588,12 @@ namespace ASU_KV_001
                 par_flag = true;
             }
 
+        }
+
+        private void Combo_Lite_FStab_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            kv_par.lite_stab_f1[term_now] = (UInt16)Combo_Lite_FStab.SelectedIndex;
+            par_flag = true;
         }
     }
 }
