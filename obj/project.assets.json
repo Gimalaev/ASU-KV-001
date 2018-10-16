@@ -3265,10 +3265,11 @@
       ]
     },
     "Microsoft.NETCore.Platforms/2.0.0": {
-      "sha512": "VdLJOCXhZaEMY7Hm2GKiULmn7IEPFE4XC5LPSfBVCUIA8YLZVh846gtfBJalsPQF2PlzdD7ecX7DZEulJ402ZQ==",
+      "sha512": "5BdAWDgMNwf90L0J+C/eh6kfHDa37ViL1cBL1nv5zPA4TB2cGV51YiQyvzCEy9DBE0LwwMI4+PkUpIekKyocSA==",
       "type": "package",
       "path": "microsoft.netcore.platforms/2.0.0",
       "files": [
+        ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/netstandard1.0/_._",
@@ -3280,10 +3281,11 @@
       ]
     },
     "Microsoft.NETCore.UniversalWindowsPlatform/6.2.0-Preview1-26502-02": {
-      "sha512": "PIvcFW7jX1bpHVgGCzUIMU+qCbIVe+tBlT3Fy112Ri6NHxfy4jaGdOsVOFhlyOe1eM9LLLqFQXcg4lMoQ99J3w==",
+      "sha512": "Hz3bnmfZK96+uXiEZNTQacz2CfRuyaLTX2JPKndUGqTcYKhX6rpO0AWazKZ6PYYdx2Ow+64tSPikxtsMLs4mNQ==",
       "type": "package",
       "path": "microsoft.netcore.universalwindowsplatform/6.2.0-preview1-26502-02",
       "files": [
+        ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "microsoft.netcore.universalwindowsplatform.6.2.0-preview1-26502-02.nupkg.sha512",
@@ -3567,10 +3569,11 @@
       ]
     },
     "NETStandard.Library/2.0.2": {
-      "sha512": "5hB7QTrTeMzV5xnTH4+zNBOGCD5/DcSVb3iPGgyta4Xje5AI2gJoeLnArlQCzxTbRVpx8YrjnjAmUhkxjbd2ZA==",
+      "sha512": "Hnqahji7lf8LiQqvubFs4ukfc+M8lUnmqm+lT15JsxatF2hKZ1mWOAu+CkjLhczL5iaqGANLqSxAwp3f3YWIDQ==",
       "type": "package",
       "path": "netstandard.library/2.0.2",
       "files": [
+        ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "build/netstandard2.0/NETStandard.Library.targets",
@@ -3694,10 +3697,11 @@
       ]
     },
     "runtime.win10-arm-aot.Microsoft.NETCore.UniversalWindowsPlatform/6.2.0-Preview1-26502-02": {
-      "sha512": "646iFg/DgpnyxJCFj9efPNSbGX3b9qTD9+o0+/ZUHbAQXsyl9485kv9GGGgfyGzPGTYS6S/k6gmTlxB1ifTc5Q==",
+      "sha512": "1QTQcNfcRaho5eoGuvz8UIJQ2moBMhCv1JG3No8n9UvbbeM6po5T40mSBSnt+uYJlmC9vRzab/8JW/zt5CJXkA==",
       "type": "package",
       "path": "runtime.win10-arm-aot.microsoft.netcore.universalwindowsplatform/6.2.0-preview1-26502-02",
       "files": [
+        ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "ref/netstandard/_._",
@@ -4575,10 +4579,11 @@
       ]
     },
     "runtime.win10-arm.Microsoft.NETCore.UniversalWindowsPlatform/6.2.0-Preview1-26502-02": {
-      "sha512": "mYaFgTjG5jBwYJmL01R0INVfsev532gQik29p60kRcXJh7ZLx2O4spDZIjIwD7igJvc4IAFUIQbr3OMBS2F7Qg==",
+      "sha512": "0JHzdS6xKPolWdbHIDOhp8SiDyuwu8hXuyYfJkj9+kuzTPSQeX6p1ECHDWvTZVShMZXbDJT0hmVdicYLHAhsPw==",
       "type": "package",
       "path": "runtime.win10-arm.microsoft.netcore.universalwindowsplatform/6.2.0-preview1-26502-02",
       "files": [
+        ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "ref/netstandard/_._",
@@ -4751,10 +4756,11 @@
       ]
     },
     "runtime.win10-x64-aot.Microsoft.NETCore.UniversalWindowsPlatform/6.2.0-Preview1-26502-02": {
-      "sha512": "WupxQFsckC8j9EVuPTGwG5i+KqcucL0jSvnrCaWZKDr0Ng2/zLT/NCzHhsMXFK9Y+Tx15zW7NzSqlnpMEpG6aA==",
+      "sha512": "vXsjn92mGcAvWkls5i2+RFrNMRCp04/elIX5Db3ZSEdcIs1sIgfVr5M6buGWtjQ3lEoz6sQxq+EdLn72ilGh/g==",
       "type": "package",
       "path": "runtime.win10-x64-aot.microsoft.netcore.universalwindowsplatform/6.2.0-preview1-26502-02",
       "files": [
+        ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "ref/netstandard/_._",
@@ -5626,10 +5632,11 @@
       ]
     },
     "runtime.win10-x64.Microsoft.NETCore.UniversalWindowsPlatform/6.2.0-Preview1-26502-02": {
-      "sha512": "MBdeSRNT7Qu7n6h9eKE75Vq1iAyAcc+8UuhM+1rjXYjqnsQv/6chPzEdWe0zQm8tlhz5W7MMqEf6N4P0Zp2OWQ==",
+      "sha512": "VmizI5Vg6iaW/a3oijU7dm9y7p9PH+2USg7DtQE6e8x49r5P5EWq62oyav9V1qxmWro/wsQUOoQjjYToT7cgfA==",
       "type": "package",
       "path": "runtime.win10-x64.microsoft.netcore.universalwindowsplatform/6.2.0-preview1-26502-02",
       "files": [
+        ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "ref/netstandard/_._",
@@ -5802,10 +5809,11 @@
       ]
     },
     "runtime.win10-x86-aot.Microsoft.NETCore.UniversalWindowsPlatform/6.2.0-Preview1-26502-02": {
-      "sha512": "uaJqGEiWOj39qWLZYTnbhmLPlj0Hzpj4D03rdShFV4KSNUtwiqCXrD6Cf7lGfcFRCOYpvpaaxqNWdPFsmSY6rw==",
+      "sha512": "lLa3vbTpgjrkWA694Fa76lo7khX60U7LFZtVRohPCPjNGb431U74aJcr6bzWXbjpiQ1W0IAGItWwq3P3BBIzvg==",
       "type": "package",
       "path": "runtime.win10-x86-aot.microsoft.netcore.universalwindowsplatform/6.2.0-preview1-26502-02",
       "files": [
+        ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "ref/netstandard/_._",
@@ -6677,10 +6685,11 @@
       ]
     },
     "runtime.win10-x86.Microsoft.NETCore.UniversalWindowsPlatform/6.2.0-Preview1-26502-02": {
-      "sha512": "gIyaNbJvo+UHqvCGAQOeNLkcP456/n9CGFGyl7uldkkODLN/65WoRDURT9uL1ASvDZeKyAXP9gyA9r+GC4zvNw==",
+      "sha512": "Y4st9nqAXkZi6t6kVKqD/j74DLqau1VjbT3Gk1Bd46aOsSnKq4OK3clyftAUE/niXytf8OXYqQLm+eNq/WBXuA==",
       "type": "package",
       "path": "runtime.win10-x86.microsoft.netcore.universalwindowsplatform/6.2.0-preview1-26502-02",
       "files": [
+        ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "ref/netstandard/_._",
@@ -6890,24 +6899,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\sgima\\.nuget\\packages\\": {},
+    "C:\\Users\\Sergey\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\C# Proj\\ASU-KV-001\\ASU_KV_001.csproj",
+      "projectUniqueName": "D:\\Работа\\C# Proj\\ASU-KV-001\\ASU_KV_001.csproj",
       "projectName": "ASU_KV_001",
-      "projectPath": "D:\\C# Proj\\ASU-KV-001\\ASU_KV_001.csproj",
-      "packagesPath": "C:\\Users\\sgima\\.nuget\\packages\\",
-      "outputPath": "D:\\C# Proj\\ASU-KV-001\\obj\\",
+      "projectPath": "D:\\Работа\\C# Proj\\ASU-KV-001\\ASU_KV_001.csproj",
+      "packagesPath": "C:\\Users\\Sergey\\.nuget\\packages\\",
+      "outputPath": "D:\\Работа\\C# Proj\\ASU-KV-001\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\sgima\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Sergey\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6931,6 +6940,8 @@
             "version": "[6.2.0-Preview1-26502-02, )"
           },
           "Microsoft.Net.Native.Compiler": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.8, )"
           },

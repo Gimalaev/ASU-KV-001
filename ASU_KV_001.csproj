@@ -196,6 +196,8 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Net.Native.Compiler">
       <Version>2.1.8</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.0-Preview1-26502-02</Version>

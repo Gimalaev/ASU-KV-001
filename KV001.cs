@@ -208,6 +208,11 @@ namespace ASU_KV_001
         public float[] lite_zero_weight = new float[10];
         public float[] lite_stab_weight = new float[10];
         public UInt16[] lite_stab_f1 = new UInt16[10];
+        public float[] lite_tzero = new float[10];
+        public float[] lite_w_zero = new float[10];
+
+        public UInt16[] lite_mode = new UInt16[10];
+        public UInt16[] lite_direction = new UInt16[10];
 
         private string out_str;
 
@@ -258,6 +263,11 @@ namespace ASU_KV_001
                 content += "СМЕЩЕНИЕ_НУЛЯ_ЛАЙТ="; content += lite_zero_weight[i]; content += "\n";
                 content += "ДИАПАЗОН_СТАБИЛЬНОГО_ВЕСА="; content += lite_stab_weight[i]; content += "\n";
                 content += "ФИЛЬТР_СТАБИЛЬНОГО_ВЕСА="; content += lite_stab_f1[i]; content += "\n";
+                content += "ВРЕМЯ_УСТАНОВКИ_НУЛЯ="; content += lite_tzero[i]; content += "\n";
+                content += "ДИАПАЗОН_НУЛЕВОГО_ВЕСА="; content += lite_w_zero[i]; content += "\n";
+                content += "РЕЖИМ_РАБОТЫ_УЧЕТА="; content += lite_mode[i]; content += "\n";
+                content += "НАПРАВЛЕНИЕ_ПЕРЕДАЧИ="; content += lite_direction[i]; content += "\n";
+
             }
             //   content = content.Replace(".", ",");
 
@@ -447,6 +457,22 @@ namespace ASU_KV_001
                     if (line.Contains("ФИЛЬТР_СТАБИЛЬНОГО_ВЕСА="))
                     {
                         s = line.Replace("ФИЛЬТР_СТАБИЛЬНОГО_ВЕСА=", ""); lite_stab_f1[tn] = Convert.ToUInt16(s);
+                    }
+                    if (line.Contains("ВРЕМЯ_УСТАНОВКИ_НУЛЯ="))
+                    {
+                        s = line.Replace("ВРЕМЯ_УСТАНОВКИ_НУЛЯ=", ""); lite_tzero[tn] = Convert.ToSingle(s);
+                    }
+                    if (line.Contains("ДИАПАЗОН_НУЛЕВОГО_ВЕСА="))
+                    {
+                        s = line.Replace("ДИАПАЗОН_НУЛЕВОГО_ВЕСА=", ""); lite_w_zero[tn] = Convert.ToSingle(s);
+                    }
+                    if (line.Contains("РЕЖИМ_РАБОТЫ_УЧЕТА="))
+                    {
+                        s = line.Replace("РЕЖИМ_РАБОТЫ_УЧЕТА=", ""); lite_mode[tn] = Convert.ToUInt16(s);
+                    }
+                    if (line.Contains("НАПРАВЛЕНИЕ_ПЕРЕДАЧИ="))
+                    {
+                        s = line.Replace("НАПРАВЛЕНИЕ_ПЕРЕДАЧИ=", ""); lite_direction[tn] = Convert.ToUInt16(s);
                     }
 
 

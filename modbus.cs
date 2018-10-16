@@ -218,6 +218,10 @@ namespace ASU_KV_001
                     case 164: WriteFloat(term_adress, 10); break;
                     case 165: WriteULong(term_adress, 12); break;
                     case 166: WriteUInt(term_adress, 14); break;
+                    case 180: ReadUInt(term_adress, 15); break;
+                    case 181: ReadUInt(term_adress, 16); break;
+                    case 182: ReadFloat(term_adress, 10); break;
+                    case 183: ReadUInt(term_adress, 14); break;
 
                         //                    case 200: WriteFloat(term_adress, 14); break;
                         //                    case 201: WriteFloat(term_adress, 18); break;

@@ -304,7 +304,28 @@ namespace ASU_KV_001
             Grid_Post_Top.Visibility = Visibility.Visible;
             Grid_Par_Smena.Visibility = Visibility.Collapsed;
 
+            Combo_Lite_F1.Items.Add("0");
+            Combo_Lite_F1.Items.Add("4");
+            Combo_Lite_F1.Items.Add("8");
+            Combo_Lite_F1.Items.Add("16");
+            Combo_Lite_F1.Items.Add("32");
+            Combo_Lite_F2.Items.Add("0");
+            Combo_Lite_F2.Items.Add("4");
+            Combo_Lite_F2.Items.Add("8");
+            Combo_Lite_F2.Items.Add("16");
+            Combo_Lite_F2.Items.Add("32");
 
+            Combo_Lite_Mode.Items.Add("Выкл.");
+            Combo_Lite_Mode.Items.Add("По последнему");
+            Combo_Lite_Mode.Items.Add("По наибольшему");
+
+            Combo_Lite_Direction.Items.Add("Младшим");
+            Combo_Lite_Direction.Items.Add("Старшим");
+
+            Combo_Lite_Baud.Items.Add("4800");
+            Combo_Lite_Baud.Items.Add("9600");
+            Combo_Lite_Baud.Items.Add("19200");
+            Combo_Lite_Baud.Items.Add("57600");
             //  Grid_Right_Time.Visibility = Visibility.Visible;
             //  Grid_Right_Calc.Visibility = Visibility.Collapsed;
             //  Grid_Right.Visibility = Visibility.Visible;
@@ -1029,31 +1050,31 @@ namespace ASU_KV_001
                         reg_status_visible = 20;
                         break;
 
-// Считываем Calibr для kfqn
+// Считываем Calibr для лайт
                     case 180:
                         kv_par.hz[term_now] = (byte)(serial_port.reg_int / 0x100);
                         kv_par.mv[term_now] = (byte)(serial_port.reg_int - kv_par.hz[term_now] * 0x100);
                         tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 22%";
-                        Combo_Mv.SelectedIndex = kv_par.mv[term_now];
-                        Combo_Hz.SelectedIndex = kv_par.hz[term_now];
+                        Combo_Lite_Mv.SelectedIndex = kv_par.mv[term_now];
+                        Combo_Lite_Hz.SelectedIndex = kv_par.hz[term_now];
                         serial_port.rd_mode++;
                         break;
                     case 181:
                         kv_par.polar[term_now] = (byte)(serial_port.reg_int / 0x100);
                         kv_par.zpt[term_now] = (byte)(serial_port.reg_int - kv_par.polar[term_now] * 0x100);
                         tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 44%";
-                        Combo_Polar.SelectedIndex = kv_par.polar[term_now];
-                        Combo_Zpt.SelectedIndex = kv_par.zpt[term_now];
+                        Combo_Lite_Polar.SelectedIndex = kv_par.polar[term_now];
+                        Combo_Lite_Zpt.SelectedIndex = kv_par.zpt[term_now];
                         serial_port.rd_mode++;
                         break;
                     case 182:
                         tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 55%";
-                        kv_par.npv[term_now] = serial_port.reg_fl; NPV.Text = "НПВ: " + kv_par.npv[term_now]; serial_port.rd_mode++;
+                        kv_par.npv[term_now] = serial_port.reg_fl; Lite_NPV.Text = "НПВ: " + kv_par.npv[term_now]; serial_port.rd_mode++;
                         break;
                     case 183:
                         kv_par.discr[term_now] = (ushort)(serial_port.reg_int);
                         tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 100%";
-                        Combo_Discr.SelectedIndex = kv_par.discr[term_now];
+                        Combo_Lite_Discr.SelectedIndex = kv_par.discr[term_now];
                         serial_port.rd_mode = 1;
                         reg_status_visible = 20;
                         break;
@@ -1387,14 +1408,26 @@ namespace ASU_KV_001
             Combo_Lite_Mv.SelectedIndex = kv_par.mv[term_now];
             Lite_NPV.Text = "НПВ: " + Convert.ToSingle(kv_par.npv[term_now]);
             Lite_NPV.Text = Lite_NPV.Text.Replace(",", ".");
-            Cal_Lite_Zero.Text="СМЕЩЕНИЕ НУЛЯ:"+ Convert.ToSingle(kv_par.lite_zero_weight[term_now]);
+            Cal_Lite_Zero.Text="СМЕЩЕНИЕ НУЛЯ: "+ Convert.ToSingle(kv_par.lite_zero_weight[term_now]);
             Cal_Lite_Zero.Text = Cal_Lite_Zero.Text.Replace(",", ".");
 
-            Lite_StabWeigth.Text = "ДИАПАЗОН СТАБИЛЬНОГО ВЕСА:" + Convert.ToSingle(kv_par.lite_stab_weight[term_now]);
+            Lite_StabWeigth.Text = "ДИАПАЗОН СТАБИЛЬНОГО ВЕСА: " + Convert.ToSingle(kv_par.lite_stab_weight[term_now]);
             Lite_StabWeigth.Text = Lite_StabWeigth.Text.Replace(",", ".");
 
             Combo_Lite_FStab.SelectedIndex= kv_par.lite_stab_f1[term_now];
 
+            Lite_Zero_Time.Text = "ВРЕМЯ УСТАНОВКИ НУЛЯ: " + Convert.ToSingle(kv_par.lite_tzero[term_now]);
+            Lite_Zero_Time.Text = Lite_Zero_Time.Text.Replace(",", ".");
+            Lite_Zero_Weight.Text = "ДИАПАЗОН НУЛЕВОГО ВЕСА: " + Convert.ToSingle(kv_par.lite_w_zero[term_now]);
+            Lite_Zero_Weight.Text = Lite_Zero_Weight.Text.Replace(",", ".");
+
+            Combo_Lite_Mode.SelectedIndex = kv_par.lite_mode[term_now];
+            Combo_Lite_F1.SelectedIndex = kv_par.f1[term_now];
+            Combo_Lite_F2.SelectedIndex = kv_par.f2[term_now];
+            Combo_Lite_F2.SelectedIndex = kv_par.f2[term_now];
+            Combo_Lite_Direction.SelectedIndex = kv_par.lite_direction[term_now];
+            Combo_Lite_Baud.SelectedIndex = kv_par.baud[term_now];
+            Lite_Num.Text = "СЕТЕВОЙ НОМЕР: " + Convert.ToUInt32(kv_par.num[term_now]);
 
             if (prg_par.ver[term_now] == 1)
             {
@@ -2594,6 +2627,88 @@ namespace ASU_KV_001
         {
             kv_par.lite_stab_f1[term_now] = (UInt16)Combo_Lite_FStab.SelectedIndex;
             par_flag = true;
+        }
+
+        private async void btn_Lite_Zero_Time_Click(object sender, RoutedEventArgs e)
+        {
+            var InputDlg = new Input_Num_Dialog();
+            InputDlg.Text = Convert.ToString(kv_par.lite_tzero[term_now]);
+            var result = await InputDlg.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                var text = InputDlg.Text;
+                Lite_Zero_Time.Text = "ВРЕМЯ УСТАНОВКИ НУЛЯ: " + text;
+                text = text.Replace(".", ",");
+                kv_par.lite_tzero[term_now] = Convert.ToSingle(text);
+                par_flag = true;
+            }
+
+        }
+
+        private async void btn_Lite_Zero_Weight_Click(object sender, RoutedEventArgs e)
+        {
+            var InputDlg = new Input_Num_Dialog();
+            InputDlg.Text = Convert.ToString(kv_par.lite_w_zero[term_now]);
+            var result = await InputDlg.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                var text = InputDlg.Text;
+                Lite_Zero_Weight.Text = "ДИАПАЗОН НУЛЕВОГО ВЕСА: " + text;
+                text = text.Replace(".", ",");
+                kv_par.lite_w_zero[term_now] = Convert.ToSingle(text);
+                par_flag = true;
+            }
+
+        }
+
+        private void Combo_Lite_Mode_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            kv_par.lite_mode[term_now] = (UInt16)Combo_Lite_Mode.SelectedIndex;
+            par_flag = true;
+        }
+
+        private void Combo_Lite_F1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            kv_par.f1[term_now] = (UInt16)Combo_Lite_F1.SelectedIndex;
+            par_flag = true;
+
+        }
+
+        private void Combo_Lite_F2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            kv_par.f2[term_now] = (UInt16)Combo_Lite_F2.SelectedIndex;
+            par_flag = true;
+
+        }
+
+        private void Combo_Lite_Direction_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            kv_par.lite_direction[term_now] = (UInt16)Combo_Lite_Direction.SelectedIndex;
+            par_flag = true;
+
+        }
+
+        private void Combo_Lite_Baud_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            kv_par.baud[term_now] = (UInt16)Combo_Lite_Baud.SelectedIndex;
+            par_flag = true;
+
+        }
+
+        private async void btn_Lite_Num_Click(object sender, RoutedEventArgs e)
+        {
+            var InputDlg = new Input_Num_Dialog();
+            InputDlg.Text = Convert.ToString(kv_par.num[term_now]);
+            var result = await InputDlg.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                var text = InputDlg.Text;
+                Lite_Num.Text = "СЕТЕВОЙ НОМЕР: " + text;
+                text = text.Replace(".", ",");
+                kv_par.num[term_now] = Convert.ToUInt16(text);
+                par_flag = true;
+            }
+
         }
     }
 }
