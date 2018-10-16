@@ -15,7 +15,6 @@ mscorlib.dll                                          : 4.6.26409.01
 netstandard.dll                                       : 4.6.26409.1
 SQLite.Net.dll                                        : 3.1.0.0
 SQLite.Net.Platform.WinRT.dll                         : 3.1.0.0
-sqlite3.dll                                           : 3.24.0
 System.AppContext.dll                                 : 4.6.26409.01
 System.Buffers.dll                                    : 4.6.26409.01
 System.Collections.Concurrent.dll                     : 4.6.26409.01

@@ -27,7 +27,7 @@ namespace ASU_KV_001
         public char baud;
 
         private byte rd_try=0;
-        public byte rd_mode=0;
+        public UInt16 rd_mode=0;
         public byte wait_answer=0;
         public float weight;
         public short in_outs;
@@ -218,6 +218,32 @@ namespace ASU_KV_001
                     case 164: WriteFloat(term_adress, 10); break;
                     case 165: WriteULong(term_adress, 12); break;
                     case 166: WriteUInt(term_adress, 14); break;
+                    case 180: ReadUInt(term_adress, 15); break;
+                    case 181: ReadUInt(term_adress, 16); break;
+                    case 182: ReadFloat(term_adress, 10); break;
+                    case 183: ReadUInt(term_adress, 14); break;
+                    case 184: ReadFloat(term_adress, 12); break;
+                    case 185: ReadUInt(term_adress, 57); break;
+                    case 200: WriteUInt(term_adress, 15); break;
+                    case 201: WriteUInt(term_adress, 16); break;
+                    case 202: WriteFloat(term_adress, 10); break;
+                    case 203: WriteUInt(term_adress, 14); break;
+                    case 204: WriteFloat(term_adress, 12); break;
+                    case 205: WriteUInt(term_adress, 57); break;
+                    case 220: ReadFloat(term_adress, 69); break;
+                    case 221: ReadUInt(term_adress, 71); break;
+                    case 222: ReadFloat(term_adress, 67); break;
+                    case 223: ReadFloat(term_adress, 65); break;
+                    case 240: WriteFloat(term_adress, 69); break;
+                    case 241: WriteUInt(term_adress, 71); break;
+                    case 242: WriteFloat(term_adress, 67); break;
+                    case 243: WriteFloat(term_adress, 65); break;
+                    case 260: ReadUInt(term_adress, 60); break;
+                    case 261: ReadUInt(term_adress, 61); break;
+                    case 262: ReadUInt(term_adress, 62); break;
+                    case 280: WriteUInt(term_adress, 60); break;
+                    case 281: WriteUInt(term_adress, 61); break;
+                    case 282: WriteUInt(term_adress, 62); break;
 
                         //                    case 200: WriteFloat(term_adress, 14); break;
                         //                    case 201: WriteFloat(term_adress, 18); break;
@@ -399,7 +425,11 @@ namespace ASU_KV_001
                     case 142:
                     case 143:
                     case 144:
-
+                    case 182:
+                    case 184:
+                    case 220:
+                    case 222:
+                    case 223:
                         reg_fl = BitConverter.ToSingle(fileContent, 3); break;
                     case 102:
                     case 103:
@@ -409,23 +439,15 @@ namespace ASU_KV_001
                         reg_int = BitConverter.ToUInt16(fileContent, 3); break;
                     case 145:
                         reg_long = BitConverter.ToUInt32(fileContent, 3); break;
-                        /*case 40:
-                        case 41:
-                        case 42:
-                            reg_int = BitConverter.ToUInt16(fileContent, 3); break;
-                        case 43:
-                        case 44:
-                        case 45:
-                            reg_fl = BitConverter.ToSingle(fileContent, 3); break;
-                        case 46:
-                            reg_long = BitConverter.ToUInt32(fileContent, 3); break;
-                        case 60:
-                        case 61:
-                        case 62:
-                        case 63:
-                            reg_fl = BitConverter.ToSingle(fileContent, 3); break;
-
-        */
+                    case 180:
+                    case 181:
+                    case 183:
+                    case 185:
+                    case 221:
+                    case 260:
+                    case 261:
+                    case 262:
+                        reg_int = BitConverter.ToUInt16(fileContent, 3);  break;
                 }
                 status = ""+ bytesRead+"bytes read successfully! ";
             }

@@ -854,8 +854,6 @@ D:\Работа\C# Proj\ASU-KV-001\obj\x86\Debug\FxResources.System.Threading.Ta
 D:\Работа\C# Proj\ASU-KV-001\obj\x86\Debug\FxResources.System.Threading.Tasks.Parallel.SR.resw
 D:\Работа\C# Proj\ASU-KV-001\obj\x86\Debug\priconfig.xml
 D:\Работа\C# Proj\ASU-KV-001\obj\x86\Debug\priconfig.xml.intermediate
-D:\Работа\C# Proj\ASU-KV-001\obj\x86\Debug\layout.resfiles
-D:\Работа\C# Proj\ASU-KV-001\obj\x86\Debug\layout.resfiles.intermediate
 D:\Работа\C# Proj\ASU-KV-001\obj\x86\Debug\resources.resfiles
 D:\Работа\C# Proj\ASU-KV-001\obj\x86\Debug\resources.resfiles.intermediate
 D:\Работа\C# Proj\ASU-KV-001\obj\x86\Debug\pri.resfiles
@@ -958,3 +956,9 @@ D:\Работа\C# Proj\ASU-KV-001\obj\x86\Debug\FxResources.System.Security.Pri
 D:\Работа\C# Proj\ASU-KV-001\obj\x86\Debug\FxResources.System.Threading.Thread.SR.resw
 D:\Работа\C# Proj\ASU-KV-001\obj\x86\Debug\FxResources.System.Transactions.Local.SR.resw
 D:\Работа\C# Proj\ASU-KV-001\obj\x86\Debug\FxResources.System.ValueTuple.SR.resw
+D:\Работа\C# Proj\ASU-KV-001\obj\x86\Debug\unfiltered.layout.resfiles
+D:\Работа\C# Proj\ASU-KV-001\obj\x86\Debug\unfiltered.layout.resfiles.intermediate
+D:\Работа\C# Proj\ASU-KV-001\obj\x86\Debug\filtered.layout.resfiles
+D:\Работа\C# Proj\ASU-KV-001\obj\x86\Debug\filtered.layout.resfiles.intermediate
+D:\Работа\C# Proj\ASU-KV-001\obj\x86\Debug\excluded.layout.resfiles
+D:\Работа\C# Proj\ASU-KV-001\obj\x86\Debug\excluded.layout.resfiles.intermediate

@@ -1,11 +1,10 @@
 [ResourceMetadata]
 "ResourceDimensions"		"scale-200"
 "ResourceDimensions"		"language-ru"
-"ResourceDimensions"		"language-ru-ru"
+"ResourceDimensions"		"language-ru"
 
 [Files]
 "D:\Работа\C# Proj\ASU-KV-001\obj\x64\Release\split.pri"			"resources.pri"
-"D:\Работа\C# Proj\ASU-KV-001\obj\x64\Release\PackageLayout\sqlite3.dll"			"sqlite3.dll"
 "D:\Работа\C# Proj\ASU-KV-001\obj\x64\Release\PackageLayout\clrcompression.dll"			"clrcompression.dll"
 "D:\Работа\C# Proj\ASU-KV-001\obj\x64\Release\PackageLayout\ASU-KV-001.exe"			"ASU-KV-001.exe"
 "D:\Работа\C# Proj\ASU-KV-001\obj\x64\Release\PackageLayout\ASU-KV-001.dll"			"ASU-KV-001.dll"

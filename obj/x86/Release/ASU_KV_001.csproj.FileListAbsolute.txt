@@ -39,7 +39,6 @@ D:\Работа\C# Proj\ASU-KV-001\bin\x86\Release\ilc\PInvoke.g.cs
 D:\Работа\C# Proj\ASU-KV-001\bin\x86\Release\ilc\resources.pri
 D:\Работа\C# Proj\ASU-KV-001\bin\x86\Release\ilc\SafeTypes.g.cs
 D:\Работа\C# Proj\ASU-KV-001\bin\x86\Release\ilc\SharedStubs.g.cs
-D:\Работа\C# Proj\ASU-KV-001\bin\x86\Release\ilc\sqlite3.dll
 D:\Работа\C# Proj\ASU-KV-001\bin\x86\Release\ASU_KV_001.build.appxrecipe
 D:\Работа\C# Proj\ASU-KV-001\bin\x86\Release\Upload\ASU_KV_001.build.appxrecipe
 D:\Работа\C# Proj\ASU-KV-001\bin\x86\Release\clrcompression.dll
@@ -231,8 +230,6 @@ D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\ASU-KV-001.pdb
 D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\ResourceHandlingTask.state
 D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\priconfig.xml
 D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\priconfig.xml.intermediate
-D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\layout.resfiles
-D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\layout.resfiles.intermediate
 D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\resources.resfiles
 D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\resources.resfiles.intermediate
 D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\pri.resfiles
@@ -415,7 +412,6 @@ D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\ilc\in\SQLite.Net.dll
 D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\ilc\in\WinMetadata\Windows.winmd
 D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\ilc\in\resources.pri
 D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\ilc\in\clrcompression.dll
-D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\ilc\in\sqlite3.dll
 D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\ilc\in\Assets\background_ud.jpg
 D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\ilc\in\Assets\out_off.jpg
 D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\ilc\in\Assets\out_on.jpg
@@ -587,3 +583,9 @@ D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\ilc\in\Assets\Wide310x150Logo
 D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\ilc\in\Assets\Wide310x150Logo.scale-125.png
 D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\ilc\in\Assets\Wide310x150Logo.scale-150.png
 D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\ilc\in\Assets\Wide310x150Logo.scale-400.png
+D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\unfiltered.layout.resfiles
+D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\unfiltered.layout.resfiles.intermediate
+D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\filtered.layout.resfiles
+D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\filtered.layout.resfiles.intermediate
+D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\excluded.layout.resfiles
+D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\excluded.layout.resfiles.intermediate

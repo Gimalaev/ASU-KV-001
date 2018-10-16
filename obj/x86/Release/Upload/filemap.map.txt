@@ -163,7 +163,6 @@
 "D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\PackageUploadLayout\System.Collections.Concurrent.dll"			"System.Collections.Concurrent.dll"
 "D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\PackageUploadLayout\System.Buffers.dll"			"System.Buffers.dll"
 "D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\PackageUploadLayout\System.AppContext.dll"			"System.AppContext.dll"
-"D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\PackageUploadLayout\sqlite3.dll"			"sqlite3.dll"
 "D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\PackageUploadLayout\SQLite.Net.Platform.WinRT.dll"			"SQLite.Net.Platform.WinRT.dll"
 "D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\PackageUploadLayout\SQLite.Net.dll"			"SQLite.Net.dll"
 "D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\PackageUploadLayout\netstandard.dll"			"netstandard.dll"
