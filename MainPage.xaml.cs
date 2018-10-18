@@ -46,7 +46,7 @@ namespace ASU_KV_001
         private DispatcherTimer tmComReq;
         private byte num_reg_read = 0;
         private byte reg_try = 0;
-        private byte write_reg_wait = 0;
+        private UInt16 write_reg_wait = 0;
         private byte reg_status_visible = 0;
         private byte term_num_req = 0;
         // Конец модбаса//
@@ -257,8 +257,8 @@ namespace ASU_KV_001
             Combo_Lite_Zpt.Items.Add("0");
             Combo_Lite_Zpt.Items.Add("1");
             Combo_Lite_Zpt.Items.Add("2");
-            Combo_Lite_Polar.Items.Add("Биполярный");
             Combo_Lite_Polar.Items.Add("Униполярный");
+            Combo_Lite_Polar.Items.Add("Биполярный");
 
             Combo_Lite_Discr.Items.Add("1");
             Combo_Lite_Discr.Items.Add("2");
@@ -268,6 +268,8 @@ namespace ASU_KV_001
             Combo_Lite_Discr.Items.Add("50");
             Combo_Lite_Discr.Items.Add("100");
 
+            Combo_Lite_Hz.Items.Add("500");
+            Combo_Lite_Hz.Items.Add("250");
             Combo_Lite_Hz.Items.Add("125");
             Combo_Lite_Hz.Items.Add("62.6");
             Combo_Lite_Hz.Items.Add("50");
@@ -329,6 +331,17 @@ namespace ASU_KV_001
             //  Grid_Right_Time.Visibility = Visibility.Visible;
             //  Grid_Right_Calc.Visibility = Visibility.Collapsed;
             //  Grid_Right.Visibility = Visibility.Visible;
+            Combo_Lite_PointNum.Items.Add("0");
+            Combo_Lite_PointNum.Items.Add("1");
+            Combo_Lite_PointNum.Items.Add("2");
+            Combo_Lite_PointNum.Items.Add("3");
+            Combo_Lite_PointNum.Items.Add("4");
+            Combo_Lite_PointNum.Items.Add("5");
+            Combo_Lite_PointNum.Items.Add("6");
+            Combo_Lite_PointNum.Items.Add("7");
+            Combo_Lite_PointNum.Items.Add("8");
+            Combo_Lite_PointNum.Items.Add("9");
+            Combo_Lite_PointNum.Items.Add("10");
 
             kv_par = new ASU_KV_001.KV001();
             prg_par = new ASU_KV_001.Program_Par();
@@ -1020,17 +1033,17 @@ namespace ASU_KV_001
                         serial_port.write_reg_int = (UInt16)(kv_par.polar[term_now] * 0x100 + kv_par.zpt[term_now]);
                         break;
                     case 161:
-                        tbParStatus.Text = "Идет запись параметров вкладки PAR: 44%";
+                        tbParStatus.Text = "Идет запись параметров вкладки CALIBR: 44%";
                         write_reg_wait = 162;
                         serial_port.write_reg_fl = (float)kv_par.npv[term_now];
                         break;
                     case 162:
-                        tbParStatus.Text = "Идет запись параметров вкладки PAR: 55%";
+                        tbParStatus.Text = "Идет запись параметров вкладки CALIBR: 55%";
                         write_reg_wait = 163;
                         serial_port.write_reg_fl = (float)kv_par.cal_weight[term_now];
                         break;
                     case 163:
-                        tbParStatus.Text = "Идет запись параметров вкладки PAR: 66%";
+                        tbParStatus.Text = "Идет запись параметров вкладки CALIBR: 66%";
                         write_reg_wait = 164;
                         serial_port.write_reg_fl = (float)kv_par.coeff[term_now];
                         break;
@@ -1054,31 +1067,172 @@ namespace ASU_KV_001
                     case 180:
                         kv_par.hz[term_now] = (byte)(serial_port.reg_int / 0x100);
                         kv_par.mv[term_now] = (byte)(serial_port.reg_int - kv_par.hz[term_now] * 0x100);
-                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 22%";
+                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 25%";
                         Combo_Lite_Mv.SelectedIndex = kv_par.mv[term_now];
                         Combo_Lite_Hz.SelectedIndex = kv_par.hz[term_now];
                         serial_port.rd_mode++;
                         break;
                     case 181:
-                        kv_par.polar[term_now] = (byte)(serial_port.reg_int / 0x100);
-                        kv_par.zpt[term_now] = (byte)(serial_port.reg_int - kv_par.polar[term_now] * 0x100);
-                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 44%";
-                        Combo_Lite_Polar.SelectedIndex = kv_par.polar[term_now];
-                        Combo_Lite_Zpt.SelectedIndex = kv_par.zpt[term_now];
+                        kv_par.lite_point_num[term_now] = (byte)(serial_port.reg_int / 0x100);
+                        kv_par.zpt[term_now] = (byte)(serial_port.reg_int - kv_par.lite_point_num[term_now] * 0x100);
+                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 50%";
+                        if (Combo_Lite_PointNum.Items.Count > kv_par.lite_point_num[term_now])
+                            Combo_Lite_PointNum.SelectedIndex = kv_par.lite_point_num[term_now];
+                        if (Combo_Lite_Zpt.Items.Count > kv_par.zpt[term_now])
+                            Combo_Lite_Zpt.SelectedIndex = kv_par.zpt[term_now];
+                        //.SelectedIndex = kv_par.zpt[term_now];
                         serial_port.rd_mode++;
                         break;
                     case 182:
-                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 55%";
+                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 62%";
                         kv_par.npv[term_now] = serial_port.reg_fl; Lite_NPV.Text = "НПВ: " + kv_par.npv[term_now]; serial_port.rd_mode++;
                         break;
                     case 183:
+                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 75%";
                         kv_par.discr[term_now] = (ushort)(serial_port.reg_int);
+                        switch (kv_par.discr[term_now])
+                        {
+                            case 1: Combo_Lite_Discr.SelectedIndex = 0; break;
+                            case 2: Combo_Lite_Discr.SelectedIndex = 1; break;
+                            case 5: Combo_Lite_Discr.SelectedIndex = 2; break;
+                            case 10: Combo_Lite_Discr.SelectedIndex = 3; break;
+                            case 20: Combo_Lite_Discr.SelectedIndex = 4; break;
+                            case 50: Combo_Lite_Discr.SelectedIndex = 5; break;
+                            case 100: Combo_Lite_Discr.SelectedIndex = 6; break;
+                        }
+                        serial_port.rd_mode++;
+                        break;
+                    case 184:
+                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 85%";
+                        kv_par.lite_zero_weight[term_now] = serial_port.reg_fl; Cal_Lite_Zero.Text = "СМЕЩЕНИЕ НУЛЯ: " + kv_par.lite_zero_weight[term_now];
+                        serial_port.rd_mode++;
+                        break;
+                    case 185:
+                        kv_par.polar[term_now] = (byte)(serial_port.reg_int / 0x100);
+                        kv_par.polar[term_now] = (byte)(serial_port.reg_int - kv_par.polar[term_now] * 0x100);
                         tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 100%";
-                        Combo_Lite_Discr.SelectedIndex = kv_par.discr[term_now];
+                        if (Combo_Lite_Polar.Items.Count > kv_par.polar[term_now])
+                            Combo_Lite_Polar.SelectedIndex = kv_par.polar[term_now];
+                        if (kv_par.polar[term_now] > 1) kv_par.polar[term_now] = 0;
+                        UpdateSettings();
                         serial_port.rd_mode = 1;
                         reg_status_visible = 20;
                         break;
+                    case 200:
+                        tbParStatus.Text = "Идет запись параметров вкладки CALIBR: 25%";
+                        write_reg_wait = 201;
+                        serial_port.write_reg_int = (UInt16)(kv_par.lite_point_num[term_now] * 0x100 + kv_par.zpt[term_now]);
+                        break;
+                    case 201:
+                        tbParStatus.Text = "Идет запись параметров вкладки CALIBR: 50%";
+                        write_reg_wait = 202;
+                        serial_port.write_reg_fl = (float)kv_par.npv[term_now];
+                        break;
+                    case 202:
+                        tbParStatus.Text = "Идет запись параметров вкладки CALIBR: 62%";
+                        write_reg_wait = 203;
+                        switch (Combo_Lite_Discr.SelectedIndex)
+                        {
+                            case 0: serial_port.write_reg_int = 1; break;
+                            case 1: serial_port.write_reg_int = 2; break;
+                            case 2: serial_port.write_reg_int = 5; break;
+                            case 3: serial_port.write_reg_int = 10; break;
+                            case 4: serial_port.write_reg_int = 20; break;
+                            case 5: serial_port.write_reg_int = 50; break;
+                            case 6: serial_port.write_reg_int = 100; break;
+                        }
 
+                        break;
+                    case 203:
+                        tbParStatus.Text = "Идет запись параметров вкладки CALIBR: 75%";
+                        write_reg_wait = 204;
+                        serial_port.write_reg_fl = (float)kv_par.lite_zero_weight[term_now];
+                        break;
+                    case 204:
+                        tbParStatus.Text = "Идет запись параметров вкладки CALIBR: 87%";
+                        write_reg_wait = 205;
+                        serial_port.write_reg_int = (UInt16)(kv_par.polar[term_now] * 0x100 + kv_par.polar[term_now]);
+                        break;
+                    case 205:
+                        tbParStatus.Text = "Идет запись параметров вкладки CALIBR: 100%";
+                        serial_port.rd_mode = 180;
+                        reg_status_visible = 1;
+                        break;
+                    // Считываем Feed для лайт
+                    case 220:
+                        tbParStatus.Text = "Идет считывание параметров вкладки FEED: 25%";
+                        kv_par.lite_stab_weight[term_now] = serial_port.reg_fl; Lite_StabWeigth.Text = "ДИАПАЗОН СТАБИЛЬНОГО ВЕСА: " + Convert.ToString(kv_par.lite_stab_weight[term_now]);
+                        serial_port.rd_mode++;
+                        break;
+                    case 221:
+                        kv_par.lite_stab_f1[term_now] = (byte)(serial_port.reg_int / 0x100);
+                        kv_par.lite_stab_f1[term_now] = (byte)(serial_port.reg_int - kv_par.lite_stab_f1[term_now] * 0x100);
+                        tbParStatus.Text = "Идет считывание параметров вкладки FEED: 50%";
+                        Combo_Lite_FStab.SelectedIndex = kv_par.lite_stab_f1[term_now];
+                        serial_port.rd_mode++;
+                        break;
+                    case 222:
+                        tbParStatus.Text = "Идет считывание параметров вкладки FEED: 75%";
+                        kv_par.lite_tzero[term_now] = serial_port.reg_fl; Lite_Zero_Time.Text = "ВРЕМЯ УСТАНОВКИ НУЛЯ: " + kv_par.lite_tzero[term_now]; serial_port.rd_mode++;
+                        break;
+                    case 223:
+                        tbParStatus.Text = "Идет считывание параметров вкладки FEED: 100%";
+                        kv_par.lite_w_zero[term_now] = serial_port.reg_fl; Lite_Zero_Weight.Text = "ДИАПАЗОН НУЛЕВОГО ВЕСА: " + kv_par.lite_w_zero[term_now];
+                        UpdateSettings();
+                        serial_port.rd_mode = 1;
+                        reg_status_visible = 20;
+                        break;
+                    case 240:
+                        tbParStatus.Text = "Идет запись параметров вкладки FEED: 25%";
+                        write_reg_wait = 241;
+                        serial_port.write_reg_int = (UInt16)(kv_par.lite_stab_f1[term_now] * 0x100 + kv_par.lite_stab_f1[term_now]);
+                        break;
+                    case 241:
+                        tbParStatus.Text = "Идет запись параметров вкладки FEED: 50%";
+                        write_reg_wait = 242;
+                        serial_port.write_reg_fl = (float)(kv_par.lite_tzero[term_now]);
+                        break;
+                    case 242:
+                        tbParStatus.Text = "Идет запись параметров вкладки FEED: 75%";
+                        write_reg_wait = 243;
+                        serial_port.write_reg_fl = (float)(kv_par.lite_w_zero[term_now]);
+                        break;
+                    case 243:
+                        tbParStatus.Text = "Идет запись параметров вкладки FEED: 100%";
+                        serial_port.rd_mode = 220;
+                        reg_status_visible = 1;
+                        break;
+                    case 260:
+                        kv_par.f1[term_now] = (byte)(serial_port.reg_int / 0x100);
+                        kv_par.lite_mode[term_now] = (byte)(serial_port.reg_int - kv_par.f1[term_now] * 0x100);
+                        tbParStatus.Text = "Идет считывание параметров вкладки PAR: 33%";
+                        if (Combo_Lite_Mode.Items.Count > kv_par.lite_mode[term_now])
+                            Combo_Lite_Mode.SelectedIndex = kv_par.lite_mode[term_now];
+                        if (Combo_Lite_F1.Items.Count > kv_par.f1[term_now])
+                            Combo_Lite_F1.SelectedIndex = kv_par.f1[term_now];
+                        serial_port.rd_mode++;
+                        break;
+                    case 261:
+                        kv_par.num[term_now] = (byte)(serial_port.reg_int / 0x100);
+                        kv_par.f2[term_now] = (byte)(serial_port.reg_int - kv_par.num[term_now] * 0x100);
+                        tbParStatus.Text = "Идет считывание параметров вкладки PAR: 67%";
+                        Lite_Num.Text = "СЕТЕВОЙ НОМЕР: " + kv_par.num[term_now];
+                        if (Combo_Lite_F2.Items.Count > kv_par.f2[term_now])
+                            Combo_Lite_F2.SelectedIndex = kv_par.f2[term_now];
+                        serial_port.rd_mode++;
+                        break;
+                    case 262:
+                        kv_par.lite_direction[term_now] = (byte)(serial_port.reg_int / 0x100);
+                        kv_par.baud[term_now] = (byte)(serial_port.reg_int - kv_par.lite_direction[term_now] * 0x100);
+                        tbParStatus.Text = "Идет считывание параметров вкладки PAR: 100%";
+                        if (Combo_Lite_Direction.Items.Count > kv_par.lite_direction[term_now])
+                            Combo_Lite_Direction.SelectedIndex = kv_par.lite_direction[term_now];
+                        if (Combo_Lite_Baud.Items.Count > kv_par.baud[term_now])
+                            Combo_Lite_Baud.SelectedIndex = kv_par.baud[term_now];
+                       // UpdateSettings();
+                        serial_port.rd_mode = 1;
+                        reg_status_visible = 20;
+                        break;
                     default:
 
                             serial_port.rd_mode = 1;
@@ -1428,7 +1582,7 @@ namespace ASU_KV_001
             Combo_Lite_Direction.SelectedIndex = kv_par.lite_direction[term_now];
             Combo_Lite_Baud.SelectedIndex = kv_par.baud[term_now];
             Lite_Num.Text = "СЕТЕВОЙ НОМЕР: " + Convert.ToUInt32(kv_par.num[term_now]);
-
+            Combo_Lite_PointNum.SelectedIndex = kv_par.lite_point_num[term_now];
             if (prg_par.ver[term_now] == 1)
             {
                 Button_Param_Levels.Visibility = Visibility.Visible;
@@ -2400,8 +2554,19 @@ namespace ASU_KV_001
                 tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 0%";
                 write_reg_wait = 180;
             }
+            if (Grid_KV_Lite_Feed.Visibility == Visibility.Visible)
+            {
+                tbParStatus.Text = "Идет считывание параметров вкладки FEED: 0%";
+                write_reg_wait = 220;
+            }
+            if (Grid_KV_Lite_Par.Visibility == Visibility.Visible)
+            {
+                tbParStatus.Text = "Идет считывание параметров вкладки PAR: 0%";
+                write_reg_wait = 260;
+            }
 
-            
+
+
             reg_status_visible = 1;
             tbParStatus.Visibility = Visibility.Visible;
         }
@@ -2436,7 +2601,28 @@ namespace ASU_KV_001
                 tbParStatus.Text = "Идет запись параметров вкладки CALIBR: 0%";
                 write_reg_wait = 160;
                 num_reg_read = 0;
-                serial_port.write_reg_int = (UInt16)(kv_par.hz[term_now]*0x100+ kv_par.mv[term_now]);
+                serial_port.write_reg_int = (UInt16)(kv_par.hz[term_now] * 0x100 + kv_par.mv[term_now]);
+            }
+            if (Grid_KV_Lite_Calibr.Visibility == Visibility.Visible)
+            {
+                tbParStatus.Text = "Идет запись параметров вкладки CALIBR: 0%";
+                write_reg_wait = 200;
+                num_reg_read = 0;
+                serial_port.write_reg_int = (UInt16)(kv_par.hz[term_now] * 0x100 + kv_par.mv[term_now]);
+            }
+            if (Grid_KV_Lite_Feed.Visibility == Visibility.Visible)
+            {
+                tbParStatus.Text = "Идет запись параметров вкладки FEED: 0%";
+                write_reg_wait = 240;
+                num_reg_read = 0;
+                serial_port.write_reg_fl = (float)kv_par.lite_stab_weight[term_now]; ;
+            }
+            if (Grid_KV_Lite_Par.Visibility == Visibility.Visible)
+            {
+                tbParStatus.Text = "Идет запись параметров вкладки PAR: 0%";
+                write_reg_wait = 280;
+                num_reg_read = 0;
+                //serial_port.write_reg_int = (UInt16)(kv_par.hz[term_now] * 0x100 + kv_par.mv[term_now]);
             }
             reg_status_visible = 1;
             tbParStatus.Visibility = Visibility.Visible;
@@ -2709,6 +2895,12 @@ namespace ASU_KV_001
                 par_flag = true;
             }
 
+        }
+
+        private void Combo_Lite_PointNum_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            kv_par.lite_point_num[term_now]= (UInt16)Combo_Lite_PointNum.SelectedIndex;
+            par_flag = true;
         }
     }
 }

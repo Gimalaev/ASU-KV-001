@@ -834,7 +834,7 @@
                             <Button x:Name="Button_Param_Calibr" Content="CALIBR" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="100" Style="{StaticResource BackgrondButton}" Click="Button_Param_Calibr_Click" FontFamily="Calibri" FontSize="12" Foreground="White"/>
                         </Grid>
                     </Grid>
-                    <Grid x:Name="Grid_KV_Lite_Calibr" Grid.Row="1" Visibility="Visible">
+                    <Grid x:Name="Grid_KV_Lite_Calibr" Grid.Row="1" Visibility="Collapsed">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
@@ -882,6 +882,10 @@
                                     <ImageBrush ImageSource="Assets/Иконки и кнопки/карандаш.png" Stretch="Uniform"/>
                                 </Button.Background>
                             </Button>
+                        </Grid>
+                        <Grid Grid.Row="3" Grid.Column="1" Margin="10,5,5,5" Padding="10,0,10,0" Background="#19000000" >
+                            <TextBlock HorizontalAlignment="Left" Text="КОЛ-ВО ТОЧЕК КАЛИБРОВКИ:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
+                            <ComboBox x:Name="Combo_Lite_PointNum" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="90" Height="25" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White" Margin="0,4,10,4" SelectionChanged="Combo_Lite_PointNum_SelectionChanged" />
                         </Grid>
 
 
@@ -931,7 +935,7 @@
 
 
 
-                    <Grid x:Name="Grid_KV_Lite_Par" Grid.Row="1" Visibility="Collapsed">
+                    <Grid x:Name="Grid_KV_Lite_Par" Grid.Row="1" Visibility="Visible">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>

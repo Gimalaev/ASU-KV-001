@@ -213,6 +213,7 @@ namespace ASU_KV_001
 
         public UInt16[] lite_mode = new UInt16[10];
         public UInt16[] lite_direction = new UInt16[10];
+        public UInt16[] lite_point_num = new UInt16[10];
 
         private string out_str;
 
@@ -267,7 +268,8 @@ namespace ASU_KV_001
                 content += "ДИАПАЗОН_НУЛЕВОГО_ВЕСА="; content += lite_w_zero[i]; content += "\n";
                 content += "РЕЖИМ_РАБОТЫ_УЧЕТА="; content += lite_mode[i]; content += "\n";
                 content += "НАПРАВЛЕНИЕ_ПЕРЕДАЧИ="; content += lite_direction[i]; content += "\n";
-
+                content += "КОЛ_ВО_ТОЧЕК_КАЛИБРОВКИ="; content += lite_point_num[i]; content += "\n";
+                
             }
             //   content = content.Replace(".", ",");
 
@@ -473,6 +475,10 @@ namespace ASU_KV_001
                     if (line.Contains("НАПРАВЛЕНИЕ_ПЕРЕДАЧИ="))
                     {
                         s = line.Replace("НАПРАВЛЕНИЕ_ПЕРЕДАЧИ=", ""); lite_direction[tn] = Convert.ToUInt16(s);
+                    }
+                    if (line.Contains("КОЛ_ВО_ТОЧЕК_КАЛИБРОВКИ="))
+                    {
+                        s = line.Replace("КОЛ_ВО_ТОЧЕК_КАЛИБРОВКИ=", ""); lite_point_num[tn] = Convert.ToUInt16(s);
                     }
 
 
