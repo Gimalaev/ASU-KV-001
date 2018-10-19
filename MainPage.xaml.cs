@@ -1114,7 +1114,7 @@ namespace ASU_KV_001
                         if (Combo_Lite_Polar.Items.Count > kv_par.polar[term_now])
                             Combo_Lite_Polar.SelectedIndex = kv_par.polar[term_now];
                         if (kv_par.polar[term_now] > 1) kv_par.polar[term_now] = 0;
-                        UpdateSettings();
+                        
                         serial_port.rd_mode = 1;
                         reg_status_visible = 20;
                         break;
@@ -1233,6 +1233,21 @@ namespace ASU_KV_001
                         serial_port.rd_mode = 1;
                         reg_status_visible = 20;
                         break;
+                    case 280:
+                        tbParStatus.Text = "Идет запись параметров вкладки PAR: 33%";
+                        write_reg_wait = 281;
+                        serial_port.write_reg_int = (UInt16)(kv_par.num[term_now] * 0x100 + kv_par.f2[term_now]);
+                        break;
+                    case 281:
+                        tbParStatus.Text = "Идет запись параметров вкладки PAR: 67%";
+                        write_reg_wait = 282;
+                        serial_port.write_reg_int = (UInt16)(kv_par.lite_direction[term_now] * 0x100 + kv_par.baud[term_now]);
+                        break;
+                    case 282:
+                        tbParStatus.Text = "Идет запись параметров вкладки PAR: 100%";
+                        serial_port.rd_mode = 260;
+                        reg_status_visible = 1;
+                       break;
                     default:
 
                             serial_port.rd_mode = 1;
@@ -2622,7 +2637,7 @@ namespace ASU_KV_001
                 tbParStatus.Text = "Идет запись параметров вкладки PAR: 0%";
                 write_reg_wait = 280;
                 num_reg_read = 0;
-                //serial_port.write_reg_int = (UInt16)(kv_par.hz[term_now] * 0x100 + kv_par.mv[term_now]);
+                serial_port.write_reg_int = (UInt16)(kv_par.f1[term_now] * 0x100 + kv_par.lite_mode[term_now]);
             }
             reg_status_visible = 1;
             tbParStatus.Visibility = Visibility.Visible;

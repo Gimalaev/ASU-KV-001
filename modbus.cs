@@ -241,6 +241,9 @@ namespace ASU_KV_001
                     case 260: ReadUInt(term_adress, 60); break;
                     case 261: ReadUInt(term_adress, 61); break;
                     case 262: ReadUInt(term_adress, 62); break;
+                    case 280: WriteUInt(term_adress, 60); break;
+                    case 281: WriteUInt(term_adress, 61); break;
+                    case 282: WriteUInt(term_adress, 62); break;
 
                         //                    case 200: WriteFloat(term_adress, 14); break;
                         //                    case 201: WriteFloat(term_adress, 18); break;

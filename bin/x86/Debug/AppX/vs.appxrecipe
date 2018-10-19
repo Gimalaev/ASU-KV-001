@@ -31,13 +31,13 @@
     <AppXManifest Include="D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-10-18T12:59:36.314</Modified>
+      <Modified>2018-10-19T09:00:36.965</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\ASU-KV-001.exe">
       <PackagePath>entrypoint\ASU-KV-001.exe</PackagePath>
-      <Modified>2018-10-18T12:59:35.672</Modified>
+      <Modified>2018-10-19T09:00:36.046</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sergey\.nuget\packages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.0-preview1-26502-02\runtimes\win10-x86\nativeassets\uap10.0.15138\clrcompression.dll">
       <PackagePath>clrcompression.dll</PackagePath>
@@ -990,15 +990,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2018-10-18T12:59:35.032</Modified>
+      <Modified>2018-10-19T09:00:35.121</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\Input_Num_Dialog.xbf">
       <PackagePath>Input_Num_Dialog.xbf</PackagePath>
-      <Modified>2018-10-18T12:59:35.033</Modified>
+      <Modified>2018-10-19T09:00:35.123</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2018-10-18T12:59:35.034</Modified>
+      <Modified>2018-10-19T09:00:35.124</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.16299.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -1011,7 +1011,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\Core\ASU-KV-001.exe">
       <PackagePath>ASU-KV-001.exe</PackagePath>
-      <Modified>2018-10-18T12:59:36.309</Modified>
+      <Modified>2018-10-19T09:00:36.960</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
