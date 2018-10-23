@@ -8,7 +8,7 @@
   </packaging>
   <index root="\" startIndexAt="D:\Работа\C# Proj\ASU-KV-001\bin\x86\Release\ilc\resources.pri">
     <default>
-      <qualifier name="Language" value="ru-ru" />
+      <qualifier name="Language" value="ru" />
       <qualifier name="Contrast" value="standard" />
       <qualifier name="Scale" value="200" />
       <qualifier name="HomeRegion" value="001" />

@@ -1385,201 +1385,327 @@ namespace __Interop
 
 	public unsafe static partial class sqlite3_PInvokes
 	{
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_open", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static global::SQLite_Net_Interop.Result__SQLite_Net Open(
+		public static global::SQLite_Net_Interop.Result__SQLite_Net Open(
 					byte* filename, 
-					global::System.IntPtr* db);
+					global::System.IntPtr* db)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!Open\" из этого метода. Найдите этот метод в предупреждениях сборки для пол" +
+					"учения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_open_v2", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static global::SQLite_Net_Interop.Result__SQLite_Net Open__0(
-					byte* filename, 
-					global::System.IntPtr* db, 
-					int flags, 
-					global::System.IntPtr zvfs);
-
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_open_v2", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static global::SQLite_Net_Interop.Result__SQLite_Net Open__1(
+		public static global::SQLite_Net_Interop.Result__SQLite_Net Open__0(
 					byte* filename, 
 					global::System.IntPtr* db, 
 					int flags, 
-					global::System.IntPtr zvfs);
+					global::System.IntPtr zvfs)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!Open\" из этого метода. Найдите этот метод в предупреждениях сборки для пол" +
+					"учения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_open16", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static global::SQLite_Net_Interop.Result__SQLite_Net Open16(
+		public static global::SQLite_Net_Interop.Result__SQLite_Net Open__1(
+					byte* filename, 
+					global::System.IntPtr* db, 
+					int flags, 
+					global::System.IntPtr zvfs)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!Open\" из этого метода. Найдите этот метод в предупреждениях сборки для пол" +
+					"учения дополнительных сведений. ");
+		}
+
+		public static global::SQLite_Net_Interop.Result__SQLite_Net Open16(
 					ushort* filename, 
-					global::System.IntPtr* db);
+					global::System.IntPtr* db)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!Open16\" из этого метода. Найдите этот метод в предупреждениях сборки для п" +
+					"олучения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_close", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static global::SQLite_Net_Interop.Result__SQLite_Net Close(global::System.IntPtr db);
+		public static global::SQLite_Net_Interop.Result__SQLite_Net Close(global::System.IntPtr db)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!Close\" из этого метода. Найдите этот метод в предупреждениях сборки для по" +
+					"лучения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_config", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static global::SQLite_Net_Interop.Result__SQLite_Net Config(global::SQLite_Net_Interop.ConfigOption__SQLite_Net option);
+		public static global::SQLite_Net_Interop.Result__SQLite_Net Config(global::SQLite_Net_Interop.ConfigOption__SQLite_Net option)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!Config\" из этого метода. Найдите этот метод в предупреждениях сборки для п" +
+					"олучения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_win32_set_directory", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static int SetDirectory(
+		public static int SetDirectory(
 					uint directoryType, 
-					ushort* directoryPath);
+					ushort* directoryPath)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!SetDirectory\" из этого метода. Найдите этот метод в предупреждениях сборки" +
+					" для получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_busy_timeout", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static global::SQLite_Net_Interop.Result__SQLite_Net BusyTimeout(
+		public static global::SQLite_Net_Interop.Result__SQLite_Net BusyTimeout(
 					global::System.IntPtr db, 
-					int milliseconds);
+					int milliseconds)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!BusyTimeout\" из этого метода. Найдите этот метод в предупреждениях сборки " +
+					"для получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_changes", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static int Changes(global::System.IntPtr db);
+		public static int Changes(global::System.IntPtr db)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!Changes\" из этого метода. Найдите этот метод в предупреждениях сборки для " +
+					"получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_prepare_v2", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static global::SQLite_Net_Interop.Result__SQLite_Net Prepare2(
+		public static global::SQLite_Net_Interop.Result__SQLite_Net Prepare2(
 					global::System.IntPtr db, 
 					byte* sql, 
 					int numBytes, 
 					global::System.IntPtr* stmt, 
-					global::System.IntPtr pzTail);
+					global::System.IntPtr pzTail)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!Prepare2\" из этого метода. Найдите этот метод в предупреждениях сборки для" +
+					" получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_step", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static global::SQLite_Net_Interop.Result__SQLite_Net Step(global::System.IntPtr stmt);
+		public static global::SQLite_Net_Interop.Result__SQLite_Net Step(global::System.IntPtr stmt)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!Step\" из этого метода. Найдите этот метод в предупреждениях сборки для пол" +
+					"учения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_reset", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static global::SQLite_Net_Interop.Result__SQLite_Net Reset(global::System.IntPtr stmt);
+		public static global::SQLite_Net_Interop.Result__SQLite_Net Reset(global::System.IntPtr stmt)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!Reset\" из этого метода. Найдите этот метод в предупреждениях сборки для по" +
+					"лучения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_finalize", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static global::SQLite_Net_Interop.Result__SQLite_Net Finalize(global::System.IntPtr stmt);
+		public static global::SQLite_Net_Interop.Result__SQLite_Net Finalize(global::System.IntPtr stmt)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!Finalize\" из этого метода. Найдите этот метод в предупреждениях сборки для" +
+					" получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_last_insert_rowid", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static long LastInsertRowid(global::System.IntPtr db);
+		public static long LastInsertRowid(global::System.IntPtr db)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!LastInsertRowid\" из этого метода. Найдите этот метод в предупреждениях сбо" +
+					"рки для получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_errmsg16", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static global::System.IntPtr Errmsg(global::System.IntPtr db);
+		public static global::System.IntPtr Errmsg(global::System.IntPtr db)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!Errmsg\" из этого метода. Найдите этот метод в предупреждениях сборки для п" +
+					"олучения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_bind_parameter_index", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static int BindParameterIndex(
+		public static int BindParameterIndex(
 					global::System.IntPtr stmt, 
-					byte* name);
+					byte* name)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!BindParameterIndex\" из этого метода. Найдите этот метод в предупреждениях " +
+					"сборки для получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_bind_null", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static int BindNull(
+		public static int BindNull(
 					global::System.IntPtr stmt, 
-					int index);
+					int index)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!BindNull\" из этого метода. Найдите этот метод в предупреждениях сборки для" +
+					" получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_bind_int", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static int BindInt(
+		public static int BindInt(
 					global::System.IntPtr stmt, 
 					int index, 
-					int val);
+					int val)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!BindInt\" из этого метода. Найдите этот метод в предупреждениях сборки для " +
+					"получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_bind_int64", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static int BindInt64(
+		public static int BindInt64(
 					global::System.IntPtr stmt, 
 					int index, 
-					long val);
+					long val)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!BindInt64\" из этого метода. Найдите этот метод в предупреждениях сборки дл" +
+					"я получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_bind_double", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static int BindDouble(
+		public static int BindDouble(
 					global::System.IntPtr stmt, 
 					int index, 
-					double val);
+					double val)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!BindDouble\" из этого метода. Найдите этот метод в предупреждениях сборки д" +
+					"ля получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_bind_text16", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static int BindText(
+		public static int BindText(
 					global::System.IntPtr stmt, 
 					int index, 
 					ushort* val, 
 					int n, 
-					global::System.IntPtr free);
+					global::System.IntPtr free)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!BindText\" из этого метода. Найдите этот метод в предупреждениях сборки для" +
+					" получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_bind_blob", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static int BindBlob(
+		public static int BindBlob(
 					global::System.IntPtr stmt, 
 					int index, 
 					byte* val, 
 					int n, 
-					global::System.IntPtr free);
+					global::System.IntPtr free)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!BindBlob\" из этого метода. Найдите этот метод в предупреждениях сборки для" +
+					" получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_column_count", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static int ColumnCount(global::System.IntPtr stmt);
+		public static int ColumnCount(global::System.IntPtr stmt)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!ColumnCount\" из этого метода. Найдите этот метод в предупреждениях сборки " +
+					"для получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_column_name", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static global::System.IntPtr ColumnName(
+		public static global::System.IntPtr ColumnName(
 					global::System.IntPtr stmt, 
-					int index);
+					int index)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!ColumnName\" из этого метода. Найдите этот метод в предупреждениях сборки д" +
+					"ля получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_column_name16", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static global::System.IntPtr ColumnName16Internal(
+		public static global::System.IntPtr ColumnName16Internal(
 					global::System.IntPtr stmt, 
-					int index);
+					int index)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!ColumnName16Internal\" из этого метода. Найдите этот метод в предупреждения" +
+					"х сборки для получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_column_type", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static global::SQLite_Net_Interop.ColType__SQLite_Net ColumnType(
+		public static global::SQLite_Net_Interop.ColType__SQLite_Net ColumnType(
 					global::System.IntPtr stmt, 
-					int index);
+					int index)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!ColumnType\" из этого метода. Найдите этот метод в предупреждениях сборки д" +
+					"ля получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_column_int", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static int ColumnInt(
+		public static int ColumnInt(
 					global::System.IntPtr stmt, 
-					int index);
+					int index)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!ColumnInt\" из этого метода. Найдите этот метод в предупреждениях сборки дл" +
+					"я получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_column_int64", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static long ColumnInt64(
+		public static long ColumnInt64(
 					global::System.IntPtr stmt, 
-					int index);
+					int index)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!ColumnInt64\" из этого метода. Найдите этот метод в предупреждениях сборки " +
+					"для получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_column_double", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static double ColumnDouble(
+		public static double ColumnDouble(
 					global::System.IntPtr stmt, 
-					int index);
+					int index)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!ColumnDouble\" из этого метода. Найдите этот метод в предупреждениях сборки" +
+					" для получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_column_text", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static global::System.IntPtr ColumnText(
+		public static global::System.IntPtr ColumnText(
 					global::System.IntPtr stmt, 
-					int index);
+					int index)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!ColumnText\" из этого метода. Найдите этот метод в предупреждениях сборки д" +
+					"ля получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_column_text16", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static global::System.IntPtr ColumnText16(
+		public static global::System.IntPtr ColumnText16(
 					global::System.IntPtr stmt, 
-					int index);
+					int index)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!ColumnText16\" из этого метода. Найдите этот метод в предупреждениях сборки" +
+					" для получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_column_blob", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static global::System.IntPtr ColumnBlob(
+		public static global::System.IntPtr ColumnBlob(
 					global::System.IntPtr stmt, 
-					int index);
+					int index)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!ColumnBlob\" из этого метода. Найдите этот метод в предупреждениях сборки д" +
+					"ля получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", EntryPoint="sqlite3_column_bytes", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static int ColumnBytes(
+		public static int ColumnBytes(
 					global::System.IntPtr stmt, 
-					int index);
+					int index)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!ColumnBytes\" из этого метода. Найдите этот метод в предупреждениях сборки " +
+					"для получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static global::SQLite_Net_Interop.ExtendedResult__SQLite_Net sqlite3_extended_errcode(global::System.IntPtr db);
+		public static global::SQLite_Net_Interop.ExtendedResult__SQLite_Net sqlite3_extended_errcode(global::System.IntPtr db)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!sqlite3_extended_errcode\" из этого метода. Найдите этот метод в предупрежд" +
+					"ениях сборки для получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static int sqlite3_libversion_number();
+		public static int sqlite3_libversion_number()
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!sqlite3_libversion_number\" из этого метода. Найдите этот метод в предупреж" +
+					"дениях сборки для получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static global::System.IntPtr sqlite3_sourceid();
+		public static global::System.IntPtr sqlite3_sourceid()
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!sqlite3_sourceid\" из этого метода. Найдите этот метод в предупреждениях сб" +
+					"орки для получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static global::System.IntPtr sqlite3_backup_init(
+		public static global::System.IntPtr sqlite3_backup_init(
 					global::System.IntPtr destDB, 
 					byte* destName, 
 					global::System.IntPtr srcDB, 
-					byte* srcName);
+					byte* srcName)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!sqlite3_backup_init\" из этого метода. Найдите этот метод в предупреждениях" +
+					" сборки для получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static global::SQLite_Net_Interop.Result__SQLite_Net sqlite3_backup_step(
+		public static global::SQLite_Net_Interop.Result__SQLite_Net sqlite3_backup_step(
 					global::System.IntPtr backup, 
-					int pageCount);
+					int pageCount)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!sqlite3_backup_step\" из этого метода. Найдите этот метод в предупреждениях" +
+					" сборки для получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static global::SQLite_Net_Interop.Result__SQLite_Net sqlite3_backup_finish(global::System.IntPtr backup);
+		public static global::SQLite_Net_Interop.Result__SQLite_Net sqlite3_backup_finish(global::System.IntPtr backup)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!sqlite3_backup_finish\" из этого метода. Найдите этот метод в предупреждени" +
+					"ях сборки для получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static int sqlite3_backup_remaining(global::System.IntPtr backup);
+		public static int sqlite3_backup_remaining(global::System.IntPtr backup)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!sqlite3_backup_remaining\" из этого метода. Найдите этот метод в предупрежд" +
+					"ениях сборки для получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static int sqlite3_backup_pagecount(global::System.IntPtr backup);
+		public static int sqlite3_backup_pagecount(global::System.IntPtr backup)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!sqlite3_backup_pagecount\" из этого метода. Найдите этот метод в предупрежд" +
+					"ениях сборки для получения дополнительных сведений. ");
+		}
 
-		[global::System.Runtime.InteropServices.DllImport("sqlite3", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-		public extern static int sqlite3_sleep(int millis);
+		public static int sqlite3_sleep(int millis)
+		{
+			throw new global::System.TypeLoadException("Неразрешенный метод P/Invoke \"sqlite3!sqlite3_sleep\" из этого метода. Найдите этот метод в предупреждениях сборк" +
+					"и для получения дополнительных сведений. ");
+		}
 	}
 
 	public unsafe static partial class _MRT__PInvokes
