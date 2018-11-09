@@ -143,6 +143,7 @@ namespace ASU_KV_001
 
             Grid_Par_Port.Visibility = Visibility.Collapsed;
             Grid_Par_Term.Visibility = Visibility.Visible;
+            Grid_Archive_Settings.Visibility = Visibility.Collapsed;
             //  float[] kv_par.doze = new float[10];
             tmOutScreen.Start();
 
@@ -1629,6 +1630,7 @@ namespace ASU_KV_001
             Grid_Prog_Settings.Visibility = Visibility.Collapsed;
             Grid_Post_Main.Visibility = Visibility.Collapsed;
             Grid_Post_Settings.Visibility = Visibility.Visible;
+            Grid_Archive_Settings.Visibility = Visibility.Collapsed;
 
 
         }
@@ -1693,6 +1695,8 @@ namespace ASU_KV_001
             Grid_Post_Bottom.Visibility = Visibility.Visible;
             Grid_Post_Top.Visibility = Visibility.Visible;
             Grid_Prog_Settings.Visibility = Visibility.Collapsed;
+            Grid_Archive_Settings.Visibility = Visibility.Collapsed;
+
         }
 
         private async void btnPrgSettings_Click(object sender, RoutedEventArgs e)
@@ -1709,6 +1713,7 @@ namespace ASU_KV_001
             Grid_Post_Bottom.Visibility = Visibility.Collapsed;
             Grid_Post_Top.Visibility = Visibility.Collapsed;
             Grid_Prog_Settings.Visibility = Visibility.Visible;
+            Grid_Archive_Settings.Visibility = Visibility.Collapsed;
             mode = 2;
             par_flag = false;
 
@@ -1722,6 +1727,15 @@ namespace ASU_KV_001
             Grid_Left_Archive.Background = BrushOn;
             Grid_Post_Settings.Visibility = Visibility.Collapsed;
             Grid_Post_Main.Visibility = Visibility.Collapsed;
+            Grid_Post_Bottom.Visibility = Visibility.Collapsed;
+            Grid_Post_Top.Visibility = Visibility.Collapsed;
+            Grid_Prog_Settings.Visibility = Visibility.Collapsed;
+
+            Grid_Arc_Main.Background = BrushOn;
+            Grid_Arc_Product.Background = BrushOff;
+            Grid_Archive_Settings.Visibility = Visibility.Visible;
+            Grid_Arc_Prod.Visibility = Visibility.Collapsed;
+            Grid_Arc_Arc.Visibility = Visibility.Visible;
 
         }
 
@@ -2916,6 +2930,24 @@ namespace ASU_KV_001
         {
             kv_par.lite_point_num[term_now]= (UInt16)Combo_Lite_PointNum.SelectedIndex;
             par_flag = true;
+        }
+
+        private void Button_Arc_Arc_Click(object sender, RoutedEventArgs e)
+        {
+            Grid_Arc_Main.Background = BrushOn;
+            Grid_Arc_Product.Background = BrushOff;
+            Grid_Arc_Prod.Visibility = Visibility.Collapsed;
+            Grid_Arc_Arc.Visibility = Visibility.Visible;
+
+        }
+
+        private void Button_Arc_Prod_Click(object sender, RoutedEventArgs e)
+        {
+            Grid_Arc_Main.Background = BrushOff;
+            Grid_Arc_Product.Background = BrushOn;
+            Grid_Arc_Prod.Visibility = Visibility.Visible;
+            Grid_Arc_Arc.Visibility = Visibility.Collapsed;
+
         }
     }
 }
