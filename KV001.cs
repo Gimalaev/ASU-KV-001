@@ -208,8 +208,14 @@ namespace ASU_KV_001
         public float[] lite_zero_weight = new float[10];
         public float[] lite_stab_weight = new float[10];
         public UInt16[] lite_stab_f1 = new UInt16[10];
+        public float[] lite_tzero = new float[10];
+        public float[] lite_w_zero = new float[10];
 
-        private string out_str;
+        public UInt16[] lite_mode = new UInt16[10];
+        public UInt16[] lite_direction = new UInt16[10];
+        public UInt16[] lite_point_num = new UInt16[10];
+
+
 
 
         public async Task SaveKVFile(string filename)
@@ -258,6 +264,12 @@ namespace ASU_KV_001
                 content += "СМЕЩЕНИЕ_НУЛЯ_ЛАЙТ="; content += lite_zero_weight[i]; content += "\n";
                 content += "ДИАПАЗОН_СТАБИЛЬНОГО_ВЕСА="; content += lite_stab_weight[i]; content += "\n";
                 content += "ФИЛЬТР_СТАБИЛЬНОГО_ВЕСА="; content += lite_stab_f1[i]; content += "\n";
+                content += "ВРЕМЯ_УСТАНОВКИ_НУЛЯ="; content += lite_tzero[i]; content += "\n";
+                content += "ДИАПАЗОН_НУЛЕВОГО_ВЕСА="; content += lite_w_zero[i]; content += "\n";
+                content += "РЕЖИМ_РАБОТЫ_УЧЕТА="; content += lite_mode[i]; content += "\n";
+                content += "НАПРАВЛЕНИЕ_ПЕРЕДАЧИ="; content += lite_direction[i]; content += "\n";
+                content += "КОЛ_ВО_ТОЧЕК_КАЛИБРОВКИ="; content += lite_point_num[i]; content += "\n";
+                
             }
             //   content = content.Replace(".", ",");
 
@@ -284,7 +296,7 @@ namespace ASU_KV_001
 
             var lines = await Windows.Storage.FileIO.ReadLinesAsync(file);
 
-            out_str = "";
+
             if (file != null)
             {
                 foreach (var line in lines)
@@ -448,6 +460,26 @@ namespace ASU_KV_001
                     {
                         s = line.Replace("ФИЛЬТР_СТАБИЛЬНОГО_ВЕСА=", ""); lite_stab_f1[tn] = Convert.ToUInt16(s);
                     }
+                    if (line.Contains("ВРЕМЯ_УСТАНОВКИ_НУЛЯ="))
+                    {
+                        s = line.Replace("ВРЕМЯ_УСТАНОВКИ_НУЛЯ=", ""); lite_tzero[tn] = Convert.ToSingle(s);
+                    }
+                    if (line.Contains("ДИАПАЗОН_НУЛЕВОГО_ВЕСА="))
+                    {
+                        s = line.Replace("ДИАПАЗОН_НУЛЕВОГО_ВЕСА=", ""); lite_w_zero[tn] = Convert.ToSingle(s);
+                    }
+                    if (line.Contains("РЕЖИМ_РАБОТЫ_УЧЕТА="))
+                    {
+                        s = line.Replace("РЕЖИМ_РАБОТЫ_УЧЕТА=", ""); lite_mode[tn] = Convert.ToUInt16(s);
+                    }
+                    if (line.Contains("НАПРАВЛЕНИЕ_ПЕРЕДАЧИ="))
+                    {
+                        s = line.Replace("НАПРАВЛЕНИЕ_ПЕРЕДАЧИ=", ""); lite_direction[tn] = Convert.ToUInt16(s);
+                    }
+                    if (line.Contains("КОЛ_ВО_ТОЧЕК_КАЛИБРОВКИ="))
+                    {
+                        s = line.Replace("КОЛ_ВО_ТОЧЕК_КАЛИБРОВКИ=", ""); lite_point_num[tn] = Convert.ToUInt16(s);
+                    }
 
 
                 }
@@ -461,4 +493,91 @@ namespace ASU_KV_001
         }
 
     }
+    class Products
+    {
+        public float[,] set_doza = new float[10, 3];
+        public float[,] min_doza = new float[10, 3];
+        public float[,] max_doza = new float[10, 3];
+
+
+
+        public async Task SaveProductFile(string filename)
+        {
+            // StorageFile file = await Windows.Storage.ApplicationData.Current.LocalFolder.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+            // var stream = await file.OpenAsync(Windows.Storage.FileAccessMode.ReadWrite);
+            // saves the string 'content' to a file 'filename' in the app's local storage folder
+            UInt16 prod_id = 1;
+            string content = "";
+
+
+            for (prod_id = 1; prod_id <= 10; prod_id++)
+            {
+                content += "ПРОДУКТ="; content += prod_id; content += ";\n";
+                content += "ДОЗА1="; content += this.set_doza[prod_id - 1, 0]; content += ";\n";
+                content += "ДОЗА2="; content += this.set_doza[prod_id - 1, 1]; content += ";\n";
+                content += "ДОЗА3="; content += this.set_doza[prod_id - 1, 2]; content += ";\n";
+            }
+
+
+            content = content.Replace(",", ".");
+
+            byte[] fileBytes = System.Text.Encoding.UTF8.GetBytes(content.ToCharArray());
+
+            // create a file with the given filename in the local folder; replace any existing file with the same name
+            StorageFile file = await Windows.Storage.ApplicationData.Current.LocalFolder.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+            // write the char array created from the content string into the file
+            using (var stream = await file.OpenStreamForWriteAsync())
+            {
+                stream.Write(fileBytes, 0, fileBytes.Length);
+            }
+        }
+        public async System.Threading.Tasks.Task OpenProdFile(string fileName1)
+        {
+            string s;
+            StorageFile file1;
+            UInt16 tn = 0;
+            var _folder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            file1 = await _folder.GetFileAsync(fileName1);
+
+            var lines = await Windows.Storage.FileIO.ReadLinesAsync(file1);
+
+
+            if (file1 != null)
+            {
+                foreach (var line in lines)
+                {
+                    if (line.Contains("ПРОДУКТ="))
+                    {
+                        s = line.Replace("ПРОДУКТ=", "");
+                        { tn = Convert.ToUInt16(s); tn--; }
+                    }
+/*
+                    if (line.Contains("ДОЗА1="))
+                    {
+                        s = line.Replace("ДОЗА1=", ""); set_doza[tn, 0] = Convert.ToSingle(s);
+                    }
+                    if (line.Contains("ДОЗА2="))
+                    {
+                        s = line.Replace("ДОЗА2=", ""); set_doza[tn, 1] = Convert.ToSingle(s);
+                    }
+                    if (line.Contains("ДОЗА3="))
+                    {
+                        s = line.Replace("ДОЗА3=", ""); set_doza[tn, 2] = Convert.ToSingle(s);
+                    }
+                   */ 
+
+                }
+
+            }
+            else
+            {
+                set_doza[0, 0] = 99;
+                await SaveProductFile(fileName1);
+            }
+
+        }
+
+    }
+
 }

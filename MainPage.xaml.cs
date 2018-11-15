@@ -36,8 +36,10 @@ namespace ASU_KV_001
         private UInt16 mode = 0;
         private ASU_KV_001.KV001 kv_par;
         private ASU_KV_001.Program_Par prg_par;
+        private ASU_KV_001.Products products;
         private string param_filename = "kv_par.ini";
         private string prg_filename = "prg_par.ini";
+        private string prod_filename = "product_par.ini";
 
         //Здесь у нас все что относится к модбасу.
         private ModBus_Class serial_port;
@@ -46,7 +48,7 @@ namespace ASU_KV_001
         private DispatcherTimer tmComReq;
         private byte num_reg_read = 0;
         private byte reg_try = 0;
-        private byte write_reg_wait = 0;
+        private UInt16 write_reg_wait = 0;
         private byte reg_status_visible = 0;
         private byte term_num_req = 0;
         // Конец модбаса//
@@ -68,6 +70,19 @@ namespace ASU_KV_001
                 await kv_par.SaveKVFile(param_filename);
             }
         }
+        public async System.Threading.Tasks.Task InitProduct()
+        {
+       //     try
+            {
+                await products.OpenProdFile(prod_filename);
+            }
+       //     catch
+       //     {
+       //         products.set_doza[0, 0] = 98;
+       //         await products.SaveProductFile(prod_filename);
+       //    }
+        }
+
         public async System.Threading.Tasks.Task InitPrg()
         {
             // param.SmenaHour = 0;
@@ -89,6 +104,7 @@ namespace ASU_KV_001
             await InitKV();
 
             await InitPrg();
+
 
             Text_Doza_1.Text = "ДОЗА: " + Convert.ToString(kv_par.doze[0, 0]);
             Text_Doza_2.Text = "ДОЗА: " + Convert.ToString(kv_par.doze[0, 1]);
@@ -141,10 +157,17 @@ namespace ASU_KV_001
                 }
             }
 
+            await InitProduct();
+
+            Combo_Arc_ProdId.SelectedIndex = 0;
+
+
             Grid_Par_Port.Visibility = Visibility.Collapsed;
             Grid_Par_Term.Visibility = Visibility.Visible;
+            Grid_Archive_Settings.Visibility = Visibility.Collapsed;
             //  float[] kv_par.doze = new float[10];
             tmOutScreen.Start();
+
 
 
         }
@@ -174,6 +197,17 @@ namespace ASU_KV_001
             Combo_Post_ID.Items.Add("ПРОДУКТ 8");
             Combo_Post_ID.Items.Add("ПРОДУКТ 9");
             Combo_Post_ID.Items.Add("ПРОДУКТ 10");
+
+            Combo_Arc_ProdId.Items.Add("ПРОДУКТ 1");
+            Combo_Arc_ProdId.Items.Add("ПРОДУКТ 2");
+            Combo_Arc_ProdId.Items.Add("ПРОДУКТ 3");
+            Combo_Arc_ProdId.Items.Add("ПРОДУКТ 4");
+            Combo_Arc_ProdId.Items.Add("ПРОДУКТ 5");
+            Combo_Arc_ProdId.Items.Add("ПРОДУКТ 6");
+            Combo_Arc_ProdId.Items.Add("ПРОДУКТ 7");
+            Combo_Arc_ProdId.Items.Add("ПРОДУКТ 8");
+            Combo_Arc_ProdId.Items.Add("ПРОДУКТ 9");
+            Combo_Arc_ProdId.Items.Add("ПРОДУКТ 10");
 
             Combo_F1.Items.Add("0");
             Combo_F1.Items.Add("4");
@@ -257,8 +291,8 @@ namespace ASU_KV_001
             Combo_Lite_Zpt.Items.Add("0");
             Combo_Lite_Zpt.Items.Add("1");
             Combo_Lite_Zpt.Items.Add("2");
-            Combo_Lite_Polar.Items.Add("Биполярный");
             Combo_Lite_Polar.Items.Add("Униполярный");
+            Combo_Lite_Polar.Items.Add("Биполярный");
 
             Combo_Lite_Discr.Items.Add("1");
             Combo_Lite_Discr.Items.Add("2");
@@ -268,6 +302,8 @@ namespace ASU_KV_001
             Combo_Lite_Discr.Items.Add("50");
             Combo_Lite_Discr.Items.Add("100");
 
+            Combo_Lite_Hz.Items.Add("500");
+            Combo_Lite_Hz.Items.Add("250");
             Combo_Lite_Hz.Items.Add("125");
             Combo_Lite_Hz.Items.Add("62.6");
             Combo_Lite_Hz.Items.Add("50");
@@ -304,19 +340,52 @@ namespace ASU_KV_001
             Grid_Post_Top.Visibility = Visibility.Visible;
             Grid_Par_Smena.Visibility = Visibility.Collapsed;
 
+            Combo_Lite_F1.Items.Add("0");
+            Combo_Lite_F1.Items.Add("4");
+            Combo_Lite_F1.Items.Add("8");
+            Combo_Lite_F1.Items.Add("16");
+            Combo_Lite_F1.Items.Add("32");
+            Combo_Lite_F2.Items.Add("0");
+            Combo_Lite_F2.Items.Add("4");
+            Combo_Lite_F2.Items.Add("8");
+            Combo_Lite_F2.Items.Add("16");
+            Combo_Lite_F2.Items.Add("32");
 
+            Combo_Lite_Mode.Items.Add("Выкл.");
+            Combo_Lite_Mode.Items.Add("По последнему");
+            Combo_Lite_Mode.Items.Add("По наибольшему");
+
+            Combo_Lite_Direction.Items.Add("Младшим");
+            Combo_Lite_Direction.Items.Add("Старшим");
+
+            Combo_Lite_Baud.Items.Add("4800");
+            Combo_Lite_Baud.Items.Add("9600");
+            Combo_Lite_Baud.Items.Add("19200");
+            Combo_Lite_Baud.Items.Add("57600");
             //  Grid_Right_Time.Visibility = Visibility.Visible;
             //  Grid_Right_Calc.Visibility = Visibility.Collapsed;
             //  Grid_Right.Visibility = Visibility.Visible;
+            Combo_Lite_PointNum.Items.Add("0");
+            Combo_Lite_PointNum.Items.Add("1");
+            Combo_Lite_PointNum.Items.Add("2");
+            Combo_Lite_PointNum.Items.Add("3");
+            Combo_Lite_PointNum.Items.Add("4");
+            Combo_Lite_PointNum.Items.Add("5");
+            Combo_Lite_PointNum.Items.Add("6");
+            Combo_Lite_PointNum.Items.Add("7");
+            Combo_Lite_PointNum.Items.Add("8");
+            Combo_Lite_PointNum.Items.Add("9");
+            Combo_Lite_PointNum.Items.Add("10");
 
             kv_par = new ASU_KV_001.KV001();
             prg_par = new ASU_KV_001.Program_Par();
             serial_port = new ASU_KV_001.ModBus_Class();
-
-///            tmOutScreen = new DispatcherTimer();
+            products= new ASU_KV_001.Products();
+            ///            tmOutScreen = new DispatcherTimer();
             //tmOutScreen.Interval = TimeSpan.FromMilliseconds(1000);
             //tmOutScreen.Tick += Timer_Tick;
             //tmOutScreen.Stop();
+            
 
             tmComReq = new DispatcherTimer();
             tmComReq.Interval = TimeSpan.FromMilliseconds(80);
@@ -999,17 +1068,17 @@ namespace ASU_KV_001
                         serial_port.write_reg_int = (UInt16)(kv_par.polar[term_now] * 0x100 + kv_par.zpt[term_now]);
                         break;
                     case 161:
-                        tbParStatus.Text = "Идет запись параметров вкладки PAR: 44%";
+                        tbParStatus.Text = "Идет запись параметров вкладки CALIBR: 44%";
                         write_reg_wait = 162;
                         serial_port.write_reg_fl = (float)kv_par.npv[term_now];
                         break;
                     case 162:
-                        tbParStatus.Text = "Идет запись параметров вкладки PAR: 55%";
+                        tbParStatus.Text = "Идет запись параметров вкладки CALIBR: 55%";
                         write_reg_wait = 163;
                         serial_port.write_reg_fl = (float)kv_par.cal_weight[term_now];
                         break;
                     case 163:
-                        tbParStatus.Text = "Идет запись параметров вкладки PAR: 66%";
+                        tbParStatus.Text = "Идет запись параметров вкладки CALIBR: 66%";
                         write_reg_wait = 164;
                         serial_port.write_reg_fl = (float)kv_par.coeff[term_now];
                         break;
@@ -1029,35 +1098,191 @@ namespace ASU_KV_001
                         reg_status_visible = 20;
                         break;
 
-// Считываем Calibr для kfqn
+// Считываем Calibr для лайт
                     case 180:
                         kv_par.hz[term_now] = (byte)(serial_port.reg_int / 0x100);
                         kv_par.mv[term_now] = (byte)(serial_port.reg_int - kv_par.hz[term_now] * 0x100);
-                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 22%";
-                        Combo_Mv.SelectedIndex = kv_par.mv[term_now];
-                        Combo_Hz.SelectedIndex = kv_par.hz[term_now];
+                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 25%";
+                        Combo_Lite_Mv.SelectedIndex = kv_par.mv[term_now];
+                        Combo_Lite_Hz.SelectedIndex = kv_par.hz[term_now];
                         serial_port.rd_mode++;
                         break;
                     case 181:
-                        kv_par.polar[term_now] = (byte)(serial_port.reg_int / 0x100);
-                        kv_par.zpt[term_now] = (byte)(serial_port.reg_int - kv_par.polar[term_now] * 0x100);
-                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 44%";
-                        Combo_Polar.SelectedIndex = kv_par.polar[term_now];
-                        Combo_Zpt.SelectedIndex = kv_par.zpt[term_now];
+                        kv_par.lite_point_num[term_now] = (byte)(serial_port.reg_int / 0x100);
+                        kv_par.zpt[term_now] = (byte)(serial_port.reg_int - kv_par.lite_point_num[term_now] * 0x100);
+                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 50%";
+                        if (Combo_Lite_PointNum.Items.Count > kv_par.lite_point_num[term_now])
+                            Combo_Lite_PointNum.SelectedIndex = kv_par.lite_point_num[term_now];
+                        if (Combo_Lite_Zpt.Items.Count > kv_par.zpt[term_now])
+                            Combo_Lite_Zpt.SelectedIndex = kv_par.zpt[term_now];
+                        //.SelectedIndex = kv_par.zpt[term_now];
                         serial_port.rd_mode++;
                         break;
                     case 182:
-                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 55%";
-                        kv_par.npv[term_now] = serial_port.reg_fl; NPV.Text = "НПВ: " + kv_par.npv[term_now]; serial_port.rd_mode++;
+                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 62%";
+                        kv_par.npv[term_now] = serial_port.reg_fl; Lite_NPV.Text = "НПВ: " + kv_par.npv[term_now]; serial_port.rd_mode++;
                         break;
                     case 183:
+                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 75%";
                         kv_par.discr[term_now] = (ushort)(serial_port.reg_int);
+                        switch (kv_par.discr[term_now])
+                        {
+                            case 1: Combo_Lite_Discr.SelectedIndex = 0; break;
+                            case 2: Combo_Lite_Discr.SelectedIndex = 1; break;
+                            case 5: Combo_Lite_Discr.SelectedIndex = 2; break;
+                            case 10: Combo_Lite_Discr.SelectedIndex = 3; break;
+                            case 20: Combo_Lite_Discr.SelectedIndex = 4; break;
+                            case 50: Combo_Lite_Discr.SelectedIndex = 5; break;
+                            case 100: Combo_Lite_Discr.SelectedIndex = 6; break;
+                        }
+                        serial_port.rd_mode++;
+                        break;
+                    case 184:
+                        tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 85%";
+                        kv_par.lite_zero_weight[term_now] = serial_port.reg_fl; Cal_Lite_Zero.Text = "СМЕЩЕНИЕ НУЛЯ: " + kv_par.lite_zero_weight[term_now];
+                        serial_port.rd_mode++;
+                        break;
+                    case 185:
+                        kv_par.polar[term_now] = (byte)(serial_port.reg_int / 0x100);
+                        kv_par.polar[term_now] = (byte)(serial_port.reg_int - kv_par.polar[term_now] * 0x100);
                         tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 100%";
-                        Combo_Discr.SelectedIndex = kv_par.discr[term_now];
+                        if (Combo_Lite_Polar.Items.Count > kv_par.polar[term_now])
+                            Combo_Lite_Polar.SelectedIndex = kv_par.polar[term_now];
+                        if (kv_par.polar[term_now] > 1) kv_par.polar[term_now] = 0;
+                        
                         serial_port.rd_mode = 1;
                         reg_status_visible = 20;
                         break;
+                    case 200:
+                        tbParStatus.Text = "Идет запись параметров вкладки CALIBR: 25%";
+                        write_reg_wait = 201;
+                        serial_port.write_reg_int = (UInt16)(kv_par.lite_point_num[term_now] * 0x100 + kv_par.zpt[term_now]);
+                        break;
+                    case 201:
+                        tbParStatus.Text = "Идет запись параметров вкладки CALIBR: 50%";
+                        write_reg_wait = 202;
+                        serial_port.write_reg_fl = (float)kv_par.npv[term_now];
+                        break;
+                    case 202:
+                        tbParStatus.Text = "Идет запись параметров вкладки CALIBR: 62%";
+                        write_reg_wait = 203;
+                        switch (Combo_Lite_Discr.SelectedIndex)
+                        {
+                            case 0: serial_port.write_reg_int = 1; break;
+                            case 1: serial_port.write_reg_int = 2; break;
+                            case 2: serial_port.write_reg_int = 5; break;
+                            case 3: serial_port.write_reg_int = 10; break;
+                            case 4: serial_port.write_reg_int = 20; break;
+                            case 5: serial_port.write_reg_int = 50; break;
+                            case 6: serial_port.write_reg_int = 100; break;
+                        }
 
+                        break;
+                    case 203:
+                        tbParStatus.Text = "Идет запись параметров вкладки CALIBR: 75%";
+                        write_reg_wait = 204;
+                        serial_port.write_reg_fl = (float)kv_par.lite_zero_weight[term_now];
+                        break;
+                    case 204:
+                        tbParStatus.Text = "Идет запись параметров вкладки CALIBR: 87%";
+                        write_reg_wait = 205;
+                        serial_port.write_reg_int = (UInt16)(kv_par.polar[term_now] * 0x100 + kv_par.polar[term_now]);
+                        break;
+                    case 205:
+                        tbParStatus.Text = "Идет запись параметров вкладки CALIBR: 100%";
+                        serial_port.rd_mode = 180;
+                        reg_status_visible = 1;
+                        break;
+                    // Считываем Feed для лайт
+                    case 220:
+                        tbParStatus.Text = "Идет считывание параметров вкладки FEED: 25%";
+                        kv_par.lite_stab_weight[term_now] = serial_port.reg_fl; Lite_StabWeigth.Text = "ДИАПАЗОН СТАБИЛЬНОГО ВЕСА: " + Convert.ToString(kv_par.lite_stab_weight[term_now]);
+                        serial_port.rd_mode++;
+                        break;
+                    case 221:
+                        kv_par.lite_stab_f1[term_now] = (byte)(serial_port.reg_int / 0x100);
+                        kv_par.lite_stab_f1[term_now] = (byte)(serial_port.reg_int - kv_par.lite_stab_f1[term_now] * 0x100);
+                        tbParStatus.Text = "Идет считывание параметров вкладки FEED: 50%";
+                        Combo_Lite_FStab.SelectedIndex = kv_par.lite_stab_f1[term_now];
+                        serial_port.rd_mode++;
+                        break;
+                    case 222:
+                        tbParStatus.Text = "Идет считывание параметров вкладки FEED: 75%";
+                        kv_par.lite_tzero[term_now] = serial_port.reg_fl; Lite_Zero_Time.Text = "ВРЕМЯ УСТАНОВКИ НУЛЯ: " + kv_par.lite_tzero[term_now]; serial_port.rd_mode++;
+                        break;
+                    case 223:
+                        tbParStatus.Text = "Идет считывание параметров вкладки FEED: 100%";
+                        kv_par.lite_w_zero[term_now] = serial_port.reg_fl; Lite_Zero_Weight.Text = "ДИАПАЗОН НУЛЕВОГО ВЕСА: " + kv_par.lite_w_zero[term_now];
+                        UpdateSettings();
+                        serial_port.rd_mode = 1;
+                        reg_status_visible = 20;
+                        break;
+                    case 240:
+                        tbParStatus.Text = "Идет запись параметров вкладки FEED: 25%";
+                        write_reg_wait = 241;
+                        serial_port.write_reg_int = (UInt16)(kv_par.lite_stab_f1[term_now] * 0x100 + kv_par.lite_stab_f1[term_now]);
+                        break;
+                    case 241:
+                        tbParStatus.Text = "Идет запись параметров вкладки FEED: 50%";
+                        write_reg_wait = 242;
+                        serial_port.write_reg_fl = (float)(kv_par.lite_tzero[term_now]);
+                        break;
+                    case 242:
+                        tbParStatus.Text = "Идет запись параметров вкладки FEED: 75%";
+                        write_reg_wait = 243;
+                        serial_port.write_reg_fl = (float)(kv_par.lite_w_zero[term_now]);
+                        break;
+                    case 243:
+                        tbParStatus.Text = "Идет запись параметров вкладки FEED: 100%";
+                        serial_port.rd_mode = 220;
+                        reg_status_visible = 1;
+                        break;
+                    case 260:
+                        kv_par.f1[term_now] = (byte)(serial_port.reg_int / 0x100);
+                        kv_par.lite_mode[term_now] = (byte)(serial_port.reg_int - kv_par.f1[term_now] * 0x100);
+                        tbParStatus.Text = "Идет считывание параметров вкладки PAR: 33%";
+                        if (Combo_Lite_Mode.Items.Count > kv_par.lite_mode[term_now])
+                            Combo_Lite_Mode.SelectedIndex = kv_par.lite_mode[term_now];
+                        if (Combo_Lite_F1.Items.Count > kv_par.f1[term_now])
+                            Combo_Lite_F1.SelectedIndex = kv_par.f1[term_now];
+                        serial_port.rd_mode++;
+                        break;
+                    case 261:
+                        kv_par.num[term_now] = (byte)(serial_port.reg_int / 0x100);
+                        kv_par.f2[term_now] = (byte)(serial_port.reg_int - kv_par.num[term_now] * 0x100);
+                        tbParStatus.Text = "Идет считывание параметров вкладки PAR: 67%";
+                        Lite_Num.Text = "СЕТЕВОЙ НОМЕР: " + kv_par.num[term_now];
+                        if (Combo_Lite_F2.Items.Count > kv_par.f2[term_now])
+                            Combo_Lite_F2.SelectedIndex = kv_par.f2[term_now];
+                        serial_port.rd_mode++;
+                        break;
+                    case 262:
+                        kv_par.lite_direction[term_now] = (byte)(serial_port.reg_int / 0x100);
+                        kv_par.baud[term_now] = (byte)(serial_port.reg_int - kv_par.lite_direction[term_now] * 0x100);
+                        tbParStatus.Text = "Идет считывание параметров вкладки PAR: 100%";
+                        if (Combo_Lite_Direction.Items.Count > kv_par.lite_direction[term_now])
+                            Combo_Lite_Direction.SelectedIndex = kv_par.lite_direction[term_now];
+                        if (Combo_Lite_Baud.Items.Count > kv_par.baud[term_now])
+                            Combo_Lite_Baud.SelectedIndex = kv_par.baud[term_now];
+                       // UpdateSettings();
+                        serial_port.rd_mode = 1;
+                        reg_status_visible = 20;
+                        break;
+                    case 280:
+                        tbParStatus.Text = "Идет запись параметров вкладки PAR: 33%";
+                        write_reg_wait = 281;
+                        serial_port.write_reg_int = (UInt16)(kv_par.num[term_now] * 0x100 + kv_par.f2[term_now]);
+                        break;
+                    case 281:
+                        tbParStatus.Text = "Идет запись параметров вкладки PAR: 67%";
+                        write_reg_wait = 282;
+                        serial_port.write_reg_int = (UInt16)(kv_par.lite_direction[term_now] * 0x100 + kv_par.baud[term_now]);
+                        break;
+                    case 282:
+                        tbParStatus.Text = "Идет запись параметров вкладки PAR: 100%";
+                        serial_port.rd_mode = 260;
+                        reg_status_visible = 1;
+                       break;
                     default:
 
                             serial_port.rd_mode = 1;
@@ -1387,15 +1612,27 @@ namespace ASU_KV_001
             Combo_Lite_Mv.SelectedIndex = kv_par.mv[term_now];
             Lite_NPV.Text = "НПВ: " + Convert.ToSingle(kv_par.npv[term_now]);
             Lite_NPV.Text = Lite_NPV.Text.Replace(",", ".");
-            Cal_Lite_Zero.Text="СМЕЩЕНИЕ НУЛЯ:"+ Convert.ToSingle(kv_par.lite_zero_weight[term_now]);
+            Cal_Lite_Zero.Text="СМЕЩЕНИЕ НУЛЯ: "+ Convert.ToSingle(kv_par.lite_zero_weight[term_now]);
             Cal_Lite_Zero.Text = Cal_Lite_Zero.Text.Replace(",", ".");
 
-            Lite_StabWeigth.Text = "ДИАПАЗОН СТАБИЛЬНОГО ВЕСА:" + Convert.ToSingle(kv_par.lite_stab_weight[term_now]);
+            Lite_StabWeigth.Text = "ДИАПАЗОН СТАБИЛЬНОГО ВЕСА: " + Convert.ToSingle(kv_par.lite_stab_weight[term_now]);
             Lite_StabWeigth.Text = Lite_StabWeigth.Text.Replace(",", ".");
 
             Combo_Lite_FStab.SelectedIndex= kv_par.lite_stab_f1[term_now];
 
+            Lite_Zero_Time.Text = "ВРЕМЯ УСТАНОВКИ НУЛЯ: " + Convert.ToSingle(kv_par.lite_tzero[term_now]);
+            Lite_Zero_Time.Text = Lite_Zero_Time.Text.Replace(",", ".");
+            Lite_Zero_Weight.Text = "ДИАПАЗОН НУЛЕВОГО ВЕСА: " + Convert.ToSingle(kv_par.lite_w_zero[term_now]);
+            Lite_Zero_Weight.Text = Lite_Zero_Weight.Text.Replace(",", ".");
 
+            Combo_Lite_Mode.SelectedIndex = kv_par.lite_mode[term_now];
+            Combo_Lite_F1.SelectedIndex = kv_par.f1[term_now];
+            Combo_Lite_F2.SelectedIndex = kv_par.f2[term_now];
+            Combo_Lite_F2.SelectedIndex = kv_par.f2[term_now];
+            Combo_Lite_Direction.SelectedIndex = kv_par.lite_direction[term_now];
+            Combo_Lite_Baud.SelectedIndex = kv_par.baud[term_now];
+            Lite_Num.Text = "СЕТЕВОЙ НОМЕР: " + Convert.ToUInt32(kv_par.num[term_now]);
+            Combo_Lite_PointNum.SelectedIndex = kv_par.lite_point_num[term_now];
             if (prg_par.ver[term_now] == 1)
             {
                 Button_Param_Levels.Visibility = Visibility.Visible;
@@ -1427,6 +1664,7 @@ namespace ASU_KV_001
             Grid_Prog_Settings.Visibility = Visibility.Collapsed;
             Grid_Post_Main.Visibility = Visibility.Collapsed;
             Grid_Post_Settings.Visibility = Visibility.Visible;
+            Grid_Archive_Settings.Visibility = Visibility.Collapsed;
 
 
         }
@@ -1479,6 +1717,7 @@ namespace ASU_KV_001
             Grid_Left_Archive.Background = BrushOff;
             if ((par_flag) && (mode == 1)) { await kv_par.SaveKVFile(param_filename); par_flag = false; }
             if ((par_flag) && (mode == 2)) { await prg_par.SaveParFile(prg_filename); par_flag = false; UpdatePostEnabled(); }
+            if ((par_flag) && (mode == 3)) { await products.SaveProductFile(prod_filename); par_flag = false; }
             Text_Doza_1.Text = "ДОЗА: " + Convert.ToString(kv_par.doze[term_now, 0]);
             Text_Doza_2.Text = "ДОЗА: " + Convert.ToString(kv_par.doze[term_now, 1]);
             Text_Doza_3.Text = "ДОЗА: " + Convert.ToString(kv_par.doze[term_now, 2]);
@@ -1491,11 +1730,16 @@ namespace ASU_KV_001
             Grid_Post_Bottom.Visibility = Visibility.Visible;
             Grid_Post_Top.Visibility = Visibility.Visible;
             Grid_Prog_Settings.Visibility = Visibility.Collapsed;
+            Grid_Archive_Settings.Visibility = Visibility.Collapsed;
+
         }
 
         private async void btnPrgSettings_Click(object sender, RoutedEventArgs e)
         {
             if ((par_flag) && (mode == 1)) { await kv_par.SaveKVFile(param_filename); par_flag = false; }
+            if ((par_flag) && (mode == 2)) { await prg_par.SaveParFile(prg_filename); par_flag = false; UpdatePostEnabled(); }
+            if ((par_flag) && (mode == 3)) { await products.SaveProductFile(prod_filename); par_flag = false; }
+
             UpdatePrgParam();
             tbParStatus.Visibility = Visibility.Collapsed;
             Grid_Left_Monitor.Background = BrushOff;
@@ -1507,19 +1751,37 @@ namespace ASU_KV_001
             Grid_Post_Bottom.Visibility = Visibility.Collapsed;
             Grid_Post_Top.Visibility = Visibility.Collapsed;
             Grid_Prog_Settings.Visibility = Visibility.Visible;
+            Grid_Archive_Settings.Visibility = Visibility.Collapsed;
             mode = 2;
             par_flag = false;
 
         }
 
-        private void btnArchive_Click(object sender, RoutedEventArgs e)
+        private async void btnArchive_Click(object sender, RoutedEventArgs e)
         {
+            if ((par_flag) && (mode == 1)) { await kv_par.SaveKVFile(param_filename); par_flag = false; }
+            if ((par_flag) && (mode == 2)) { await prg_par.SaveParFile(prg_filename); par_flag = false; UpdatePostEnabled(); }
+            if ((par_flag) && (mode == 3)) { await products.SaveProductFile(prod_filename); par_flag = false; }
+
             Grid_Left_Monitor.Background = BrushOff;
             Grid_Left_KV_Param.Background = BrushOff;
             Grid_Left_Prg_Param.Background = BrushOff;
             Grid_Left_Archive.Background = BrushOn;
             Grid_Post_Settings.Visibility = Visibility.Collapsed;
             Grid_Post_Main.Visibility = Visibility.Collapsed;
+            Grid_Post_Bottom.Visibility = Visibility.Collapsed;
+            Grid_Post_Top.Visibility = Visibility.Collapsed;
+            Grid_Prog_Settings.Visibility = Visibility.Collapsed;
+
+            Grid_Arc_Main.Background = BrushOn;
+            Grid_Arc_Product.Background = BrushOff;
+            Grid_Archive_Settings.Visibility = Visibility.Visible;
+            Grid_Arc_Prod.Visibility = Visibility.Collapsed;
+            Grid_Arc_Arc.Visibility = Visibility.Visible;
+
+            Combo_Arc_ProdId.SelectedIndex = 0;
+            mode = 3;
+            par_flag = false;
 
         }
 
@@ -2367,8 +2629,19 @@ namespace ASU_KV_001
                 tbParStatus.Text = "Идет считывание параметров вкладки CALIBR: 0%";
                 write_reg_wait = 180;
             }
+            if (Grid_KV_Lite_Feed.Visibility == Visibility.Visible)
+            {
+                tbParStatus.Text = "Идет считывание параметров вкладки FEED: 0%";
+                write_reg_wait = 220;
+            }
+            if (Grid_KV_Lite_Par.Visibility == Visibility.Visible)
+            {
+                tbParStatus.Text = "Идет считывание параметров вкладки PAR: 0%";
+                write_reg_wait = 260;
+            }
 
-            
+
+
             reg_status_visible = 1;
             tbParStatus.Visibility = Visibility.Visible;
         }
@@ -2403,7 +2676,28 @@ namespace ASU_KV_001
                 tbParStatus.Text = "Идет запись параметров вкладки CALIBR: 0%";
                 write_reg_wait = 160;
                 num_reg_read = 0;
-                serial_port.write_reg_int = (UInt16)(kv_par.hz[term_now]*0x100+ kv_par.mv[term_now]);
+                serial_port.write_reg_int = (UInt16)(kv_par.hz[term_now] * 0x100 + kv_par.mv[term_now]);
+            }
+            if (Grid_KV_Lite_Calibr.Visibility == Visibility.Visible)
+            {
+                tbParStatus.Text = "Идет запись параметров вкладки CALIBR: 0%";
+                write_reg_wait = 200;
+                num_reg_read = 0;
+                serial_port.write_reg_int = (UInt16)(kv_par.hz[term_now] * 0x100 + kv_par.mv[term_now]);
+            }
+            if (Grid_KV_Lite_Feed.Visibility == Visibility.Visible)
+            {
+                tbParStatus.Text = "Идет запись параметров вкладки FEED: 0%";
+                write_reg_wait = 240;
+                num_reg_read = 0;
+                serial_port.write_reg_fl = (float)kv_par.lite_stab_weight[term_now]; ;
+            }
+            if (Grid_KV_Lite_Par.Visibility == Visibility.Visible)
+            {
+                tbParStatus.Text = "Идет запись параметров вкладки PAR: 0%";
+                write_reg_wait = 280;
+                num_reg_read = 0;
+                serial_port.write_reg_int = (UInt16)(kv_par.f1[term_now] * 0x100 + kv_par.lite_mode[term_now]);
             }
             reg_status_visible = 1;
             tbParStatus.Visibility = Visibility.Visible;
@@ -2594,6 +2888,270 @@ namespace ASU_KV_001
         {
             kv_par.lite_stab_f1[term_now] = (UInt16)Combo_Lite_FStab.SelectedIndex;
             par_flag = true;
+        }
+
+        private async void btn_Lite_Zero_Time_Click(object sender, RoutedEventArgs e)
+        {
+            var InputDlg = new Input_Num_Dialog();
+            InputDlg.Text = Convert.ToString(kv_par.lite_tzero[term_now]);
+            var result = await InputDlg.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                var text = InputDlg.Text;
+                Lite_Zero_Time.Text = "ВРЕМЯ УСТАНОВКИ НУЛЯ: " + text;
+                text = text.Replace(".", ",");
+                kv_par.lite_tzero[term_now] = Convert.ToSingle(text);
+                par_flag = true;
+            }
+
+        }
+
+        private async void btn_Lite_Zero_Weight_Click(object sender, RoutedEventArgs e)
+        {
+            var InputDlg = new Input_Num_Dialog();
+            InputDlg.Text = Convert.ToString(kv_par.lite_w_zero[term_now]);
+            var result = await InputDlg.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                var text = InputDlg.Text;
+                Lite_Zero_Weight.Text = "ДИАПАЗОН НУЛЕВОГО ВЕСА: " + text;
+                text = text.Replace(".", ",");
+                kv_par.lite_w_zero[term_now] = Convert.ToSingle(text);
+                par_flag = true;
+            }
+
+        }
+
+        private void Combo_Lite_Mode_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            kv_par.lite_mode[term_now] = (UInt16)Combo_Lite_Mode.SelectedIndex;
+            par_flag = true;
+        }
+
+        private void Combo_Lite_F1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            kv_par.f1[term_now] = (UInt16)Combo_Lite_F1.SelectedIndex;
+            par_flag = true;
+
+        }
+
+        private void Combo_Lite_F2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            kv_par.f2[term_now] = (UInt16)Combo_Lite_F2.SelectedIndex;
+            par_flag = true;
+
+        }
+
+        private void Combo_Lite_Direction_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            kv_par.lite_direction[term_now] = (UInt16)Combo_Lite_Direction.SelectedIndex;
+            par_flag = true;
+
+        }
+
+        private void Combo_Lite_Baud_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            kv_par.baud[term_now] = (UInt16)Combo_Lite_Baud.SelectedIndex;
+            par_flag = true;
+
+        }
+
+        private async void btn_Lite_Num_Click(object sender, RoutedEventArgs e)
+        {
+            var InputDlg = new Input_Num_Dialog();
+            InputDlg.Text = Convert.ToString(kv_par.num[term_now]);
+            var result = await InputDlg.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                var text = InputDlg.Text;
+                Lite_Num.Text = "СЕТЕВОЙ НОМЕР: " + text;
+                text = text.Replace(".", ",");
+                kv_par.num[term_now] = Convert.ToUInt16(text);
+                par_flag = true;
+            }
+
+        }
+
+        private void Combo_Lite_PointNum_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            kv_par.lite_point_num[term_now]= (UInt16)Combo_Lite_PointNum.SelectedIndex;
+            par_flag = true;
+        }
+
+        private void Button_Arc_Arc_Click(object sender, RoutedEventArgs e)
+        {
+            Grid_Arc_Main.Background = BrushOn;
+            Grid_Arc_Product.Background = BrushOff;
+            Grid_Arc_Prod.Visibility = Visibility.Collapsed;
+            Grid_Arc_Arc.Visibility = Visibility.Visible;
+
+        }
+
+        private void Button_Arc_Prod_Click(object sender, RoutedEventArgs e)
+        {
+            Grid_Arc_Main.Background = BrushOff;
+            Grid_Arc_Product.Background = BrushOn;
+            Grid_Arc_Prod.Visibility = Visibility.Visible;
+            Grid_Arc_Arc.Visibility = Visibility.Collapsed;
+
+
+        }
+
+        private void Combo_Arc_ProdId_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Set_Doza1.Text = "" + products.set_doza[Combo_Arc_ProdId.SelectedIndex,0];
+            Set_Doza2.Text = "" + products.set_doza[Combo_Arc_ProdId.SelectedIndex,1];
+            Set_Doza3.Text = "" + products.set_doza[Combo_Arc_ProdId.SelectedIndex,2];
+            Min_Doza1.Text = "" + products.min_doza[Combo_Arc_ProdId.SelectedIndex,0];
+            Min_Doza2.Text = "" + products.min_doza[Combo_Arc_ProdId.SelectedIndex,1];
+            Min_Doza3.Text = "" + products.min_doza[Combo_Arc_ProdId.SelectedIndex,2];
+            Max_Doza1.Text = "" + products.max_doza[Combo_Arc_ProdId.SelectedIndex,0];
+            Max_Doza2.Text = "" + products.max_doza[Combo_Arc_ProdId.SelectedIndex,1];
+            Max_Doza3.Text = "" + products.max_doza[Combo_Arc_ProdId.SelectedIndex,2];
+        }
+
+
+        private async void btn_Set_Doza1_Click(object sender, RoutedEventArgs e)
+        {
+            var InputDlg = new Input_Num_Dialog();
+            InputDlg.Text = Convert.ToString(kv_par.npv[term_now]);
+            var result = await InputDlg.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                var text = InputDlg.Text;
+                Set_Doza1.Text = "" + text;
+                text = text.Replace(".", ",");
+                products.set_doza[Combo_Arc_ProdId.SelectedIndex, 0] = Convert.ToSingle(text);
+                par_flag = true;
+            }
+
+
+        }
+
+        private async void btn_Set_Doza2_Click(object sender, RoutedEventArgs e)
+        {
+            var InputDlg = new Input_Num_Dialog();
+            InputDlg.Text = Convert.ToString(kv_par.npv[term_now]);
+            var result = await InputDlg.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                var text = InputDlg.Text;
+                Set_Doza2.Text = "" + text;
+                text = text.Replace(".", ",");
+                products.set_doza[Combo_Arc_ProdId.SelectedIndex, 1] = Convert.ToSingle(text);
+                par_flag = true;
+            }
+
+        }
+
+        private async void btn_Set_Doza3_Click(object sender, RoutedEventArgs e)
+        {
+            var InputDlg = new Input_Num_Dialog();
+            InputDlg.Text = Convert.ToString(kv_par.npv[term_now]);
+            var result = await InputDlg.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                var text = InputDlg.Text;
+                Set_Doza3.Text = "" + text;
+                text = text.Replace(".", ",");
+                products.set_doza[Combo_Arc_ProdId.SelectedIndex, 2] = Convert.ToSingle(text);
+                par_flag = true;
+            }
+
+        }
+        private async void btn_Min_Doza1_Click(object sender, RoutedEventArgs e)
+        {
+            var InputDlg = new Input_Num_Dialog();
+            InputDlg.Text = Convert.ToString(kv_par.npv[term_now]);
+            var result = await InputDlg.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                var text = InputDlg.Text;
+                Min_Doza1.Text = "" + text;
+                text = text.Replace(".", ",");
+                products.min_doza[Combo_Arc_ProdId.SelectedIndex, 0] = Convert.ToSingle(text);
+                par_flag = true;
+            }
+
+        }
+
+        private async void btn_Min_Doza2_Click(object sender, RoutedEventArgs e)
+        {
+            var InputDlg = new Input_Num_Dialog();
+            InputDlg.Text = Convert.ToString(kv_par.npv[term_now]);
+            var result = await InputDlg.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                var text = InputDlg.Text;
+                Min_Doza2.Text = "" + text;
+                text = text.Replace(".", ",");
+                products.min_doza[Combo_Arc_ProdId.SelectedIndex, 1] = Convert.ToSingle(text);
+                par_flag = true;
+            }
+
+        }
+
+        private async void btn_Min_Doza3_Click(object sender, RoutedEventArgs e)
+        {
+            var InputDlg = new Input_Num_Dialog();
+            InputDlg.Text = Convert.ToString(kv_par.npv[term_now]);
+            var result = await InputDlg.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                var text = InputDlg.Text;
+                Min_Doza3.Text = "" + text;
+                text = text.Replace(".", ",");
+                products.min_doza[Combo_Arc_ProdId.SelectedIndex, 2] = Convert.ToSingle(text);
+                par_flag = true;
+            }
+
+        }
+
+        private async void btn_Max_Doza1_Click(object sender, RoutedEventArgs e)
+        {
+            var InputDlg = new Input_Num_Dialog();
+            InputDlg.Text = Convert.ToString(kv_par.npv[term_now]);
+            var result = await InputDlg.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                var text = InputDlg.Text;
+                Max_Doza1.Text = "" + text;
+                text = text.Replace(".", ",");
+                products.max_doza[Combo_Arc_ProdId.SelectedIndex, 0] = Convert.ToSingle(text);
+                par_flag = true;
+            }
+        }
+
+        private async void btn_Max_Doza2_Click(object sender, RoutedEventArgs e)
+        {
+            var InputDlg = new Input_Num_Dialog();
+            InputDlg.Text = Convert.ToString(kv_par.npv[term_now]);
+            var result = await InputDlg.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                var text = InputDlg.Text;
+                Max_Doza2.Text = "" + text;
+                text = text.Replace(".", ",");
+                products.max_doza[Combo_Arc_ProdId.SelectedIndex, 1] = Convert.ToSingle(text);
+                par_flag = true;
+            }
+
+        }
+
+        private async void btn_Max_Doza3_Click(object sender, RoutedEventArgs e)
+        {
+            var InputDlg = new Input_Num_Dialog();
+            InputDlg.Text = Convert.ToString(kv_par.npv[term_now]);
+            var result = await InputDlg.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                var text = InputDlg.Text;
+                Max_Doza3.Text = "" + text;
+                text = text.Replace(".", ",");
+                products.max_doza[Combo_Arc_ProdId.SelectedIndex, 2] = Convert.ToSingle(text);
+                par_flag = true;
+            }
+
         }
     }
 }
