@@ -36,8 +36,10 @@ namespace ASU_KV_001
         private UInt16 mode = 0;
         private ASU_KV_001.KV001 kv_par;
         private ASU_KV_001.Program_Par prg_par;
+        private ASU_KV_001.Products products;
         private string param_filename = "kv_par.ini";
         private string prg_filename = "prg_par.ini";
+        private string prod_filename = "product_par.ini";
 
         //Здесь у нас все что относится к модбасу.
         private ModBus_Class serial_port;
@@ -68,6 +70,19 @@ namespace ASU_KV_001
                 await kv_par.SaveKVFile(param_filename);
             }
         }
+        public async System.Threading.Tasks.Task InitProduct()
+        {
+       //     try
+            {
+                await products.OpenProdFile(prod_filename);
+            }
+       //     catch
+       //     {
+       //         products.set_doza[0, 0] = 98;
+       //         await products.SaveProductFile(prod_filename);
+       //    }
+        }
+
         public async System.Threading.Tasks.Task InitPrg()
         {
             // param.SmenaHour = 0;
@@ -89,6 +104,7 @@ namespace ASU_KV_001
             await InitKV();
 
             await InitPrg();
+
 
             Text_Doza_1.Text = "ДОЗА: " + Convert.ToString(kv_par.doze[0, 0]);
             Text_Doza_2.Text = "ДОЗА: " + Convert.ToString(kv_par.doze[0, 1]);
@@ -141,11 +157,17 @@ namespace ASU_KV_001
                 }
             }
 
+            await InitProduct();
+
+            Combo_Arc_ProdId.SelectedIndex = 0;
+
+
             Grid_Par_Port.Visibility = Visibility.Collapsed;
             Grid_Par_Term.Visibility = Visibility.Visible;
             Grid_Archive_Settings.Visibility = Visibility.Collapsed;
             //  float[] kv_par.doze = new float[10];
             tmOutScreen.Start();
+
 
 
         }
@@ -175,6 +197,17 @@ namespace ASU_KV_001
             Combo_Post_ID.Items.Add("ПРОДУКТ 8");
             Combo_Post_ID.Items.Add("ПРОДУКТ 9");
             Combo_Post_ID.Items.Add("ПРОДУКТ 10");
+
+            Combo_Arc_ProdId.Items.Add("ПРОДУКТ 1");
+            Combo_Arc_ProdId.Items.Add("ПРОДУКТ 2");
+            Combo_Arc_ProdId.Items.Add("ПРОДУКТ 3");
+            Combo_Arc_ProdId.Items.Add("ПРОДУКТ 4");
+            Combo_Arc_ProdId.Items.Add("ПРОДУКТ 5");
+            Combo_Arc_ProdId.Items.Add("ПРОДУКТ 6");
+            Combo_Arc_ProdId.Items.Add("ПРОДУКТ 7");
+            Combo_Arc_ProdId.Items.Add("ПРОДУКТ 8");
+            Combo_Arc_ProdId.Items.Add("ПРОДУКТ 9");
+            Combo_Arc_ProdId.Items.Add("ПРОДУКТ 10");
 
             Combo_F1.Items.Add("0");
             Combo_F1.Items.Add("4");
@@ -347,11 +380,12 @@ namespace ASU_KV_001
             kv_par = new ASU_KV_001.KV001();
             prg_par = new ASU_KV_001.Program_Par();
             serial_port = new ASU_KV_001.ModBus_Class();
-
-///            tmOutScreen = new DispatcherTimer();
+            products= new ASU_KV_001.Products();
+            ///            tmOutScreen = new DispatcherTimer();
             //tmOutScreen.Interval = TimeSpan.FromMilliseconds(1000);
             //tmOutScreen.Tick += Timer_Tick;
             //tmOutScreen.Stop();
+            
 
             tmComReq = new DispatcherTimer();
             tmComReq.Interval = TimeSpan.FromMilliseconds(80);
@@ -1683,6 +1717,7 @@ namespace ASU_KV_001
             Grid_Left_Archive.Background = BrushOff;
             if ((par_flag) && (mode == 1)) { await kv_par.SaveKVFile(param_filename); par_flag = false; }
             if ((par_flag) && (mode == 2)) { await prg_par.SaveParFile(prg_filename); par_flag = false; UpdatePostEnabled(); }
+            if ((par_flag) && (mode == 3)) { await products.SaveProductFile(prod_filename); par_flag = false; }
             Text_Doza_1.Text = "ДОЗА: " + Convert.ToString(kv_par.doze[term_now, 0]);
             Text_Doza_2.Text = "ДОЗА: " + Convert.ToString(kv_par.doze[term_now, 1]);
             Text_Doza_3.Text = "ДОЗА: " + Convert.ToString(kv_par.doze[term_now, 2]);
@@ -1702,6 +1737,9 @@ namespace ASU_KV_001
         private async void btnPrgSettings_Click(object sender, RoutedEventArgs e)
         {
             if ((par_flag) && (mode == 1)) { await kv_par.SaveKVFile(param_filename); par_flag = false; }
+            if ((par_flag) && (mode == 2)) { await prg_par.SaveParFile(prg_filename); par_flag = false; UpdatePostEnabled(); }
+            if ((par_flag) && (mode == 3)) { await products.SaveProductFile(prod_filename); par_flag = false; }
+
             UpdatePrgParam();
             tbParStatus.Visibility = Visibility.Collapsed;
             Grid_Left_Monitor.Background = BrushOff;
@@ -1719,8 +1757,12 @@ namespace ASU_KV_001
 
         }
 
-        private void btnArchive_Click(object sender, RoutedEventArgs e)
+        private async void btnArchive_Click(object sender, RoutedEventArgs e)
         {
+            if ((par_flag) && (mode == 1)) { await kv_par.SaveKVFile(param_filename); par_flag = false; }
+            if ((par_flag) && (mode == 2)) { await prg_par.SaveParFile(prg_filename); par_flag = false; UpdatePostEnabled(); }
+            if ((par_flag) && (mode == 3)) { await products.SaveProductFile(prod_filename); par_flag = false; }
+
             Grid_Left_Monitor.Background = BrushOff;
             Grid_Left_KV_Param.Background = BrushOff;
             Grid_Left_Prg_Param.Background = BrushOff;
@@ -1736,6 +1778,10 @@ namespace ASU_KV_001
             Grid_Archive_Settings.Visibility = Visibility.Visible;
             Grid_Arc_Prod.Visibility = Visibility.Collapsed;
             Grid_Arc_Arc.Visibility = Visibility.Visible;
+
+            Combo_Arc_ProdId.SelectedIndex = 0;
+            mode = 3;
+            par_flag = false;
 
         }
 
@@ -2947,6 +2993,164 @@ namespace ASU_KV_001
             Grid_Arc_Product.Background = BrushOn;
             Grid_Arc_Prod.Visibility = Visibility.Visible;
             Grid_Arc_Arc.Visibility = Visibility.Collapsed;
+
+
+        }
+
+        private void Combo_Arc_ProdId_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Set_Doza1.Text = "" + products.set_doza[Combo_Arc_ProdId.SelectedIndex,0];
+            Set_Doza2.Text = "" + products.set_doza[Combo_Arc_ProdId.SelectedIndex,1];
+            Set_Doza3.Text = "" + products.set_doza[Combo_Arc_ProdId.SelectedIndex,2];
+            Min_Doza1.Text = "" + products.min_doza[Combo_Arc_ProdId.SelectedIndex,0];
+            Min_Doza2.Text = "" + products.min_doza[Combo_Arc_ProdId.SelectedIndex,1];
+            Min_Doza3.Text = "" + products.min_doza[Combo_Arc_ProdId.SelectedIndex,2];
+            Max_Doza1.Text = "" + products.max_doza[Combo_Arc_ProdId.SelectedIndex,0];
+            Max_Doza2.Text = "" + products.max_doza[Combo_Arc_ProdId.SelectedIndex,1];
+            Max_Doza3.Text = "" + products.max_doza[Combo_Arc_ProdId.SelectedIndex,2];
+        }
+
+
+        private async void btn_Set_Doza1_Click(object sender, RoutedEventArgs e)
+        {
+            var InputDlg = new Input_Num_Dialog();
+            InputDlg.Text = Convert.ToString(kv_par.npv[term_now]);
+            var result = await InputDlg.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                var text = InputDlg.Text;
+                Set_Doza1.Text = "" + text;
+                text = text.Replace(".", ",");
+                products.set_doza[Combo_Arc_ProdId.SelectedIndex, 0] = Convert.ToSingle(text);
+                par_flag = true;
+            }
+
+
+        }
+
+        private async void btn_Set_Doza2_Click(object sender, RoutedEventArgs e)
+        {
+            var InputDlg = new Input_Num_Dialog();
+            InputDlg.Text = Convert.ToString(kv_par.npv[term_now]);
+            var result = await InputDlg.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                var text = InputDlg.Text;
+                Set_Doza2.Text = "" + text;
+                text = text.Replace(".", ",");
+                products.set_doza[Combo_Arc_ProdId.SelectedIndex, 1] = Convert.ToSingle(text);
+                par_flag = true;
+            }
+
+        }
+
+        private async void btn_Set_Doza3_Click(object sender, RoutedEventArgs e)
+        {
+            var InputDlg = new Input_Num_Dialog();
+            InputDlg.Text = Convert.ToString(kv_par.npv[term_now]);
+            var result = await InputDlg.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                var text = InputDlg.Text;
+                Set_Doza3.Text = "" + text;
+                text = text.Replace(".", ",");
+                products.set_doza[Combo_Arc_ProdId.SelectedIndex, 2] = Convert.ToSingle(text);
+                par_flag = true;
+            }
+
+        }
+        private async void btn_Min_Doza1_Click(object sender, RoutedEventArgs e)
+        {
+            var InputDlg = new Input_Num_Dialog();
+            InputDlg.Text = Convert.ToString(kv_par.npv[term_now]);
+            var result = await InputDlg.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                var text = InputDlg.Text;
+                Min_Doza1.Text = "" + text;
+                text = text.Replace(".", ",");
+                products.min_doza[Combo_Arc_ProdId.SelectedIndex, 0] = Convert.ToSingle(text);
+                par_flag = true;
+            }
+
+        }
+
+        private async void btn_Min_Doza2_Click(object sender, RoutedEventArgs e)
+        {
+            var InputDlg = new Input_Num_Dialog();
+            InputDlg.Text = Convert.ToString(kv_par.npv[term_now]);
+            var result = await InputDlg.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                var text = InputDlg.Text;
+                Min_Doza2.Text = "" + text;
+                text = text.Replace(".", ",");
+                products.min_doza[Combo_Arc_ProdId.SelectedIndex, 1] = Convert.ToSingle(text);
+                par_flag = true;
+            }
+
+        }
+
+        private async void btn_Min_Doza3_Click(object sender, RoutedEventArgs e)
+        {
+            var InputDlg = new Input_Num_Dialog();
+            InputDlg.Text = Convert.ToString(kv_par.npv[term_now]);
+            var result = await InputDlg.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                var text = InputDlg.Text;
+                Min_Doza3.Text = "" + text;
+                text = text.Replace(".", ",");
+                products.min_doza[Combo_Arc_ProdId.SelectedIndex, 2] = Convert.ToSingle(text);
+                par_flag = true;
+            }
+
+        }
+
+        private async void btn_Max_Doza1_Click(object sender, RoutedEventArgs e)
+        {
+            var InputDlg = new Input_Num_Dialog();
+            InputDlg.Text = Convert.ToString(kv_par.npv[term_now]);
+            var result = await InputDlg.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                var text = InputDlg.Text;
+                Max_Doza1.Text = "" + text;
+                text = text.Replace(".", ",");
+                products.max_doza[Combo_Arc_ProdId.SelectedIndex, 0] = Convert.ToSingle(text);
+                par_flag = true;
+            }
+        }
+
+        private async void btn_Max_Doza2_Click(object sender, RoutedEventArgs e)
+        {
+            var InputDlg = new Input_Num_Dialog();
+            InputDlg.Text = Convert.ToString(kv_par.npv[term_now]);
+            var result = await InputDlg.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                var text = InputDlg.Text;
+                Max_Doza2.Text = "" + text;
+                text = text.Replace(".", ",");
+                products.max_doza[Combo_Arc_ProdId.SelectedIndex, 1] = Convert.ToSingle(text);
+                par_flag = true;
+            }
+
+        }
+
+        private async void btn_Max_Doza3_Click(object sender, RoutedEventArgs e)
+        {
+            var InputDlg = new Input_Num_Dialog();
+            InputDlg.Text = Convert.ToString(kv_par.npv[term_now]);
+            var result = await InputDlg.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                var text = InputDlg.Text;
+                Max_Doza3.Text = "" + text;
+                text = text.Replace(".", ",");
+                products.max_doza[Combo_Arc_ProdId.SelectedIndex, 2] = Convert.ToSingle(text);
+                par_flag = true;
+            }
 
         }
     }

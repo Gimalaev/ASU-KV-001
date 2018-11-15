@@ -19,25 +19,25 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>C0A640C15717745577A74E57B49568967253661033D5A25FB9054BCB8C27B2B9</RegisteredManifestChecksum>
-    <RegisteredPackageMoniker>2742F410823B.40196E1CC90A3_1.1.3.0_x86__9jbtjn1f8fk2j</RegisteredPackageMoniker>
+    <RegisteredManifestChecksum>39D29B68AB1B21F29FABA3017165DED13322A6F26E7A528386F271C589AE4C07</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>2742F410823B.40196E1CC90A3_1.1.4.0_x86__9jbtjn1f8fk2j</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>2742F410823B.40196E1CC90A3_9jbtjn1f8fk2j!App</RegisteredUserModeAppID>
     <RegisteredPackageID>2742F410823B.40196E1CC90A3</RegisteredPackageID>
     <RegisteredPackagePublisher>CN=9C8BC9C4-E4C2-482B-8669-48D8371BA882</RegisteredPackagePublisher>
-    <RegisteredVersion>1.1.3.0</RegisteredVersion>
+    <RegisteredVersion>1.1.4.0</RegisteredVersion>
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
     <AppXManifest Include="D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-11-07T12:45:28.668</Modified>
+      <Modified>2018-11-15T10:32:56.682</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\ASU-KV-001.exe">
       <PackagePath>entrypoint\ASU-KV-001.exe</PackagePath>
-      <Modified>2018-11-07T12:45:27.843</Modified>
+      <Modified>2018-11-15T10:32:55.459</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sergey\.nuget\packages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.0-preview1-26502-02\runtimes\win10-x86\nativeassets\uap10.0.15138\clrcompression.dll">
       <PackagePath>clrcompression.dll</PackagePath>
@@ -986,19 +986,19 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\ASU-KV-001.xr.xml">
       <PackagePath>ASU-KV-001.xr.xml</PackagePath>
-      <Modified>2018-10-16T09:18:02.832</Modified>
+      <Modified>2018-11-14T11:44:57.214</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2018-11-07T12:45:26.883</Modified>
+      <Modified>2018-11-15T10:32:54.586</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\Input_Num_Dialog.xbf">
       <PackagePath>Input_Num_Dialog.xbf</PackagePath>
-      <Modified>2018-11-07T12:45:26.884</Modified>
+      <Modified>2018-11-15T10:32:54.587</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2018-11-07T12:45:26.885</Modified>
+      <Modified>2018-11-15T10:32:54.587</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.16299.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -1007,11 +1007,11 @@
     <AppxPackagedFile Include="D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-10-23T13:11:40.379</Modified>
+      <Modified>2018-11-14T11:02:21.488</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\Core\ASU-KV-001.exe">
       <PackagePath>ASU-KV-001.exe</PackagePath>
-      <Modified>2018-11-07T12:45:28.661</Modified>
+      <Modified>2018-11-15T10:32:56.669</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
