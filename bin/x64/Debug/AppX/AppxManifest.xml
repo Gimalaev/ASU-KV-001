@@ -7,7 +7,7 @@
 
  Дополнительные сведения о файлах манифестов приложений см. по адресу http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="2742F410823B.40196E1CC90A3" Publisher="CN=9C8BC9C4-E4C2-482B-8669-48D8371BA882" Version="1.1.0.0" ProcessorArchitecture="x64" />
+  <Identity Name="2742F410823B.40196E1CC90A3" Publisher="CN=9C8BC9C4-E4C2-482B-8669-48D8371BA882" Version="1.1.4.0" ProcessorArchitecture="x64" />
   <mp:PhoneIdentity PhoneProductId="6c0ae35d-8d63-494f-8957-b4a077a4fe1b" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>АСУ "Комплекс дозирования"</DisplayName>
@@ -17,14 +17,14 @@
   <Dependencies>
     <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.16299.0" MaxVersionTested="10.0.16299.0" />
     <PackageDependency Name="Microsoft.NET.CoreRuntime.2.1" MinVersion="2.1.26124.5" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" />
-    <PackageDependency Name="Microsoft.VCLibs.140.00.Debug" MinVersion="14.0.26726.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" />
+    <PackageDependency Name="Microsoft.VCLibs.140.00.Debug" MinVersion="14.0.27023.1" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" />
   </Dependencies>
   <Resources>
-    <Resource Language="RU-RU" />
+    <Resource Language="RU" />
   </Resources>
   <Applications>
     <Application Id="App" Executable="ASU-KV-001.exe" EntryPoint="ASU-KV-001.App">
-      <uap:VisualElements DisplayName="АСУ &quot;Комплекс дозирования&quot;" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="Программа" BackgroundColor="transparent">
+      <uap:VisualElements DisplayName="АСУ &quot;Комплекс дозирования&quot;" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="Программный комплекс АСУ &quot;Комплекс дозирования&quot; предназначит для управления дозаторными системами построенными на базе весодозирующих контроллеров" BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\LargeTile.png" Square71x71Logo="Assets\SmallTile.png">
           <uap:ShowNameOnTiles>
             <uap:ShowOn Tile="square150x150Logo" />
@@ -45,12 +45,12 @@
     <build:Item Name="TargetFrameworkMoniker" Value=".NETCore,Version=v5.0" />
     <build:Item Name="VisualStudio" Version="15.0" />
     <build:Item Name="VisualStudioEdition" Value="Microsoft Visual Studio Community 2017" />
-    <build:Item Name="OperatingSystem" Version="10.0.17134.343 (WinBuild.160101.0800)" />
-    <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="15.0.28010.2016" />
+    <build:Item Name="OperatingSystem" Version="10.0.17134.346 (WinBuild.160101.0800)" />
+    <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="15.0.28307.104" />
     <build:Item Name="ProjectGUID" Value="{82C0DDB8-06E9-49E7-89BB-40B70E2934B1}" />
     <build:Item Name="OptimizingToolset" Value="None" />
     <build:Item Name="TargetRuntime" Value="Managed" />
-    <build:Item Name="Microsoft.Windows.UI.Xaml.Build.Tasks.dll" Version="15.0.28010.2016" />
+    <build:Item Name="Microsoft.Windows.UI.Xaml.Build.Tasks.dll" Version="15.0.28307.102" />
     <build:Item Name="UseDotNetNativeSharedAssemblyFrameworkPackage" Value="true" />
     <build:Item Name="MakePri.exe" Version="10.0.16299.15 (WinBuild.160101.0800)" />
   </build:Metadata>
