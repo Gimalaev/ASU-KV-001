@@ -72,15 +72,14 @@ namespace ASU_KV_001
         }
         public async System.Threading.Tasks.Task InitProduct()
         {
-       //     try
+            try
             {
                 await products.OpenProdFile(prod_filename);
             }
-       //     catch
-       //     {
-       //         products.set_doza[0, 0] = 98;
-       //         await products.SaveProductFile(prod_filename);
-       //    }
+            catch
+            {
+                await products.SaveProductFile(prod_filename);
+           }
         }
 
         public async System.Threading.Tasks.Task InitPrg()
@@ -3014,7 +3013,7 @@ namespace ASU_KV_001
         private async void btn_Set_Doza1_Click(object sender, RoutedEventArgs e)
         {
             var InputDlg = new Input_Num_Dialog();
-            InputDlg.Text = Convert.ToString(kv_par.npv[term_now]);
+            InputDlg.Text = Convert.ToString(products.set_doza[Combo_Arc_ProdId.SelectedIndex, 0]);
             var result = await InputDlg.ShowAsync();
             if (result == ContentDialogResult.Primary)
             {
@@ -3031,7 +3030,7 @@ namespace ASU_KV_001
         private async void btn_Set_Doza2_Click(object sender, RoutedEventArgs e)
         {
             var InputDlg = new Input_Num_Dialog();
-            InputDlg.Text = Convert.ToString(kv_par.npv[term_now]);
+            InputDlg.Text = Convert.ToString(products.set_doza[Combo_Arc_ProdId.SelectedIndex, 1]);
             var result = await InputDlg.ShowAsync();
             if (result == ContentDialogResult.Primary)
             {
@@ -3047,7 +3046,7 @@ namespace ASU_KV_001
         private async void btn_Set_Doza3_Click(object sender, RoutedEventArgs e)
         {
             var InputDlg = new Input_Num_Dialog();
-            InputDlg.Text = Convert.ToString(kv_par.npv[term_now]);
+            InputDlg.Text = Convert.ToString(products.set_doza[Combo_Arc_ProdId.SelectedIndex, 2]);
             var result = await InputDlg.ShowAsync();
             if (result == ContentDialogResult.Primary)
             {
@@ -3062,7 +3061,7 @@ namespace ASU_KV_001
         private async void btn_Min_Doza1_Click(object sender, RoutedEventArgs e)
         {
             var InputDlg = new Input_Num_Dialog();
-            InputDlg.Text = Convert.ToString(kv_par.npv[term_now]);
+            InputDlg.Text = Convert.ToString(products.min_doza[Combo_Arc_ProdId.SelectedIndex, 0]);
             var result = await InputDlg.ShowAsync();
             if (result == ContentDialogResult.Primary)
             {
@@ -3078,7 +3077,7 @@ namespace ASU_KV_001
         private async void btn_Min_Doza2_Click(object sender, RoutedEventArgs e)
         {
             var InputDlg = new Input_Num_Dialog();
-            InputDlg.Text = Convert.ToString(kv_par.npv[term_now]);
+            InputDlg.Text = Convert.ToString(products.min_doza[Combo_Arc_ProdId.SelectedIndex, 1]);
             var result = await InputDlg.ShowAsync();
             if (result == ContentDialogResult.Primary)
             {
@@ -3094,7 +3093,7 @@ namespace ASU_KV_001
         private async void btn_Min_Doza3_Click(object sender, RoutedEventArgs e)
         {
             var InputDlg = new Input_Num_Dialog();
-            InputDlg.Text = Convert.ToString(kv_par.npv[term_now]);
+            InputDlg.Text = Convert.ToString(products.min_doza[Combo_Arc_ProdId.SelectedIndex, 2]);
             var result = await InputDlg.ShowAsync();
             if (result == ContentDialogResult.Primary)
             {
@@ -3110,7 +3109,7 @@ namespace ASU_KV_001
         private async void btn_Max_Doza1_Click(object sender, RoutedEventArgs e)
         {
             var InputDlg = new Input_Num_Dialog();
-            InputDlg.Text = Convert.ToString(kv_par.npv[term_now]);
+            InputDlg.Text = Convert.ToString(products.max_doza[Combo_Arc_ProdId.SelectedIndex, 0]);
             var result = await InputDlg.ShowAsync();
             if (result == ContentDialogResult.Primary)
             {
@@ -3125,7 +3124,7 @@ namespace ASU_KV_001
         private async void btn_Max_Doza2_Click(object sender, RoutedEventArgs e)
         {
             var InputDlg = new Input_Num_Dialog();
-            InputDlg.Text = Convert.ToString(kv_par.npv[term_now]);
+            InputDlg.Text = Convert.ToString(products.max_doza[Combo_Arc_ProdId.SelectedIndex, 1]);
             var result = await InputDlg.ShowAsync();
             if (result == ContentDialogResult.Primary)
             {
@@ -3141,7 +3140,7 @@ namespace ASU_KV_001
         private async void btn_Max_Doza3_Click(object sender, RoutedEventArgs e)
         {
             var InputDlg = new Input_Num_Dialog();
-            InputDlg.Text = Convert.ToString(kv_par.npv[term_now]);
+            InputDlg.Text = Convert.ToString(products.max_doza[Combo_Arc_ProdId.SelectedIndex, 2]);
             var result = await InputDlg.ShowAsync();
             if (result == ContentDialogResult.Primary)
             {

@@ -512,10 +512,16 @@ namespace ASU_KV_001
 
             for (prod_id = 1; prod_id <= 10; prod_id++)
             {
-                content += "ПРОДУКТ="; content += prod_id; content += ";\n";
-                content += "ДОЗА1="; content += this.set_doza[prod_id - 1, 0]; content += ";\n";
-                content += "ДОЗА2="; content += this.set_doza[prod_id - 1, 1]; content += ";\n";
-                content += "ДОЗА3="; content += this.set_doza[prod_id - 1, 2]; content += ";\n";
+                content += "ПРОДУКТ="; content += prod_id; content += "\n";
+                content += "ДОЗА1="; content += this.set_doza[prod_id - 1, 0]; content += "\n";
+                content += "ДОЗА2="; content += this.set_doza[prod_id - 1, 1]; content += "\n";
+                content += "ДОЗА3="; content += this.set_doza[prod_id - 1, 2]; content += "\n";
+                content += "МИН_ДОЗА1="; content += this.min_doza[prod_id - 1, 0]; content += "\n";
+                content += "МИН_ДОЗА2="; content += this.min_doza[prod_id - 1, 1]; content += "\n";
+                content += "МИН_ДОЗА3="; content += this.min_doza[prod_id - 1, 2]; content += "\n";
+                content += "МАКС_ДОЗА1="; content += this.max_doza[prod_id - 1, 0]; content += "\n";
+                content += "МАКС_ДОЗА2="; content += this.max_doza[prod_id - 1, 1]; content += "\n";
+                content += "МАКС_ДОЗА3="; content += this.max_doza[prod_id - 1, 2]; content += "\n";
             }
 
 
@@ -552,7 +558,7 @@ namespace ASU_KV_001
                         s = line.Replace("ПРОДУКТ=", "");
                         { tn = Convert.ToUInt16(s); tn--; }
                     }
-/*
+
                     if (line.Contains("ДОЗА1="))
                     {
                         s = line.Replace("ДОЗА1=", ""); set_doza[tn, 0] = Convert.ToSingle(s);
@@ -565,7 +571,19 @@ namespace ASU_KV_001
                     {
                         s = line.Replace("ДОЗА3=", ""); set_doza[tn, 2] = Convert.ToSingle(s);
                     }
-                   */ 
+                    if (line.Contains("МИН_ДОЗА1="))
+                    {
+                        s = line.Replace("МИН_ДОЗА1=", ""); min_doza[tn, 0] = Convert.ToSingle(s);
+                    }
+                    if (line.Contains("МИН_ДОЗА2="))
+                    {
+                        s = line.Replace("МИН_ДОЗА2=", ""); min_doza[tn, 1] = Convert.ToSingle(s);
+                    }
+                    if (line.Contains("МИН_ДОЗА3="))
+                    {
+                        s = line.Replace("МИН_ДОЗА3=", ""); min_doza[tn, 2] = Convert.ToSingle(s);
+                    }
+
 
                 }
 
