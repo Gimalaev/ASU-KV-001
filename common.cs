@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Windows.Storage;
 using System;
 using System.Text.RegularExpressions;
-using SQLite.Net.Attributes;
+using SQLite;
 
 // https://code.msdn.microsoft.com/windowsapps/Reading-data-from-multiple-ceb58872#content
 // https://msdn.microsoft.com/ru-ru/windows/uwp/files/quickstart-reading-and-writing-files
@@ -12,7 +12,7 @@ namespace Common
 {
     class Archive
     {
-        public string path;
+   /*     public string path;
 
         public SQLite.Net.SQLiteConnection conn;
 
@@ -27,6 +27,9 @@ namespace Common
             public byte Arc_Smena { get; set; }
             public byte Arc_Rec { get; set; }
             public float Arc_Doza { get; set; }
+            public float Arc_C1 { get; set; }
+            public float Arc_C2 { get; set; }
+            public float Arc_C3 { get; set; }
 
         }
 
@@ -39,7 +42,7 @@ namespace Common
         public void Sql_Start(DateTime dt, byte smena, byte smena_st_hour, byte smena_st_minute)
         {
             string filename = StartSmenaDate(dt, smena, smena_st_hour, smena_st_minute);
-            path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "db.sqlite");
+            path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "db_asu.sqlite");
             conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
             conn.CreateTable<Sql_Smena>();
         }
@@ -60,6 +63,7 @@ namespace Common
             Doza_Last[0] = fl;
             Rec_Last[4] = Rec_Last[3]; Rec_Last[3] = Rec_Last[2]; Rec_Last[2] = Rec_Last[1]; Rec_Last[1] = Rec_Last[0];
             Rec_Last[0] = rec;
+            conn.Dispose();
 
         }
         public void Sql_Read_Last(byte sm, DateTime dt, byte smena_st_hour, byte smena_st_minute)
@@ -109,13 +113,11 @@ namespace Common
             m = (5 * e + 2) / 153;
 
             DateTime start_sm_dt = new DateTime(100 * b + d - 4800 + ((int)(m / 10)), m + 3 - 12 * ((int)(m / 10)), (int)(e - (int)((153 * m + 2) / 5) + 1));
-            /*   start_sm_dt.Day = (int)(e - (int)((153 * m + 2) / 5) + 1);
-               start_sm_dt.Month = m + 3 - 12 * ((int)(m / 10));
-               start_sm_dt.Year = 100 * b + d - 4800 + ((UInt32)(m / 10));*/
+
             string rts = start_sm_dt.ToString("dd_MM_yyyy") + "_smena_" + smena;
 
             return (rts);
-        }
+        }*/
     }
     class Prg_Par
     {

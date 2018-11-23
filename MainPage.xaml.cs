@@ -12,7 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
+using SQLite;
 
 
 
@@ -37,6 +37,7 @@ namespace ASU_KV_001
         private ASU_KV_001.KV001 kv_par;
         private ASU_KV_001.Program_Par prg_par;
         private ASU_KV_001.Products products;
+        private Common.Archive db_archive;
         private string param_filename = "kv_par.ini";
         private string prg_filename = "prg_par.ini";
         private string prod_filename = "product_par.ini";
@@ -173,6 +174,7 @@ namespace ASU_KV_001
 
         public MainPage()
         {
+            UInt16 i = 0;
 
             this.InitializeComponent();
             BrushOn = new SolidColorBrush();
@@ -186,27 +188,12 @@ namespace ASU_KV_001
             Grid_Main.Background = BrushOff;
             Grid_Center.Background = BrushOn;
             Grid_Param_Levels.Background = BrushParamOn;
-            Combo_Post_ID.Items.Add("ПРОДУКТ 1");
-            Combo_Post_ID.Items.Add("ПРОДУКТ 2");
-            Combo_Post_ID.Items.Add("ПРОДУКТ 3");
-            Combo_Post_ID.Items.Add("ПРОДУКТ 4");
-            Combo_Post_ID.Items.Add("ПРОДУКТ 5");
-            Combo_Post_ID.Items.Add("ПРОДУКТ 6");
-            Combo_Post_ID.Items.Add("ПРОДУКТ 7");
-            Combo_Post_ID.Items.Add("ПРОДУКТ 8");
-            Combo_Post_ID.Items.Add("ПРОДУКТ 9");
-            Combo_Post_ID.Items.Add("ПРОДУКТ 10");
 
-            Combo_Arc_ProdId.Items.Add("ПРОДУКТ 1");
-            Combo_Arc_ProdId.Items.Add("ПРОДУКТ 2");
-            Combo_Arc_ProdId.Items.Add("ПРОДУКТ 3");
-            Combo_Arc_ProdId.Items.Add("ПРОДУКТ 4");
-            Combo_Arc_ProdId.Items.Add("ПРОДУКТ 5");
-            Combo_Arc_ProdId.Items.Add("ПРОДУКТ 6");
-            Combo_Arc_ProdId.Items.Add("ПРОДУКТ 7");
-            Combo_Arc_ProdId.Items.Add("ПРОДУКТ 8");
-            Combo_Arc_ProdId.Items.Add("ПРОДУКТ 9");
-            Combo_Arc_ProdId.Items.Add("ПРОДУКТ 10");
+            for (i=1; i<=20; i++)
+            { 
+                Combo_Post_ID.Items.Add("ПРОДУКТ "+i);
+                Combo_Arc_ProdId.Items.Add("ПРОДУКТ "+i);
+            }
 
             Combo_F1.Items.Add("0");
             Combo_F1.Items.Add("4");
@@ -380,6 +367,9 @@ namespace ASU_KV_001
             prg_par = new ASU_KV_001.Program_Par();
             serial_port = new ASU_KV_001.ModBus_Class();
             products= new ASU_KV_001.Products();
+
+            db_archive = new Common.Archive();
+
             ///            tmOutScreen = new DispatcherTimer();
             //tmOutScreen.Interval = TimeSpan.FromMilliseconds(1000);
             //tmOutScreen.Tick += Timer_Tick;
@@ -2165,11 +2155,11 @@ namespace ASU_KV_001
 
         }
 
-        private async void btn_Tp_Click(object sender, RoutedEventArgs e)
-        {
+   //     private async void btn_Tp_Click(object sender, RoutedEventArgs e)
+   //     {
 
 
-        }
+    //    }
 
         private async void btn_Tg_Click(object sender, RoutedEventArgs e)
         {
