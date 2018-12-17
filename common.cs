@@ -5,119 +5,200 @@ using System;
 using System.Text.RegularExpressions;
 using SQLite;
 
+
 // https://code.msdn.microsoft.com/windowsapps/Reading-data-from-multiple-ceb58872#content
 // https://msdn.microsoft.com/ru-ru/windows/uwp/files/quickstart-reading-and-writing-files
 
 namespace Common
 {
+
+    public class Full_List
+    {
+
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
+        public string Дата { get; set; }
+        public string Время { get; set; }
+        public byte Смена { get; set; }
+        public byte Контроллер { get; set; }
+        public string Продукт { get; set; }
+        public float Полная_Доза { get; set; }
+        public float Компонент_1 { get; set; }
+        public float Компонент_2 { get; set; }
+        public float Компонент_3 { get; set; }
+
+    }
+
     class Archive
     {
-   /*     public string path;
-
-        public SQLite.Net.SQLiteConnection conn;
-
-        public class Sql_Smena
-
-        {
-
-            [PrimaryKey, AutoIncrement]
-            public int Id { get; set; }
-            public string Arc_Date { get; set; }
-            public string Arc_Time { get; set; }
-            public byte Arc_Smena { get; set; }
-            public byte Arc_Rec { get; set; }
-            public float Arc_Doza { get; set; }
-            public float Arc_C1 { get; set; }
-            public float Arc_C2 { get; set; }
-            public float Arc_C3 { get; set; }
-
-        }
-
-        public string[] Time_Last = { "-", "-", "-", "-", "-", "-" };
-        public byte[] Smena_Last = { 0, 0, 0, 0, 0 };
-        public float[] Doza_Last = { 0, 0, 0, 0, 0 };
-        public byte[] Rec_Last = { 0, 0, 0, 0, 0 };
 
 
-        public void Sql_Start(DateTime dt, byte smena, byte smena_st_hour, byte smena_st_minute)
-        {
-            string filename = StartSmenaDate(dt, smena, smena_st_hour, smena_st_minute);
-            path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "db_asu.sqlite");
-            conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
-            conn.CreateTable<Sql_Smena>();
-        }
-        public void Sql_Add(byte sm, DateTime dt, byte rec, float fl, byte smena_st_hour, byte smena_st_minute)
+        public string[,] Last_Time = new string[10, 5];
+        public string[,] Last_Product = new string[10, 5];
+        public float[,] Last_Dose = new float[10, 5];
+
+        public void Drop_Base_Full()
+            {
+
+            var db = new SQLiteConnection("bd_archive.db", true);
+            //db.DropTable<Full_List>();
+            db.CreateTable<Full_List>();
+//            db.CreateTable<Payment>();
+//            db.CreateTable<Company>();
+//            Make_Company();
+        db.Dispose();
+//            Company_To_List();
+    }
+
+
+        public void Sql_Add(byte sm, DateTime dt, byte term, string rec, float dose0, float dose1, float dose2, float dose3)
         {
             string date, time;
             date = dt.ToString("dd.MM.yyyy");
-            time = dt.ToString("HH:mm:ss");
-            Sql_Start(dt, sm, smena_st_hour, smena_st_minute);
-            var s = conn.Insert(new Sql_Smena()
-            { Arc_Smena = sm, Arc_Date = date, Arc_Time = time, Arc_Rec = rec, Arc_Doza = fl });
-            conn.Dispose();
-            Time_Last[4] = Time_Last[3]; Time_Last[3] = Time_Last[2]; Time_Last[2] = Time_Last[1]; Time_Last[1] = Time_Last[0];
-            Time_Last[0] = time;
-            Smena_Last[4] = Smena_Last[3]; Smena_Last[3] = Smena_Last[2]; Smena_Last[2] = Smena_Last[1]; Smena_Last[1] = Smena_Last[0];
-            Smena_Last[0] = sm;
-            Doza_Last[4] = Doza_Last[3]; Doza_Last[3] = Doza_Last[2]; Doza_Last[2] = Doza_Last[1]; Doza_Last[1] = Doza_Last[0];
-            Doza_Last[0] = fl;
-            Rec_Last[4] = Rec_Last[3]; Rec_Last[3] = Rec_Last[2]; Rec_Last[2] = Rec_Last[1]; Rec_Last[1] = Rec_Last[0];
-            Rec_Last[0] = rec;
-            conn.Dispose();
+            time = dt.ToString("HH:mm");
+
+            var db = new SQLiteConnection("bd_archive.db", true);
+            var pm = new Full_List();
+
+            pm.Время = time;
+            pm.Дата = date;
+            pm.Смена = sm;
+            pm.Контроллер = term;
+            pm.Продукт = rec;
+            pm.Полная_Доза = dose0;
+            pm.Компонент_1 = dose1;
+            pm.Компонент_2 = dose2;
+            pm.Компонент_3 = dose3;
+            db.Insert(pm);
+
+            Last_Time[term - 1, 4] = Last_Time[term - 1, 3];
+            Last_Time[term - 1, 3] = Last_Time[term - 1, 2];
+            Last_Time[term - 1, 2] = Last_Time[term - 1, 1];
+            Last_Time[term - 1, 1] = Last_Time[term - 1, 0];
+            Last_Time[term - 1, 0] = time;
+
+            Last_Product[term - 1, 4] = Last_Product[term - 1, 3];
+            Last_Product[term - 1, 3] = Last_Product[term - 1, 2];
+            Last_Product[term - 1, 2] = Last_Product[term - 1, 1];
+            Last_Product[term - 1, 1] = Last_Product[term - 1, 0];
+            Last_Product[term - 1, 0] = rec;
+
+            Last_Dose[term - 1, 4] = Last_Dose[term - 1, 3];
+            Last_Dose[term - 1, 3] = Last_Dose[term - 1, 2];
+            Last_Dose[term - 1, 2] = Last_Dose[term - 1, 1];
+            Last_Dose[term - 1, 1] = Last_Dose[term - 1, 0];
+            Last_Dose[term - 1, 4] = dose0;
+
+
+
+            db.Dispose();
+
+
+            /*     Sql_Start(dt, sm, smena_st_hour, smena_st_minute);
+                 var s = conn.Insert(new Sql_Smena()
+                 { Arc_Smena = sm, Arc_Date = date, Arc_Time = time, Arc_Rec = rec, Arc_Doza = fl });
+                 conn.Dispose();
+                 Time_Last[4] = Time_Last[3]; Time_Last[3] = Time_Last[2]; Time_Last[2] = Time_Last[1]; Time_Last[1] = Time_Last[0];
+                 Time_Last[0] = time;
+                 Smena_Last[4] = Smena_Last[3]; Smena_Last[3] = Smena_Last[2]; Smena_Last[2] = Smena_Last[1]; Smena_Last[1] = Smena_Last[0];
+                 Smena_Last[0] = sm;
+                 Doza_Last[4] = Doza_Last[3]; Doza_Last[3] = Doza_Last[2]; Doza_Last[2] = Doza_Last[1]; Doza_Last[1] = Doza_Last[0];
+                 Doza_Last[0] = fl;
+                 Rec_Last[4] = Rec_Last[3]; Rec_Last[3] = Rec_Last[2]; Rec_Last[2] = Rec_Last[1]; Rec_Last[1] = Rec_Last[0];
+                 Rec_Last[0] = rec;
+                 conn.Dispose();*/
 
         }
-        public void Sql_Read_Last(byte sm, DateTime dt, byte smena_st_hour, byte smena_st_minute)
-        {
-            Sql_Start(dt, sm, smena_st_hour, smena_st_minute);
-            var query = conn.Table<Sql_Smena>();
-            foreach (var message in query)
-            {
-                Time_Last[4] = Time_Last[3]; Time_Last[3] = Time_Last[2]; Time_Last[2] = Time_Last[1]; Time_Last[1] = Time_Last[0];
-                Time_Last[0] = message.Arc_Time;
-                Smena_Last[4] = Smena_Last[3]; Smena_Last[3] = Smena_Last[2]; Smena_Last[2] = Smena_Last[1]; Smena_Last[1] = Smena_Last[0];
-                Smena_Last[0] = message.Arc_Smena;
-                Doza_Last[4] = Doza_Last[3]; Doza_Last[3] = Doza_Last[2]; Doza_Last[2] = Doza_Last[1]; Doza_Last[1] = Doza_Last[0];
-                Doza_Last[0] = message.Arc_Doza;
-                Rec_Last[4] = Rec_Last[3]; Rec_Last[3] = Rec_Last[2]; Rec_Last[2] = Rec_Last[1]; Rec_Last[1] = Rec_Last[0];
-                Rec_Last[0] = message.Arc_Rec;
-            }
+        /*        public string path;
+
+                public SQLite.Net.SQLiteConnection conn;
+
+
+                public string[] Time_Last = { "-", "-", "-", "-", "-", "-" };
+                public byte[] Smena_Last = { 0, 0, 0, 0, 0 };
+                public float[] Doza_Last = { 0, 0, 0, 0, 0 };
+                public byte[] Rec_Last = { 0, 0, 0, 0, 0 };
+
+
+                public void Sql_Start(DateTime dt, byte smena, byte smena_st_hour, byte smena_st_minute)
+                {
+                    string filename = StartSmenaDate(dt, smena, smena_st_hour, smena_st_minute);
+                    path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "db_asu.sqlite");
+                    conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
+                    conn.CreateTable<Sql_Smena>();
+                }
+                public void Sql_Add(byte sm, DateTime dt, byte rec, float fl, byte smena_st_hour, byte smena_st_minute)
+                {
+                    string date, time;
+                    date = dt.ToString("dd.MM.yyyy");
+                    time = dt.ToString("HH:mm:ss");
+                    Sql_Start(dt, sm, smena_st_hour, smena_st_minute);
+                    var s = conn.Insert(new Sql_Smena()
+                    { Arc_Smena = sm, Arc_Date = date, Arc_Time = time, Arc_Rec = rec, Arc_Doza = fl });
+                    conn.Dispose();
+                    Time_Last[4] = Time_Last[3]; Time_Last[3] = Time_Last[2]; Time_Last[2] = Time_Last[1]; Time_Last[1] = Time_Last[0];
+                    Time_Last[0] = time;
+                    Smena_Last[4] = Smena_Last[3]; Smena_Last[3] = Smena_Last[2]; Smena_Last[2] = Smena_Last[1]; Smena_Last[1] = Smena_Last[0];
+                    Smena_Last[0] = sm;
+                    Doza_Last[4] = Doza_Last[3]; Doza_Last[3] = Doza_Last[2]; Doza_Last[2] = Doza_Last[1]; Doza_Last[1] = Doza_Last[0];
+                    Doza_Last[0] = fl;
+                    Rec_Last[4] = Rec_Last[3]; Rec_Last[3] = Rec_Last[2]; Rec_Last[2] = Rec_Last[1]; Rec_Last[1] = Rec_Last[0];
+                    Rec_Last[0] = rec;
+                    conn.Dispose();
+
+                }
+                public void Sql_Read_Last(byte sm, DateTime dt, byte smena_st_hour, byte smena_st_minute)
+                {
+                    Sql_Start(dt, sm, smena_st_hour, smena_st_minute);
+                    var query = conn.Table<Sql_Smena>();
+                    foreach (var message in query)
+                    {
+                        Time_Last[4] = Time_Last[3]; Time_Last[3] = Time_Last[2]; Time_Last[2] = Time_Last[1]; Time_Last[1] = Time_Last[0];
+                        Time_Last[0] = message.Arc_Time;
+                        Smena_Last[4] = Smena_Last[3]; Smena_Last[3] = Smena_Last[2]; Smena_Last[2] = Smena_Last[1]; Smena_Last[1] = Smena_Last[0];
+                        Smena_Last[0] = message.Arc_Smena;
+                        Doza_Last[4] = Doza_Last[3]; Doza_Last[3] = Doza_Last[2]; Doza_Last[2] = Doza_Last[1]; Doza_Last[1] = Doza_Last[0];
+                        Doza_Last[0] = message.Arc_Doza;
+                        Rec_Last[4] = Rec_Last[3]; Rec_Last[3] = Rec_Last[2]; Rec_Last[2] = Rec_Last[1]; Rec_Last[1] = Rec_Last[0];
+                        Rec_Last[0] = message.Arc_Rec;
+                    }
 
 
 
 
-            conn.Dispose();
+                    conn.Dispose();
 
-        }
-        public string StartSmenaDate(DateTime dt, byte smena, byte smena_st_hour, byte smena_st_minute)
-        {
-            int a, b, c, d, e, m, y, JDN;
-            long secnow, secsmen;
+                }
+                public string StartSmenaDate(DateTime dt, byte smena, byte smena_st_hour, byte smena_st_minute)
+                {
+                    int a, b, c, d, e, m, y, JDN;
+                    long secnow, secsmen;
 
 
-            //вычисляем день по юлианскому календарю.
-            a = (int)((14 - dt.Month) / 12);
-            y = (int)(dt.Year + 4800 - a);
-            m = (int)(dt.Month + (12 * a) - 3);
-            JDN = (int)(dt.Day + (int)((153 * m + 2) / 5) + 365 * y + (int)(y / 4) - (int)(y / 100) + (int)(y / 400) - 32045);
+                    //вычисляем день по юлианскому календарю.
+                    a = (int)((14 - dt.Month) / 12);
+                    y = (int)(dt.Year + 4800 - a);
+                    m = (int)(dt.Month + (12 * a) - 3);
+                    JDN = (int)(dt.Day + (int)((153 * m + 2) / 5) + 365 * y + (int)(y / 4) - (int)(y / 100) + (int)(y / 400) - 32045);
 
-            secnow = dt.Second + dt.Minute * 60 + (dt.Hour) * 60 * 60;
-            secsmen = (smena_st_minute * 30) * 60 + (smena_st_hour) * 60 * 60;
+                    secnow = dt.Second + dt.Minute * 60 + (dt.Hour) * 60 * 60;
+                    secsmen = (smena_st_minute * 30) * 60 + (smena_st_hour) * 60 * 60;
 
-            if (secnow < secsmen) JDN--;
+                    if (secnow < secsmen) JDN--;
 
-            a = JDN + 32044;
-            b = (int)((4 * a + 3) / 146097);
-            c = a - (int)((146097 * b) / 4);
-            d = (int)((4 * c + 3) / 1461);
-            e = c - (int)((1461 * d) / 4);
-            m = (5 * e + 2) / 153;
+                    a = JDN + 32044;
+                    b = (int)((4 * a + 3) / 146097);
+                    c = a - (int)((146097 * b) / 4);
+                    d = (int)((4 * c + 3) / 1461);
+                    e = c - (int)((1461 * d) / 4);
+                    m = (5 * e + 2) / 153;
 
-            DateTime start_sm_dt = new DateTime(100 * b + d - 4800 + ((int)(m / 10)), m + 3 - 12 * ((int)(m / 10)), (int)(e - (int)((153 * m + 2) / 5) + 1));
+                    DateTime start_sm_dt = new DateTime(100 * b + d - 4800 + ((int)(m / 10)), m + 3 - 12 * ((int)(m / 10)), (int)(e - (int)((153 * m + 2) / 5) + 1));
 
-            string rts = start_sm_dt.ToString("dd_MM_yyyy") + "_smena_" + smena;
+                    string rts = start_sm_dt.ToString("dd_MM_yyyy") + "_smena_" + smena;
 
-            return (rts);
-        }*/
+                    return (rts);
+                }*/
     }
     class Prg_Par
     {
@@ -308,8 +389,8 @@ namespace Common
         public uint Shift; 
         public byte Polar;
 
-        public byte inputs;
-        public byte outputs;
+   //     public byte inputs;
+   //     public byte outputs;
         public float Weight = 0;
         public byte State = 0;
         public byte Archive_State = 0;

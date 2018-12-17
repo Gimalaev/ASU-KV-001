@@ -169,7 +169,93 @@ namespace ASU_KV_001
             tmOutScreen.Start();
 
 
+            db_archive.Drop_Base_Full();
+            //            DateTime dt = DateTime.Now; ;
 
+            var db = new SQLiteConnection("bd_archive.db", true);
+            var pm = new Common.Full_List();
+            var pm2 = db.Table<Common.Full_List>();
+            //  var cm2 = db.Table<Company>();
+        
+
+
+            foreach (var archive in pm2)
+            {
+
+                if (archive.Дата != null)
+                {
+                    Text_Arc_Center_Time_6.Text = Text_Arc_Center_Time_5.Text;
+                    Text_Arc_Center_Time_5.Text = Text_Arc_Center_Time_4.Text;
+                    Text_Arc_Center_Time_4.Text = Text_Arc_Center_Time_3.Text;
+                    Text_Arc_Center_Time_3.Text = Text_Arc_Center_Time_2.Text;
+                    Text_Arc_Center_Time_2.Text = Text_Arc_Center_Time_1.Text;
+
+                    Text_Arc_Center_Term_6.Text = Text_Arc_Center_Term_5.Text;
+                    Text_Arc_Center_Term_5.Text = Text_Arc_Center_Term_4.Text;
+                    Text_Arc_Center_Term_4.Text = Text_Arc_Center_Term_3.Text;
+                    Text_Arc_Center_Term_3.Text = Text_Arc_Center_Term_2.Text;
+                    Text_Arc_Center_Term_2.Text = Text_Arc_Center_Term_1.Text;
+
+                    Text_Arc_Center_Weight_6.Text = Text_Arc_Center_Weight_5.Text;
+                    Text_Arc_Center_Weight_5.Text = Text_Arc_Center_Weight_4.Text;
+                    Text_Arc_Center_Weight_4.Text = Text_Arc_Center_Weight_3.Text;
+                    Text_Arc_Center_Weight_3.Text = Text_Arc_Center_Weight_2.Text;
+                    Text_Arc_Center_Weight_2.Text = Text_Arc_Center_Weight_1.Text;
+
+                    Text_Arc_Center_Id_6.Text = Text_Arc_Center_Id_5.Text;
+                    Text_Arc_Center_Id_5.Text = Text_Arc_Center_Id_4.Text;
+                    Text_Arc_Center_Id_4.Text = Text_Arc_Center_Id_3.Text;
+                    Text_Arc_Center_Id_3.Text = Text_Arc_Center_Id_2.Text;
+                    Text_Arc_Center_Id_2.Text = Text_Arc_Center_Id_1.Text;
+
+
+                    Text_Arc_Center_Time_1.Text = archive.Время;
+                    Text_Arc_Center_Term_1.Text = archive.Контроллер.ToString();
+                    Text_Arc_Center_Weight_1.Text= archive.Полная_Доза.ToString();
+                    Text_Arc_Center_Id_1.Text = archive.Продукт;
+
+
+                    db_archive.Last_Time[archive.Контроллер-1, 4] = db_archive.Last_Time[archive.Контроллер-1, 3];
+                    db_archive.Last_Time[archive.Контроллер-1, 3] = db_archive.Last_Time[archive.Контроллер-1, 2];
+                    db_archive.Last_Time[archive.Контроллер - 1, 2] = db_archive.Last_Time[archive.Контроллер - 1, 1];
+                    db_archive.Last_Time[archive.Контроллер-1, 1] = db_archive.Last_Time[archive.Контроллер - 1, 0];
+                    db_archive.Last_Time[archive.Контроллер-1, 0] = archive.Время;
+
+                    db_archive.Last_Product[archive.Контроллер-1, 4] = db_archive.Last_Product[archive.Контроллер - 1, 3];
+                    db_archive.Last_Product[archive.Контроллер-1, 3] = db_archive.Last_Product[archive.Контроллер - 1, 2];
+                    db_archive.Last_Product[archive.Контроллер-1, 2] = db_archive.Last_Product[archive.Контроллер - 1, 1];
+                    db_archive.Last_Product[archive.Контроллер-1, 1] = db_archive.Last_Product[archive.Контроллер - 1, 0];
+                    db_archive.Last_Product[archive.Контроллер-1, 0] = archive.Продукт;
+
+                    db_archive.Last_Dose[archive.Контроллер-1, 4] = db_archive.Last_Dose[archive.Контроллер - 1, 3];
+                    db_archive.Last_Dose[archive.Контроллер-1, 3] = db_archive.Last_Dose[archive.Контроллер - 1, 2];
+                    db_archive.Last_Dose[archive.Контроллер-1, 2] = db_archive.Last_Dose[archive.Контроллер - 1, 1];
+                    db_archive.Last_Dose[archive.Контроллер-1, 1] = db_archive.Last_Dose[archive.Контроллер - 1, 0];
+                    db_archive.Last_Dose[archive.Контроллер-1, 0] = archive.Полная_Доза;
+                }
+            }
+            Text_Arc_Top_Time_1.Text = db_archive.Last_Time[0, 0];
+            Text_Arc_Top_Time_2.Text = db_archive.Last_Time[0, 1];
+            Text_Arc_Top_Time_3.Text = db_archive.Last_Time[0, 2];
+            Text_Arc_Top_Time_4.Text = db_archive.Last_Time[0, 3];
+            Text_Arc_Top_Time_5.Text = db_archive.Last_Time[0, 4];
+
+            Text_Arc_Top_Weight_1.Text = db_archive.Last_Dose[0, 0].ToString();
+            Text_Arc_Top_Weight_2.Text = db_archive.Last_Dose[0, 1].ToString();
+            Text_Arc_Top_Weight_3.Text = db_archive.Last_Dose[0, 2].ToString();
+            Text_Arc_Top_Weight_4.Text = db_archive.Last_Dose[0, 3].ToString();
+            Text_Arc_Top_Weight_5.Text = db_archive.Last_Dose[0, 4].ToString();
+
+            Text_Arc_Top_Id_1.Text = db_archive.Last_Product[0, 0];
+            Text_Arc_Top_Id_2.Text = db_archive.Last_Product[0, 1];
+            Text_Arc_Top_Id_3.Text = db_archive.Last_Product[0, 2];
+            Text_Arc_Top_Id_4.Text = db_archive.Last_Product[0, 3];
+            Text_Arc_Top_Id_5.Text = db_archive.Last_Product[0, 4];
+
+            db.Dispose();
+            //            
+
+            
         }
 
         public MainPage()
@@ -368,6 +454,8 @@ namespace ASU_KV_001
             serial_port = new ASU_KV_001.ModBus_Class();
             products= new ASU_KV_001.Products();
 
+
+
             db_archive = new Common.Archive();
 
             ///            tmOutScreen = new DispatcherTimer();
@@ -542,6 +630,9 @@ namespace ASU_KV_001
                         Text_Arc_Center_Id_3.Text = Text_Arc_Center_Id_2.Text;
                         Text_Arc_Center_Id_2.Text = Text_Arc_Center_Id_1.Text;
                         Text_Arc_Center_Id_1.Text =""+Combo_Post_ID.Items[prg_par.selected_id[t_count]];
+
+                        db_archive.Sql_Add(sm, ThToday, (byte)(t_count+1), Combo_Post_ID.Items[prg_par.selected_id[t_count]].ToString(), kv_par.last_doze[t_count, 0] + kv_par.last_doze[t_count, 1] + kv_par.last_doze[t_count, 2], kv_par.last_doze[t_count, 0], kv_par.last_doze[t_count, 1], kv_par.last_doze[t_count, 2]);
+
                         kv_par.arc_state[t_count] = 0;
                         if (term_now == t_count)
                         {
@@ -1310,7 +1401,11 @@ namespace ASU_KV_001
                 else serial_port.term_adress = (byte)prg_par.num[term_now];
 
 
-                await serial_port.WriteToPort();
+                try
+                {
+                    await serial_port.WriteToPort();
+                }
+                catch { }
 
             }
             tbModbusStatus.Text = serial_port.status;
@@ -2434,7 +2529,26 @@ namespace ASU_KV_001
             (sender as Grid).Background = BrushOnPress;//"#5C7682"
                 Combo_Post_ID.SelectedIndex = prg_par.selected_id[term_now];
 
-                Arc_Top_Num.Text="КОНТРОЛЛЕР: "+ prg_par.selected_id[term_now];
+                Arc_Top_Num.Text="КОНТРОЛЛЕР: "+(term_now+1);
+
+                Text_Arc_Top_Time_1.Text = db_archive.Last_Time[term_now, 0];
+                Text_Arc_Top_Time_2.Text = db_archive.Last_Time[term_now, 1];
+                Text_Arc_Top_Time_3.Text = db_archive.Last_Time[term_now, 2];
+                Text_Arc_Top_Time_4.Text = db_archive.Last_Time[term_now, 3];
+                Text_Arc_Top_Time_5.Text = db_archive.Last_Time[term_now, 4];
+
+                Text_Arc_Top_Weight_1.Text = db_archive.Last_Dose[term_now, 0].ToString();
+                Text_Arc_Top_Weight_2.Text = db_archive.Last_Dose[term_now, 1].ToString();
+                Text_Arc_Top_Weight_3.Text = db_archive.Last_Dose[term_now, 2].ToString();
+                Text_Arc_Top_Weight_4.Text = db_archive.Last_Dose[term_now, 3].ToString();
+                Text_Arc_Top_Weight_5.Text = db_archive.Last_Dose[term_now, 4].ToString();
+
+                Text_Arc_Top_Id_1.Text = db_archive.Last_Product[term_now, 0];
+                Text_Arc_Top_Id_2.Text = db_archive.Last_Product[term_now, 1];
+                Text_Arc_Top_Id_3.Text = db_archive.Last_Product[term_now, 2];
+                Text_Arc_Top_Id_4.Text = db_archive.Last_Product[term_now, 3];
+                Text_Arc_Top_Id_5.Text = db_archive.Last_Product[term_now, 4];
+
             }
         }
 

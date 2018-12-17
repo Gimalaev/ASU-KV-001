@@ -449,7 +449,7 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition Height="160"></RowDefinition>
                 </Grid.RowDefinitions>
-                <Grid x:ConnectionId='102' x:Name="Grid_Post_Top" Grid.Column="0" Grid.Row="0" Visibility="Collapsed"  BorderBrush="#9AA1A6" BorderThickness="0,0,0,1" >
+                <Grid x:ConnectionId='102' x:Name="Grid_Post_Top" Grid.Column="0" Grid.Row="0" Visibility="Visible"  BorderBrush="#9AA1A6" BorderThickness="0,0,0,1" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
@@ -459,7 +459,7 @@
                     <TextBlock x:ConnectionId='319' x:Name="Text_CurSmena"  Style="{StaticResource TextBlockCalibri}"  Text="СМЕНА: 1" VerticalAlignment="Center" TextAlignment="Center" Grid.Column="1"/>
                     <TextBlock x:ConnectionId='320' x:Name="tbCurTime" Style="{StaticResource TextBlockCalibri}"  Text="16:20   01.12.18" VerticalAlignment="Center" TextAlignment="Center" Grid.Column="2"/>
                 </Grid>
-                <Grid x:ConnectionId='103'  Grid.Column="0" Grid.Row="1" x:Name="Grid_Post_Main" Visibility="Collapsed" BorderBrush="#9AA1A6" BorderThickness="0,0,0,1">
+                <Grid x:ConnectionId='103'  Grid.Column="0" Grid.Row="1" x:Name="Grid_Post_Main" Visibility="Visible" BorderBrush="#9AA1A6" BorderThickness="0,0,0,1">
                     <TextBlock HorizontalAlignment="Left" Text="ВЕС:" TextWrapping="Wrap" VerticalAlignment="Top" Margin="60,65,0,0" FontSize="25" FontFamily="Calibri" Foreground="White"/>
                     <TextBlock x:ConnectionId='316' x:Name="Post_Weight" HorizontalAlignment="Left" Text="17.67" TextWrapping="Wrap" VerticalAlignment="Top" Margin="120,40,0,0" FontSize="50" FontFamily="Calibri" Foreground="White"/>
                     <ComboBox x:ConnectionId='317'  x:Name="Combo_Post_ID" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="370,55,0,0" Width="276" Height="35" SelectedIndex="-1"                                                  />
@@ -799,7 +799,7 @@
 
                     </Grid>
                 </Grid>
-                <Grid x:ConnectionId='105' x:Name="Grid_Archive_Settings" Grid.RowSpan="3" Visibility="Visible" Background="#FF363A6B">
+                <Grid x:ConnectionId='105' x:Name="Grid_Archive_Settings" Grid.RowSpan="3" Visibility="Collapsed" Background="#FF363A6B">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="70"/>
                         <RowDefinition/>
