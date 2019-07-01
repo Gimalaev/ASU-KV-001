@@ -700,7 +700,6 @@ D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\ASU-KV-001.xr.xml
 D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\ASU-KV-001.exe
 D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\ASU-KV-001.pdb
 D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\Core\ASU-KV-001.exe
-D:\Работа\C# Proj\ASU-KV-001\obj\x86\Debug\ASU_KV_001.csprojAssemblyReference.cache
 D:\Работа\C# Proj\ASU-KV-001\obj\x86\Debug\ASU-KV-001.exe
 D:\Работа\C# Proj\ASU-KV-001\obj\x86\Debug\ASU-KV-001.pdb
 D:\Работа\C# Proj\ASU-KV-001\obj\x86\Debug\unfiltered.layout.resfiles
@@ -715,3 +714,4 @@ D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\SQLitePCLRaw.batteries_green.dl
 D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\SQLitePCLRaw.batteries_v2.dll
 D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\SQLitePCLRaw.core.dll
 D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\SQLitePCLRaw.provider.e_sqlite3.dll
+D:\Работа\C# Proj\ASU-KV-001\obj\x86\Debug\ASU_KV_001.csprojAssemblyReference.cache

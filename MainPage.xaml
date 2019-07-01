@@ -3,11 +3,14 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:ASU_KV_001"
+    xmlns:local1="using:Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" Height="600" Width="1024" Background="#FF818181" Loaded="Main_Page_Loaded" 
     >
+
     <Page.Resources>
+
         <CollectionViewSource x:Name="DeviceListSource"/>
         <ControlTemplate x:Key="GraphButton" TargetType="Button">
             <Grid/>
@@ -449,7 +452,7 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition Height="160"></RowDefinition>
                 </Grid.RowDefinitions>
-                <Grid x:Name="Grid_Post_Top" Grid.Column="0" Grid.Row="0" Visibility="Visible"  BorderBrush="#9AA1A6" BorderThickness="0,0,0,1" >
+                <Grid x:Name="Grid_Post_Top" Grid.Column="0" Grid.Row="0" Visibility="Collapsed"  BorderBrush="#9AA1A6" BorderThickness="0,0,0,1" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
@@ -459,7 +462,7 @@
                     <TextBlock x:Name="Text_CurSmena"  Style="{StaticResource TextBlockCalibri}"  Text="СМЕНА: 1" VerticalAlignment="Center" TextAlignment="Center" Grid.Column="1"/>
                     <TextBlock x:Name="tbCurTime" Style="{StaticResource TextBlockCalibri}"  Text="16:20   01.12.18" VerticalAlignment="Center" TextAlignment="Center" Grid.Column="2"/>
                 </Grid>
-                <Grid  Grid.Column="0" Grid.Row="1" x:Name="Grid_Post_Main" Visibility="Visible" BorderBrush="#9AA1A6" BorderThickness="0,0,0,1">
+                <Grid  Grid.Column="0" Grid.Row="1" x:Name="Grid_Post_Main" Visibility="Collapsed" BorderBrush="#9AA1A6" BorderThickness="0,0,0,1">
                     <TextBlock HorizontalAlignment="Left" Text="ВЕС:" TextWrapping="Wrap" VerticalAlignment="Top" Margin="60,65,0,0" FontSize="25" FontFamily="Calibri" Foreground="White"/>
                     <TextBlock x:Name="Post_Weight" HorizontalAlignment="Left" Text="17.67" TextWrapping="Wrap" VerticalAlignment="Top" Margin="120,40,0,0" FontSize="50" FontFamily="Calibri" Foreground="White"/>
                     <ComboBox  x:Name="Combo_Post_ID" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="370,55,0,0" Width="276" Height="35" SelectedIndex="-1" SelectionChanged="Combo_Post_ID_SelectionChanged"/>
@@ -799,7 +802,7 @@
 
                     </Grid>
                 </Grid>
-                <Grid x:Name="Grid_Archive_Settings" Grid.RowSpan="3" Visibility="Collapsed" Background="#FF363A6B">
+                <Grid x:Name="Grid_Archive_Settings" Grid.RowSpan="3" Visibility="Visible" Background="#FF363A6B">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="70"/>
                         <RowDefinition/>
@@ -822,9 +825,103 @@
                         <Grid x:Name="Grid_Arc_3" Background="#FF366B53" Grid.Column="3">
                         </Grid>
                     </Grid>
-                    <Grid x:Name="Grid_Arc_Arc" Visibility="Collapsed" Grid.Row="1">
+                    <Grid x:Name="Grid_Arc_Arc" Visibility="Visible" Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition/>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0"  Padding="20,0,10,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="250"/>
+                                <ColumnDefinition Width="80" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock HorizontalAlignment="Left" Text="ТЕРМИНАЛЫ:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,0,0" Style="{StaticResource Calibri12White}"/>
+                            <ComboBox x:Name="Term" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="150" Height="24" FontSize="12" FontFamily="Calibri" Background="#19000000" Foreground="White">
+                                <CheckBox x:Name="cbArchiveTermAll" Content="ВСЕ" FontFamily="Calibri" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Center" Checked="CbArchiveTermAll_Checked" Unchecked="CbArchiveTermAll_Unchecked"/>
+                                <CheckBox x:Name="cbArchiveTerm1" Content="КОНТРОЛЛЕР 1" FontFamily="Calibri" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Center" Checked="CbArchiveTerm1_Checked" Unchecked="CbArchiveTerm1_Unchecked"/>
+                                <CheckBox x:Name="cbArchiveTerm2" Content="КОНТРОЛЛЕР 2" FontFamily="Calibri" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Center" Checked="CbArchiveTerm1_Checked" Unchecked="CbArchiveTerm1_Unchecked"/>
+                                <CheckBox x:Name="cbArchiveTerm3" Content="КОНТРОЛЛЕР 3" FontFamily="Calibri" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Center" Checked="CbArchiveTerm1_Checked" Unchecked="CbArchiveTerm1_Unchecked"/>
+                                <CheckBox x:Name="cbArchiveTerm4" Content="КОНТРОЛЛЕР 4" FontFamily="Calibri" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Center" Checked="CbArchiveTerm1_Checked" Unchecked="CbArchiveTerm1_Unchecked"/>
+                                <CheckBox x:Name="cbArchiveTerm5" Content="КОНТРОЛЛЕР 5" FontFamily="Calibri" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Center" Checked="CbArchiveTerm1_Checked" Unchecked="CbArchiveTerm1_Unchecked"/>
+                                <CheckBox x:Name="cbArchiveTerm6" Content="КОНТРОЛЛЕР 6" FontFamily="Calibri" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Center" Checked="CbArchiveTerm1_Checked" Unchecked="CbArchiveTerm1_Unchecked"/>
+                                <CheckBox x:Name="cbArchiveTerm7" Content="КОНТРОЛЛЕР 7" FontFamily="Calibri" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Center" Checked="CbArchiveTerm1_Checked" Unchecked="CbArchiveTerm1_Unchecked"/>
+                                <CheckBox x:Name="cbArchiveTerm8" Content="КОНТРОЛЛЕР 8" FontFamily="Calibri" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Center" Checked="CbArchiveTerm1_Checked" Unchecked="CbArchiveTerm1_Unchecked"/>
+                                <CheckBox x:Name="cbArchiveTerm9" Content="КОНТРОЛЛЕР 9" FontFamily="Calibri" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Center" Checked="CbArchiveTerm1_Checked" Unchecked="CbArchiveTerm1_Unchecked"/>
+                                <CheckBox x:Name="cbArchiveTerm10" Content="КОНТРОЛЛЕР 10" FontFamily="Calibri" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Center" Checked="CbArchiveTerm1_Checked" Unchecked="CbArchiveTerm1_Unchecked"/>
+                            </ComboBox>
+
+                        </Grid>
+                        <Grid Grid.Row="1"  Padding="20,0,10,0">
+                            <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="80" />
+                            <ColumnDefinition Width="60" />
+                            <ColumnDefinition Width="90" />
+                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="75" />
+                            <ColumnDefinition Width="75" />
+                            <ColumnDefinition Width="75" />
+                            <ColumnDefinition Width="75" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="№" Grid.Column="0" Style="{StaticResource TextBlockCalibri}" />
+                            <TextBlock Text="Дата" Grid.Column="1" Style="{StaticResource TextBlockCalibri}" />
+                            <TextBlock Text="Время" Grid.Column="2" Style="{StaticResource TextBlockCalibri}" />
+                            <TextBlock Text="Продукт" Grid.Column="3" Style="{StaticResource TextBlockCalibri}" />
+                            <TextBlock Text="Смена" Grid.Column="4" Style="{StaticResource TextBlockCalibri}" />
+                            <TextBlock Text="Контроллер" Grid.Column="5" Style="{StaticResource TextBlockCalibri}" />
+                            <TextBlock Text="Компонент 1" Grid.Column="6" Style="{StaticResource TextBlockCalibri}" />
+                            <TextBlock Text="Компонент 2" Grid.Column="7" Style="{StaticResource TextBlockCalibri}" />
+                            <TextBlock Text="Компонент 3" Grid.Column="8" Style="{StaticResource TextBlockCalibri}" />
+                            <TextBlock Text="Полная Доза" Grid.Column="9" Style="{StaticResource TextBlockCalibri}" />
+                        </Grid>
+                        <Grid Grid.Row="2">
+
+                            <ScrollViewer  Margin="0,0,0,10" FocusVisualPrimaryBrush="White" Foreground="White" Grid.ColumnSpan="2">
+                                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="10,10,10,10" >
+                                    <ListView Name="Day_Archive">
+
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid BorderThickness="2">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="25"/>
+                                                        <ColumnDefinition Width="80" />
+                                                        <ColumnDefinition Width="60" />
+                                                        <ColumnDefinition Width="90" />
+                                                        <ColumnDefinition Width="30" />
+                                                        <ColumnDefinition Width="30" />
+                                                        <ColumnDefinition Width="75" />
+                                                        <ColumnDefinition Width="75" />
+                                                        <ColumnDefinition Width="75" />
+                                                        <ColumnDefinition Width="75" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock Padding="0,0,0,0"  Text="{Binding Id}" Grid.Column="0" Style="{StaticResource TextBlockCalibri}" />
+                                                    <TextBlock Text="{Binding Дата}" Grid.Column="1" Style="{StaticResource TextBlockCalibri}" />
+                                                    <TextBlock Text="{Binding Время}" Grid.Column="2" Style="{StaticResource TextBlockCalibri}" />
+                                                    <TextBlock Text="{Binding Продукт}" Grid.Column="3" Style="{StaticResource TextBlockCalibri}" />
+                                                    <TextBlock Text="{Binding Смена}" Grid.Column="4" Style="{StaticResource TextBlockCalibri}" />
+                                                    <TextBlock Text="{Binding Контроллер}" Grid.Column="5" Style="{StaticResource TextBlockCalibri}" />
+                                                    <TextBlock Text="{Binding Компонент_1}" Grid.Column="6" Style="{StaticResource TextBlockCalibri}" />
+                                                    <TextBlock Text="{Binding Компонент_2}" Grid.Column="7" Style="{StaticResource TextBlockCalibri}" />
+                                                    <TextBlock Text="{Binding Компонент_3}" Grid.Column="8" Style="{StaticResource TextBlockCalibri}" />
+                                                    <TextBlock Text="{Binding Полная_Доза}" Grid.Column="9" Style="{StaticResource TextBlockCalibri}" />
+                                                </Grid>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+
+                                    </ListView>
+
+
+                                </StackPanel>
+                            </ScrollViewer>
+
+                        </Grid>
+
                     </Grid>
-                    <Grid x:Name="Grid_Arc_Prod" Visibility="Visible" Grid.Row="1">
+                    <Grid x:Name="Grid_Arc_Prod" Visibility="Collapsed" Grid.Row="1">
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
@@ -1727,7 +1824,7 @@
             </Grid>
 
         </Grid>
-        
+
     </Grid>
 
 

@@ -24,8 +24,17 @@ namespace ASU_KV_001
     /// Пустая страница, которую можно использовать саму по себе или для перехода внутри фрейма.
     /// </summary>
     /// 
+
+
+
+
     public sealed partial class MainPage : Page
     {
+
+
+
+
+
         private SolidColorBrush BrushOff;
         private SolidColorBrush BrushOn;
         private SolidColorBrush BrushParamOn;
@@ -214,6 +223,8 @@ namespace ASU_KV_001
                     Text_Arc_Center_Weight_1.Text= archive.Полная_Доза.ToString();
                     Text_Arc_Center_Id_1.Text = archive.Продукт;
 
+                    Day_Archive.Items.Add(new Common.Table_List { Id = 1, Продукт = archive.Продукт, Время= archive.Время, Дата=archive.Дата, Компонент_1 = archive.Компонент_1.ToString(), Компонент_2 = archive.Компонент_2.ToString(), Компонент_3 = archive.Компонент_3.ToString(), Контроллер=archive.Контроллер, Полная_Доза=archive.Полная_Доза.ToString(), Смена=archive.Смена});
+
 
                     db_archive.Last_Time[archive.Контроллер-1, 4] = db_archive.Last_Time[archive.Контроллер-1, 3];
                     db_archive.Last_Time[archive.Контроллер-1, 3] = db_archive.Last_Time[archive.Контроллер-1, 2];
@@ -234,11 +245,11 @@ namespace ASU_KV_001
                     db_archive.Last_Dose[archive.Контроллер-1, 0] = archive.Полная_Доза;
                 }
             }
-            Text_Arc_Top_Time_1.Text = db_archive.Last_Time[0, 0];
-            Text_Arc_Top_Time_2.Text = db_archive.Last_Time[0, 1];
-            Text_Arc_Top_Time_3.Text = db_archive.Last_Time[0, 2];
-            Text_Arc_Top_Time_4.Text = db_archive.Last_Time[0, 3];
-            Text_Arc_Top_Time_5.Text = db_archive.Last_Time[0, 4];
+            if (db_archive.Last_Time[0, 0]!=null)  Text_Arc_Top_Time_1.Text = db_archive.Last_Time[0, 0];
+            if (db_archive.Last_Time[0, 1] != null) Text_Arc_Top_Time_2.Text = db_archive.Last_Time[0, 1];
+            if (db_archive.Last_Time[0, 2] != null) Text_Arc_Top_Time_3.Text = db_archive.Last_Time[0, 2];
+            if (db_archive.Last_Time[0, 3] != null) Text_Arc_Top_Time_4.Text = db_archive.Last_Time[0, 3];
+            if (db_archive.Last_Time[0, 4] != null) Text_Arc_Top_Time_5.Text = db_archive.Last_Time[0, 4];
 
             Text_Arc_Top_Weight_1.Text = db_archive.Last_Dose[0, 0].ToString();
             Text_Arc_Top_Weight_2.Text = db_archive.Last_Dose[0, 1].ToString();
@@ -246,11 +257,15 @@ namespace ASU_KV_001
             Text_Arc_Top_Weight_4.Text = db_archive.Last_Dose[0, 3].ToString();
             Text_Arc_Top_Weight_5.Text = db_archive.Last_Dose[0, 4].ToString();
 
-            Text_Arc_Top_Id_1.Text = db_archive.Last_Product[0, 0];
-            Text_Arc_Top_Id_2.Text = db_archive.Last_Product[0, 1];
-            Text_Arc_Top_Id_3.Text = db_archive.Last_Product[0, 2];
-            Text_Arc_Top_Id_4.Text = db_archive.Last_Product[0, 3];
-            Text_Arc_Top_Id_5.Text = db_archive.Last_Product[0, 4];
+            if (db_archive.Last_Product[0, 0] != null)  Text_Arc_Top_Id_1.Text = db_archive.Last_Product[0, 0];
+            if (db_archive.Last_Product[0, 1] != null) Text_Arc_Top_Id_2.Text = db_archive.Last_Product[0, 1];
+            if (db_archive.Last_Product[0, 2] != null) Text_Arc_Top_Id_3.Text = db_archive.Last_Product[0, 2];
+            if (db_archive.Last_Product[0, 3] != null) Text_Arc_Top_Id_4.Text = db_archive.Last_Product[0, 3];
+            if (db_archive.Last_Product[0, 4] != null) Text_Arc_Top_Id_5.Text = db_archive.Last_Product[0, 4];
+
+            
+           // ListViewItem lvi = new ListViewItem();
+            
 
             db.Dispose();
             //            
@@ -646,10 +661,10 @@ namespace ASU_KV_001
                             Text_Arc_Top_Time_3.Text = Text_Arc_Top_Time_2.Text;
                             Text_Arc_Top_Time_2.Text = Text_Arc_Top_Time_1.Text;
                             Text_Arc_Top_Time_1.Text = ThData;
-                            Text_Arc_Top_Id_5.Text = Text_Arc_Top_Id_5.Text;
-                            Text_Arc_Top_Id_4.Text = Text_Arc_Top_Id_4.Text;
-                            Text_Arc_Top_Id_3.Text = Text_Arc_Top_Id_3.Text;
-                            Text_Arc_Top_Id_2.Text = Text_Arc_Top_Id_2.Text;
+                            Text_Arc_Top_Id_5.Text = Text_Arc_Top_Id_4.Text;
+                            Text_Arc_Top_Id_4.Text = Text_Arc_Top_Id_3.Text;
+                            Text_Arc_Top_Id_3.Text = Text_Arc_Top_Id_2.Text;
+                            Text_Arc_Top_Id_2.Text = Text_Arc_Top_Id_1.Text;
                             Text_Arc_Top_Id_1.Text = "" + Combo_Post_ID.Items[prg_par.selected_id[t_count]]; 
                         }
                     }
@@ -1843,6 +1858,7 @@ namespace ASU_KV_001
 
         private async void btnArchive_Click(object sender, RoutedEventArgs e)
         {
+            int i=1;
             if ((par_flag) && (mode == 1)) { await kv_par.SaveKVFile(param_filename); par_flag = false; }
             if ((par_flag) && (mode == 2)) { await prg_par.SaveParFile(prg_filename); par_flag = false; UpdatePostEnabled(); }
             if ((par_flag) && (mode == 3)) { await products.SaveProductFile(prod_filename); par_flag = false; }
@@ -1862,6 +1878,33 @@ namespace ASU_KV_001
             Grid_Archive_Settings.Visibility = Visibility.Visible;
             Grid_Arc_Prod.Visibility = Visibility.Collapsed;
             Grid_Arc_Arc.Visibility = Visibility.Visible;
+
+
+            var db = new SQLiteConnection("bd_archive.db", true);
+            var pm = new Common.Full_List();
+            var pm2 = db.Table<Common.Full_List>();
+            //  var cm2 = db.Table<Company>();
+
+
+            Day_Archive.Items.Clear();
+            foreach (var archive in pm2)
+            {
+
+                if (archive.Дата != null)
+                {
+
+                    Day_Archive.Items.Add(new Common.Table_List { Id = i++, Продукт = archive.Продукт, Время = archive.Время, Дата = archive.Дата, Компонент_1 = archive.Компонент_1.ToString(), Компонент_2 = archive.Компонент_2.ToString(), Компонент_3 = archive.Компонент_3.ToString(), Контроллер = archive.Контроллер, Полная_Доза = archive.Полная_Доза.ToString(), Смена = archive.Смена });
+                }
+            }
+
+
+
+            // ListViewItem lvi = new ListViewItem();
+
+
+            db.Dispose();
+
+
 
             Combo_Arc_ProdId.SelectedIndex = 0;
             mode = 3;
@@ -2531,23 +2574,38 @@ namespace ASU_KV_001
 
                 Arc_Top_Num.Text="КОНТРОЛЛЕР: "+(term_now+1);
 
-                Text_Arc_Top_Time_1.Text = db_archive.Last_Time[term_now, 0];
-                Text_Arc_Top_Time_2.Text = db_archive.Last_Time[term_now, 1];
-                Text_Arc_Top_Time_3.Text = db_archive.Last_Time[term_now, 2];
-                Text_Arc_Top_Time_4.Text = db_archive.Last_Time[term_now, 3];
-                Text_Arc_Top_Time_5.Text = db_archive.Last_Time[term_now, 4];
+                if (db_archive.Last_Time[term_now, 0] != null) Text_Arc_Top_Time_1.Text = db_archive.Last_Time[term_now, 0];
+                else Text_Arc_Top_Time_1.Text = "---";
+                if (db_archive.Last_Time[term_now, 1] != null) Text_Arc_Top_Time_2.Text = db_archive.Last_Time[term_now, 1];
+                else Text_Arc_Top_Time_2.Text = "---";
+                if (db_archive.Last_Time[term_now, 2] != null) Text_Arc_Top_Time_3.Text = db_archive.Last_Time[term_now, 2];
+                else Text_Arc_Top_Time_3.Text = "---";
+                if (db_archive.Last_Time[term_now, 3] != null) Text_Arc_Top_Time_4.Text = db_archive.Last_Time[term_now, 3];
+                else Text_Arc_Top_Time_4.Text = "---";
+                if (db_archive.Last_Time[term_now, 4] != null) Text_Arc_Top_Time_5.Text = db_archive.Last_Time[term_now, 4];
+                else Text_Arc_Top_Time_5.Text = "---";
 
-                Text_Arc_Top_Weight_1.Text = db_archive.Last_Dose[term_now, 0].ToString();
-                Text_Arc_Top_Weight_2.Text = db_archive.Last_Dose[term_now, 1].ToString();
-                Text_Arc_Top_Weight_3.Text = db_archive.Last_Dose[term_now, 2].ToString();
-                Text_Arc_Top_Weight_4.Text = db_archive.Last_Dose[term_now, 3].ToString();
-                Text_Arc_Top_Weight_5.Text = db_archive.Last_Dose[term_now, 4].ToString();
+                if(db_archive.Last_Time[term_now, 0] != null) Text_Arc_Top_Weight_1.Text = db_archive.Last_Dose[term_now, 0].ToString();
+                else Text_Arc_Top_Weight_1.Text = "---";
+                if (db_archive.Last_Time[term_now, 1] != null) Text_Arc_Top_Weight_2.Text = db_archive.Last_Dose[term_now, 1].ToString();
+                else Text_Arc_Top_Weight_2.Text = "---";
+                if (db_archive.Last_Time[term_now, 2] != null) Text_Arc_Top_Weight_3.Text = db_archive.Last_Dose[term_now, 2].ToString();
+                else Text_Arc_Top_Weight_3.Text = "---";
+                if (db_archive.Last_Time[term_now, 3] != null) Text_Arc_Top_Weight_4.Text = db_archive.Last_Dose[term_now, 3].ToString();
+                else Text_Arc_Top_Weight_4.Text = "---";
+                if (db_archive.Last_Time[term_now, 4] != null) Text_Arc_Top_Weight_5.Text = db_archive.Last_Dose[term_now, 4].ToString();
+                else Text_Arc_Top_Weight_5.Text = "---";
 
-                Text_Arc_Top_Id_1.Text = db_archive.Last_Product[term_now, 0];
-                Text_Arc_Top_Id_2.Text = db_archive.Last_Product[term_now, 1];
-                Text_Arc_Top_Id_3.Text = db_archive.Last_Product[term_now, 2];
-                Text_Arc_Top_Id_4.Text = db_archive.Last_Product[term_now, 3];
-                Text_Arc_Top_Id_5.Text = db_archive.Last_Product[term_now, 4];
+                if (db_archive.Last_Product[term_now, 0] != null) Text_Arc_Top_Id_1.Text = db_archive.Last_Product[term_now, 0];
+                else Text_Arc_Top_Id_1.Text = "---";
+                if (db_archive.Last_Product[term_now, 1] != null) Text_Arc_Top_Id_2.Text = db_archive.Last_Product[term_now, 1];
+                else Text_Arc_Top_Id_2.Text = "---";
+                if (db_archive.Last_Product[term_now, 2] != null) Text_Arc_Top_Id_3.Text = db_archive.Last_Product[term_now, 2];
+                else Text_Arc_Top_Id_3.Text = "---";
+                if (db_archive.Last_Product[term_now, 3] != null) Text_Arc_Top_Id_4.Text = db_archive.Last_Product[term_now, 3];
+                else Text_Arc_Top_Id_4.Text = "---";
+                if (db_archive.Last_Product[term_now, 4] != null) Text_Arc_Top_Id_5.Text = db_archive.Last_Product[term_now, 4];
+                else Text_Arc_Top_Id_5.Text = "---";
 
             }
         }
@@ -3254,6 +3312,65 @@ namespace ASU_KV_001
                 products.max_doza[Combo_Arc_ProdId.SelectedIndex, 2] = Convert.ToSingle(text);
                 par_flag = true;
             }
+
+        }
+
+        private void CbArchiveTermAll_Checked(object sender, RoutedEventArgs e)
+        {
+                cbArchiveTerm1.IsChecked = true;
+                cbArchiveTerm2.IsChecked = true;
+                cbArchiveTerm3.IsChecked = true;
+                cbArchiveTerm4.IsChecked = true;
+                cbArchiveTerm5.IsChecked = true;
+                cbArchiveTerm6.IsChecked = true;
+                cbArchiveTerm7.IsChecked = true;
+                cbArchiveTerm8.IsChecked = true;
+                cbArchiveTerm9.IsChecked = true;
+                cbArchiveTerm10.IsChecked = true;
+            prg_par.arch_term_enable[0] = true;
+            par_flag = true;
+        }
+
+        private void CbArchiveTermAll_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (prg_par.arch_term_enable[0] == true)
+            {
+                prg_par.arch_term_enable[0] = false;
+                cbArchiveTerm1.IsChecked = false;
+                cbArchiveTerm2.IsChecked = false;
+                cbArchiveTerm3.IsChecked = false;
+                cbArchiveTerm4.IsChecked = false;
+                cbArchiveTerm5.IsChecked = false;
+                cbArchiveTerm6.IsChecked = false;
+                cbArchiveTerm7.IsChecked = false;
+                cbArchiveTerm8.IsChecked = false;
+                cbArchiveTerm9.IsChecked = false;
+                cbArchiveTerm10.IsChecked = false;
+                par_flag = true;
+            }
+
+        }
+
+        private void CbArchiveTerm1_Checked(object sender, RoutedEventArgs e)
+        {
+
+            string n1 = (sender as CheckBox).Name;
+            n1 = n1.Replace("cbArchiveTerm", "");
+            UInt16 i1 = Convert.ToUInt16(n1);
+            prg_par.arch_term_enable[i1] = true;
+            par_flag = true;
+
+        }
+
+        private void CbArchiveTerm1_Unchecked(object sender, RoutedEventArgs e)
+        {
+            string n1 = (sender as CheckBox).Name;
+            n1 = n1.Replace("cbArchiveTerm", "");
+            UInt16 i1 = Convert.ToUInt16(n1);
+            prg_par.arch_term_enable[i1] = false;
+            prg_par.arch_term_enable[0] = false;
+            cbArchiveTermAll.IsChecked = false;
+            par_flag = true;
 
         }
     }

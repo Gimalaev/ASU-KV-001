@@ -371,84 +371,90 @@ namespace ASU_KV_001
             UInt32 bytesRead = await loadAsyncTask;
             if (bytesRead > 0)
             {
-                rd_try = 0;
-                wait_answer = 2;
-                // rcvdText.Text = dataReaderObject.ReadString(bytesRead);
-                byte[] fileContent = new byte[dataReaderObject.UnconsumedBufferLength];
-                dataReaderObject.ReadBytes(fileContent);
-                string text = Encoding.UTF8.GetString(fileContent, 0, fileContent.Length);
-                switch (rd_mode)
+                try
                 {
-                    case 1: weight = BitConverter.ToSingle(fileContent, 3);
-                            q_state= BitConverter.ToInt16(fileContent, 9);
-                        break;
-                    case 2:
-                        doze[0] = BitConverter.ToSingle(fileContent, 3);
-                        break;
-                    case 3:
-                        doze[1] = BitConverter.ToSingle(fileContent, 3);
-                        break;
-                    case 4:
-                        doze[2] = BitConverter.ToSingle(fileContent, 3);
-                        break;
+                    rd_try = 0;
+                    wait_answer = 2;
+                    // rcvdText.Text = dataReaderObject.ReadString(bytesRead);
+                    byte[] fileContent = new byte[dataReaderObject.UnconsumedBufferLength];
+                    dataReaderObject.ReadBytes(fileContent);
+                    string text = Encoding.UTF8.GetString(fileContent, 0, fileContent.Length);
+                    switch (rd_mode)
+                    {
+                        case 1:
+                            weight = BitConverter.ToSingle(fileContent, 3);
+                            q_state = BitConverter.ToInt16(fileContent, 9);
+                            break;
+                        case 2:
+                            doze[0] = BitConverter.ToSingle(fileContent, 3);
+                            break;
+                        case 3:
+                            doze[1] = BitConverter.ToSingle(fileContent, 3);
+                            break;
+                        case 4:
+                            doze[2] = BitConverter.ToSingle(fileContent, 3);
+                            break;
 
-                    //                    case 2: reg_int = BitConverter.ToInt16(fileContent, 3); break;
-                    //                    case 3: reg_int = BitConverter.ToInt16(fileContent, 3); break;
-                    case 5: reg_fl = BitConverter.ToSingle(fileContent, 3); break;
-                    case 8: sum_last = BitConverter.ToSingle(fileContent, 3);
+                        //                    case 2: reg_int = BitConverter.ToInt16(fileContent, 3); break;
+                        //                    case 3: reg_int = BitConverter.ToInt16(fileContent, 3); break;
+                        case 5: reg_fl = BitConverter.ToSingle(fileContent, 3); break;
+                        case 8:
+                            sum_last = BitConverter.ToSingle(fileContent, 3);
                             count_last = BitConverter.ToUInt32(fileContent, 7);
-                        doza_last[0] = BitConverter.ToSingle(fileContent, 11);
-                        doza_last[1] = BitConverter.ToSingle(fileContent, 15);
-                        doza_last[2] = BitConverter.ToSingle(fileContent, 19);
-                        last_flag = 1;
-                        break;
-                    case 20:
-                    case 21:
-                    case 22:
-                    case 23:
-                    case 24:
-                    case 25:
-                    case 60:
-                    case 61:
-                    case 62:
-                    case 63:
-                    case 64:
-                    case 65:
-                    case 66:
-                    case 67:
-                    case 68:
-                    case 69:
-                    case 70:
-                    case 71:
-                    case 100:
-                    case 101:
-                    case 142:
-                    case 143:
-                    case 144:
-                    case 182:
-                    case 184:
-                    case 220:
-                    case 222:
-                    case 223:
-                        reg_fl = BitConverter.ToSingle(fileContent, 3); break;
-                    case 102:
-                    case 103:
-                    case 104:
-                    case 140:
-                    case 141:
-                        reg_int = BitConverter.ToUInt16(fileContent, 3); break;
-                    case 145:
-                        reg_long = BitConverter.ToUInt32(fileContent, 3); break;
-                    case 180:
-                    case 181:
-                    case 183:
-                    case 185:
-                    case 221:
-                    case 260:
-                    case 261:
-                    case 262:
-                        reg_int = BitConverter.ToUInt16(fileContent, 3);  break;
+                            doza_last[0] = BitConverter.ToSingle(fileContent, 11);
+                            doza_last[1] = BitConverter.ToSingle(fileContent, 15);
+                            doza_last[2] = BitConverter.ToSingle(fileContent, 19);
+                            last_flag = 1;
+                            break;
+                        case 20:
+                        case 21:
+                        case 22:
+                        case 23:
+                        case 24:
+                        case 25:
+                        case 60:
+                        case 61:
+                        case 62:
+                        case 63:
+                        case 64:
+                        case 65:
+                        case 66:
+                        case 67:
+                        case 68:
+                        case 69:
+                        case 70:
+                        case 71:
+                        case 100:
+                        case 101:
+                        case 142:
+                        case 143:
+                        case 144:
+                        case 182:
+                        case 184:
+                        case 220:
+                        case 222:
+                        case 223:
+                            reg_fl = BitConverter.ToSingle(fileContent, 3); break;
+                        case 102:
+                        case 103:
+                        case 104:
+                        case 140:
+                        case 141:
+                            reg_int = BitConverter.ToUInt16(fileContent, 3); break;
+                        case 145:
+                            reg_long = BitConverter.ToUInt32(fileContent, 3); break;
+                        case 180:
+                        case 181:
+                        case 183:
+                        case 185:
+                        case 221:
+                        case 260:
+                        case 261:
+                        case 262:
+                            reg_int = BitConverter.ToUInt16(fileContent, 3); break;
+                    }
                 }
+                catch { }
                 status = ""+ bytesRead+"bytes read successfully! ";
             }
         }

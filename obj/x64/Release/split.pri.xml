@@ -17,6 +17,11 @@
 					<Value>ASU-KV-001.xr.xml</Value>
 				</Candidate>
 			</NamedResource>
+			<NamedResource name="e_sqlite3.dll" uri="ms-resource://2742F410823B.40196E1CC90A3/Files/e_sqlite3.dll">
+				<Candidate type="Path">
+					<Value>e_sqlite3.dll</Value>
+				</Candidate>
+			</NamedResource>
 			<NamedResource name="Input_Num_Dialog.xbf" uri="ms-resource://2742F410823B.40196E1CC90A3/Files/Input_Num_Dialog.xbf">
 				<Candidate type="EmbeddedData">
 					<Base64Value>[Embedded Binary Data]</Base64Value>

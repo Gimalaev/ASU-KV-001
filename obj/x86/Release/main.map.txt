@@ -5,6 +5,7 @@
 
 [Files]
 "D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\split.pri"			"resources.pri"
+"D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\PackageLayout\e_sqlite3.dll"			"e_sqlite3.dll"
 "D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\PackageLayout\clrcompression.dll"			"clrcompression.dll"
 "D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\PackageLayout\ASU-KV-001.exe"			"ASU-KV-001.exe"
 "D:\Работа\C# Proj\ASU-KV-001\obj\x86\Release\PackageLayout\ASU-KV-001.dll"			"ASU-KV-001.dll"

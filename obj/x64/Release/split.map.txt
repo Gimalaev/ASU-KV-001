@@ -6,6 +6,7 @@
 "D:\Работа\C# Proj\ASU-KV-001\obj\x64\Release\split.pri"			"resources.pri"
 "D:\Работа\C# Proj\ASU-KV-001\obj\x64\Release\PackageLayout\WinMetadata\Windows.winmd"			"WinMetadata\Windows.winmd"
 "D:\Работа\C# Proj\ASU-KV-001\obj\x64\Release\PackageLayout\Properties\Default.rd.xml"			"Properties\Default.rd.xml"
+"D:\Работа\C# Proj\ASU-KV-001\obj\x64\Release\PackageLayout\e_sqlite3.dll"			"e_sqlite3.dll"
 "D:\Работа\C# Proj\ASU-KV-001\obj\x64\Release\PackageLayout\ASU-KV-001.xr.xml"			"ASU-KV-001.xr.xml"
 "D:\Работа\C# Proj\ASU-KV-001\obj\x64\Release\PackageLayout\Assets\Иконки и кнопки\параметры прибора.png"			"Assets\Иконки и кнопки\параметры прибора.png"
 "D:\Работа\C# Proj\ASU-KV-001\obj\x64\Release\PackageLayout\Assets\Иконки и кнопки\настройка программы.png"			"Assets\Иконки и кнопки\настройка программы.png"

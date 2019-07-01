@@ -11,7 +11,6 @@ using SQLite;
 
 namespace Common
 {
-
     public class Full_List
     {
 
@@ -26,6 +25,21 @@ namespace Common
         public float Компонент_1 { get; set; }
         public float Компонент_2 { get; set; }
         public float Компонент_3 { get; set; }
+
+    }
+
+    public class Table_List
+    {
+        public int Id { get; set; }
+        public string Дата { get; set; }
+        public string Время { get; set; }
+        public int Смена { get; set; }
+        public int Контроллер { get; set; }
+        public string Продукт { get; set; }
+        public string Полная_Доза { get; set; }
+        public string Компонент_1 { get; set; }
+        public string Компонент_2 { get; set; }
+        public string Компонент_3 { get; set; }
 
     }
 

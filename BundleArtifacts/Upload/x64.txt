@@ -1,6 +1,6 @@
-MainPackage=D:\Работа\C# Proj\ASU-KV-001\bin\x64\Release\Upload\ASU_KV_001_1.1.4.0_x64.appx
-SymbolPackage=D:\Работа\C# Proj\ASU-KV-001\bin\x64\Release\Upload\ASU_KV_001_1.1.4.0\ASU_KV_001_1.1.4.0_x64.appxsym
-ResourcePack=D:\Работа\C# Proj\ASU-KV-001\bin\x64\Release\Upload\ASU_KV_001_1.1.4.0_scale-100.appx
-ResourcePack=D:\Работа\C# Proj\ASU-KV-001\bin\x64\Release\Upload\ASU_KV_001_1.1.4.0_scale-125.appx
-ResourcePack=D:\Работа\C# Proj\ASU-KV-001\bin\x64\Release\Upload\ASU_KV_001_1.1.4.0_scale-150.appx
-ResourcePack=D:\Работа\C# Proj\ASU-KV-001\bin\x64\Release\Upload\ASU_KV_001_1.1.4.0_scale-400.appx
+MainPackage=D:\Работа\C# Proj\ASU-KV-001\bin\x64\Release\Upload\ASU_KV_001_1.1.5.0_x64.appx
+SymbolPackage=D:\Работа\C# Proj\ASU-KV-001\bin\x64\Release\Upload\ASU_KV_001_1.1.5.0\ASU_KV_001_1.1.5.0_x64.appxsym
+ResourcePack=D:\Работа\C# Proj\ASU-KV-001\bin\x64\Release\Upload\ASU_KV_001_1.1.5.0_scale-100.appx
+ResourcePack=D:\Работа\C# Proj\ASU-KV-001\bin\x64\Release\Upload\ASU_KV_001_1.1.5.0_scale-125.appx
+ResourcePack=D:\Работа\C# Proj\ASU-KV-001\bin\x64\Release\Upload\ASU_KV_001_1.1.5.0_scale-150.appx
+ResourcePack=D:\Работа\C# Proj\ASU-KV-001\bin\x64\Release\Upload\ASU_KV_001_1.1.5.0_scale-400.appx

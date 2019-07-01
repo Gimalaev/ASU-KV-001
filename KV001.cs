@@ -26,6 +26,9 @@ namespace ASU_KV_001
         public UInt16[] ver = new UInt16[10];
         public int[] selected_id = new int[10]; //выбраный идентификатор
 
+
+        public bool[] arch_term_enable = new bool[11];
+
         public byte SmenaNow(byte hour_t, byte minute_t, byte second_t)
         {
             byte i = 0, o;

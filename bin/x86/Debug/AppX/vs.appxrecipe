@@ -19,24 +19,24 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>E6146B16916AFC4CFF8CC1744B62A34CC458EC33CAEF7412ABC5967C2D1AF5D9</RegisteredManifestChecksum>
-    <RegisteredPackageMoniker>2742F410823B.40196E1CC90A3_1.1.4.0_x86__9jbtjn1f8fk2j</RegisteredPackageMoniker>
+    <RegisteredManifestChecksum>A5598F72E27559581D030B6BC78167F9B63C4E4A364ADDC9F23F37CBA7A55F0F</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>2742F410823B.40196E1CC90A3_1.1.6.0_x86__9jbtjn1f8fk2j</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>2742F410823B.40196E1CC90A3_9jbtjn1f8fk2j!App</RegisteredUserModeAppID>
     <RegisteredPackageID>2742F410823B.40196E1CC90A3</RegisteredPackageID>
     <RegisteredPackagePublisher>CN=9C8BC9C4-E4C2-482B-8669-48D8371BA882</RegisteredPackagePublisher>
-    <RegisteredVersion>1.1.4.0</RegisteredVersion>
+    <RegisteredVersion>1.1.6.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
     <AppXManifest Include="D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-12-17T11:04:26.802</Modified>
+      <Modified>2019-07-01T09:05:15.332</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\ASU-KV-001.exe">
       <PackagePath>entrypoint\ASU-KV-001.exe</PackagePath>
-      <Modified>2018-12-17T11:04:20.874</Modified>
+      <Modified>2019-07-01T09:05:12.842</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sergey\.nuget\packages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.2\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
@@ -349,19 +349,19 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\ASU-KV-001.xr.xml">
       <PackagePath>ASU-KV-001.xr.xml</PackagePath>
-      <Modified>2018-11-14T11:44:57.214</Modified>
+      <Modified>2019-01-22T08:50:30.401</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2018-12-17T11:04:19.596</Modified>
+      <Modified>2019-07-01T09:05:12.049</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\Input_Num_Dialog.xbf">
       <PackagePath>Input_Num_Dialog.xbf</PackagePath>
-      <Modified>2018-12-17T11:04:19.597</Modified>
+      <Modified>2019-07-01T09:05:12.050</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2018-12-17T11:04:19.598</Modified>
+      <Modified>2019-07-01T09:05:12.050</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.16299.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -369,11 +369,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2018-12-17T11:04:23.013</Modified>
+      <Modified>2019-07-01T09:05:13.719</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Работа\C# Proj\ASU-KV-001\bin\x86\Debug\Core\ASU-KV-001.exe">
       <PackagePath>ASU-KV-001.exe</PackagePath>
-      <Modified>2018-12-17T11:04:26.788</Modified>
+      <Modified>2019-07-01T09:05:15.317</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
