@@ -498,9 +498,9 @@ namespace ASU_KV_001
     }
     class Products
     {
-        public float[,] set_doza = new float[10, 3];
-        public float[,] min_doza = new float[10, 3];
-        public float[,] max_doza = new float[10, 3];
+        public float[,] set_doza = new float[20, 3];
+        public float[,] min_doza = new float[20, 3];
+        public float[,] max_doza = new float[20, 3];
 
 
 
@@ -513,18 +513,18 @@ namespace ASU_KV_001
             string content = "";
 
 
-            for (prod_id = 1; prod_id <= 10; prod_id++)
+            for (prod_id = 1; prod_id <= 20; prod_id++)
             {
                 content += "ПРОДУКТ="; content += prod_id; content += "\n";
                 content += "ДОЗА1="; content += this.set_doza[prod_id - 1, 0]; content += "\n";
                 content += "ДОЗА2="; content += this.set_doza[prod_id - 1, 1]; content += "\n";
                 content += "ДОЗА3="; content += this.set_doza[prod_id - 1, 2]; content += "\n";
-                content += "МИН_ДОЗА1="; content += this.min_doza[prod_id - 1, 0]; content += "\n";
-                content += "МИН_ДОЗА2="; content += this.min_doza[prod_id - 1, 1]; content += "\n";
-                content += "МИН_ДОЗА3="; content += this.min_doza[prod_id - 1, 2]; content += "\n";
-                content += "МАКС_ДОЗА1="; content += this.max_doza[prod_id - 1, 0]; content += "\n";
-                content += "МАКС_ДОЗА2="; content += this.max_doza[prod_id - 1, 1]; content += "\n";
-                content += "МАКС_ДОЗА3="; content += this.max_doza[prod_id - 1, 2]; content += "\n";
+                content += "МИН1="; content += this.min_doza[prod_id - 1, 0]; content += "\n";
+                content += "МИН2="; content += this.min_doza[prod_id - 1, 1]; content += "\n";
+                content += "МИН3="; content += this.min_doza[prod_id - 1, 2]; content += "\n";
+                content += "МАКС1="; content += this.max_doza[prod_id - 1, 0]; content += "\n";
+                content += "МАКС2="; content += this.max_doza[prod_id - 1, 1]; content += "\n";
+                content += "МАКС3="; content += this.max_doza[prod_id - 1, 2]; content += "\n";
             }
 
 
@@ -574,17 +574,29 @@ namespace ASU_KV_001
                     {
                         s = line.Replace("ДОЗА3=", ""); set_doza[tn, 2] = Convert.ToSingle(s);
                     }
-                    if (line.Contains("МИН_ДОЗА1="))
+                    if (line.Contains("МИН1="))
                     {
-                        s = line.Replace("МИН_ДОЗА1=", ""); min_doza[tn, 0] = Convert.ToSingle(s);
+                        s = line.Replace("МИН1=", ""); min_doza[tn, 0] = Convert.ToSingle(s);
                     }
-                    if (line.Contains("МИН_ДОЗА2="))
+                    if (line.Contains("МИН2="))
                     {
-                        s = line.Replace("МИН_ДОЗА2=", ""); min_doza[tn, 1] = Convert.ToSingle(s);
+                        s = line.Replace("МИН2=", ""); min_doza[tn, 1] = Convert.ToSingle(s);
                     }
-                    if (line.Contains("МИН_ДОЗА3="))
+                    if (line.Contains("МИН3="))
                     {
-                        s = line.Replace("МИН_ДОЗА3=", ""); min_doza[tn, 2] = Convert.ToSingle(s);
+                        s = line.Replace("МИН3=", ""); min_doza[tn, 2] = Convert.ToSingle(s);
+                    }
+                    if (line.Contains("МАКС1="))
+                    {
+                        s = line.Replace("МАКС1=", ""); max_doza[tn, 0] = Convert.ToSingle(s);
+                    }
+                    if (line.Contains("МАКС2="))
+                    {
+                        s = line.Replace("МАКС2=", ""); max_doza[tn, 1] = Convert.ToSingle(s);
+                    }
+                    if (line.Contains("МАКС3="))
+                    {
+                        s = line.Replace("МАКС3=", ""); max_doza[tn, 2] = Convert.ToSingle(s);
                     }
 
 
@@ -593,7 +605,7 @@ namespace ASU_KV_001
             }
             else
             {
-                set_doza[0, 0] = 99;
+               // set_doza[0, 0] = 99;
                 await SaveProductFile(fileName1);
             }
 

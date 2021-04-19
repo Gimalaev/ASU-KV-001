@@ -19,7 +19,7 @@ namespace ASU_KV_001
         DataReader dataReaderObject = null;
         public ObservableCollection<DeviceInformation> listOfDevices;
         public CancellationTokenSource ReadCancellationTokenSource;
-        public ListBox devices;
+      //  public ListBox devices;
         public string status;
         public bool error;
 

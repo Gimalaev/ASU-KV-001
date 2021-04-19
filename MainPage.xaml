@@ -825,7 +825,7 @@
                         <Grid x:Name="Grid_Arc_3" Background="#FF366B53" Grid.Column="3">
                         </Grid>
                     </Grid>
-                    <Grid x:Name="Grid_Arc_Arc" Visibility="Visible" Grid.Row="1">
+                    <Grid x:Name="Grid_Arc_Arc" Visibility="Collapsed" Grid.Row="1">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="40"/>
                             <RowDefinition Height="20"/>
@@ -921,7 +921,7 @@
                         </Grid>
 
                     </Grid>
-                    <Grid x:Name="Grid_Arc_Prod" Visibility="Collapsed" Grid.Row="1">
+                    <Grid x:Name="Grid_Arc_Prod" Visibility="Visible" Grid.Row="1">
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>

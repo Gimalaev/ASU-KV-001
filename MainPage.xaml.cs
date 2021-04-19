@@ -3154,6 +3154,15 @@ namespace ASU_KV_001
             Grid_Arc_Product.Background = BrushOn;
             Grid_Arc_Prod.Visibility = Visibility.Visible;
             Grid_Arc_Arc.Visibility = Visibility.Collapsed;
+            Set_Doza1.Text = "" + products.set_doza[Combo_Arc_ProdId.SelectedIndex, 0];
+            Set_Doza2.Text = "" + products.set_doza[Combo_Arc_ProdId.SelectedIndex, 1];
+            Set_Doza3.Text = "" + products.set_doza[Combo_Arc_ProdId.SelectedIndex, 2];
+            Min_Doza1.Text = "" + products.min_doza[Combo_Arc_ProdId.SelectedIndex, 0];
+            Min_Doza2.Text = "" + products.min_doza[Combo_Arc_ProdId.SelectedIndex, 1];
+            Min_Doza3.Text = "" + products.min_doza[Combo_Arc_ProdId.SelectedIndex, 2];
+            Max_Doza1.Text = "" + products.max_doza[Combo_Arc_ProdId.SelectedIndex, 0];
+            Max_Doza2.Text = "" + products.max_doza[Combo_Arc_ProdId.SelectedIndex, 1];
+            Max_Doza3.Text = "" + products.max_doza[Combo_Arc_ProdId.SelectedIndex, 2];
 
 
         }
